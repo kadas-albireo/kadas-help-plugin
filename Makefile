@@ -38,15 +38,15 @@ LOCALES =
 # translation
 SOURCES = \
 	__init__.py \
-	user_manual.py user_manual_dockwidget.py
+	user_manual.py
 
 PLUGINNAME = UserManual
 
 PY_FILES = \
 	__init__.py \
-	user_manual.py user_manual_dockwidget.py
+	user_manual.py
 
-UI_FILES = user_manual_dockwidget_base.ui
+UI_FILES =
 
 EXTRAS = metadata.txt icon.png
 

@@ -1,0 +1,2 @@
+# QGIS User Manual Plugin
+
