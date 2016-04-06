@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Field Calculator</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <link rel="up" title="Working with Vector Data" href="index.html" />
+    <link rel="next" title="Working with Raster Data" href="../working_with_raster/index.html" />
+    <link rel="prev" title="Expressions" href="expression.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="English">English</option>
+  <option value="de" title="German">Deutsch</option>
+  <option value="fr" title="French">Français</option>
+  <option value="it" title="Italian">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/working_with_vector/field_calculator.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Discover QGIS</a></li>
+            <li><a href="../../../site/forusers/index.html">For Users</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Get Involved</a></li>
+            <li><a href="../../index.html">Documentation</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../working_with_raster/index.html" title="Working with Raster Data"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="expression.html" title="Expressions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html"></a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Working with Vector Data</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    <a accesskey="p" href="expression.html">&lt;&lt; prev</a>
+    
+    
+    <a accesskey="n" href="../working_with_raster/index.html">next &gt;&gt;</a>
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Preamble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">General Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">KADAS Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">Working with Projections</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Working with Vector Data</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="supported_data.html">Supported Data Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_properties.html">The Vector Properties Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression.html">Expressions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Field Calculator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">Working with Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">Working with GPS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mss/index.html">Working with MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/print_composer.html">Print Composer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="field-calculator">
+<span id="vector-field-calculator"></span><span id="index-0"></span><h1>Field Calculator<a class="headerlink" href="#field-calculator" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="../../../_images/mActionCalculateField.png"><img alt="mActionCalculateField" src="../../../_images/mActionCalculateField.png" style="width: 1.5em;" /></a> <sup>Field Calculator</sup> button in the attribute
+table allows you to perform calculations on the basis of existing attribute values or
+defined functions, for instance, to calculate length or area of geometry features. The
+results can be written to a new attribute field, a virtual field, or
+they can be used to update values in an existing field.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p><strong>Virtual Fields</strong></p>
+<ul class="last simple">
+<li>Virtual fields are not permanent and are not saved.</li>
+<li>To make a field virtual it must be done when the field is made.</li>
+</ul>
+</div>
+<p>The field calculator is now available on any layer that supports edit.
+When you click on the field calculator icon the dialog opens (see
+<a class="reference internal" href="#figure-attributes-3">figure_attributes_3</a>). If the layer is not in edit mode, a warning is
+displayed and using the field calculator will cause the layer to be put in
+edit mode before the calculation is made.</p>
+<p>The quick field calculation bar on top of the attribute table is only
+visible if the layer is editable.</p>
+<p>In quick field calculation bar, you first select the existing field name then open the
+expression dialog to create your expression or write it directly in the field then click
+on <strong>Update All</strong> button.</p>
+<div class="section" id="expression-tab">
+<h2>Expression tab<a class="headerlink" href="#expression-tab" title="Permalink to this headline">¶</a></h2>
+<p>In the field calculator dialog, you first must select whether you want to only update selected
+features, create a new attribute field where the results of the calculation will
+be added or update an existing field.</p>
+<p id="figure-attributes-3"><strong>Figure Attributes 3:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/fieldcalculator.png" src="../../../_images/fieldcalculator.png" />
+<p class="caption">Field Calculator <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>If you choose to add a new field, you need to enter a field name, a field type
+(integer, real or string), the total field width, and the field precision (see
+<a class="reference internal" href="#figure-attributes-3">figure_attributes_3</a>). For example, if you choose a field width of 10 and a field
+precision of 3, it means you have 6 digits before the dot, then the dot and another
+3 digits for the precision.</p>
+<p>A short example illustrates how field calculator works when using the <em class="guilabel">Expression</em> tab.
+We want to calculate the length in km of the <tt class="docutils literal"><span class="pre">railroads</span></tt> layer from the KADAS sample dataset:</p>
+<ol class="arabic simple">
+<li>Load the shapefile <tt class="file docutils literal"><span class="pre">railroads.shp</span></tt> in KADAS and press <a class="reference internal" href="../../../_images/mActionOpenTable.png"><img alt="mActionOpenTable" src="../../../_images/mActionOpenTable.png" style="width: 1.5em;" /></a>
+<sup>Open Attribute Table</sup>.</li>
+<li>Click on <a class="reference internal" href="../../../_images/mActionToggleEditing.png"><img alt="mActionToggleEditing" src="../../../_images/mActionToggleEditing.png" style="width: 1.5em;" /></a> <sup>Toggle editing mode</sup> and open the
+<a class="reference internal" href="../../../_images/mActionCalculateField.png"><img alt="mActionCalculateField" src="../../../_images/mActionCalculateField.png" style="width: 1.5em;" /></a> <sup>Field Calculator</sup> dialog.</li>
+<li>Select the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Create a new field</em> checkbox to save the
+calculations into a new field.</li>
+<li>Add <tt class="docutils literal"><span class="pre">length</span></tt> as Output field name and <tt class="docutils literal"><span class="pre">real</span></tt> as Output field type, and
+define Output field width to be 10 and Precision, 3.</li>
+<li>Now double click on function <tt class="docutils literal"><span class="pre">$length</span></tt> in the <em class="guilabel">Geometry</em> group to add it
+into the Field calculator expression box.</li>
+<li>Complete the expression by typing &#8216;&#8217;/ 1000&#8217;&#8217; in the Field calculator expression box and click <strong>[Ok]</strong>.</li>
+<li>You can now find a new field <tt class="docutils literal"><span class="pre">length</span></tt> in the attribute table.</li>
+</ol>
+<p>The available functions are listed in <a class="reference internal" href="expression.html#vector-expressions"><em>Expressions</em></a> chapter.</p>
+</div>
+<div class="section" id="function-editor-tab">
+<h2>Function Editor tab<a class="headerlink" href="#function-editor-tab" title="Permalink to this headline">¶</a></h2>
+<p>With the Function Editor you are able to define your own Python custom functions in a
+comfortable way.
+The function editor will create new Python files in <tt class="file docutils literal"><span class="pre">qgis2pythonexpressions</span></tt> and
+will auto load all functions defined when starting QGIS. Be aware that new functions are
+only saved in the <tt class="file docutils literal"><span class="pre">expressions</span></tt> folder and not in the project file.
+If you have a project that uses one of your custom functions you will need to also share
+the .py file in the expressions folder.</p>
+<p>Here&#8217;s a short example on how to create your own functions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@qgsfunction</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="s">&quot;auto&quot;</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s">&#39;Custom&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">myfunc</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span> <span class="n">value2</span> <span class="n">feature</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>The short example creates a function &#8216;myfunc&#8217; that will give you a function with two
+values.
+When using the args=&#8217;auto&#8217; function argument the number of function
+arguments required will be calculated by the number of arguments the
+function has been defined with in Python (minus 2 - feature, and parent).</p>
+<p>This function then can be used with the following expression:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">myfunc</span><span class="p">(</span><span class="s">&#39;test1&#39;</span><span class="p">,</span> <span class="s">&#39;test2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Your function will be implemented in the &#8216;Custom&#8217; <em class="guilabel">Functions</em> of the <em class="guilabel">Expression</em> tab
+after using the <em class="guilabel">Run Script</em> button.</p>
+<p>Further information about creating Python code can be found on
+<a class="reference external" href="http://www.qgis.org/html/en/docs/pyqgis_developer_cookbook/index.html">http://www.qgis.org/html/en/docs/pyqgis_developer_cookbook/index.html</a>.</p>
+<p>The function editor is not only limited to working with the field calculator, it can be found whenever
+you work with expressions. See also <a class="reference internal" href="expression.html#vector-expressions"><em>Expressions</em></a>.</p>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../working_with_raster/index.html" title="Working with Raster Data"
+             >next</a></li>
+        <li class="right" >
+          <a href="expression.html" title="Expressions"
+             >previous</a> |</li>
+        <li><a href="../index.html"></a> &raquo;</li>
+          <li><a href="index.html" >Working with Vector Data</a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

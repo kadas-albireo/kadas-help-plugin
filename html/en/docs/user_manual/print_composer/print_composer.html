@@ -1,0 +1,1763 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Print Composer</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <link rel="next" title="Appendix" href="../appendices/appendices.html" />
+    <link rel="prev" title="Import" href="../working_with_mss/import_export.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="English">English</option>
+  <option value="de" title="German">Deutsch</option>
+  <option value="fr" title="French">Français</option>
+  <option value="it" title="Italian">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/print_composer/print_composer.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Discover QGIS</a></li>
+            <li><a href="../../../site/forusers/index.html">For Users</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Get Involved</a></li>
+            <li><a href="../../index.html">Documentation</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../appendices/appendices.html" title="Appendix"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="../working_with_mss/import_export.html" title="Import"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    <a accesskey="p" href="../working_with_mss/import_export.html">&lt;&lt; prev</a>
+    
+    
+    <a accesskey="n" href="../appendices/appendices.html">next &gt;&gt;</a>
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Preamble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">General Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">KADAS Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">Working with Projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">Working with Vector Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">Working with Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">Working with GPS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mss/index.html">Working with MSS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Print Composer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#first-steps">First steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#index-4">Rendering mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#composer-items">Composer Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manage-items">Manage items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#revert-and-restore-tools">Revert and Restore tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#atlas-generation">Atlas generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hide-and-show-panels">Hide and show panels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-output">Creating Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manage-the-composer">Manage the Composer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="print-composer">
+<span id="label-printcomposer"></span><h1>Print Composer<a class="headerlink" href="#print-composer" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">With the Print Composer you can create nice maps and atlasses that can be printed or saved as PDF-file, an image or an SVG-file. This is a powerfull way to share geographical information produced with KADAS that can be included in reports or published.</p>
+<p>The Print Composer provides growing layout and printing capabilities. It allows
+you to add elements such as the KADAS map canvas, text labels, images, legends, scale bars, basic
+shapes, arrows, attribute tables and HTML frames. You can size, group, align, position and rotate each
+element and adjust the properties to create your layout. The layout can be printed
+or exported to image formats, PostScript, PDF or to SVG (export to SVG is not
+working properly with some recent Qt4 versions; you should try and check
+individually on your system). You can save the layout as a template and load it again
+in another session. Finally, generating several maps based on a template can be done through the atlas generator.
+See a list of tools in <a class="reference internal" href="#table-composer-1">table_composer_1</a>:</p>
+<table border="1" class="docutils" id="table-composer-1">
+<span id="index-1"></span><colgroup>
+<col width="19%" />
+<col width="29%" />
+<col width="21%" />
+<col width="31%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Icon</th>
+<th class="head">Purpose</th>
+<th class="head">Icon</th>
+<th class="head">Purpose</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="mActionFileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a></td>
+<td>Save Project</td>
+<td><a class="reference internal" href="../../../_images/mActionNewComposer.png"><img alt="mActionNewComposer" src="../../../_images/mActionNewComposer.png" style="width: 1.5em;" /></a></td>
+<td>New Composer</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../../_images/mActionDuplicateComposer.png"><img alt="mActionDupComposer" src="../../../_images/mActionDuplicateComposer.png" style="width: 1.5em;" /></a></td>
+<td>Duplicate Composer</td>
+<td><a class="reference internal" href="../../../_images/mActionComposerManager.png"><img alt="mActionComposerManager" src="../../../_images/mActionComposerManager.png" style="width: 1.5em;" /></a></td>
+<td>Composer Manager</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../../_images/mActionFileOpen.png"><img alt="mActionFileOpen" src="../../../_images/mActionFileOpen.png" style="width: 1.5em;" /></a></td>
+<td>Load from template</td>
+<td><a class="reference internal" href="../../../_images/mActionFileSaveAs.png"><img alt="mActionFileSaveAs" src="../../../_images/mActionFileSaveAs.png" style="width: 1.5em;" /></a></td>
+<td>Save as template</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../../_images/mActionFilePrint.png"><img alt="mActionFilePrint" src="../../../_images/mActionFilePrint.png" style="width: 1.5em;" /></a></td>
+<td>Print or export as PostScript</td>
+<td><a class="reference internal" href="../../../_images/mActionSaveMapAsImage.png"><img alt="mActionSaveMapAsImage" src="../../../_images/mActionSaveMapAsImage.png" style="width: 1.5em;" /></a></td>
+<td>Export to an image format</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../../_images/mActionSaveAsSVG.png"><img alt="mActionSaveAsSVG" src="../../../_images/mActionSaveAsSVG.png" style="width: 1.5em;" /></a></td>
+<td>Export print composition to SVG</td>
+<td><a class="reference internal" href="../../../_images/mActionSaveAsPDF.png"><img alt="mActionSaveAsPDF" src="../../../_images/mActionSaveAsPDF.png" style="width: 1.5em;" /></a></td>
+<td>Export as PDF</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../../_images/mActionUndo.png"><img alt="mActionUndo" src="../../../_images/mActionUndo.png" style="width: 1.5em;" /></a></td>
+<td>Revert last change</td>
+<td><a class="reference internal" href="../../../_images/mActionRedo.png"><img alt="mActionRedo" src="../../../_images/mActionRedo.png" style="width: 1.5em;" /></a></td>
+<td>Restore last change</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../../_images/mActionZoomFullExtent.png"><img alt="mActionZoomFullExtent" src="../../../_images/mActionZoomFullExtent.png" style="width: 1.5em;" /></a></td>
+<td>Zoom to full extent</td>
+<td><a class="reference internal" href="../../../_images/mActionZoomActual.png"><img alt="mActionZoomActual" src="../../../_images/mActionZoomActual.png" style="width: 1.5em;" /></a></td>
+<td>Zoom to 100%</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../../_images/mActionZoomIn.png"><img alt="mActionZoomIn" src="../../../_images/mActionZoomIn.png" style="width: 1.5em;" /></a></td>
+<td>Zoom in</td>
+<td><a class="reference internal" href="../../../_images/mActionZoomIn.png"><img alt="mActionZoomIn" src="../../../_images/mActionZoomIn.png" style="width: 1.5em;" /></a></td>
+<td>Zoom out</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../../_images/mActionDraw.png"><img alt="mActionDraw" src="../../../_images/mActionDraw.png" style="width: 1.5em;" /></a></td>
+<td>Refresh View</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../../_images/mActionPan.png"><img alt="mActionPan" src="../../../_images/mActionPan.png" style="width: 1.5em;" /></a></td>
+<td>Pan</td>
+<td><a class="reference internal" href="../../../_images/mActionZoomToSelected.png"><img alt="mActionZoomToSelected" src="../../../_images/mActionZoomToSelected.png" style="width: 1.5em;" /></a></td>
+<td>Zoom to specific region</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../../_images/mActionSelect.png"><img alt="mActionSelect" src="../../../_images/mActionSelect.png" style="width: 1.5em;" /></a></td>
+<td>Select/Move item in print composition</td>
+<td><a class="reference internal" href="../../../_images/mActionMoveItemContent.png"><img alt="mActionMoveItemContent" src="../../../_images/mActionMoveItemContent.png" style="width: 1.5em;" /></a></td>
+<td>Move content within an item</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../../_images/mActionAddMap.png"><img alt="mActionAddMap" src="../../../_images/mActionAddMap.png" style="width: 1.5em;" /></a></td>
+<td>Add new map from KADAS map canvas</td>
+<td><a class="reference internal" href="../../../_images/mActionAddImage.png"><img alt="mActionAddImage" src="../../../_images/mActionAddImage.png" style="width: 1.5em;" /></a></td>
+<td>Add image to print composition</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../../_images/mActionLabel.png"><img alt="mActionLabel" src="../../../_images/mActionLabel.png" style="width: 1.5em;" /></a></td>
+<td>Add label to print composition</td>
+<td><a class="reference internal" href="../../../_images/mActionAddLegend.png"><img alt="mActionAddLegend" src="../../../_images/mActionAddLegend.png" style="width: 1.5em;" /></a></td>
+<td>Add new legend to print composition</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../../_images/mActionScaleBar.png"><img alt="mActionScaleBar" src="../../../_images/mActionScaleBar.png" style="width: 1.5em;" /></a></td>
+<td>Add scale bar to print composition</td>
+<td><a class="reference internal" href="../../../_images/mActionAddBasicShape.png"><img alt="mActionAddBasicShape" src="../../../_images/mActionAddBasicShape.png" style="width: 1.5em;" /></a></td>
+<td>Add basic shape to print composition</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../../_images/mActionAddArrow.png"><img alt="mActionAddArrow" src="../../../_images/mActionAddArrow.png" style="width: 1.5em;" /></a></td>
+<td>Add arrow to print composition</td>
+<td><a class="reference internal" href="../../../_images/mActionOpenTable.png"><img alt="mActionOpenTable" src="../../../_images/mActionOpenTable.png" style="width: 1.5em;" /></a></td>
+<td>Add attribute table to print composition</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../../_images/mActionAddHtml.png"><img alt="mActionAddHtml" src="../../../_images/mActionAddHtml.png" style="width: 1.5em;" /></a></td>
+<td>Add an HTML frame</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../../_images/mActionGroupItems.png"><img alt="mActionGroupItems" src="../../../_images/mActionGroupItems.png" style="width: 1.5em;" /></a></td>
+<td>Group items of print composition</td>
+<td><a class="reference internal" href="../../../_images/mActionUngroupItems.png"><img alt="mActionUnGroupItems" src="../../../_images/mActionUngroupItems.png" style="width: 1.5em;" /></a></td>
+<td>Ungroup items of print composition</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../../_images/locked.png"><img alt="locked" src="../../../_images/locked.png" style="width: 1.5em;" /></a></td>
+<td>Lock Selected Items</td>
+<td><a class="reference internal" href="../../../_images/unlocked.png"><img alt="unlocked" src="../../../_images/unlocked.png" style="width: 1.5em;" /></a></td>
+<td>Unlock All items</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../../_images/mActionRaiseItems.png"><img alt="mActionRaiseItems" src="../../../_images/mActionRaiseItems.png" style="width: 1.5em;" /></a></td>
+<td>Raise selected items</td>
+<td><a class="reference internal" href="../../../_images/mActionLowerItems.png"><img alt="mActionLowerItems" src="../../../_images/mActionLowerItems.png" style="width: 1.5em;" /></a></td>
+<td>Lower selected items</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../../_images/mActionMoveItemsToTop.png"><img alt="mActionMoveItemsToTop" src="../../../_images/mActionMoveItemsToTop.png" style="width: 1.5em;" /></a></td>
+<td>Move selected items to top</td>
+<td><a class="reference internal" href="../../../_images/mActionMoveItemsToBottom.png"><img alt="mActionMoveItemsToBottom" src="../../../_images/mActionMoveItemsToBottom.png" style="width: 1.5em;" /></a></td>
+<td>Move selected items to bottom</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../../_images/mActionAlignLeft.png"><img alt="mActionAlignLeft" src="../../../_images/mActionAlignLeft.png" style="width: 1.5em;" /></a></td>
+<td>Align selected items left</td>
+<td><a class="reference internal" href="../../../_images/mActionAlignRight.png"><img alt="mActionAlignRight" src="../../../_images/mActionAlignRight.png" style="width: 1.5em;" /></a></td>
+<td>Align selected items right</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../../_images/mActionAlignHCenter.png"><img alt="mActionAlignHCenter" src="../../../_images/mActionAlignHCenter.png" style="width: 1.5em;" /></a></td>
+<td>Align selected items center</td>
+<td><a class="reference internal" href="../../../_images/mActionAlignVCenter.png"><img alt="mActionAlignVCenter" src="../../../_images/mActionAlignVCenter.png" style="width: 1.5em;" /></a></td>
+<td>Align selected items center vertical</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../../_images/mActionAlignTop.png"><img alt="mActionAlignTop" src="../../../_images/mActionAlignTop.png" style="width: 1.5em;" /></a></td>
+<td>Align selected items top</td>
+<td><a class="reference internal" href="../../../_images/mActionAlignBottom.png"><img alt="mActionAlignBottom" src="../../../_images/mActionAlignBottom.png" style="width: 1.5em;" /></a></td>
+<td>Align selected items bottom</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../../_images/mIconAtlas.png"><img alt="mIconAtlas" src="../../../_images/mIconAtlas.png" style="width: 1.5em;" /></a></td>
+<td>Preview Atlas</td>
+<td><a class="reference internal" href="../../../_images/mActionAtlasFirst.png"><img alt="mActionAtlasFirst" src="../../../_images/mActionAtlasFirst.png" style="width: 1.5em;" /></a></td>
+<td>First Feature</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../../_images/mActionAtlasPrev.png"><img alt="mActionAtlasPrev" src="../../../_images/mActionAtlasPrev.png" style="width: 1.5em;" /></a></td>
+<td>Previous Feature</td>
+<td><a class="reference internal" href="../../../_images/mActionAtlasNext.png"><img alt="mActionAtlasNext" src="../../../_images/mActionAtlasNext.png" style="width: 1.5em;" /></a></td>
+<td>Next Feature</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../../_images/mActionAtlasLast.png"><img alt="mActionAtlasLast" src="../../../_images/mActionAtlasLast.png" style="width: 1.5em;" /></a></td>
+<td>Last feature</td>
+<td><a class="reference internal" href="../../../_images/mActionFilePrint.png"><img alt="mActionFilePrint" src="../../../_images/mActionFilePrint.png" style="width: 1.5em;" /></a></td>
+<td>Print Atlas</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../../_images/mActionSaveMapAsImage.png"><img alt="mActionSaveMapAsImage" src="../../../_images/mActionSaveMapAsImage.png" style="width: 1.5em;" /></a></td>
+<td>Export Atlas as Image</td>
+<td><a class="reference internal" href="../../../_images/mActionAtlasSettings.png"><img alt="mActionAtlasSettings" src="../../../_images/mActionAtlasSettings.png" style="width: 1.5em;" /></a></td>
+<td>Atlas Settings</td>
+</tr>
+</tbody>
+</table>
+<p>Table Composer 1: Print Composer Tools</p>
+<p>All Print Composer tools are available in menus and as icons in a toolbar. The
+toolbar can be switched off and on using the right mouse button over the toolbar.</p>
+<span class="target" id="index-2"></span><div class="section" id="first-steps">
+<span id="index-3"></span><h2>First steps<a class="headerlink" href="#first-steps" title="Permalink to this headline">¶</a></h2>
+<p>TODO: wird anders geöffnet</p>
+<div class="section" id="overview-of-the-print-composer">
+<h3>Overview of the Print Composer<a class="headerlink" href="#overview-of-the-print-composer" title="Permalink to this headline">¶</a></h3>
+<p>Opening the Print Composer provides you with a blank canvas that represents the paper surface when using the print option. Initially you find buttons on the left beside the canvas to add map composer items; the current KADAS map canvas, text labels, images, legends, scale bars, basic shapes, arrows, attribute tables and HTML frames. In this toolbar you also find toolbar buttons to navigate, zoom in on an area and pan the view on the composer and toolbar buttons to select a map composer item and to move the contents of the map item.</p>
+<p><a class="reference internal" href="#figure-composer-overview">Figure_composer_overview</a> shows the initial view of the Print Composer before any elements are added.</p>
+<p id="figure-composer-overview"><strong>Figure Composer Overview:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_blank.png" src="../../../_images/print_composer_blank.png" />
+<p class="caption">Print Composer <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>On the right beside the canvas you find two panels.
+The upper panel holds the tabs <em class="guilabel">Items</em> and <em class="guilabel">Command History</em> and the lower panel holds the tabs <em class="guilabel">Composition</em>,  <em class="guilabel">Item properties</em> and <em class="guilabel">Atlas generation</em>.</p>
+<ul class="simple">
+<li>The <em class="guilabel">Items</em> tab provides a list of all map composer items added to the canvas.</li>
+<li>The <em class="guilabel">Command history</em> tab displays a history of all changes applied
+to the Print Composer layout. With a mouse click, it is possible to undo and
+redo layout steps back and forth to a certain status.</li>
+<li>The <em class="guilabel">Composition</em> tab allows you to set paper size, orientation, the page
+background, number of pages and print quality for the output file in dpi. Furthermore, you
+can also activate the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Print as raster</em> checkbox. This means
+all items will be converted to raster before printing or saving as PostScript or PDF.
+In this tab, you can also customize settings for grid and smart guides.</li>
+<li>The <em class="guilabel">Item Properties</em> tab displays the properties for the selected
+item. Click the <a class="reference internal" href="../../../_images/mActionSelect.png"><img alt="mActionSelect" src="../../../_images/mActionSelect.png" style="width: 1.5em;" /></a> <sup>Select/Move item</sup> icon to select
+an item (e.g., legend, scale bar or label) on the canvas. Then click the
+<em class="guilabel">Item Properties</em> tab and customize the settings for the selected
+item.</li>
+<li>The <em class="guilabel">Atlas generation</em> tab allows you to enable the generation of an
+atlas for the current Composer and gives access to its parameters.</li>
+<li>Finally, you can save your print composition with the <a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="mActionFileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a>
+<sup>Save Project</sup> button.</li>
+</ul>
+<p>In the bottom part of the Print Composer window, you can find a status bar with
+mouse position, current page number and a combo box to set the zoom level.</p>
+<p>You can add multiple elements to the Composer. It is also possible to have more
+than one map view or legend or scale bar in the Print Composer canvas, on one or
+several pages. Each element has its own properties and, in the case of the map,
+its own extent. If you want to remove any elements from the Composer canvas you
+can do that with the <tt class="kbd docutils literal"><span class="pre">Delete</span></tt> or the <tt class="kbd docutils literal"><span class="pre">Backspace</span></tt> key.</p>
+<div class="section" id="navigation-tools">
+<h4>Navigation tools<a class="headerlink" href="#navigation-tools" title="Permalink to this headline">¶</a></h4>
+<p>To navigate in the canvas layout, the Print Composer provides some general tools:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../_images/mActionZoomIn.png"><img alt="mActionZoomIn" src="../../../_images/mActionZoomIn.png" style="width: 1.5em;" /></a> <sup>Zoom in</sup></li>
+<li><a class="reference internal" href="../../../_images/mActionZoomOut.png"><img alt="mActionZoomOut" src="../../../_images/mActionZoomOut.png" style="width: 1.5em;" /></a> <sup>Zoom out</sup></li>
+<li><a class="reference internal" href="../../../_images/mActionZoomFullExtent.png"><img alt="mActionZoomFullExtent" src="../../../_images/mActionZoomFullExtent.png" style="width: 1.5em;" /></a> <sup>Zoom full</sup></li>
+<li><a class="reference internal" href="../../../_images/mActionZoomActual.png"><img alt="mActionZoomActual" src="../../../_images/mActionZoomActual.png" style="width: 1.5em;" /></a> <sup>Zoom to 100%</sup></li>
+<li><a class="reference internal" href="../../../_images/mActionDraw.png"><img alt="mActionDraw" src="../../../_images/mActionDraw.png" style="width: 1.5em;" /></a> <sup>Refresh view</sup> (if you find the view in an inconsistent
+state)</li>
+<li><a class="reference internal" href="../../../_images/mActionPan.png"><img alt="mActionPan" src="../../../_images/mActionPan.png" style="width: 1.5em;" /></a> <sup>Pan composer</sup></li>
+<li><a class="reference internal" href="../../../_images/mActionZoomToSelected.png"><img alt="mActionZoomToSelected" src="../../../_images/mActionZoomToSelected.png" style="width: 1.5em;" /></a> <sup>Zoom</sup> (zoom to a specific region of the Composer)</li>
+</ul>
+<p>You can change the zoom level also using the mouse wheel or the combo box in the status
+bar. If you need to switch to pan mode while working in the Composer area, you can
+hold the <tt class="kbd docutils literal"><span class="pre">Spacebar</span></tt> or the the mouse wheel.
+With <tt class="kbd docutils literal"><span class="pre">Ctrl+Spacebar</span></tt>, you can temporarily switch to zoom mode, and with
+<tt class="kbd docutils literal"><span class="pre">Ctrl+Shift+Spacebar</span></tt>, to zoom out mode.</p>
+</div>
+</div>
+<div class="section" id="sample-session">
+<h3>Sample Session<a class="headerlink" href="#sample-session" title="Permalink to this headline">¶</a></h3>
+<p>To demonstrate how to create a map please follow the next instructions.</p>
+<ol class="arabic simple">
+<li>On the left site, select the <a class="reference internal" href="../../../_images/mActionAddMap.png"><img alt="mActionAddMap" src="../../../_images/mActionAddMap.png" style="width: 1.5em;" /></a> <sup>Add new map</sup> toolbar button and draw a rectangle on the canvas holding down the left mouse button. Inside the drawn rectangle the KADAS map view to the canvas.</li>
+<li>Select the <a class="reference internal" href="../../../_images/mActionScaleBar.png"><img alt="mActionScaleBar" src="../../../_images/mActionScaleBar.png" style="width: 1.5em;" /></a> <sup>Add new scalebar</sup> toolbar button and place the map item with the left mouse button on the Print Composer canvas. A scalebar will be added to the canvas.</li>
+<li>Select the <a class="reference internal" href="../../../_images/mActionAddLegend.png"><img alt="mActionAddLegend" src="../../../_images/mActionAddLegend.png" style="width: 1.5em;" /></a> <sup>Add new legend</sup> toolbar button and draw a rectangle on the canvas holding down the left mouse button. Inside the drawn rectangle the legend will be drawn.</li>
+<li>Select the <a class="reference internal" href="../../../_images/mActionSelect.png"><img alt="mActionSelect" src="../../../_images/mActionSelect.png" style="width: 1.5em;" /></a> <sup>Select/Move item</sup> icon to select the map on the canvas and move it a bit.</li>
+<li>While the map item is still selected you can also change the size of the map item. Click while holding down the left mouse button, in a white little rectangle in one of the corners of the map item and drag it to a new location to change it&#8217;s size.</li>
+<li>Click the <em class="guilabel">Item Properties</em> tab on the left lower panel and find the setting for the orientation. Change the value of the setting <em class="guilabel">Map orientation</em> to &#8216;15.00° &#8216;. You should see the orientation of the map item change.</li>
+<li>Finally, you can save your print composition with the <a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="mActionFileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a> <sup>Save Project</sup> button.</li>
+</ol>
+</div>
+<div class="section" id="print-composer-options">
+<h3>Print Composer Options<a class="headerlink" href="#print-composer-options" title="Permalink to this headline">¶</a></h3>
+<p>From <em class="menuselection">Settings ‣ Composer Options</em> you can set some options that will be
+used as default during your work.</p>
+<ul class="simple">
+<li><em class="guilabel">Compositions defaults</em> let you specify the default font to use.</li>
+<li>With <em class="guilabel">Grid appearance</em>, you can set the grid style and its color.
+There are three types of grid: <strong>Dots</strong>, <strong>Solid</strong> lines and <strong>Crosses</strong>.</li>
+<li><em class="guilabel">Grid and guide defaults</em> defines spacing, offset and tolerance of the grid.</li>
+</ul>
+</div>
+<div class="section" id="composition-tab-general-composition-setup">
+<h3>Composition tab &#8212; General composition setup<a class="headerlink" href="#composition-tab-general-composition-setup" title="Permalink to this headline">¶</a></h3>
+<p>In the <em class="guilabel">Composition</em> tab, you can define the global settings of your composition.</p>
+<ul class="simple">
+<li>You can choose one of the <em class="guilabel">Presets</em> for your paper sheet, or enter your custom <em class="guilabel">width</em> and <em class="guilabel">height</em>.</li>
+<li>Composition can now be divided into several pages. For instance, a first page can show a map canvas, and a second
+page can show the attribute table associated with a layer, while a third one shows an HTML frame linking to your organization website.
+Set the <em class="guilabel">Number of pages</em> to the desired value. You can choose the page <em class="guilabel">Orientation</em> and its <em class="guilabel">Exported resolution</em>. When checked, <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">print as raster</em> means all elements will be rasterized before printing or saving as PostScript or
+PDF.</li>
+<li><em class="guilabel">Grid and guides</em> lets you customize grid settings like <em class="guilabel">spacings</em>, <em class="guilabel">offsets</em> and <em class="guilabel">tolerance</em> to your need. The tolerance
+is the maximum distance below which an item is snapped to smart guides.</li>
+</ul>
+<p>Snap to grid and/or to smart guides can be enabled from the <em class="menuselection">View</em> menu. In this menu, you can also hide or show the grid and smart guides.</p>
+</div>
+<div class="section" id="composer-items-common-options">
+<h3>Composer items common options<a class="headerlink" href="#composer-items-common-options" title="Permalink to this headline">¶</a></h3>
+<p>Composer items have a set of common properties you will find on the bottom of the <em class="guilabel">Item Properties</em> tab: Position and size, Rotation, Frame,
+Background, Item ID and Rendering (See <a class="reference internal" href="#figure-composer-common-1">figure_composer_common_1</a>).</p>
+<p id="figure-composer-common-1"><strong>Figure Composer Common 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_common_properties.png" src="../../../_images/print_composer_common_properties.png" />
+<p class="caption">Common Item properties Dialogs <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul class="simple" id="frame-dialog">
+<li>The <em class="guilabel">Position and size</em> dialog lets you define size and position of the frame that contains the item. You can also choose
+which <em class="guilabel">Reference point</em> will be set at the <strong>X</strong> and <strong>Y</strong> coordinates previously defined.</li>
+<li>The <em class="guilabel">Rotation</em> sets the rotation of the element (in degrees).</li>
+<li>The <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Frame</em> shows or hides the frame around the label.
+Use the <em class="guilabel">Frame color</em> and <em class="guilabel">Thickness</em> menus to adjust those properties.</li>
+<li>Use the <em class="guilabel">Background color</em> menu for setting a background color.
+With the dialog you can pick a color (see <a class="reference internal" href="../working_with_vector/vector_properties.html#color-picker"><em>Color Picker</em></a> ).</li>
+<li>Use the <em class="guilabel">Item ID</em> to create a relationship to other Print Composer items. This is used with KADAS server and any potential web
+client. You can set an ID on an item (e.g., a map and a label), and then the web client can send data to set a property
+(e.g., label text) for that specific item. The GetProjectSettings command will list what items and which IDs are available in a layout.</li>
+<li><em class="guilabel">Rendering</em> mode can be selected in the option field. See <a class="reference internal" href="#rendering-mode">Rendering_Mode</a>.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>If you checked <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Use live-updating color chooser dialogs</em>
+in the QGIS general options, the color button will update as soon as you
+choose a new color from <strong>Color Dialog</strong> windows. If not, you need to
+close the <strong>Color Dialog</strong>.</li>
+<li>The <a class="reference internal" href="../../../_images/mIconDataDefine.png"><img alt="mIconDataDefine" src="../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> <sup>Data defined override</sup> icon next to a field
+means that you can associate the field with data in the map item or use
+expressions. These are particularly helpful with atlas generation
+(See <a class="reference internal" href="#atlas-data-defined-overrides">atlas_data_defined_overrides</a>).</li>
+</ul>
+</div>
+<span class="target" id="rendering-mode"></span></div>
+</div>
+<div class="section" id="index-4">
+<span id="id1"></span><h2>Rendering mode<a class="headerlink" href="#index-4" title="Permalink to this headline">¶</a></h2>
+<p>KADAS now allows advanced rendering for Composer items just like vector and raster layers.</p>
+<p id="figure-composer-common-2"><strong>Figure Composer common 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/rendering_mode.png" src="../../../_images/rendering_mode.png" />
+<p class="caption">Rendering mode <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul>
+<li><p class="first"><em class="guilabel">Transparency</em> <img alt="slider" src="../../../_images/slider.png" />: You can make the underlying item in the Composer
+visible with this tool. Use the slider to adapt the visibility of your item to your needs.
+You can also make a precise definition of the percentage of visibility in the menu beside the slider.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Exclude item from exports</em>: You can decide to make an item not visible in all exports. After activating this checkbox, the item will not be included in PDF&#8217;s, prints etc..</p>
+</li>
+<li><p class="first"><em class="guilabel">Blending mode</em>: You can achieve special rendering effects with these tools that you
+previously only may know from graphics programs. The pixels of your overlaying and underlaying items are mixed
+through the settings described below.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Normal: This is the standard blend mode, which uses the alpha channel of the
+top pixel to blend with the pixel beneath it; the colors aren&#8217;t mixed.</li>
+<li>Lighten: This selects the maximum of each component from the foreground and
+background pixels. Be aware that the results tend to be jagged and harsh.</li>
+<li>Screen: Light pixels from the source are painted over the destination, while
+dark pixels are not. This mode is most useful for mixing the texture of one layer
+with another layer (e.g., you can use a hillshade to texture another layer).</li>
+<li>Dodge: Dodge will brighten and saturate underlying pixels based on the lightness
+of the top pixel. So, brighter top pixels cause the saturation and brightness of the
+underlying pixels to increase. This works best if the top pixels aren&#8217;t too bright;
+otherwise the effect is too extreme.</li>
+<li>Addition: This blend mode simply adds pixel values of one layer with pixel values of
+the other. In case of values above 1 (as in the case of RGB), white is displayed. This
+mode is suitable for highlighting features.</li>
+<li>Darken: This creates a resultant pixel that retains the smallest components of the
+foreground and background pixels. Like lighten, the results tend to be jagged and harsh.</li>
+<li>Multiply: Here, the numbers for each pixel of the top layer are multiplied with the numbers
+for the corresponding pixel of the bottom layer. The results are darker pictures.</li>
+<li>Burn: Darker colors in the top layer cause the underlying layers to darken. Burn can be
+used to tweak and colorise underlying layers.</li>
+<li>Overlay: This mode combines the multiply and screen blending modes. In the resulting picture,
+light parts become lighter and dark parts become darker.</li>
+<li>Soft light: This is very similar to overlay, but instead of using multiply/screen it uses
+color burn/dodge. This mode is supposed to emulate shining a soft light onto an image.</li>
+<li>Hard light: Hard light is very similar to the overlay mode. It&#8217;s supposed to emulate projecting
+a very intense light onto an image.</li>
+<li>Difference: Difference subtracts the top pixel from the bottom pixel, or the other way
+around, to always get a positive value. Blending with black produces no change, as the
+difference with all colors is zero.</li>
+<li>Subtract: This blend mode simply subtracts pixel values of one layer with pixel values of
+the other. In case of negative values, black is displayed.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="composer-items">
+<h2>Composer Items<a class="headerlink" href="#composer-items" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-map-item">
+<h3>The Map item<a class="headerlink" href="#the-map-item" title="Permalink to this headline">¶</a></h3>
+<p>Click on the <a class="reference internal" href="../../../_images/mActionAddMap.png"><img alt="mActionAddMap" src="../../../_images/mActionAddMap.png" style="width: 1.5em;" /></a> <sup>Add new map</sup> toolbar button in the Print
+Composer toolbar to add the KADAS map canvas. Now, drag a rectangle onto the Composer
+canvas with the left mouse button to add the map. To display the current map, you
+can choose between three different modes in the map <em class="guilabel">Item Properties</em>
+tab:</p>
+<ul class="simple">
+<li><strong>Rectangle</strong> is the default setting. It only displays an empty box with a
+message &#8216;Map will be printed here&#8217;.</li>
+<li><strong>Cache</strong> renders the map in the current screen resolution. If you zoom
+the Composer window in or out, the map is not rendered again but the image will
+be scaled.</li>
+<li><strong>Render</strong> means that if you zoom the Composer window in or out, the map will
+be rendered again, but for space reasons, only up to a maximum resolution.</li>
+</ul>
+<p><strong>Cache</strong> is the default preview mode for newly added Print Composer maps.</p>
+<p>You can resize the map element by clicking on the <a class="reference internal" href="../../../_images/mActionSelect.png"><img alt="mActionSelect" src="../../../_images/mActionSelect.png" style="width: 1.5em;" /></a>
+<sup>Select/Move item</sup> button, selecting the element, and dragging one of the
+blue handles in the corner of the map. With the map selected, you can now adapt
+more properties in the map <em class="guilabel">Item Properties</em> tab.</p>
+<p>To move layers within the map element, select the map element, click the
+<a class="reference internal" href="../../../_images/mActionMoveItemContent.png"><img alt="mActionMoveItemContent" src="../../../_images/mActionMoveItemContent.png" style="width: 1.5em;" /></a> <sup>Move item content</sup> icon and move the layers within
+the map item frame with the left mouse button. After you have found the right place
+for an item, you can lock the item position within the Print Composer
+canvas. Select the map item and use the toolbar <a class="reference internal" href="../../../_images/locked.png"><img alt="locked" src="../../../_images/locked.png" style="width: 1.5em;" /></a>
+<sup>Lock Selected Items</sup> or the <em class="menuselection">Items</em> tab to Lock the
+item. A locked item can only be selected using the <em class="menuselection">Items</em>
+tab. Once selected you can use the <em class="menuselection">Items</em> tab to unlock individual items. The <a class="reference internal" href="../../../_images/unlocked.png"><img alt="unlocked" src="../../../_images/unlocked.png" style="width: 1.5em;" /></a><sup>Unlock All Items</sup> icon will unlock all locked composer items.</p>
+<div class="section" id="main-properties">
+<span id="composer-main-properties"></span><h4>Main properties<a class="headerlink" href="#main-properties" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Main properties</em> dialog of the map <em class="guilabel">Item Properties</em> tab provides the
+following functionalities (see <a class="reference internal" href="#figure-composer-map-1">figure_composer_map_1</a>):</p>
+<p id="figure-composer-map-1"><strong>Figure Composer Map 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_map1.png" src="../../../_images/print_composer_map1.png" />
+<p class="caption">Map Item properties Tab <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul class="simple">
+<li>The <strong>Preview</strong> area allows you to define the preview modes &#8216;Rectangle&#8217;, &#8216;Cache&#8217;
+and &#8216;Render&#8217;, as described above. If you change the view on the KADAS map canvas by changing
+vector or raster properties, you can update the Print Composer view by selecting the
+map element in the Print Composer and clicking the <strong>[Update preview]</strong> button.</li>
+<li>The field <em class="guilabel">Scale</em> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a> sets a manual scale.</li>
+<li>The field <em class="guilabel">Map rotation</em> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a> allows you to
+rotate the map element content clockwise in degrees. The rotation of the map view can be imitated
+here. Note that a correct coordinate frame can only be added with the default value 0 and that
+once you defined a <em class="guilabel">Map rotation</em> it currently cannot be changed.</li>
+<li><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Draw map canvas items</em> lets you show annotations that may be placed
+on the map canvas in the main KADAS window.</li>
+<li>You can choose to lock the layers shown on a map item. Check <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a>
+<em class="guilabel">Lock layers for map item</em>.
+After this is checked, any layer that would be displayed or hidden in the main KADAS window
+will not appear or be hidden in the map item of the Composer. But style and labels of a
+locked layer are still refreshed according to the main KADAS interface.
+You can prevent this by using <em class="guilabel">Lock layer styles for map item</em>.</li>
+<li>The <a class="reference internal" href="../../../_images/mActionShowPresets.png"><img alt="mActionShowPresets" src="../../../_images/mActionShowPresets.png" style="width: 2.5em;" /></a> button allows you to add quickly all the presets views you
+have prepared in QGIS.
+Clicking on the <a class="reference internal" href="../../../_images/mActionShowPresets.png"><img alt="mActionShowPresets" src="../../../_images/mActionShowPresets.png" style="width: 2.5em;" /></a> button you will see the list of all the preset views:
+just select the preset you want to display.
+The map canvas will automatically lock the preset layers by enabling the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a>
+<em class="guilabel">Lock layers for map item</em>: if you want to unselect the preset, just uncheck the
+<a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> and press on the <a class="reference internal" href="../../../_images/mActionDraw.png"><img alt="mActionDraw" src="../../../_images/mActionDraw.png" style="width: 1.5em;" /></a> button. See <em class="xref std std-ref">label_legend</em> to find out how to
+create presets views.</li>
+</ul>
+</div>
+<div class="section" id="extents">
+<h4>Extents<a class="headerlink" href="#extents" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Extents</em> dialog of the map item tab provides the following
+functionalities (see <a class="reference internal" href="#figure-composer-map-2">figure_composer_map_2</a>):</p>
+<p id="figure-composer-map-2"><strong>Figure Composer Map 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_map2.png" src="../../../_images/print_composer_map2.png" />
+<p class="caption">Map Extents Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul class="simple">
+<li>The <strong>Map extents</strong> area allows you to specify the map extent using X and Y min/max
+values and by clicking the <strong>[Set to map canvas extent]</strong> button. This button sets
+the map extent of the composer map item to the extent of the current map view in the
+main KADAS application. The button <strong>[View extent in map canvas]</strong> does exactly the
+opposite, it updates the extent of the map view in the QGIS application to the extent
+of the composer map item.</li>
+</ul>
+<p>If you change the view on the KADAS map canvas by changing
+vector or raster properties, you can update the Print Composer view by selecting
+the map element in the Print Composer and clicking the <strong>[Update preview]</strong> button
+in the map <em class="guilabel">Item Properties</em> tab (see <a class="reference internal" href="#figure-composer-map-1">figure_composer_map_1</a>).</p>
+</div>
+<div class="section" id="grids">
+<span id="index-5"></span><h4>Grids<a class="headerlink" href="#grids" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Grids</em> dialog of the map <em class="guilabel">Item Properties</em> tab provides the
+possibility to add several grids to a map item.</p>
+<ul class="simple">
+<li>With the plus and minus button you can add or remove a selected grid.</li>
+<li>With the up and down button you can move a grid in the list and set the drawing priority.</li>
+</ul>
+<p>When you double click on the added grid you can give it another name.</p>
+<p id="figure-composer-map-3"><strong>Figure Composer Map 3:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/map_grids.png" src="../../../_images/map_grids.png" />
+<p class="caption">Map Grids Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>After you have added a grid, you can activate the checkbox <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Show grid</em> to overlay a grid onto the
+map element. Expand this option to provide a lot of configuration options, see <a class="reference internal" href="#figure-composer-map-4">Figure_composer_map_4</a>.</p>
+<p id="figure-composer-map-4"><strong>Figure Composer Map 4:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/draw_grid.png" src="../../../_images/draw_grid.png" />
+<p class="caption">Draw Grid Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>As grid type, you can specify to use a &#8216;Solid&#8217;, &#8216;Cross&#8217;, &#8216;Markers&#8217; or &#8216;Frame and annotations only&#8217;.
+&#8216;Frame and annotations only&#8217; is especially useful when working with rotated maps or reprojected
+grids. In the devisions section of the Grid Frame Dialog mentioned below you then have a corresponding setting.
+Symbology of the grid can be chosen. See section <a class="reference internal" href="#rendering-mode">Rendering_Mode</a>.
+Furthermore, you can define an interval in the X and Y directions, an X and Y offset,
+and the width used for the cross or line grid type.</p>
+<p id="figure-composer-map-5"><strong>Figure Composer Map 5:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/grid_frame.png" src="../../../_images/grid_frame.png" />
+<p class="caption">Grid Frame Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul class="simple">
+<li>There are different options to style the frame that holds the map. Following options are
+available: No Frame, Zebra, Interior ticks, Exterior ticks, Interior and Exterior ticks and Lineborder.</li>
+<li>With &#8216;LatitudeY/ only&#8217; and &#8216;Longitude/X only&#8217; setting in the devisions section you have the possibility
+to prevent a mix of latitude/y and longitude/x coordinates showing on a side when working with
+rotated maps or reprojected grids.</li>
+<li>Advanced rendering mode is also available for grids (see section <a class="reference internal" href="#rendering-mode">Rendering_mode</a>).</li>
+<li>The <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Draw coordinates</em> checkbox allows you to add coordinates
+to the map frame. You can choose the annotation numeric format, the options range from decimal
+to degrees, minute and seconds, with or without suffix, and aligned or not.
+You can choose which annotation to show. The options are: show all, latitude only, longitude only,
+or disable(none). This is useful when the map is rotated. The annotation can be drawn inside or
+outside the map frame. The annotation direction can be defined as horizontal,
+vertical ascending or vertical descending. In case of map rotation you can
+Finally, you can define the annotation font, the annotation font color, the annotation distance from the map frame
+and the precision of the drawn coordinates.</li>
+</ul>
+<p id="figure-composer-map-6"><strong>Figure Composer map 6:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/grid_draw_coordinates.png" src="../../../_images/grid_draw_coordinates.png" />
+<p class="caption">Grid Draw Coordinates dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+</div>
+<div class="section" id="overviews">
+<h4>Overviews<a class="headerlink" href="#overviews" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Overviews</em> dialog of the map <em class="guilabel">Item Properties</em> tab provides the
+following functionalities:</p>
+<p id="figure-composer-map-7"><strong>Figure Composer Map 7:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_map4.png" src="../../../_images/print_composer_map4.png" />
+<p class="caption">Map Overviews Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>You can choose to create an overview map, which shows the extents of the other map(s)
+that are available in the composer. First you need to create the map(s) you want to
+include in the overview map. Next you create the map you want to use as the overview
+map, just like a normal map.</p>
+<ul class="simple">
+<li>With the plus and minus button you can add or remove an overview.</li>
+<li>With the up and down button you can move an overview in the list and set the drawing priority.</li>
+</ul>
+<p>Open <em class="guilabel">Overviews</em> and press the green plus icon-button to add an overview.
+Initially this overview is named &#8216;Overview 1&#8217; (see <a class="reference internal" href="#figure-composer-map-7">Figure_composer_map_7</a>).
+You can change the name when you double-click on the overview item in the list
+named &#8216;Overview 1&#8217; and change it to another name.</p>
+<p>When you select the overview item in the list you can customize it.</p>
+<ul class="simple">
+<li>The <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Draw &#8220;&lt;name_overview&gt;&#8221; overview</em> needs to be activated to
+draw the extent of selected map frame.</li>
+<li>The <em class="guilabel">Map frame</em> combo list can be used to select the map item whose extents
+will be drawn on the present map item.</li>
+<li>The <em class="guilabel">Frame Style</em> allows you to change the style of the overview frame.</li>
+<li>The <em class="guilabel">Blending mode</em> allows you to set different transparency blend modes.
+See <a class="reference internal" href="#rendering-mode">Rendering_Mode</a>.</li>
+<li>The <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Invert overview</em> creates a mask around the extents when
+activated: the referenced map extents are shown clearly, whereas everything else
+is blended with the frame color.</li>
+<li>The <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Center on overview</em> puts the extent of the overview frame in
+the center of the overview map. You can only activate one overview item to center, when
+you have added several overviews.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-label-item">
+<h3>The Label item<a class="headerlink" href="#the-label-item" title="Permalink to this headline">¶</a></h3>
+<p>To add a label, click the <a class="reference internal" href="../../../_images/mActionLabel.png"><img alt="mActionLabel" src="../../../_images/mActionLabel.png" style="width: 1.5em;" /></a> <sup>Add label</sup> icon, place the element
+with the left mouse button on the Print Composer canvas and position and customize
+its appearance in the label <em class="guilabel">Item Properties</em> tab.</p>
+<p>The <em class="guilabel">Item Properties</em> tab of a label item provides the following functionality
+for the label item (see <a class="reference internal" href="#figure-composer-label">Figure_composer_label</a>):</p>
+<p id="figure-composer-label"><strong>Figure Composer 8:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_label1.png" src="../../../_images/print_composer_label1.png" />
+<p class="caption">Label Item properties Tab <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<div class="section" id="id2">
+<h4>Main properties<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>The main properties dialog is where the text (HTML or not) or the expression
+needed to fill the label is added to the Composer canvas.</li>
+<li>Labels can be interpreted as HTML code: check <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Render as HTML</em>.
+You can now insert a URL, a clickable image that links to a web page or something more complex.</li>
+<li>You can also insert an expression. Click on <strong>[Insert an expression]</strong> to open a new dialog.
+Build an expression by clicking the functions available in the left side of the panel.
+Two special categories can be useful, particularly associated with the atlas functionality:
+geometry functions and records functions. At the bottom, a preview of the expression is shown.</li>
+</ul>
+</div>
+<div class="section" id="appearance">
+<h4>Appearance<a class="headerlink" href="#appearance" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Define <em class="guilabel">Font</em> by clicking on the <strong>[Font...]</strong> button or a <em class="guilabel">Font color</em>
+selecting a color using the color selection tool.</li>
+<li>You can specify different horizontal and vertical margins in mm.
+This is the margin from the edge of the composer item. The label can be positioned outside
+the bounds of the label e.g. to align label items with other items. In this case you have to
+use negative values for the margin.</li>
+<li>Using the <em class="guilabel">Alignment</em> is another way to position your label. Note that when e.g. using
+the <em class="guilabel">Horizontal alignment</em> in <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /><em class="guilabel">Center</em> Position the
+<em class="guilabel">Horizontal margin</em> feature is disabled.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-image-item">
+<span id="id3"></span><h3>The Image item<a class="headerlink" href="#the-image-item" title="Permalink to this headline">¶</a></h3>
+<p>To add an image, click the <a class="reference internal" href="../../../_images/mActionAddImage.png"><img alt="mActionAddImage" src="../../../_images/mActionAddImage.png" style="width: 1.5em;" /></a> <sup>Add image</sup> icon, place the element
+with the left mouse button on the Print Composer canvas and position and customize
+its appearance in the image <em class="guilabel">Item Properties</em> tab.</p>
+<span class="target" id="index-6"></span><p id="index-7">The picture <em class="guilabel">Item Properties</em> tab provides the following functionalities (see <a class="reference internal" href="#figure-composer-image-1">figure_composer_image_1</a>):</p>
+<p id="figure-composer-image-1"><strong>Figure Composer image 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_image1.png" src="../../../_images/print_composer_image1.png" />
+<p class="caption">Image Item properties Tab <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>You first have to select the image you want to display.
+There are several ways to set the <em class="guilabel">image source</em> in the <strong>Main properties</strong> area.</p>
+<ol class="arabic simple">
+<li>Use the browse button <a class="reference internal" href="../../../_images/browsebutton.png"><img alt="browsebutton" src="../../../_images/browsebutton.png" style="width: 2.3em;" /></a> of <em class="guilabel">image source</em> to select a file on your
+computer using the browse dialog. The browser will start in the SVG-libraries provided with KADAS.
+Besides <tt class="file docutils literal"><span class="pre">SVG</span></tt>, you can also select other image formats like <tt class="file docutils literal"><span class="pre">.png</span></tt> or <tt class="file docutils literal"><span class="pre">.jpg</span></tt>.</li>
+<li>You can enter the source directly in the <em class="guilabel">image source</em> text field. You can even provide
+a remote URL-address to an image.</li>
+<li>From the <strong>Search directories</strong> area you can also select an image from <em class="guilabel">loading previews ...</em>
+to set the image source.</li>
+<li>Use the data defined button <a class="reference internal" href="../../../_images/mIconDataDefine.png"><img alt="mIconDataDefine" src="../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> to set the image source from a record or using a
+regular expression.</li>
+</ol>
+<p>With the <em class="guilabel">Resize mode</em> option, you can set how the image is displayed when the frame
+is changed, or choose to resize the frame of the image item so it matches the original size of
+the image.</p>
+<p>You can select one of the following modes:</p>
+<ul class="simple">
+<li>Zoom: Enlarges the image to the frame while maintaining aspect ratio of picture.</li>
+<li>Stretch: Stretches image to fit inside the frame, ignores aspect ratio.</li>
+<li>Clip: Use this mode for raster images only, it sets the size of the image to original image size
+without scaling and the frame is used to clip the image, so only the part of the image inside the
+frame is visible.</li>
+<li>Zoom and resize frame: Enlarges image to fit frame, then resizes frame to fit resultant image.</li>
+<li>Resize frame to image size: Sets size of frame to match original size of image without scaling.</li>
+</ul>
+<p>Selected resize mode can disable the item options &#8216;Placement&#8217; and &#8216;Image rotation&#8217;.
+The <em class="guilabel">Image rotation</em> is active for the resize mode &#8216;Zoom&#8217; and &#8216;Clip&#8217;.</p>
+<p>With <em class="guilabel">Placement</em> you can select the position of the image inside it&#8217;s frame.
+The <strong>Search directories</strong> area allows you to add and remove directories with images in SVG format
+to the picture database. A preview of the pictures found in the selected directories is shown in a
+pane and can be used to select and set the image source.</p>
+<p>Images can be rotated with the <em class="guilabel">Image rotation</em> field.
+Activating the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Sync with map</em> checkbox synchronizes the rotation of a picture
+in the KADAS map canvas (i.e., a rotated north arrow) with the appropriate Print Composer image.</p>
+<p>It is also possible to select a north arrow directly. If you first select a north arrow image from
+<strong>Search directories</strong> and then use the browse button <a class="reference internal" href="../../../_images/browsebutton.png"><img alt="browsebutton" src="../../../_images/browsebutton.png" style="width: 2.3em;" /></a> of the field <em class="guilabel">Image source</em>,
+you can now select one of the north arrow from the list as displayed in <a class="reference internal" href="#figure-composer-image-2">figure_composer_image_2</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Many of the north arrows do not have an &#8216;N&#8217; added in the north arrow, this is done on
+purpose for languages that do not use an &#8216;N&#8217; for North, so they can use another letter.</p>
+</div>
+<p id="figure-composer-image-2"><strong>Figure Composer Image 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/north_arrows.png" src="../../../_images/north_arrows.png" />
+<p class="caption">North arrows available for selection in provided SVG library</p>
+</div>
+</div>
+<div class="section" id="the-legend-item">
+<span id="index-8"></span><h3>The Legend item<a class="headerlink" href="#the-legend-item" title="Permalink to this headline">¶</a></h3>
+<p>To add a map legend, click the <a class="reference internal" href="../../../_images/mActionAddLegend.png"><img alt="mActionAddLegend" src="../../../_images/mActionAddLegend.png" style="width: 1.5em;" /></a> <sup>Add new legend</sup> icon,
+place the element with the left mouse button on the Print Composer canvas and
+position and customize the appearance in the legend <em class="guilabel">Item Properties</em>
+tab.</p>
+<p>The <em class="guilabel">Item properties</em> of a legend item tab provides the following
+functionalities (see <a class="reference internal" href="#figure-composer-legend-1">figure_composer_legend_1</a>):</p>
+<p id="figure-composer-legend-1"><strong>Figure Composer Legend 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_legend1.png" src="../../../_images/print_composer_legend1.png" />
+<p class="caption">Legend Item properties Tab <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<div class="section" id="id4">
+<h4>Main properties<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Main properties</em> dialog of the legend <em class="guilabel">Item Properties</em> tab
+provides the following functionalities (see <a class="reference internal" href="#figure-composer-legend-2">figure_composer_legend_2</a>):</p>
+<p id="figure-composer-legend-2"><strong>Figure Composer Legend 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_legend2.png" src="../../../_images/print_composer_legend2.png" />
+<p class="caption">Legend Main properties Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>In Main properties you can:</p>
+<ul class="simple">
+<li>Change the title of the legend.</li>
+<li>Set the title alignment to Left, Center or Right.</li>
+<li>You can choose which <em class="guilabel">Map</em> item the current legend will refer to
+in the select list.</li>
+<li>You can wrap the text of the legend title on a given character.</li>
+</ul>
+</div>
+<div class="section" id="legend-items">
+<h4>Legend items<a class="headerlink" href="#legend-items" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Legend items</em> dialog of the legend <em class="guilabel">Item Properties</em> tab
+provides the following functionalities (see <a class="reference internal" href="#figure-composer-legend-3">figure_composer_legend_3</a>):</p>
+<p id="figure-composer-legend-3"><strong>Figure Composer Legend 3:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_legend3.png" src="../../../_images/print_composer_legend3.png" />
+<p class="caption">Legend Legend Items Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul>
+<li><p class="first">The legend will be updated automatically if <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Auto-update</em> is checked.
+When <em class="guilabel">Auto-update</em> is unchecked this will give you more control over the legend items.
+The icons below the legend items list will be activated.</p>
+</li>
+<li><p class="first">The legend items window lists all legend items and allows you to change item order,
+group layers, remove and restore items in the list, edit layer names and add a filter.</p>
+<ul class="simple">
+<li>The item order can be changed using the <strong>[Up]</strong> and <strong>[Down]</strong> buttons or with &#8216;drag-and-drop&#8217;
+functionality. The order can not be changed for WMS legend graphics.</li>
+<li>Use the <strong>[Add group]</strong> button to add a legend group.</li>
+<li>Use the <strong>[plus]</strong> and <strong>[minus]</strong> button to add or remove layers.</li>
+<li>The <strong>[Edit]</strong> button is used to edit the layer-, groupname or title, first you need to
+select the legend item.</li>
+<li>The <strong>[Sigma]</strong> button adds a feature count for each vector layer.</li>
+<li>Use the <strong>[filter]</strong> button to filter the legend by map content, only the legend items visible
+in the map will be listed in the legend.</li>
+</ul>
+<p>After changing the symbology in the KADAS main window, you can click on <strong>[Update All]</strong> to
+adapt the changes in the legend element of the Print Composer.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="fonts-columns-symbol">
+<h4>Fonts, Columns, Symbol<a class="headerlink" href="#fonts-columns-symbol" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Fonts</em>, <em class="guilabel">Columns</em> and <em class="guilabel">Symbol</em> dialogs of the legend
+<em class="guilabel">Item Properties</em> tab provide the following functionalities (see <a class="reference internal" href="#figure-composer-legend-4">figure_composer_legend_4</a>):</p>
+<p id="figure-composer-legend-4"><strong>Figure Composer Legend 4:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_legend4.png" src="../../../_images/print_composer_legend4.png" />
+<p class="caption">Legend Fonts, Columns, Symbol and Spacing Dialogs <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul class="simple">
+<li>You can change the font of the legend title, group, subgroup and item (layer) in the legend item.
+Click on a category button to open a <strong>Select font</strong> dialog.</li>
+<li>You provide the labels with a <strong>Color</strong> using the advanced color picker, however the selected
+color will be given to all font items in the legend..</li>
+<li>Legend items can be arranged over several columns. Set the number of columns in
+the <em class="guilabel">Count</em> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a> field.<ul>
+<li><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Equal column widths</em> sets how legend columns should be adjusted.</li>
+<li>The <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Split layers</em> option allows a categorized or a graduated layer
+legend to be divided between columns.</li>
+</ul>
+</li>
+<li>You can change the width and height of the legend symbol in this dialog.</li>
+</ul>
+</div>
+<div class="section" id="wms-legendgraphic-and-spacing">
+<h4>WMS LegendGraphic and Spacing<a class="headerlink" href="#wms-legendgraphic-and-spacing" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">WMS LegendGraphic</em> and <em class="guilabel">Spacing</em> dialogs of the legend
+<em class="guilabel">Item Properties</em> tab provide the following functionalities (see
+<a class="reference internal" href="#figure-composer-legend-5">figure_composer_legend_5</a>):</p>
+<p id="figure-composer-legend-5"><strong>Figure Composer Legend 5:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_legend5.png" src="../../../_images/print_composer_legend5.png" />
+<p class="caption">WMS LegendGraphic Dialogs <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>When you have added a WMS layer and you insert a legend composer item, a request will be send to the
+WMS server to provide a WMS legend. This Legend will only be shown if the WMS server provides the
+GetLegendGraphic capability. The WMS legend content will be provided as a raster image.</p>
+<p><em class="guilabel">WMS LegendGraphic</em> is used to be able to adjust the <em class="guilabel">Legend width</em> and
+the <em class="guilabel">Legend height</em> of the WMS legend raster image.</p>
+<p>Spacing around title, group, subgroup, symbol, icon label, box space or column space can be customized
+through this dialog.</p>
+</div>
+</div>
+<div class="section" id="the-scale-bar-item">
+<span id="index-9"></span><h3>The Scale Bar item<a class="headerlink" href="#the-scale-bar-item" title="Permalink to this headline">¶</a></h3>
+<p>To add a scale bar, click the <a class="reference internal" href="../../../_images/mActionScaleBar.png"><img alt="mActionScaleBar" src="../../../_images/mActionScaleBar.png" style="width: 1.5em;" /></a> <sup>Add new scalebar</sup> icon, place
+the element with the left mouse button on the Print Composer canvas and position
+and customize the appearance in the scale bar <em class="guilabel">Item Properties</em> tab.</p>
+<p>The <em class="guilabel">Item properties</em> of a scale bar item tab provides the following
+functionalities (see <a class="reference internal" href="#figure-composer-scalebar-1">figure_composer_scalebar_1</a>):</p>
+<p id="figure-composer-scalebar-1"><strong>Figure Composer Scalebar 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_scalebar1.png" src="../../../_images/print_composer_scalebar1.png" />
+<p class="caption">Scale Bar Item properties Tab <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<div class="section" id="id5">
+<h4>Main properties<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Main properties</em> dialog of the scale bar <em class="guilabel">Item Properties</em> tab
+provides the following functionalities (see <a class="reference internal" href="#figure-composer-scalebar-2">figure_composer_scalebar_2</a>):</p>
+<p id="figure-composer-scalebar-2"><strong>Figure Composer Scalebar 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_scalebar2.png" src="../../../_images/print_composer_scalebar2.png" />
+<p class="caption">Scale Bar Main properties Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul class="simple">
+<li>First, choose the map the scale bar will be attached to.</li>
+<li>Then, choose the style of the scale bar. Six styles are available:<ul>
+<li><strong>Single box</strong> and <strong>Double box</strong> styles, which contain one or two lines of boxes alternating colors.</li>
+<li><strong>Middle</strong>, <strong>Up</strong> or <strong>Down</strong> line ticks.</li>
+<li><strong>Numeric</strong>, where the scale ratio is printed (i.e., 1:50000).</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="units-and-segments">
+<h4>Units and Segments<a class="headerlink" href="#units-and-segments" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Units</em> and <em class="guilabel">Segments</em> dialogs of the scale bar <em class="guilabel">Item Properties</em> tab
+provide the following functionalities (see <a class="reference internal" href="#figure-composer-scalebar-3">figure_composer_scalebar_3</a>):</p>
+<p id="figure-composer-scalebar-3"><strong>Figure Composer scalebar 3:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_scalebar3.png" src="../../../_images/print_composer_scalebar3.png" />
+<p class="caption">Scale Bar Units and Segments Dialogs <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>In these two dialogs, you can set how the scale bar will be represented.</p>
+<ul class="simple">
+<li>Select the map units used. There are four possible choices: <strong>Map Units</strong> is the automated unit
+selection; <strong>Meters</strong>, <strong>Feet</strong> or <strong>Nautical Miles</strong> force unit conversions.</li>
+<li>The <em class="guilabel">Label</em> field defines the text used to describe the units of the scale bar.</li>
+<li>The <em class="guilabel">Map units per bar unit</em> allows you to fix the ratio between a map unit and its representation in the scale bar.</li>
+<li>You can define how many <em class="guilabel">Segments</em> will be drawn on the left and on the right side of the scale bar,
+and how long each segment will be (<em class="guilabel">Size</em> field). <em class="guilabel">Height</em> can also be defined.</li>
+</ul>
+</div>
+<div class="section" id="display">
+<h4>Display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Display</em> dialog of the scale bar <em class="guilabel">Item Properties</em> tab provide the following functionalities (see <a class="reference internal" href="#figure-composer-scalebar-4">figure_composer_scalebar_4</a>):</p>
+<p id="figure-composer-scalebar-4"><strong>Figure Composer Scalebar 4:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_scalebar4.png" src="../../../_images/print_composer_scalebar4.png" />
+<p class="caption">Scale Bar Display <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>You can define how the scale bar will be displayed in its frame.</p>
+<ul class="simple">
+<li><em class="guilabel">Box margin</em> : space between text and frame borders</li>
+<li><em class="guilabel">Labels margin</em> :  space between text and scale bar drawing</li>
+<li><em class="guilabel">Line width</em> : line widht of the scale bar drawing</li>
+<li><em class="guilabel">Join style</em> : Corners at the end of scalebar in style Bevel, Rounded or Square
+(only available for Scale bar style Single Box &amp; Double Box)</li>
+<li><em class="guilabel">Cap style</em> : End of all lines in style Square, Round or Flat
+(only available for Scale bar style Line Ticks Up, Down and Middle)</li>
+<li><em class="guilabel">Alignment</em> : Puts text on the left, middle or right side of the frame
+(works only for Scale bar style Numeric)</li>
+</ul>
+</div>
+<div class="section" id="fonts-and-colors">
+<h4>Fonts and colors<a class="headerlink" href="#fonts-and-colors" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Fonts and colors</em> dialog of the scale bar <em class="guilabel">Item Properties</em> tab
+provide the following functionalities (see <a class="reference internal" href="#figure-composer-scalebar-5">figure_composer_scalebar_5</a>):</p>
+<p id="figure-composer-scalebar-5"><strong>Figure Composer Scalebar 5:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_scalebar5.png" src="../../../_images/print_composer_scalebar5.png" />
+<p class="caption">Scale Bar Fonts and colors Dialogs <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>You can define the fonts and colors used for the scale bar.</p>
+<ul class="simple">
+<li>Use the <strong>[Font]</strong> button to set the font</li>
+<li><em class="guilabel">Font color</em>: set the font color</li>
+<li><em class="guilabel">Fill color</em>: set the first fill color</li>
+<li><em class="guilabel">Secondary fill color</em>: set the second fill color</li>
+<li><em class="guilabel">Stroke color</em>: set the color of the lines of the Scale Bar</li>
+</ul>
+<p>Fill colors are only used for scale box styles Single Box and Double Box.
+To select a color you can use the list option using the dropdown arrow to open
+a simple color selection option or the more advanced color selection option, that is
+started when you click in the colored box in the dialog.</p>
+</div>
+</div>
+<div class="section" id="the-basic-shape-items">
+<h3>The Basic Shape Items<a class="headerlink" href="#the-basic-shape-items" title="Permalink to this headline">¶</a></h3>
+<p>To add a basic shape (ellipse, rectangle, triangle), click the <a class="reference internal" href="../../../_images/mActionAddBasicShape.png"><img alt="mActionAddBasicShape" src="../../../_images/mActionAddBasicShape.png" style="width: 1.5em;" /></a> <sup>Add basic shape</sup> icon
+or the <a class="reference internal" href="../../../_images/mActionAddArrow.png"><img alt="mActionAddArrow" src="../../../_images/mActionAddArrow.png" style="width: 1.5em;" /></a> <sup>Add Arrow</sup> icon, place the element holding down the left mouse. Customize the
+appearance in the <em class="guilabel">Item Properties</em> tab.</p>
+<p>When you also hold down the <tt class="kbd docutils literal"><span class="pre">Shift</span></tt> key while placing the basic shape you can create a perfect square,
+circle or triangle.</p>
+<p id="figure-composer-basic-shape"><strong>Figure Composer Basic Shape:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_shape.png" src="../../../_images/print_composer_shape.png" />
+<p class="caption">Shape Item properties Tab <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>The <em class="guilabel">Shape</em> item properties tab allows you to select if you want to draw an ellipse,
+rectangle or triangle inside the given frame.</p>
+<p>You can set the style of the shape using the advanced symbol style dialog with which you can
+define its outline and fill color, fill pattern, use markers etcetera.</p>
+<p>For the rectangle shape, you can set the value of the corner radius to round of the corners.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Unlike other items, you can not style the frame or the background color of the frame.</p>
+</div>
+</div>
+<div class="section" id="the-arrow-item">
+<h3>The Arrow item<a class="headerlink" href="#the-arrow-item" title="Permalink to this headline">¶</a></h3>
+<p>To add an arrow, click the <a class="reference internal" href="../../../_images/mActionAddArrow.png"><img alt="mActionAddArrow" src="../../../_images/mActionAddArrow.png" style="width: 1.5em;" /></a> <sup>Add Arrow</sup> icon, place the element holding
+down the left mouse button and drag a line to draw the arrow on the Print Composer canvas and
+position and customize the appearance in the scale bar <em class="guilabel">Item Properties</em> tab.</p>
+<p>When you also hold down the <tt class="kbd docutils literal"><span class="pre">Shift</span></tt> key while placing the arrow, it is placed in an angle
+of exactly 45° .</p>
+<p>The arrow item can be used to add a line or a simple arrow that can be used, for example, to
+show the relation between other print composer items. To create a north arrow, the image item should
+be considered first. KADAS has a set of North arrows in SVG format. Furthermore you can connect
+an image item with a map so it can rotate automatically with the map (see <a class="reference internal" href="#the-image-item">the_image_item</a>).</p>
+<p id="figure-composer-arrow"><strong>Figure Composer Arrow:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_arrow.png" src="../../../_images/print_composer_arrow.png" />
+<p class="caption">Arrow Item properties Tab <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<div class="section" id="item-properties">
+<h4>Item Properties<a class="headerlink" href="#item-properties" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Arrow</em> item properties tab allows you to configure an arrow item.</p>
+<p>The  <strong>[Line style ...]</strong> button can be used to set the line style using the line style symbol editor.</p>
+<p>In <em class="guilabel">Arrows markers</em> you can select one of three radio buttons.</p>
+<ul class="simple">
+<li><em class="guilabel">Default</em> : To draw a regular arrow, gives you options to style the arrow head</li>
+<li><em class="guilabel">None</em> : To draw a line without arrow head</li>
+<li><em class="guilabel">SVG Marker</em> : To draw a line with an SVG <em class="guilabel">Start marker</em> and/or <em class="guilabel">End marker</em></li>
+</ul>
+<p>For <em class="guilabel">Default</em> Arrow marker you can use following options to style the arrow head.</p>
+<ul class="simple">
+<li><em class="guilabel">Arrow outline color</em> : Set the outline color of the arrow head</li>
+<li><em class="guilabel">Arrow fill color</em> : Set the fill color of the arrow head</li>
+<li><em class="guilabel">Arrow outline width</em> : Set the outline width of the arrow head</li>
+<li><em class="guilabel">Arrow head width</em>: Set the size of the arrow head</li>
+</ul>
+<p>For <em class="guilabel">SVG Marker</em> you can use following options.</p>
+<ul class="simple">
+<li><em class="guilabel">Start marker</em> : Choose an SVG image to draw at the beginning of the line</li>
+<li><em class="guilabel">End marker</em> : Choose an SVG image to draw at the end of the line</li>
+<li><em class="guilabel">Arrow head width</em>: Sets the size of Start and/or End marker</li>
+</ul>
+<p>SVG images are automatically rotated with the line. The color of the SVG image can not be changed.</p>
+</div>
+</div>
+<div class="section" id="the-attribute-table-item">
+<span id="index-10"></span><h3>The Attribute Table item<a class="headerlink" href="#the-attribute-table-item" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to add parts of a vector attribute table to the Print Composer
+canvas: Click the <a class="reference internal" href="../../../_images/mActionOpenTable.png"><img alt="mActionOpenTable" src="../../../_images/mActionOpenTable.png" style="width: 1.5em;" /></a> <sup>Add attribute table</sup> icon, place the
+element with the left mouse button on the Print Composer canvas, and position and
+customize the appearance in the <em class="guilabel">Item Properties</em> tab.</p>
+<p>The <em class="guilabel">Item properties</em> of an attribute table item tab provides the following
+functionalities (see <a class="reference internal" href="#figure-composer-table-1">figure_composer_table_1</a>):</p>
+<p id="figure-composer-table-1"><strong>Figure Composer Attribute Table 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_attribute1.png" src="../../../_images/print_composer_attribute1.png" />
+<p class="caption">Attribute table Item properties Tab <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<div class="section" id="id6">
+<h4>Main properties<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Main properties</em> dialogs of the attribute table <em class="guilabel">Item Properties</em>
+tab provide the following functionalities (see <a class="reference internal" href="#figure-composer-table-2">figure_composer_table_2</a>):</p>
+<p id="figure-composer-table-2"><strong>Figure Composer Attribute Table 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_attribute2.png" src="../../../_images/print_composer_attribute2.png" />
+<p class="caption">Attribute table Main properties Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul class="simple">
+<li>For <em class="guilabel">Source</em> you can normally select only &#8216;Layer features&#8217;.</li>
+<li>With <em class="guilabel">Layer</em> you can choose from the vector layers loaded in the project.</li>
+<li>The button <strong>[Refresh table data]</strong> can be used to refresh the table when the actual
+contents of the table has changed.</li>
+<li>In case you activated the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><em class="guilabel">Generate an atlas</em> option in the
+<em class="guilabel">Atlas generation</em> tab, there are two additional <em class="guilabel">Source</em> possible:
+&#8216;Current atlas feature&#8217; (see <a class="reference internal" href="#figure-composer-table-2b">figure_composer_table_2b</a>) and &#8216;Relation children&#8217;
+(see <a class="reference internal" href="#figure-composer-table-2c">figure_composer_table_2c</a>). Choosing the &#8216;Current atlas feature&#8217;
+you won&#8217;t see any option to choose the layer, and the table item will only
+show a row with the attributes from the current feature of the atlas coverage layer.
+Choosing &#8216;Relation children&#8217;, an option with the relation name will show up.
+The &#8216;Relation children&#8217; option can only be used if you have defined a relation using
+your atlas coverage layer as parent, and it will show the children rows of
+the atlas coverage layer&#8217;s current feature (for further information about the atlas generation
+see <a class="reference internal" href="#atlasgeneration">atlasgeneration</a>).</li>
+</ul>
+<p id="figure-composer-table-2b"><strong>Figure Composer Attribute Table 2b:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_attribute2b.png" src="../../../_images/print_composer_attribute2b.png" />
+<p class="caption">Attribute table Main properties for &#8216;Current atlas feature&#8217; <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p id="figure-composer-table-2c"><strong>Figure Composer Attribute Table 2c:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_attribute2c.png" src="../../../_images/print_composer_attribute2c.png" />
+<p class="caption">Attribute table Main properties for &#8216;Relation children&#8217; <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul>
+<li><p class="first">The button <strong>[Attributes...]</strong> starts the <em class="guilabel">Select attributes</em> menu, see
+<a class="reference internal" href="#figure-composer-table-3">figure_composer_table_3</a>, that can be used to change the visible contents of the table.
+After making changes use the <strong>[OK]</strong> button to apply changes to the table.</p>
+<p>In the <em class="guilabel">Columns</em> section you can:</p>
+<ul class="simple">
+<li>Remove an attribute, just select an attribute row by clicking anywhere in a row and press
+the minus button to remove the selected attribute.</li>
+<li>Add a new attribute use the plus button. At the end a new empty row appears and you can
+select empty cell of the column <em class="guilabel">Attribute</em>. You can select a field attribute from
+the list or you can select to build a new attribute using a regular expression (<a class="reference internal" href="../../../_images/mIconExpression.png"><img alt="mIconExpression" src="../../../_images/mIconExpression.png" style="width: 1.5em;" /></a> button). Of course
+you can modify every already existing attribute by means of a regular expression.</li>
+<li>Use the up and down arrows to change the order of the attributes in the table.</li>
+<li>Select a cel in the Headings column to change the Heading, just type in a new name.</li>
+<li>Select a cel in the Alignment column and you can choose between Left, Center or Right alignment.</li>
+<li>Select a cel in the Width column and you can change it from Automatic to a width in mm, just
+type a number. When you want to change it back to Automatic, use the cross.</li>
+<li>The <strong>[Reset]</strong> button can always be used to restore it to the original attribute settings.</li>
+</ul>
+<p>In the <em class="guilabel">Sorting</em> section you can:</p>
+<ul class="simple">
+<li>Add an attribute to sort the table with. Select an attribute and set the sorting order to &#8216;Ascending&#8217;
+or &#8216;Descending&#8217; and press the plus button. A new line is added to the sort order list.</li>
+<li>select a row in the list and use the up and down button to change the sort priority on attribute level.</li>
+<li>use the minus button to remove an attribute from the sort order list.</li>
+</ul>
+</li>
+</ul>
+<p id="figure-composer-table-3"><strong>Figure Composer Attribute Table 3:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_attribute3.png" src="../../../_images/print_composer_attribute3.png" />
+<p class="caption">Attribute table Select attributes Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+</div>
+<div class="section" id="feature-filtering">
+<h4>Feature filtering<a class="headerlink" href="#feature-filtering" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Feature filtering</em> dialogs of the attribute table <em class="guilabel">Item Properties</em>
+tab provide the following functionalities  (see <a class="reference internal" href="#figure-composer-table-4">figure_composer_table_4</a>):</p>
+<p id="figure-composer-table-4"><strong>Figure Composer Attribute Table 4:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_attribute4.png" src="../../../_images/print_composer_attribute4.png" />
+<p class="caption">Attribute table Feature filtering Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>You can:</p>
+<ul>
+<li><p class="first">Define the <em class="guilabel">Maximum rows</em> to be displayed.</p>
+</li>
+<li><p class="first">Activate <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Remove duplicate rows from table</em> to show unique records only.</p>
+</li>
+<li><p class="first">Activate <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Show only visible features within a map</em> and select the
+corresponding <em class="guilabel">Composer map</em> to display the attributes of features only visible
+on selected map.</p>
+</li>
+<li><p class="first">Activate <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Show only features intersecting Atlas feature</em> is only
+available when <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Generate an atlas</em> is activated. When activated it will
+show a table with only the features shown on the map of that particular page of the atlas.</p>
+</li>
+<li><p class="first">Activate <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Filter with</em> and provide a filter by typing in the input
+line or insert a regular expression using the given <a class="reference internal" href="../../../_images/mIconExpression.png"><img alt="mIconExpression" src="../../../_images/mIconExpression.png" style="width: 1.5em;" /></a> expression button. A few examples of
+filtering statements you can use when you have loaded the airports layer from the Sample
+dataset:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">ELEV</span> <span class="pre">&gt;</span> <span class="pre">500</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">NAME</span> <span class="pre">=</span> <span class="pre">'ANIAK'</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">NAME</span> <span class="pre">NOT</span> <span class="pre">LIKE</span> <span class="pre">'AN%</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">regexp_match(</span> <span class="pre">attribute(</span> <span class="pre">$currentfeature,</span> <span class="pre">'USE'</span> <span class="pre">)</span>&nbsp; <span class="pre">,</span> <span class="pre">'[i]')</span></tt></li>
+</ul>
+<p>The last regular expression will include only the arpoirts that have a letter &#8216;i&#8217;
+in the attribute field &#8216;USE&#8217;.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h4>Appearance<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Appearance</em> dialogs of the attribute table <em class="guilabel">Item Properties</em>
+tab provide the following functionalities  (see <a class="reference internal" href="#figure-composer-table-5">figure_composer_table_5</a>):</p>
+<p id="figure-composer-table-5"><strong>Figure Composer Attribute Table 5:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_attribute5.png" src="../../../_images/print_composer_attribute5.png" />
+<p class="caption">Attribute table appearance Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul class="simple">
+<li>Click <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Show empty rows</em> to make empty entries in the attribute table visible.</li>
+<li>With <em class="guilabel">Cell margins</em> you can define the margin around text in each cell
+of the table.</li>
+<li>With <em class="guilabel">Display header</em> you can select from a list one of &#8216;On first frame&#8217;,
+&#8216;On all frames&#8217; default option, or &#8216;No header&#8217;.</li>
+<li>The option <em class="guilabel">Empty table</em> controls what will be displayed when the result
+selection is empty.<ul>
+<li><strong>Draw headers only</strong>, will only draw the header except if you have choosen &#8216;No header&#8217;
+for <em class="guilabel">Display header</em>.</li>
+<li><strong>Hide entire table</strong>, will only draw the background of the table. You can activate
+<a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Don&#8217;t draw background if frame is empty</em> in <em class="guilabel">Frames</em>
+to completely hide the table.</li>
+<li><strong>Draw empty cells</strong>, will fill the attribute table with empty cells, this option can
+also be used to provide additional empty cells when you have a result to show!</li>
+<li><strong>Show set message</strong>, will draw the header and adds a cell spanning all columns and
+display a message like &#8216;No result&#8217; that can be provided in the option
+<em class="guilabel">Message to display</em></li>
+</ul>
+</li>
+<li>The option <em class="guilabel">Message to display</em> is only activated when you have selected
+<strong>Show set message</strong> for <em class="guilabel">Empty table</em>. The message provided will be shown
+in the table in the first row, when the result is an empty table.</li>
+<li>With <em class="guilabel">Background color</em> you can set the background color of the table.</li>
+</ul>
+</div>
+<div class="section" id="show-grid">
+<h4>Show grid<a class="headerlink" href="#show-grid" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Show grid</em> dialog of the attribute table <em class="guilabel">Item Properties</em> tab
+provide the following functionalities (see <a class="reference internal" href="#figure-composer-table-6">figure_composer_table_6</a>):</p>
+<blockquote>
+<div></div></blockquote>
+<p id="figure-composer-table-6"><strong>Figure Composer Attribute Table 6:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_attribute6.png" src="../../../_images/print_composer_attribute6.png" />
+<p class="caption">Attribute table Show grid Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul class="simple">
+<li>Activate <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Show grid</em> when you want to display the grid, the outlines
+of the table cells.</li>
+<li>With <em class="guilabel">Stroke width</em> you can set the thickness of the lines used in the grid.</li>
+<li>The <em class="guilabel">Color</em> of the grid can be set using the color selection dialog.</li>
+</ul>
+</div>
+<div class="section" id="fonts-and-text-styling">
+<h4>Fonts and text styling<a class="headerlink" href="#fonts-and-text-styling" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Fonts and text styling</em> dialog of the attribute table
+<em class="guilabel">Item Properties</em> tab provide the following functionalities (see
+<a class="reference internal" href="#figure-composer-table-7">figure_composer_table_7</a>):</p>
+<blockquote>
+<div></div></blockquote>
+<p id="figure-composer-table-7"><strong>Figure Composer Attribute Table 7:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_attribute7.png" src="../../../_images/print_composer_attribute7.png" />
+<p class="caption">Attribute table Fonts and text styling Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul class="simple">
+<li>You can define <em class="guilabel">Font</em> and <em class="guilabel">Color</em> for <em class="guilabel">Table heading</em>
+and <em class="guilabel">Table contents</em>.</li>
+<li>For <em class="guilabel">Table heading</em> you can additionally set the <em class="guilabel">Alignment</em> and
+choose from <cite>Follow column alignment</cite>, <cite>Left</cite>, <cite>Center</cite> or <cite>Right</cite>. The column
+alignment is set using the <em class="guilabel">Select Attributes</em> dialog (see <a class="reference internal" href="#figure-composer-table-3">Figure_composer_table_3</a> ).</li>
+</ul>
+</div>
+<div class="section" id="frames">
+<h4>Frames<a class="headerlink" href="#frames" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Frames</em> dialog of the attribute table <em class="guilabel">Item Properties</em> tab
+provide the following functionalities (see <a class="reference internal" href="#figure-composer-table-8">figure_composer_table_8</a>):</p>
+<blockquote>
+<div></div></blockquote>
+<p id="figure-composer-table-8"><strong>Figure Composer Attribute Table 8:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_attribute8.png" src="../../../_images/print_composer_attribute8.png" />
+<p class="caption">Attribute table Frames Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul class="simple">
+<li>With <em class="guilabel">Resize mode</em> you can select how to render the attribute table contents:<ul>
+<li><cite>Use existing frames</cite> displays the result in the first frame and added frames only.</li>
+<li><cite>Extent to next page</cite> will create as many frames (and corresponding pages) as
+necessary to display the full selection of attribute table. Each frame can be moved
+around on the layout. If you resize a frame, the resulting table will be divided up
+between the other frames. The last frame will be trimmed to fit the table.</li>
+<li><cite>Repeat until finished</cite> will also create as many frames as the
+<cite>Extend to next page</cite> option, except all frames will have the same size.</li>
+</ul>
+</li>
+<li>Use the <strong>[Add Frame]</strong> button to add another frame with the same size as selected
+frame. The result of the table that will not fit in the first frame will continue
+in the next frame when you use the Resize mode <cite>Use existing frames</cite>.</li>
+<li>Activate <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Don&#8217;t export page if frame is empty</em> prevents the page
+to be exported when the table frame has no contents. This means all other composer items,
+maps, scalebars, legends etc. will not be visible in the result.</li>
+<li>Activate <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Don&#8217;t draw background if frame is empty</em> prevents the
+background to be drawn when the table frame has no contents.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-html-frame-item">
+<span id="index-11"></span><h3>The HTML frame item<a class="headerlink" href="#the-html-frame-item" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to add a frame that displays the contents of a website or even create and style
+your own HTML page and display it!</p>
+<p>Click the <a class="reference internal" href="../../../_images/mActionAddHtml.png"><img alt="mActionAddHtml" src="../../../_images/mActionAddHtml.png" style="width: 1.5em;" /></a> <sup>Add HTML frame</sup> icon, place the element by dragging a
+rectangle holding down the left mouse button on the Print Composer canvas and position
+and customize the appearance in the <em class="guilabel">Item Properties</em> tab
+(see <a class="reference internal" href="#figure-composer-html-1">figure_composer_html_1</a>).</p>
+<p id="figure-composer-html-1"><strong>Figure Composer HTML 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_html1.png" src="../../../_images/print_composer_html1.png" />
+<p class="caption">HTML frame, the item properties Tab <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<div class="section" id="html-source">
+<h4>HTML Source<a class="headerlink" href="#html-source" title="Permalink to this headline">¶</a></h4>
+<p>As an HTML source, you can either set a URL and activate the URL radiobutton or
+enter the HTML source directly in the textbox provided and activate the Source radiobutton.</p>
+<p>The <em class="guilabel">HTML Source</em> dialog of the HTML frame <em class="guilabel">Item Properties</em> tab
+provides the following functionalities (see <a class="reference internal" href="#figure-composer-html-2">figure_composer_html_2</a>):</p>
+<p id="figure-composer-html-2"><strong>Figure Composer HTML 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_html2.png" src="../../../_images/print_composer_html2.png" />
+<p class="caption">HTML frame, the HTML Source properties <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul class="simple">
+<li>In <em class="guilabel">URL</em> you can enter the URL of a webpage you copied from your internet
+browser or select an HTML file using the browse button <a class="reference internal" href="../../../_images/browsebutton.png"><img alt="browsebutton" src="../../../_images/browsebutton.png" style="width: 2.3em;" /></a>. There is also the
+option to use the Data defined override button, to provide an URL from the contents of an
+attribute field of a table or using a regular expression.</li>
+<li>In <em class="guilabel">Source</em> you can enter text in the textbox with some HTML tags or provide a full
+HTML page.</li>
+<li>The <strong>[insert an expression]</strong> button can be used to insert an expression like
+<tt class="docutils literal"><span class="pre">[%Year($now)%]</span></tt> in the Source textbox to display the current year. This button is only
+activated when radiobutton <em class="guilabel">Source</em> is selected. After inserting the expression
+click somewhere in the textbox before refreshing the HTML frame, otherwise you will
+lose the expression.</li>
+<li>Activate <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Evaluate QGIS expressions in HTML code</em> to see the result of
+the expression you have included, otherwise you will see the expression instead.</li>
+<li>Use the <strong>[Refresh HTML]</strong> button to refresh the HTML frame(s) to see the result of
+changes.</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h4>Frames<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Frames</em> dialog of the HTML frame <em class="guilabel">Item Properties</em> tab
+provides the following functionalities (see <a class="reference internal" href="#figure-composer-html-3">figure_composer_html_3</a>):</p>
+<p id="figure-composer-html-3"><strong>Figure Composer HTML 3:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_html3.png" src="../../../_images/print_composer_html3.png" />
+<p class="caption">HTML frame, the Frames properties <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul class="simple">
+<li>With <em class="guilabel">Resize mode</em> you can select how to render the HTML contents:<ul>
+<li><cite>Use existing frames</cite> displays the result in the first frame and added frames only.</li>
+<li><cite>Extent to next page</cite> will create as many frames (and corresponding pages) as
+necessary to render the height of the web page. Each frame can be moved around on
+the layout. If you resize a frame, the webpage will be divided up between the
+other frames. The last frame will be trimmed to fit the web page.</li>
+<li><cite>Repeat on every page</cite> will repeat the upper left of the web page on every page
+in frames of the same size.</li>
+<li><cite>Repeat until finished</cite> will also create as many frames as the
+<cite>Extend to next page</cite> option, except all frames will have the same size.</li>
+</ul>
+</li>
+<li>Use the <strong>[Add Frame]</strong> button to add another frame with the same size as selected
+frame. If the HTML page that will not fit in the first frame it will continue
+in the next frame when you use <em class="guilabel">Resize mode</em> or <em class="guilabel">Use
+existing frames</em>.</li>
+<li>Activate <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Don&#8217;t export page if frame is empty</em> prevents
+the map layout from being exported when the frame has no HTML contents. This
+means all other composer items,
+maps, scalebars, legends etc. will not be visible in the result.</li>
+<li>Activate <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Don&#8217;t draw background if frame is empty</em>
+prevents the HTML frame being drawn if the frame is empty.</li>
+</ul>
+</div>
+<div class="section" id="use-smart-page-breaks-and-user-style-sheet">
+<h4>Use smart page breaks and User style sheet<a class="headerlink" href="#use-smart-page-breaks-and-user-style-sheet" title="Permalink to this headline">¶</a></h4>
+<p>The <em class="guilabel">Use smart page breaks</em> dialog and <em class="guilabel">Use style sheet</em> dialog of
+the HTML frame <em class="guilabel">Item Properties</em> tab provides the following functionalities
+(see <a class="reference internal" href="#figure-composer-html-4">figure_composer_html_4</a>):</p>
+<p id="figure-composer-html-4"><strong>Figure Composer HTML 4:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_html4.png" src="../../../_images/print_composer_html4.png" />
+<p class="caption">HTML frame, Use smart page breaks and User stylesheet properties <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul>
+<li><p class="first">Activate <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Use smart page breaks</em> to prevent the html frame contents
+from breaking mid-way a line of text so it continues nice and smooth in the next frame.</p>
+</li>
+<li><p class="first">Set the <em class="guilabel">Maximum distance</em> allowed when calculating where to place page
+breaks in the html. This distance is the maximum amount of empty space allowed at the
+bottom of a frame after calculating the optimum break location. Setting a larger value
+will result in better choice of page break location, but more wasted space at the bottom
+of frames. This is only used when <em class="guilabel">Use smart page breaks</em> is activated.</p>
+</li>
+<li><p class="first">Activate <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">User stylesheet</em> to apply HTML styles that often is provided
+in cascading style sheets. An example of style code is provide below to set the color of
+<tt class="docutils literal"><span class="pre">&lt;h1&gt;</span></tt> header tag to green and set the font and fontsize of text included in paragraph
+tags <tt class="docutils literal"><span class="pre">&lt;p&gt;</span></tt>.</p>
+<div class="highlight-css"><div class="highlight"><pre><span class="nt">h1</span> <span class="p">{</span><span class="k">color</span><span class="o">:</span> <span class="m">#00ff00</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">p</span> <span class="p">{</span><span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Times New Roman&quot;</span><span class="o">,</span> <span class="n">Times</span><span class="o">,</span> <span class="k">serif</span><span class="p">;</span>
+   <span class="k">font-size</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Use the <strong>[Update HTML]</strong> button to see the result of the stylesheet settings.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="manage-items">
+<span id="index-12"></span><h2>Manage items<a class="headerlink" href="#manage-items" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="size-and-position">
+<h3>Size and position<a class="headerlink" href="#size-and-position" title="Permalink to this headline">¶</a></h3>
+<p>Each item inside the Composer can be moved/resized to create a perfect layout.
+For both operations the first step is to activate the <a class="reference internal" href="../../../_images/mActionSelect.png"><img alt="mActionSelect" src="../../../_images/mActionSelect.png" style="width: 1.5em;" /></a> <sup>Select/Move item</sup>
+tool and to click on the item; you can then move it using the mouse while holding the left button.
+If you need to constrain the movements to the horizontal or the vertical axis, just hold
+the <tt class="kbd docutils literal"><span class="pre">Shift</span></tt> while moving the mouse.
+If you need a better precision, you can move a selected item using the <tt class="kbd docutils literal"><span class="pre">Arrow</span> <span class="pre">keys</span></tt> on the keyboard;
+if the movement is too slow, you can speed up it by holding <tt class="kbd docutils literal"><span class="pre">Shift</span></tt>.</p>
+<p>A selected item will show squares on its boundaries; moving one of them with the mouse, will resize the item in the corresponding direction. While resizing,
+holding <tt class="kbd docutils literal"><span class="pre">Shift</span></tt> will maintain the aspect ratio. Holding <tt class="kbd docutils literal"><span class="pre">Alt</span></tt> will
+resize from the item center.</p>
+<p>The correct position for an item can be obtained using snapping to grid or
+smart guides. Guides are set by clicking and dragging in the rulers. Guides are
+moved by clicking in the ruler, level with the guide and dragging to a new
+place. To delete a guide move it off the canvas. If you need to disable the
+snap on the fly just hold <tt class="kbd docutils literal"><span class="pre">Ctrl</span></tt> while moving the mouse.</p>
+<p>You can choose multiple items with the <a class="reference internal" href="../../../_images/mActionSelect.png"><img alt="mActionSelect" src="../../../_images/mActionSelect.png" style="width: 1.5em;" /></a> <sup>Select/Move item</sup> button.
+Just hold the <tt class="kbd docutils literal"><span class="pre">Shift</span></tt> button and click on all the items you need. You can then resize/move
+this group just like a single item.</p>
+<p>Once you have found the correct position for an item, you can lock it by using
+the items on the toolbar or ticking the box next to the item in the
+<em class="menuselection">Items</em> tab. Locked items are <strong>not</strong> selectable on the canvas.</p>
+<p>Locked items can be unlocked by selecting the item in the
+<em class="menuselection">Items</em> tab and unchecking the tickbox or you can use the icons
+on the toolbar.</p>
+<p>To unselect an item, just click on it holding the <tt class="kbd docutils literal"><span class="pre">Shift</span></tt> button.</p>
+<p>Inside the <em class="menuselection">Edit</em> menu, you can find actions to select all the items, to clear all selections or
+to invert the current selection.</p>
+</div>
+<div class="section" id="alignment">
+<h3>Alignment<a class="headerlink" href="#alignment" title="Permalink to this headline">¶</a></h3>
+<p>Raising or lowering functionalities for elements are inside the <a class="reference internal" href="../../../_images/mActionRaiseItems.png"><img alt="mActionRaiseItems" src="../../../_images/mActionRaiseItems.png" style="width: 1.5em;" /></a>
+<sup>Raise selected items</sup> pull-down menu. Choose an element on the Print Composer
+canvas and select the matching functionality to raise or lower the selected
+element compared to the other elements (see <a class="reference internal" href="#table-composer-1">table_composer_1</a>). This order is
+shown in the <em class="menuselection">Items</em> tab. You can also raise or lower objects
+in the <em class="menuselection">Items</em> tab by clicking and dragging an object&#8217;s label
+in this list.</p>
+<p id="figure-composer-28"><strong>Figure Composer 28:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/alignment_lines.png" src="../../../_images/alignment_lines.png" />
+<p class="caption">Alignment helper lines in the Print Composer <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>There are several alignment functionalities available within the <a class="reference internal" href="../../../_images/mActionAlignLeft.png"><img alt="mActionAlignLeft" src="../../../_images/mActionAlignLeft.png" style="width: 1.5em;" /></a>
+<sup>Align selected items</sup> pull-down menu (see <a class="reference internal" href="#table-composer-1">table_composer_1</a>). To use an
+alignment functionality, you first select some elements and then click on the
+matching alignment icon. All selected elements will then be aligned within to their common
+bounding box.
+When moving items on the Composer canvas, alignment helper lines appear when borders, centers or corners are aligned.</p>
+</div>
+<div class="section" id="copy-cut-and-paste-items">
+<span id="index-13"></span><h3>Copy/Cut and Paste items<a class="headerlink" href="#copy-cut-and-paste-items" title="Permalink to this headline">¶</a></h3>
+<p>The print composer includes actions to use the common Copy/Cut/Paste functionality for the items
+in the layout. As usual first you need to select the items using one of the options seen above;
+at this point the actions can be found in the <em class="menuselection">Edit</em> menu. When using the Paste action, the elements
+will be pasted according to the current mouse position.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">HTML items can not be copied in this way. As a workaround, use the <strong>[Add Frame]</strong> button in the <em class="menuselection">Item Properties</em> tab.</p>
+</div>
+</div>
+</div>
+<div class="section" id="revert-and-restore-tools">
+<h2>Revert and Restore tools<a class="headerlink" href="#revert-and-restore-tools" title="Permalink to this headline">¶</a></h2>
+<p>During the layout process, it is possible to revert and restore changes. This can
+be done with the revert and restore tools:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../_images/mActionUndo.png"><img alt="mActionUndo" src="../../../_images/mActionUndo.png" style="width: 1.5em;" /></a> <sup>Revert last change</sup></li>
+<li><a class="reference internal" href="../../../_images/mActionRedo.png"><img alt="mActionRedo" src="../../../_images/mActionRedo.png" style="width: 1.5em;" /></a> <sup>Restore last change</sup></li>
+</ul>
+<p>This can also be done by mouse click within the <em class="guilabel">Command history</em> tab (see <a class="reference internal" href="#figure-composer-29">figure_composer_29</a>).</p>
+<p id="figure-composer-29"><strong>Figure Composer 29:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/command_hist.png" src="../../../_images/command_hist.png" />
+<p class="caption">Command history in the Print Composer <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<span class="target" id="atlasgeneration"></span></div>
+<div class="section" id="atlas-generation">
+<span id="index-14"></span><h2>Atlas generation<a class="headerlink" href="#atlas-generation" title="Permalink to this headline">¶</a></h2>
+<p>The Print Composer includes generation functions that allow you to create map books
+in an automated way. The concept is to use a coverage layer, which contains
+geometries and fields. For each geometry in the coverage layer, a new output
+will be generated where the content of some canvas maps will be moved to
+highlight the current geometry. Fields associated with this geometry can be used
+within text labels.</p>
+<p>Every page will be generated with each feature. To enable the generation
+of an atlas and access generation parameters, refer to the <cite>Atlas generation</cite>
+tab. This tab contains the following widgets (see <a class="reference internal" href="#figure-composer-atlas">Figure_composer_atlas</a>):</p>
+<p id="figure-composer-atlas"><strong>Figure Composer Atlas:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_atlas.png" src="../../../_images/print_composer_atlas.png" />
+<p class="caption">Atlas generation tab <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Generate an atlas</em>, which enables or disables the atlas generation.</li>
+<li>A <em class="guilabel">Coverage layer</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> combo box that allows you to choose the
+(vector) layer containing the geometries on which to iterate over.</li>
+<li>An optional <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Hidden coverage layer</em> that, if checked, will
+hide the coverage layer (but not the other ones) during the generation.</li>
+<li>An optional <em class="guilabel">Filter with</em> text area that allows you to specify an
+expression for filtering features from the coverage layer. If the expression
+is not empty, only features that evaluate to <tt class="docutils literal"><span class="pre">True</span></tt> will be selected. The
+button on the right allows you to display the expression builder.</li>
+<li>An <em class="guilabel">Output filename expression</em> textbox that is used to generate a
+filename for each geometry if needed. It is based on expressions. This field is
+meaningful only for rendering to multiple files.</li>
+<li>A <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Single file export when possible</em> that allows you to force
+the generation of a single file if this is possible with the chosen output format
+(PDF, for instance). If this field is checked, the value of the
+<em class="guilabel">Output filename expression</em> field is meaningless.</li>
+<li>An optional <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Sort by</em> that, if checked, allows you to
+sort features of the coverage layer. The associated combo box allows you to choose
+which column will be used as the sorting key. Sort order (either ascending or
+descending) is set by a two-state button that displays an up or a down arrow.</li>
+</ul>
+<p>You can use multiple map items with the atlas generation; each map will be rendered according
+to the coverage features. To enable atlas generation for a specific map item, you need to check
+<a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><em class="guilabel">Controlled by Atlas</em> under the item properties of the map item. Once checked, you can set:</p>
+<ul class="simple">
+<li>A radiobutton <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Margin around feature</em> that allows you to select the amount
+of space added around each geometry within the allocated map. Its value is
+meaningful only when using the auto-scaling mode.</li>
+<li>A <img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Predefined scale</em> (best fit). It will use the best fitting option from the list
+of predefined scales in your project properties settings (see <em class="guilabel">Project &#8211;&gt; Project Properties &#8211;&gt; General &#8211;&gt; Project Scales</em>
+to configure these predefined scales).</li>
+<li>A <img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Fixed scale</em> that allows you to toggle between auto-scale
+and fixed-scale mode. In fixed-scale mode, the map will only be translated for
+each geometry to be centered. In auto-scale mode, the map&#8217;s extents are computed
+in such a way that each geometry will appear in its entirety.</li>
+</ul>
+<div class="section" id="labels">
+<h3>Labels<a class="headerlink" href="#labels" title="Permalink to this headline">¶</a></h3>
+<p>In order to adapt labels to the feature the atlas plugin iterates over, you can include expressions.
+For example, for a city layer with fields CITY_NAME and ZIPCODE, you could insert this:</p>
+<div class="code highlight-python"><pre>The area of [% upper(CITY_NAME) || ',' || ZIPCODE || ' is ' format_number($area/1000000,2) %] km2</pre>
+</div>
+<p>The information <cite>[% upper(CITY_NAME) || &#8216;,&#8217; || ZIPCODE || &#8216; is &#8216; format_number($area/1000000,2) %]</cite>
+is an expression used inside the label. That would result in the generated atlas as:</p>
+<p><cite>The area of PARIS,75001 is 1.94 km2</cite></p>
+</div>
+<div class="section" id="data-defined-override-buttons">
+<span id="atlas-data-defined-overrides"></span><h3>Data Defined Override Buttons<a class="headerlink" href="#data-defined-override-buttons" title="Permalink to this headline">¶</a></h3>
+<p>There are several places where you can use a <a class="reference internal" href="../../../_images/mIconDataDefine.png"><img alt="mIconDataDefine" src="../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> <sup>Data Defined Override</sup>
+button to override the selected setting. These options are particularly usefull with Atlas Generation.</p>
+<p>For the following examples the <cite>Regions</cite> layer of the KADAS sample dataset is used and selected
+for Atlas Generation.
+We also assume the paper format <cite>A4 (210X297)</cite> is selected in the <em class="guilabel">Composition</em> tab
+for field <em class="guilabel">Presets</em>.</p>
+<p>With a <cite>Data Defined Override</cite> button you can dynamically set the paper orientation.
+When the height (north-south) of the extents of a region is greater than it&#8217;s width (east-west), you
+rather want to use <cite>portrait</cite> instead of <cite>landscape</cite> orientation to optimize the use of paper.</p>
+<p>In the <em class="guilabel">Composition</em> you can set the field <em class="guilabel">Orientation</em> and select <cite>Landscape</cite>
+or <cite>Portrait</cite>. We want to set the orientation dynamically using an expression depending on the region geometry.
+press the <a class="reference internal" href="../../../_images/mIconDataDefine.png"><img alt="mIconDataDefine" src="../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> button of field <em class="guilabel">Orientation</em>, select <em class="menuselection">Edit ...</em> so
+the <em class="guilabel">Expression string builder</em> dialog opens. Give following expression:</p>
+<div class="code highlight-python"><pre>CASE WHEN bounds_width($atlasgeometry) &gt; bounds_height($atlasgeometry) THEN 'Landscape' ELSE 'Portrait' END</pre>
+</div>
+<p>Now the paper orients itself automatically for each Region you need to reposition the location
+of the composer item as well. For the map item you can use the <a class="reference internal" href="../../../_images/mIconDataDefine.png"><img alt="mIconDataDefine" src="../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> button of
+field <em class="guilabel">Width</em> to set it dynamically using following expression:</p>
+<div class="code highlight-python"><pre>(CASE WHEN bounds_width($atlasgeometry) &gt; bounds_height($atlasgeometry) THEN 297 ELSE 210 END) - 20</pre>
+</div>
+<p>Use the <a class="reference internal" href="../../../_images/mIconDataDefine.png"><img alt="mIconDataDefine" src="../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> button of field <em class="guilabel">Heigth</em> to provide following expression:</p>
+<div class="code highlight-python"><pre>(CASE WHEN bounds_width($atlasgeometry) &gt; bounds_height($atlasgeometry) THEN 210 ELSE 297 END) - 20</pre>
+</div>
+<p>When you want to give a title above map in the center of the page, insert a label item above the map.
+First use the item properties of the label item to set the horizontal alignment to <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Center</em>.
+Next activate from <em class="guilabel">Reference point</em> the upper middle checkbox.
+You can provide following expression for field <em class="guilabel">X</em> :</p>
+<div class="code highlight-python"><pre>(CASE WHEN bounds_width($atlasgeometry) &gt; bounds_height($atlasgeometry) THEN 297 ELSE 210 END) / 2</pre>
+</div>
+<p>For all other composer items you can set the position in a similar way so they are correctly positioned
+when page is automatically rotated in portrait or landscape.</p>
+<p>Information provided is derived from the excellent blog (in english and portugese)
+on the Data Defined Override options <a class="reference external" href="http://sigsemgrilhetas.wordpress.com/2014/11/09/series-de-mapas-com-formatos-multiplos-em-qgis-2-6-parte-1-multiple-format-map-series-using-qgis-2-6-part-1">Multiple_format_map_series_using_QGIS_2.6</a> .</p>
+<p>This is just one example of how you can use Data Defined Overrides.</p>
+</div>
+<div class="section" id="preview">
+<h3>Preview<a class="headerlink" href="#preview" title="Permalink to this headline">¶</a></h3>
+<p>Once the atlas settings have been configured and map items selected, you can create a preview of all the pages by
+clicking on <em class="menuselection">Atlas ‣ Preview Atlas</em> and using the arrows, in the same menu, to navigate
+through all the features.</p>
+</div>
+<div class="section" id="generation">
+<h3>Generation<a class="headerlink" href="#generation" title="Permalink to this headline">¶</a></h3>
+<p>The atlas generation can be done in different ways. For example, with <em class="menuselection">Atlas ‣ Print Atlas</em>, you can directly print it. You can also create a PDF using <em class="menuselection">Atlas ‣ Export Atlas as PDF</em>: The user will be asked for a directory for saving all the generated PDF files (except if the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Single file export when possible</em> has been selected).
+If you need to print just a page of the atlas, simply start the preview function, select the page you need and click on <em class="menuselection">Composer ‣ Print</em> (or create a PDF).</p>
+</div>
+</div>
+<div class="section" id="hide-and-show-panels">
+<span id="index-15"></span><h2>Hide and show panels<a class="headerlink" href="#hide-and-show-panels" title="Permalink to this headline">¶</a></h2>
+<p>To maximise the space available to interact with a composition you can use <em class="guilabel">View &#8211;&gt;</em>
+<a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Hide panels</em> or press <tt class="kbd docutils literal"><span class="pre">F10</span></tt>.</p>
+<p>:: note:</p>
+<div class="highlight-python"><pre>It's also possible to switch to a full screen mode to have more space to interact by pressing
+:kbd:`F11` or using :guilabel:`View --&gt; |checkbox| :guilabel:`Toggle full screen`.</pre>
+</div>
+</div>
+<div class="section" id="creating-output">
+<h2>Creating Output<a class="headerlink" href="#creating-output" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#figure-composer-output">Figure_composer_output</a> shows the Print Composer with an example print layout,
+including each type of map item described in the sections above.</p>
+<p id="figure-composer-output"><strong>Figure Composer Output:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_complete.png" src="../../../_images/print_composer_complete.png" />
+<p class="caption">Print Composer with map view, legend, image, scale bar, coordinates, text and HTML frame added <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p id="index-16">Before printing a layout you have the possibility to view your composition without bounding
+boxes. This can be enabled by deactivating <em class="guilabel">View &#8211;&gt;</em> <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Show bounding boxes</em>
+or pressing the shortcut <tt class="kbd docutils literal"><span class="pre">Ctrl+Shift+B</span></tt>.</p>
+<p>The Print Composer allows you to create several output formats, and it is possible
+to define the resolution (print quality) and paper size:</p>
+<ul class="simple">
+<li>The <a class="reference internal" href="../../../_images/mActionFilePrint.png"><img alt="mActionFilePrint" src="../../../_images/mActionFilePrint.png" style="width: 1.5em;" /></a> <sup>Print</sup> icon allows you to print the layout to a
+connected printer or a PostScript file, depending on installed printer drivers.</li>
+<li>The <a class="reference internal" href="../../../_images/mActionSaveMapAsImage.png"><img alt="mActionSaveMapAsImage" src="../../../_images/mActionSaveMapAsImage.png" style="width: 1.5em;" /></a> <sup>Export as image</sup> icon exports the Composer
+canvas in several image formats, such as PNG, BPM, TIF, JPG,...</li>
+<li><a class="reference internal" href="../../../_images/mActionSaveAsPDF.png"><img alt="mActionSaveAsPDF" src="../../../_images/mActionSaveAsPDF.png" style="width: 1.5em;" /></a> <sup>Export as PDF</sup> saves the defined Print Composer
+canvas directly as a PDF.</li>
+<li>The <a class="reference internal" href="../../../_images/mActionSaveAsSVG.png"><img alt="mActionSaveAsSVG" src="../../../_images/mActionSaveAsSVG.png" style="width: 1.5em;" /></a> <sup>Export as SVG</sup> icon saves the Print Composer canvas
+as an SVG (Scalable Vector Graphic).</li>
+</ul>
+<p>If you need to export your layout as a <strong>georeferenced image</strong> (i.e., to load back
+inside KADAS), you need to enable this feature under the Composition tab. Check
+<a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">World file on</em> and choose the map item to use. With this option, the
+&#8216;Export as image&#8217; action will also create a world file.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Currently, the SVG output is very basic. This is not a KADAS problem, but a
+problem with the underlying Qt library. This will hopefully be sorted out
+in future versions.</li>
+<li>Exporting big rasters can sometimes fail, even if there seems to be
+enough memory. This is also a problem with the underlying Qt management
+of rasters.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="manage-the-composer">
+<span id="index-17"></span><h2>Manage the Composer<a class="headerlink" href="#manage-the-composer" title="Permalink to this headline">¶</a></h2>
+<p>With the <a class="reference internal" href="../../../_images/mActionFileSaveAs.png"><img alt="mActionFileSaveAs" src="../../../_images/mActionFileSaveAs.png" style="width: 1.5em;" /></a> <sup>Save as template</sup> and <a class="reference internal" href="../../../_images/mActionFileOpen.png"><img alt="mActionFileOpen" src="../../../_images/mActionFileOpen.png" style="width: 1.5em;" /></a>
+<sup>Add items from template</sup> icons, you can save the current state of a Print Composer
+session as a  <tt class="file docutils literal"><span class="pre">.qpt</span></tt> template and load the template again in another session.</p>
+<p>The  <a class="reference internal" href="../../../_images/mActionComposerManager.png"><img alt="mActionComposerManager" src="../../../_images/mActionComposerManager.png" style="width: 1.5em;" /></a> <sup>Composer Manager</sup> button in the KADAS toolbar
+and in <em class="menuselection">Composer ‣ Composer Manager</em> allows you to add a new Composer
+template, create a new composition based on a previously saved template or to manage
+already existing templates.</p>
+<p id="figure-composer-manager"><strong>Figure Composer Manager:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/print_composer_manager.png" src="../../../_images/print_composer_manager.png" />
+<p class="caption">The Print Composer Manager <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>By default, the Composer manager searches for user templates in ~/.qgis2/composer_template.</p>
+<p>The <a class="reference internal" href="../../../_images/mActionNewComposer.png"><img alt="mActionNewComposer" src="../../../_images/mActionNewComposer.png" style="width: 1.5em;" /></a> <sup>New Composer</sup> and <a class="reference internal" href="../../../_images/mActionDuplicateComposer.png"><img alt="mActionDupComposer" src="../../../_images/mActionDuplicateComposer.png" style="width: 1.5em;" /></a> <sup>Duplicate Composer</sup>
+buttons in the KADAS toolbar and in <em class="menuselection">Composer ‣ New Composer</em> and
+<em class="menuselection">Composer ‣ Duplicate Composer</em> allow you to open a new Composer dialog, or to
+duplicate an existing composition from a previously created one.</p>
+<p>Finally, you can save your print composition with the <a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="mActionFileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a> <sup>Save Project</sup> button.
+This is the same feature as in the KADAS main window. All changes will be saved in a KADAS project
+file.</p>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../appendices/appendices.html" title="Appendix"
+             >next</a></li>
+        <li class="right" >
+          <a href="../working_with_mss/import_export.html" title="Import"
+             >previous</a> |</li>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

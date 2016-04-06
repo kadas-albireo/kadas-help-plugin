@@ -206,8 +206,10 @@ class UserManual:
             if self.browserwidget is None:
                 # Create the widget (after translation) and keep reference
                 self.browserwidget = QTextBrowser()
-                self.browserwidget.setSearchPaths([self.plugin_dir])
-                url = QUrl("README.md")
+                docdir = os.path.join(self.plugin_dir,
+                                      "html/en/docs/user_manual")
+                self.browserwidget.setSearchPaths([docdir])
+                url = QUrl("index.html")
                 self.browserwidget.setSource(url)
 
             # connect to provide cleanup on closing of browserwidget

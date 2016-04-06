@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>General Tools</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <link rel="next" title="KADAS Configuration" href="qgis_configuration.html" />
+    <link rel="prev" title="KADAS GUI" href="qgis_gui.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="English">English</option>
+  <option value="de" title="German">Deutsch</option>
+  <option value="fr" title="French">Français</option>
+  <option value="it" title="Italian">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/introduction/general_tools.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Discover QGIS</a></li>
+            <li><a href="../../../site/forusers/index.html">For Users</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Get Involved</a></li>
+            <li><a href="../../index.html">Documentation</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="qgis_configuration.html" title="KADAS Configuration"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="qgis_gui.html" title="KADAS GUI"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    <a accesskey="p" href="qgis_gui.html">&lt;&lt; prev</a>
+    
+    
+    <a accesskey="n" href="qgis_configuration.html">next &gt;&gt;</a>
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Preamble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">General Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#rendering">Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#analysis">Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#view">View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#draw">Draw</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="qgis_configuration.html">KADAS Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">Working with Projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">Working with Vector Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">Working with Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">Working with GPS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mss/index.html">Working with MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/print_composer.html">Print Composer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="general-tools">
+<span id="id1"></span><h1>General Tools<a class="headerlink" href="#general-tools" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rendering">
+<h2>Rendering<a class="headerlink" href="#rendering" title="Permalink to this headline">¶</a></h2>
+<p id="index-0">By default, KADAS renders all visible layers whenever the map canvas is
+refreshed. The events that trigger a refresh of the map canvas include:</p>
+<ul class="simple">
+<li>Adding a layer</li>
+<li>Panning or zooming</li>
+<li>Resizing the KADAS window</li>
+<li>Changing the visibility of a layer or layers</li>
+</ul>
+<p>KADAS allows you to control the rendering process in a number of ways.</p>
+<div class="section" id="scale-dependent-rendering">
+<h3>Scale Dependent Rendering<a class="headerlink" href="#scale-dependent-rendering" title="Permalink to this headline">¶</a></h3>
+<p id="index-1">Scale-dependent rendering allows you to specify the minimum and maximum scales
+at which a layer will be visible. To set scale-dependent rendering, open the
+<em class="guilabel">Properties</em> dialog by double-clicking on the layer in the legend. On
+the <em class="guilabel">General</em> tab, click on the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Scale
+dependent visibility</em> checkbox to activate the feature, then set the minimum and
+maximum scale values.</p>
+<p>You can determine the scale values by first zooming to the level you want to
+use and noting the scale value in the KADAS status bar.</p>
+</div>
+<div class="section" id="controlling-map-rendering">
+<span id="label-controlmap"></span><span id="index-2"></span><h3>Controlling Map Rendering<a class="headerlink" href="#controlling-map-rendering" title="Permalink to this headline">¶</a></h3>
+<p>Map rendering can be controlled in the various ways, as described below.</p>
+<div class="section" id="setting-layer-add-option">
+<span id="label-settinglayer"></span><h4>Setting Layer Add Option<a class="headerlink" href="#setting-layer-add-option" title="Permalink to this headline">¶</a></h4>
+<p>You can set an option to always load new layers without drawing them. This
+means the layer will be added to the map, but its visibility checkbox in the
+legend will be unchecked by default. To set this option, choose menu option
+<em class="menuselection">Settings ‣ Options</em> and click on the <em class="guilabel">Rendering</em>
+tab. Uncheck the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">By default new layers added to the map
+should be displayed</em> checkbox. Any layer subsequently added to the map will be off
+(invisible) by default.</p>
+</div>
+<div class="section" id="influence-rendering-quality">
+<span id="label-renderquality"></span><h4>Influence Rendering Quality<a class="headerlink" href="#influence-rendering-quality" title="Permalink to this headline">¶</a></h4>
+<p id="index-3">To influence the rendering quality of the map, you have two options. Choose menu
+option <em class="menuselection">Settings ‣ Options</em>, click on the <em class="guilabel">Rendering</em>
+tab and select or deselect following checkbox:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Make lines appear less jagged at the expense of some
+drawing performance</em></li>
+</ul>
+</div>
+<div class="section" id="speed-up-rendering">
+<h4>Speed-up rendering<a class="headerlink" href="#speed-up-rendering" title="Permalink to this headline">¶</a></h4>
+<p>There are two settings that allow you to improve rendering speed. Open the KADAS options
+dialog using <em class="menuselection">Settings ‣ Options</em>, go to the <em class="guilabel">Rendering</em>
+tab and select or deselect the following checkboxes:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Use render caching where possible to speed up redraws</em></li>
+<li>TODO: Feature simplification</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="analysis">
+<span id="sec-analysis"></span><h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
+<p>TODO: Analysis</p>
+<div class="section" id="distance-area-circle">
+<h3>Distance, Area, Circle<a class="headerlink" href="#distance-area-circle" title="Permalink to this headline">¶</a></h3>
+<p>TODO: fill in</p>
+</div>
+<div class="section" id="profile-sight-and-hillshade">
+<h3>Profile Sight and Hillshade<a class="headerlink" href="#profile-sight-and-hillshade" title="Permalink to this headline">¶</a></h3>
+<p>TODO: fill in</p>
+</div>
+<div class="section" id="azimuth">
+<h3>Azimuth<a class="headerlink" href="#azimuth" title="Permalink to this headline">¶</a></h3>
+<p>TODO: fill in</p>
+</div>
+<div class="section" id="slope">
+<h3>Slope<a class="headerlink" href="#slope" title="Permalink to this headline">¶</a></h3>
+<p>TODO: fill in</p>
+</div>
+<div class="section" id="viewshed">
+<h3>Viewshed<a class="headerlink" href="#viewshed" title="Permalink to this headline">¶</a></h3>
+<p>TODO: fill in</p>
+</div>
+<div class="section" id="wps">
+<h3>WPS<a class="headerlink" href="#wps" title="Permalink to this headline">¶</a></h3>
+<p>TODO: fill in</p>
+</div>
+</div>
+<div class="section" id="view">
+<span id="decorations"></span><h2>View<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h2>
+<p>The Decorations of KADAS include the Grid, the Copyright Label, the North Arrow and
+the Scale Bar. They are used to &#8216;decorate&#8217; the map by adding cartographic
+elements.</p>
+<div class="section" id="d">
+<h3>3D<a class="headerlink" href="#d" title="Permalink to this headline">¶</a></h3>
+<p>TODO: fill in</p>
+</div>
+<div class="section" id="grid">
+<h3>Grid<a class="headerlink" href="#grid" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="../../../_images/transformed.png"><img alt="transformed" src="../../../_images/transformed.png" style="width: 1.5em;" /></a> <sup>Grid</sup> allows you to add a coordinate grid and coordinate
+annotations to the map canvas.</p>
+<p id="figure-decorations-1"><strong>Figure Decorations 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/grid_dialog.png" src="../../../_images/grid_dialog.png" />
+<p class="caption">The Grid Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ol class="arabic simple">
+<li>Select from menu <em class="menuselection">View ‣ Decorations ‣ Grid</em>.
+The dialog starts (see <a class="reference internal" href="#figure-decorations-1">figure_decorations_1</a>).</li>
+<li>Activate the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Enable grid</em> checkbox and set grid
+definitions according to the layers loaded in the map canvas.</li>
+<li>Activate the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Draw annotations</em> checkbox and set
+annotation definitions according to the layers loaded in the map canvas.</li>
+<li>Click <strong>[Apply]</strong> to verify that it looks as expected.</li>
+<li>Click <strong>[OK]</strong> to close the dialog.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="draw">
+<h2>Draw<a class="headerlink" href="#draw" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="drawing">
+<h3>Drawing<a class="headerlink" href="#drawing" title="Permalink to this headline">¶</a></h3>
+<p>TODO: fill in</p>
+</div>
+<div class="section" id="styling">
+<h3>Styling<a class="headerlink" href="#styling" title="Permalink to this headline">¶</a></h3>
+<p>TODO: fill in</p>
+</div>
+<div class="section" id="add-picture">
+<h3>Add Picture<a class="headerlink" href="#add-picture" title="Permalink to this headline">¶</a></h3>
+<p>TODO: fill in</p>
+</div>
+<div class="section" id="annotation">
+<h3>Annotation<a class="headerlink" href="#annotation" title="Permalink to this headline">¶</a></h3>
+<p>TODO: Text ist das gleiche</p>
+<p>The <a class="reference internal" href="../../../_images/mActionTextAnnotation.png"><img alt="mActionTextAnnotation" src="../../../_images/mActionTextAnnotation.png" style="width: 1.5em;" /></a> <sup>Text Annotation</sup> tool in the attribute
+toolbar provides the possibility to place formatted text in a balloon on the
+KADAS map canvas. Use the <em class="guilabel">Text Annotation</em> tool and click into the
+map canvas.</p>
+<p id="id2"><strong>Figure annotation 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/annotation.png" src="../../../_images/annotation.png" />
+<p class="caption">Annotation text dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>Double clicking on the item opens a dialog with various options. There is the
+text editor to enter the formatted text and other item settings. For instance, there
+is the choice of having the item placed on a map position (displayed by
+a marker symbol) or to have the item on a screen position (not related to the
+map). The item can be moved by map position (by dragging the map marker) or by moving
+only the balloon. The icons are part of the GIS theme, and they are used by default in
+the other themes, too.</p>
+<p>The <a class="reference internal" href="../../../_images/mActionAnnotation.png"><img alt="mActionAnnotation" src="../../../_images/mActionAnnotation.png" style="width: 1.5em;" /></a> <sup>Move Annotation</sup> tool allows you to move the
+annotation on the map canvas.</p>
+</div>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="qgis_configuration.html" title="KADAS Configuration"
+             >next</a></li>
+        <li class="right" >
+          <a href="qgis_gui.html" title="KADAS GUI"
+             >previous</a> |</li>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>
