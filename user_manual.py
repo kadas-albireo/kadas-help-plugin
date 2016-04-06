@@ -20,8 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 """
-from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication, QUrl
-from PyQt4.QtGui import QAction, QIcon, QTextBrowser
+from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication, Qt, QUrl
+from PyQt4.QtGui import QAction, QIcon
+from PyQt4.QtWebKit import QWebView
 # Initialize Qt resources from file resources.py
 import resources
 
@@ -46,11 +47,11 @@ class UserManual:
         self.plugin_dir = os.path.dirname(__file__)
 
         # initialize locale
-        locale = QSettings().value('locale/userLocale')[0:2]
+        self.locale = QSettings().value('locale/userLocale')[0:2]
         locale_path = os.path.join(
             self.plugin_dir,
             'i18n',
-            'UserManual_{}.qm'.format(locale))
+            'UserManual_{}.qm'.format(self.locale))
 
         if os.path.exists(locale_path):
             self.translator = QTranslator()
@@ -61,12 +62,11 @@ class UserManual:
 
         # Declare instance attributes
         self.actions = []
-        self.menu = self.tr(u'&QGIS User Manual')
+        self.menu = self.tr(u'&User Manual')
         # TODO: We are going to let the user set this up in a future iteration
         self.toolbar = self.iface.addToolBar(u'UserManual')
         self.toolbar.setObjectName(u'UserManual')
 
-        self.pluginIsActive = False
         self.browserwidget = None
 
 
@@ -169,26 +169,12 @@ class UserManual:
             callback=self.run,
             parent=self.iface.mainWindow())
 
-    def onClosePlugin(self):
-        """Cleanup necessary items here when plugin browserwidget is closed"""
-
-        # disconnects
-        self.browserwidget.closingPlugin.disconnect(self.onClosePlugin)
-
-        # remove this statement if browserwidget is to remain
-        # for reuse if plugin is reopened
-        # Commented next statement since it causes QGIS crashe
-        # when closing the docked window:
-        # self.browserwidget = None
-
-        self.pluginIsActive = False
-
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""
 
         for action in self.actions:
             self.iface.removePluginMenu(
-                self.tr(u'&QGIS User Manual'),
+                self.tr(u'&User Manual'),
                 action)
             self.iface.removeToolBarIcon(action)
         # remove the toolbar
@@ -197,23 +183,20 @@ class UserManual:
     def run(self):
         """Run method that loads and starts the plugin"""
 
-        if not self.pluginIsActive:
-            self.pluginIsActive = True
+        if self.browserwidget is None:
+            # Create the widget (after translation) and keep reference
+            self.browserwidget = QWebView()
+            self.browserwidget.setWindowTitle(self.tr(u'User Manual'))
+            self.browserwidget.resize(500, 600)
 
-            # widget may not exist if:
-            #    first run of plugin
-            #    removed on close (see self.onClosePlugin method)
-            if self.browserwidget is None:
-                # Create the widget (after translation) and keep reference
-                self.browserwidget = QTextBrowser()
-                docdir = os.path.join(self.plugin_dir,
-                                      "html/en/docs/user_manual")
-                self.browserwidget.setSearchPaths([docdir])
-                url = QUrl("index.html")
-                self.browserwidget.setSource(url)
+            docdir = os.path.join(self.plugin_dir, "html")
+            if os.path.isdir(os.path.join(docdir, self.locale)):
+                lang = self.locale
+            else:
+                lang = 'en'
 
-            # connect to provide cleanup on closing of browserwidget
-            # self.browserwidget.closingPlugin.connect(self.onClosePlugin)
+            url = QUrl("file://{dir}/{lang}/docs/user_manual/index.html".format(
+                dir=docdir, lang=lang))
+            self.browserwidget.load(url)
 
-            # show the browserwidget
-            self.browserwidget.show()
+        self.browserwidget.show()
