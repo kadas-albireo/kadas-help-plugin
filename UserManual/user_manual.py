@@ -25,8 +25,9 @@ from PyQt4.QtGui import QAction, QIcon
 from PyQt4.QtWebKit import QWebView
 # Initialize Qt resources from file resources.py
 import resources
-
 import os.path
+
+from about_dialog import AboutDialog
 
 
 class UserManual:
@@ -60,8 +61,10 @@ class UserManual:
             if qVersion() > '4.3.3':
                 QCoreApplication.installTranslator(self.translator)
 
-        self.browserwidget = None
+        self.helpWidget = None
+        self.aboutWidget = None
         self.helpAction = None
+        self.aboutAction = None
 
     # noinspection PyMethodMayBeStatic
     def tr(self, message):
@@ -85,24 +88,36 @@ class UserManual:
             self.helpAction = QAction(QIcon(":/plugins/UserManual/icon.png"), self.tr("Help"), self.iface.helpToolBar())
             self.iface.helpToolBar().addAction(self.helpAction)
         if self.helpAction:
-            self.helpAction.triggered.connect(self.run)
+            self.helpAction.triggered.connect(self.showHelp)
+
+        self.aboutAction = self.iface.findAction("mActionAbout")
+        if not self.aboutAction and self.iface.helpToolBar():
+            self.aboutAction = QAction(QIcon(":/plugins/UserManual/about.png"), self.tr("About"), self.iface.helpToolBar())
+            self.iface.helpToolBar().addAction(self.aboutAction)
+        if self.aboutAction:
+            self.aboutAction.triggered.connect(self.showAbout)
 
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""
         if self.iface.helpToolBar():
             self.iface.helpToolBar().removeAction(self.helpAction)
         if self.helpAction:
-            self.helpAction.triggered.disconnect(self.run)
-        self.browserwidget = None
+            self.helpAction.triggered.disconnect(self.showHelp)
+        if self.iface.helpToolBar():
+            self.iface.helpToolBar().removeAction(self.aboutAction)
+        if self.aboutAction:
+            self.aboutAction.triggered.disconnect(self.showAbout)
+        self.helpWidget = None
         self.helpAction = None
+        self.aboutAction = None
 
-    def run(self):
+    def showHelp(self):
         """Run method that loads and starts the plugin"""
-        if self.browserwidget is None:
+        if self.helpWidget is None:
             # Create the widget (after translation) and keep reference
-            self.browserwidget = QWebView()
-            self.browserwidget.setWindowTitle(self.tr('User Manual'))
-            self.browserwidget.resize(500, 600)
+            self.helpWidget = QWebView()
+            self.helpWidget.setWindowTitle(self.tr('User Manual'))
+            self.helpWidget.resize(500, 600)
 
             docdir = os.path.join(self.plugin_dir, "html")
             if os.path.isdir(os.path.join(docdir, self.locale)):
@@ -112,7 +127,17 @@ class UserManual:
 
             url = QUrl("file://{dir}/{lang}/docs/user_manual/index.html".format(
                 dir=docdir, lang=lang))
-            self.browserwidget.load(url)
+            self.helpWidget.load(url)
 
-        self.browserwidget.show()
-        self.browserwidget.raise_()
+        self.helpWidget.show()
+        self.helpWidget.raise_()
+
+    def showAbout(self):
+        """Run method that loads and starts the plugin"""
+        locale = self.locale
+        if not locale in ['en', 'de', 'it', 'fr']:
+            locale = 'en'
+        if self.aboutWidget is None:
+            self.aboutWidget = AboutDialog(locale, self.iface.mainWindow())
+        self.aboutWidget.show()
+        self.aboutWidget.raise_()
