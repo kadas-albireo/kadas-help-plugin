@@ -119,7 +119,7 @@ class UserManual:
             self.helpWidget.setWindowTitle(self.tr('User Manual'))
             self.helpWidget.resize(500, 600)
 
-            docdir = os.path.join(self.plugin_dir, "html")
+            docdir = os.path.join(self.plugin_dir, "html").replace('\\', '/')
             if os.path.isdir(os.path.join(docdir, self.locale)):
                 lang = self.locale
             else:

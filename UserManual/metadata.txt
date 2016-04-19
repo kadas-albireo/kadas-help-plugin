@@ -10,7 +10,7 @@
 name=QGIS User Manual
 qgisMinimumVersion=2.0
 description=Integrated QGIS User Manual
-version=0.1
+version=0.2.0
 author=Sourcepole
 email=pka@sourcepole.ch
 
