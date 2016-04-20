@@ -119,14 +119,16 @@ class UserManual:
             self.helpWidget.setWindowTitle(self.tr('User Manual'))
             self.helpWidget.resize(500, 600)
 
-            docdir = os.path.join(self.plugin_dir, "html").replace('\\', '/')
+            docdir = os.path.join(self.plugin_dir, "html")
             if os.path.isdir(os.path.join(docdir, self.locale)):
                 lang = self.locale
             else:
                 lang = 'en'
 
+            # Fix unsupported parts in file URL (UNC path, etc.)
+            basedir = docdir.replace('\\', '/').replace('C:', '')
             url = QUrl("file://{dir}/{lang}/docs/user_manual/index.html".format(
-                dir=docdir, lang=lang))
+                dir=basedir, lang=lang))
             self.helpWidget.load(url)
 
         self.helpWidget.show()
