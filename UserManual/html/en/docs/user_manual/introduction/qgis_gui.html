@@ -31,8 +31,8 @@
     <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
     <link rel="top" title="" href="../../../index.html" />
-    <link rel="next" title="General Tools" href="general_tools.html" />
-    <link rel="prev" title="Getting Started" href="getting_started.html" />
+    <link rel="next" title="Meine Karten" href="../ribbons/my_maps.html" />
+    <link rel="prev" title="Foreword" href="../preamble/foreword.html" />
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -158,20 +158,20 @@
       
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="general_tools.html" title="General Tools"
+          <a href="../ribbons/my_maps.html" title="Meine Karten"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="getting_started.html" title="Getting Started"
+          <a href="../preamble/foreword.html" title="Foreword"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html"></a> &raquo;</li> 
       </ul>
     </div>
     <div style="display:none;" class="container" id="nextprev" >
     
-    <a accesskey="p" href="getting_started.html">&lt;&lt; prev</a>
+    <a accesskey="p" href="../preamble/foreword.html">&lt;&lt; prev</a>
     
     
-    <a accesskey="n" href="general_tools.html">next &gt;&gt;</a>
+    <a accesskey="n" href="../ribbons/my_maps.html">next &gt;&gt;</a>
     
     </div>
 
@@ -188,16 +188,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Preamble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Foreword</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">KADAS GUI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general_tools.html">General Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qgis_configuration.html">KADAS Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">Working with Projections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">Working with Vector Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">Working with Raster Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">Working with GPS Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_mss/index.html">Working with MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../print_composer/print_composer.html">Print Composer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">KADAS GUI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#menu-bar">Menu Bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#map-legend">Map Legend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#map-view">Map View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#status-bar">Status Bar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Meine Karten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Zeichnen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendix</a></li>
 </ul>
 
@@ -209,7 +214,233 @@
                             <p>.</p>
 <div class="section" id="qg-gui">
 <span id="label-qgismainwindow"></span><h1>KADAS GUI<a class="headerlink" href="#qg-gui" title="Permalink to this headline">¶</a></h1>
-<p id="index-0">TODO: komplett überarbeitung</p>
+<p id="index-0">When KADAS starts, you are presented with the GUI as shown in the figure (the numbers 1
+through 5 in yellow circles are
+discussed below).</p>
+<p id="fig-startup"><strong>Figure QGIS GUI 1:</strong></p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../_images/startup.png"><img alt="../../../_images/startup.png" src="../../../_images/startup.png" style="width: 35em;" /></a>
+<p class="caption">KADAS GUI with Alaska sample data <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Your window decorations (title bar, etc.) may appear different depending on
+your operating system and window manager.</p>
+</div>
+<p>The KADAS GUI is divided into five areas:</p>
+<ol class="arabic simple">
+<li>Menu Bar</li>
+<li>Tool Bar</li>
+<li>Map Legend</li>
+<li>Map View</li>
+<li>Status Bar</li>
+</ol>
+<p>These five components of the KADAS interface are described in more detail in
+the following sections. Two more sections present keyboard shortcuts and
+context help.</p>
+<div class="section" id="menu-bar">
+<span id="label-menubar"></span><h2>Menu Bar<a class="headerlink" href="#menu-bar" title="Permalink to this headline">¶</a></h2>
+<p id="index-1">The menu bar provides access to various KADAS features using a standard
+hierarchical menu. The top-level menus and a summary of some of the menu
+options are listed below, together with the associated icons as
+they appear on the toolbar, and keyboard shortcuts. The shortcuts presented in this section are the
+defaults; however, keyboard shortcuts
+can also be configured manually using the <em class="guilabel">Configure shortcuts</em> dialog, opened from
+<em class="menuselection">Settings ‣ Configure Shortcuts...</em>.</p>
+<p>Although most menu options have a corresponding tool and vice-versa, the menus
+are not organized exactly like the toolbars. The toolbar containing the tool is
+listed after each menu option as a checkbox entry. Some menu options only
+appear if the corresponding plugin is loaded. For more information about tools
+and toolbars, see section <em class="xref std std-ref">label_toolbars</em>.</p>
+</div>
+<div class="section" id="map-legend">
+<span id="label-legend"></span><h2>Map Legend<a class="headerlink" href="#map-legend" title="Permalink to this headline">¶</a></h2>
+<p id="index-2">The map legend area lists all the layers in the project. The checkbox in each
+legend entry can be used to show or hide the layer. The Legend toolbar in the
+map legend are list allow you to <strong>Add group</strong>, <strong>Manage Layer Visibility</strong> of
+all layers or manage preset layers combination, <strong>Filter Legend by Map
+Content</strong>, <strong>Expand All</strong> or <strong>Collapse All</strong> and <strong>Remove Layer or Group</strong>.</p>
+<p id="figure-layer-toolbar"><strong>Figure Layer tools Bar:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/layer_toobar.png" src="../../../_images/layer_toobar.png" />
+<p class="caption">Layer Tool Bar in Map Legend <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>The button <a class="reference internal" href="../../../_images/mActionShowPresets.png"><img alt="mActionShowPresets" src="../../../_images/mActionShowPresets.png" style="width: 2.5em;" /></a> allows you to add <strong>Presets</strong> views in the legend. It means that you can choose to display some layer with specific categorization and add this view to the <strong>Presets</strong> list. To add a preset view just click on <a class="reference internal" href="../../../_images/mActionShowPresets.png"><img alt="mActionShowPresets" src="../../../_images/mActionShowPresets.png" style="width: 2.5em;" /></a>, choose <em>Add Preset...</em> from the drop down menu and give a name to the preset. After that you will see a list with all the presets that you can recall pressing on the <a class="reference internal" href="../../../_images/mActionShowPresets.png"><img alt="mActionShowPresets" src="../../../_images/mActionShowPresets.png" style="width: 2.5em;" /></a> button.</p>
+<p>All the added presets are also present in the map composer in order to allow you to create a map layout based on your specific views (see <a class="reference internal" href="../print_composer/print_composer.html#composer-main-properties"><em>Main properties</em></a>).</p>
+<p id="index-3">A layer can be selected and dragged up or down in the legend to change the
+Z-ordering. Z-ordering means that layers listed nearer the top of the legend
+are drawn over layers listed lower down in the legend.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This behaviour can be overridden by the &#8216;Layer order&#8217; panel.</p>
+</div>
+<p>Layers in the legend window can be organised into groups. There are two ways to
+do this:</p>
+<ol class="arabic simple">
+<li>Press the <a class="reference internal" href="../../../_images/mActionFolder.png"><img alt="mActionFolder" src="../../../_images/mActionFolder.png" style="width: 1.5em;" /></a> icon to add a new group. Type in a name for
+the group and press <tt class="kbd docutils literal"><span class="pre">Enter</span></tt>. Now click on an existing layer and
+drag it onto the group.</li>
+<li>Select some layers, right click in the legend window and choose
+<em class="guilabel">Group Selected</em>. The selected layers will automatically be placed
+in a new group.</li>
+</ol>
+<p>To bring a layer out of a group, you can drag it out, or right click on it and
+choose <em class="guilabel">Make to toplevel item</em>. Groups can also be nested inside other
+groups.</p>
+<p>The checkbox for a group will show or hide all the layers in the group
+with one click.</p>
+<p>The content of the right mouse button context menu depends on whether the
+selected legend item is a raster or a vector layer. For GRASS vector layers,
+<a class="reference internal" href="../../../_images/mActionToggleEditing.png"><img alt="mActionToggleEditing" src="../../../_images/mActionToggleEditing.png" style="width: 1.5em;" /></a> <sup>Toggle editing</sup> is not available. See section
+<em class="xref std std-ref">grass_digitizing</em> for information on editing GRASS vector layers.</p>
+<p><strong>Right mouse button menu for raster layers</strong></p>
+<ul class="simple">
+<li><em class="menuselection">Zoom to Layer</em></li>
+<li><em class="menuselection">Show in overview</em></li>
+<li><em class="menuselection">Zoom to Best Scale (100%)</em></li>
+<li><em class="menuselection">Remove</em></li>
+<li><em class="menuselection">Duplicate</em></li>
+<li><em class="menuselection">Set Layer Scale Visibility</em></li>
+<li><em class="menuselection">Set Layer CRS</em></li>
+<li><em class="menuselection">Set Project CRS from Layer</em></li>
+<li><em class="menuselection">Styles ‣</em></li>
+<li><em class="menuselection">Save as ...</em></li>
+<li><em class="menuselection">Save As Layer Definition File ...</em></li>
+<li><em class="menuselection">Properties</em></li>
+<li><em class="menuselection">Rename</em></li>
+</ul>
+<p>Additionally, according to layer position and selection</p>
+<ul class="simple">
+<li><em class="menuselection">Move to Top-level</em></li>
+<li><em class="menuselection">Group Selected</em></li>
+</ul>
+<p><strong>Right mouse button menu for vector layers</strong></p>
+<ul class="simple">
+<li><em class="menuselection">Zoom to Layer</em></li>
+<li><em class="menuselection">Show in overview</em></li>
+<li><em class="menuselection">Remove</em></li>
+<li><em class="menuselection">Duplicate</em></li>
+<li><em class="menuselection">Set Layer Scale Visibility</em></li>
+<li><em class="menuselection">Set Layer CRS</em></li>
+<li><em class="menuselection">Set Project CRS from Layer</em></li>
+<li><em class="menuselection">Styles ‣</em></li>
+<li><em class="menuselection">Open Attribute Table</em></li>
+<li><em class="menuselection">Toggle Editing</em> (not available for GRASS layers)</li>
+<li><em class="menuselection">Save As ...</em></li>
+<li><em class="menuselection">Save As Layer Definition Style</em></li>
+<li><em class="menuselection">Filter</em></li>
+<li><em class="menuselection">Show Feature Count</em></li>
+<li><em class="menuselection">Properties</em></li>
+<li><em class="menuselection">Rename</em></li>
+</ul>
+<p>Additionally, according to layer position and selection</p>
+<ul class="simple">
+<li><em class="menuselection">Move to Top-level</em></li>
+<li><em class="menuselection">Group Selected</em></li>
+</ul>
+<p><strong>Right mouse button menu for layer groups</strong></p>
+<ul class="simple">
+<li><em class="menuselection">Zoom to Group</em></li>
+<li><em class="menuselection">Remove</em></li>
+<li><em class="menuselection">Set Group CRS</em></li>
+<li><em class="menuselection">Rename</em></li>
+<li><em class="menuselection">Add Group</em></li>
+</ul>
+<p>It is possible to select more than one layer or group at the same time by
+holding down the <tt class="kbd docutils literal"><span class="pre">Ctrl</span></tt> key while selecting the layers with the left mouse
+button. You can then move all selected layers to a new group at the same time.</p>
+<p>You may also delete more than one layer or group at once by selecting
+several layers with the <tt class="kbd docutils literal"><span class="pre">Ctrl</span></tt> key and pressing <tt class="kbd docutils literal"><span class="pre">Ctrl+D</span></tt> afterwards.
+This way, all selected layers or groups will be removed from the layers list.</p>
+<div class="section" id="working-with-the-legend-independent-layer-order">
+<h3>Working with the Legend independent layer order<a class="headerlink" href="#working-with-the-legend-independent-layer-order" title="Permalink to this headline">¶</a></h3>
+<p>There is a panel that allows you to define an independent drawing order for the map legend.
+You can activate it in the menu <em class="menuselection">Settings ‣ Panels ‣ Layer
+order</em>. This feature allows you to, for instance, order your layers in order of importance,
+but still display them in the correct order (see <a class="reference internal" href="#figure-layer-order">figure_layer_order</a>).
+Checking the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Control rendering order</em> box underneath the
+list of layers will cause a revert to default behavior.</p>
+<p id="figure-layer-order"><strong>Figure Layer Order:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/layer_order.png" src="../../../_images/layer_order.png" />
+<p class="caption">Define a legend independent layer order <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+</div>
+</div>
+<div class="section" id="map-view">
+<span id="label-mapview"></span><h2>Map View<a class="headerlink" href="#map-view" title="Permalink to this headline">¶</a></h2>
+<p>This is the &#8220;business end&#8221; of KADAS &#8212; maps are displayed in this area! The
+map displayed in this window will depend on the vector and raster layers you
+have chosen to load (see sections that follow for more information on how to
+load layers). The map view can be panned, shifting the focus of the map display
+to another region, and it can be zoomed in and out. Various other operations can be
+performed on the map as described in the toolbar description above. The map
+view and the legend are tightly bound to each other &#8212; the maps in view reflect
+changes you make in the legend area.</p>
+<div class="admonition tip" id="index-4">
+<p class="first admonition-title">Tip</p>
+<p><strong>Zooming the Map with the Mouse Wheel</strong></p>
+<p class="last">You can use the mouse wheel to zoom in and out on the map. Place the mouse
+cursor inside the map area and roll the wheel forward (away from you) to
+zoom in and backwards (towards you) to zoom out. The zoom is centered on the
+mouse cursor position. You can customize the behavior of the
+mouse wheel zoom using the <em class="guilabel">Map tools</em> tab under the
+<em class="menuselection">Settings ‣ Options</em> menu.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p><strong>Panning the Map with the Arrow Keys and Space Bar</strong></p>
+<p class="last" id="index-5">You can use the arrow keys to pan the map. Place the mouse cursor inside
+the map area and click on the right arrow key to pan east, left arrow key to
+pan west, up arrow key to pan north and down arrow key to pan south. You can
+also pan the map using the space bar or the click on mouse wheel: just move
+the mouse while holding down space bar or click on mouse wheel.</p>
+</div>
+</div>
+<div class="section" id="status-bar">
+<span id="label-statusbar"></span><span id="label-mapoverview"></span><h2>Status Bar<a class="headerlink" href="#status-bar" title="Permalink to this headline">¶</a></h2>
+<p>The status bar shows you your current position in map coordinates (e.g.,
+meters or decimal degrees) as the mouse pointer is moved across the map view.
+To the left of the coordinate display in the status bar is a small button that
+will toggle between showing coordinate position or the view extents of the
+map view as you pan and zoom in and out.</p>
+<p>Next to the coordinate display you will find the scale display. It shows the scale of
+the map view. If you zoom in or out, KADAS shows you the current scale. There is
+a scale selector, which allows you to choose between predefined scales from
+1:500 to 1:1000000.</p>
+<p>To the right of the scale display you can define a current clockwise rotation for
+your map view in degrees.</p>
+<p>A progress bar in the status bar shows the progress of rendering as each layer is
+drawn to the map view. In some cases, such as the gathering of statistics in
+raster layers, the progress bar will be used to show the status of lengthy
+operations.</p>
+<p>If a new plugin or a plugin update is available, you will see a message at the
+far left of the status bar. On the right side of the status bar, there is a small
+checkbox which can be used to temporarily prevent layers being rendered to the
+map view (see section <a class="reference internal" href="general_tools.html#redraw-events"><em>Rendering</em></a> below). The icon <a class="reference internal" href="../../../_images/mIconStopRendering.png"><img alt="mIconStopRendering" src="../../../_images/mIconStopRendering.png" style="width: 1.5em;" /></a>
+immediately stops the current map rendering process.</p>
+<p>To the right of the render functions, you find the EPSG code of the current
+project CRS and a projector icon. Clicking on this opens the projection
+properties for the current project.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p><strong>Calculating the Correct Scale of Your Map Canvas</strong></p>
+<p class="last" id="index-6">When you start KADAS, the default units are degrees, and this means that KADAS will interpret any
+coordinate in your layer as specified in degrees. To get correct scale values, you can
+either change this setting to meters manually in the <em class="guilabel">General</em> tab
+under <em class="menuselection">Settings ‣ Project Properties</em>, or you can select a
+project CRS clicking on the <a class="reference internal" href="../../../_images/mIconProjectionDisabled.png"><img alt="mIconProjectionDisabled" src="../../../_images/mIconProjectionDisabled.png" style="width: 1.5em;" /></a> <sup>Current CRS:</sup> icon in the
+lower right-hand corner of the status bar. In the last case, the units are set to what the
+project projection specifies (e.g., &#8216;+units=m&#8217;).</p>
+</div>
+<ul class="simple">
+<li>see <a class="reference internal" href="../working_with_vector/supported_data.html#vector-data-formats"><em>Supported Data Formats</em></a></li>
+<li>see <a class="reference internal" href="../working_with_vector/vector_properties.html#vector-properties-dialog"><em>The Vector Properties Dialog</em></a></li>
+<li>see <a class="reference internal" href="../working_with_raster/supported_data.html#load-raster"><em>Loading raster data in KADAS</em></a></li>
+<li>see <a class="reference internal" href="../working_with_raster/raster_properties.html#label-raster-properties"><em>Raster Properties Dialog</em></a></li>
+<li>see <a class="reference internal" href="../working_with_projections/working_with_projections.html#label-projections"><em>Working with Projections</em></a></li>
+</ul>
+</div>
 </div>
 
                         
@@ -226,10 +457,10 @@
       
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="general_tools.html" title="General Tools"
+          <a href="../ribbons/my_maps.html" title="Meine Karten"
              >next</a></li>
         <li class="right" >
-          <a href="getting_started.html" title="Getting Started"
+          <a href="../preamble/foreword.html" title="Foreword"
              >previous</a> |</li>
         <li><a href="../index.html"></a> &raquo;</li> 
       </ul>

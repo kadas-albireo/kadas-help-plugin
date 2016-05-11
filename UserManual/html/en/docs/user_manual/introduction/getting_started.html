@@ -31,8 +31,6 @@
     <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
     <link rel="top" title="" href="../../../index.html" />
-    <link rel="next" title="KADAS GUI" href="qgis_gui.html" />
-    <link rel="prev" title="Foreword" href="../preamble/foreword.html" />
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -157,21 +155,11 @@
        
       
       <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="qgis_gui.html" title="KADAS GUI"
-             accesskey="N">next</a></li>
-        <li class="right" >
-          <a href="../preamble/foreword.html" title="Foreword"
-             accesskey="P">previous</a> |</li>
         <li><a href="../index.html"></a> &raquo;</li> 
       </ul>
     </div>
     <div style="display:none;" class="container" id="nextprev" >
     
-    <a accesskey="p" href="../preamble/foreword.html">&lt;&lt; prev</a>
-    
-    
-    <a accesskey="n" href="qgis_gui.html">next &gt;&gt;</a>
     
     </div>
 
@@ -184,25 +172,19 @@
       <div class="span4">
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Table Of Contents</a></h3>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Preamble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Foreword</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#starting-and-stopping-qg">Starting and Stopping KADAS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#projects">Projects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#output">Output</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="qgis_gui.html">KADAS GUI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general_tools.html">General Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qgis_configuration.html">KADAS Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">Working with Projections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">Working with Vector Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">Working with Raster Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">Working with GPS Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_mss/index.html">Working with MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../print_composer/print_composer.html">Print Composer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Meine Karten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Zeichnen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendix</a></li>
 </ul>
 
@@ -217,17 +199,315 @@
 <p>This chapter gives a quick overview of installing KADAS, some sample data from
 the KADAS web page, and running a first and simple session visualizing raster
 and vector layers.</p>
-<p id="label-startingqgis">TODO: überarbeiten</p>
+<div class="section" id="installation">
+<span id="label-installation"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Installation of KADAS is very simple. Standard installer packages are available
+for MS Windows and Mac OS X. For many flavors of GNU/Linux, binary packages (rpm
+and deb) or software repositories are provided to add to your installation manager. Get the latest information on binary packages at the KADAS website at
+<a class="reference external" href="http://download.qgis.org">http://download.qgis.org</a>.</p>
+<div class="section" id="installation-from-source">
+<h3>Installation from source<a class="headerlink" href="#installation-from-source" title="Permalink to this headline">¶</a></h3>
+<p>If you need to build KADAS from source, please refer to the installation
+instructions. They are distributed with the KADAS source code in a file
+called <tt class="file docutils literal"><span class="pre">INSTALL</span></tt>. You can also find them online at
+<a class="reference external" href="http://htmlpreview.github.io/?https://raw.github.com/qgis/QGIS/master/doc/INSTALL.html">http://htmlpreview.github.io/?https://raw.github.com/qgis/QGIS/master/doc/INSTALL.html</a></p>
+</div>
+<div class="section" id="installation-on-external-media">
+<h3>Installation on external media<a class="headerlink" href="#installation-on-external-media" title="Permalink to this headline">¶</a></h3>
+<p>KADAS allows you to define a <tt class="docutils literal"><span class="pre">--configpath</span></tt> option that overrides the default path for user configuration (e.g., <tt class="file docutils literal"><span class="pre">~/.qgis2</span></tt> under Linux) and forces
+<strong>QSettings</strong> to use this directory, too. This allows you to, for instance, carry a
+KADAS installation on a flash drive together with all plugins and settings. See section <a class="reference internal" href="qgis_configuration.html#env-options"><em>System Menu</em></a> for additional information.</p>
+</div>
+</div>
+<div class="section" id="sample-data">
+<span id="label-sampledata"></span><h2>Sample Data<a class="headerlink" href="#sample-data" title="Permalink to this headline">¶</a></h2>
+<p>The user guide contains examples based on the KADAS sample dataset.</p>
+<p><a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> The Windows installer has an option to download the KADAS sample dataset.
+If checked, the data will be downloaded to your <tt class="file docutils literal"><span class="pre">My</span> <span class="pre">Documents</span></tt> folder and
+placed in a folder called <tt class="file docutils literal"><span class="pre">GIS</span> <span class="pre">Database</span></tt>. You may use Windows Explorer to
+move this folder to any convenient location. If you did not select the checkbox
+to install the sample dataset during the initial KADAS installation, you may do one of the following:</p>
+<ul class="simple">
+<li>Use GIS data that you already have</li>
+<li>Download sample data from
+<a class="reference external" href="http://qgis.org/downloads/data/qgis_sample_data.zip">http://qgis.org/downloads/data/qgis_sample_data.zip</a></li>
+<li>Uninstall KADAS and reinstall with the data download option checked (only recommended if
+the above solutions are unsuccessful)</li>
+</ul>
+<p><a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> <a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a> For GNU/Linux and Mac OS X, there are not yet dataset installation
+packages available as rpm, deb or dmg. To use the sample dataset, download the
+file <tt class="file docutils literal"><span class="pre">qgis_sample_data</span></tt> as a ZIP archive from
+<a class="reference external" href="http://qgis.org/downloads/data">http://qgis.org/downloads/data</a> and unzip the archive
+on your system.</p>
+<p>The Alaska dataset includes all GIS data that are used for examples and
+screenshots in the user guide; it also includes a small GRASS database.
+The projection for the KADAS sample dataset is Alaska Albers Equal Area with
+units feet. The EPSG code is 2964.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">PROJCS</span><span class="p">[</span><span class="s">&quot;Albers Equal Area&quot;</span><span class="p">,</span>
+<span class="n">GEOGCS</span><span class="p">[</span><span class="s">&quot;NAD27&quot;</span><span class="p">,</span>
+<span class="n">DATUM</span><span class="p">[</span><span class="s">&quot;North_American_Datum_1927&quot;</span><span class="p">,</span>
+<span class="n">SPHEROID</span><span class="p">[</span><span class="s">&quot;Clarke 1866&quot;</span><span class="p">,</span><span class="mf">6378206.4</span><span class="p">,</span><span class="mf">294.978698213898</span><span class="p">,</span>
+<span class="n">AUTHORITY</span><span class="p">[</span><span class="s">&quot;EPSG&quot;</span><span class="p">,</span><span class="s">&quot;7008&quot;</span><span class="p">]],</span>
+<span class="n">TOWGS84</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">142</span><span class="p">,</span><span class="mi">183</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+<span class="n">AUTHORITY</span><span class="p">[</span><span class="s">&quot;EPSG&quot;</span><span class="p">,</span><span class="s">&quot;6267&quot;</span><span class="p">]],</span>
+<span class="n">PRIMEM</span><span class="p">[</span><span class="s">&quot;Greenwich&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span>
+<span class="n">AUTHORITY</span><span class="p">[</span><span class="s">&quot;EPSG&quot;</span><span class="p">,</span><span class="s">&quot;8901&quot;</span><span class="p">]],</span>
+<span class="n">UNIT</span><span class="p">[</span><span class="s">&quot;degree&quot;</span><span class="p">,</span><span class="mf">0.0174532925199433</span><span class="p">,</span>
+<span class="n">AUTHORITY</span><span class="p">[</span><span class="s">&quot;EPSG&quot;</span><span class="p">,</span><span class="s">&quot;9108&quot;</span><span class="p">]],</span>
+<span class="n">AUTHORITY</span><span class="p">[</span><span class="s">&quot;EPSG&quot;</span><span class="p">,</span><span class="s">&quot;4267&quot;</span><span class="p">]],</span>
+<span class="n">PROJECTION</span><span class="p">[</span><span class="s">&quot;Albers_Conic_Equal_Area&quot;</span><span class="p">],</span>
+<span class="n">PARAMETER</span><span class="p">[</span><span class="s">&quot;standard_parallel_1&quot;</span><span class="p">,</span><span class="mi">55</span><span class="p">],</span>
+<span class="n">PARAMETER</span><span class="p">[</span><span class="s">&quot;standard_parallel_2&quot;</span><span class="p">,</span><span class="mi">65</span><span class="p">],</span>
+<span class="n">PARAMETER</span><span class="p">[</span><span class="s">&quot;latitude_of_center&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">],</span>
+<span class="n">PARAMETER</span><span class="p">[</span><span class="s">&quot;longitude_of_center&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">154</span><span class="p">],</span>
+<span class="n">PARAMETER</span><span class="p">[</span><span class="s">&quot;false_easting&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+<span class="n">PARAMETER</span><span class="p">[</span><span class="s">&quot;false_northing&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+<span class="n">UNIT</span><span class="p">[</span><span class="s">&quot;us_survey_feet&quot;</span><span class="p">,</span><span class="mf">0.3048006096012192</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>If you intend to use KADAS as a graphical front end for GRASS, you can find a
+selection of sample locations (e.g., Spearfish or South Dakota) at the
+official GRASS GIS website, <a class="reference external" href="http://grass.osgeo.org/download/sample-data/">http://grass.osgeo.org/download/sample-data/</a>.</p>
+</div>
+<div class="section" id="sample-session">
+<span id="samplesession"></span><h2>Sample Session<a class="headerlink" href="#sample-session" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have KADAS installed and a sample dataset available, we would
+like to demonstrate a short and simple KADAS sample session. We will visualize
+a raster and a vector layer. We will use the <tt class="file docutils literal"><span class="pre">landcover</span></tt> raster layer,
+<tt class="file docutils literal"><span class="pre">qgis_sample_data/raster/landcover.img</span></tt>, and the <tt class="file docutils literal"><span class="pre">lakes</span></tt> vector
+layer, <tt class="file docutils literal"><span class="pre">qgis_sample_data/gml/lakes.gml</span></tt>.</p>
+<div class="section" id="start-qgis">
+<h3>Start QGIS<a class="headerlink" href="#start-qgis" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> Start KADAS by typing &#8220;KADAS&#8221; at a command prompt, or if using a
+precompiled binary, by using the Applications menu.</li>
+<li><a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> Start KADAS using the Start menu or desktop shortcut, or double click on
+a KADAS project file.</li>
+<li><a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a> Double click the icon in your Applications folder.</li>
+</ul>
+<span class="target" id="fig-simple-session"></span></div>
+<div class="section" id="load-raster-and-vector-layers-from-the-sample-dataset">
+<h3>Load raster and vector layers from the sample dataset<a class="headerlink" href="#load-raster-and-vector-layers-from-the-sample-dataset" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Click on the <a class="reference internal" href="../../../_images/mActionAddRasterLayer.png"><img alt="mActionAddRasterLayer" src="../../../_images/mActionAddRasterLayer.png" style="width: 1.5em;" /></a> <sup>Add Raster Layer</sup> icon.</li>
+<li>Browse to the folder <tt class="file docutils literal"><span class="pre">qgis_sample_data/raster/</span></tt>, select
+the ERDAS IMG file <tt class="file docutils literal"><span class="pre">landcover.img</span></tt> and click <strong>[Open]</strong>.</li>
+<li>If the file is not listed, check if the <em class="guilabel">Files of type</em>
+<a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> combo box at the bottom of the dialog is set on the right
+type, in this case &#8220;Erdas Imagine Images (*.img, *.IMG)&#8221;.</li>
+<li>Now click on the <a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> <sup>Add Vector Layer</sup> icon.</li>
+<li><img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">File</em> should be selected as <em class="guilabel">Source Type</em>
+in the new <em class="guilabel">Add vector layer</em> dialog. Now click <strong>[Browse]</strong> to
+select the vector layer.</li>
+<li>Browse to the folder <tt class="file docutils literal"><span class="pre">qgis_sample_data/gml/</span></tt>, select &#8216;Geography Markup
+Language [GML] [OGR] (.gml,.GML)&#8217; from the <em class="guilabel">Filter</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> combo box, then select the GML file <tt class="file docutils literal"><span class="pre">lakes.gml</span></tt> and
+click <strong>[Open]</strong>. In the <em class="guilabel">Add vector layer</em> dialog, click <strong>[OK]</strong>.
+The <em class="guilabel">Coordinate Reference System Selector</em> dialog opens with <em class="guilabel">NAD27 / Alaska Alberts</em> selected, click <strong>[OK]</strong>.</li>
+<li>Zoom in a bit to your favorite area with some lakes.</li>
+<li>Double click the <tt class="file docutils literal"><span class="pre">lakes</span></tt> layer in the map legend to open the
+<em class="guilabel">Properties</em> dialog.</li>
+<li>Click on the <em class="guilabel">Style</em> tab and select a blue as fill color.</li>
+<li>Click on the <em class="guilabel">Labels</em> tab and check the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a>
+<em class="guilabel">Label this layer with</em> checkbox to enable labeling. Choose the
+&#8220;NAMES&#8221; field as the field containing labels.</li>
+<li>To improve readability of labels, you can add a white buffer around them
+by clicking &#8220;Buffer&#8221; in the list on the left, checking <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a>
+<em class="guilabel">Draw text buffer</em> and choosing 3 as buffer size.</li>
+<li>Click <strong>[Apply]</strong>. Check if the result looks good, and finally click <strong>[OK]</strong>.</li>
+</ol>
+<p>You can see how easy it is to visualize raster and vector layers in KADAS. Let&#8217;s
+move on to the sections that follow to learn more about the available
+functionality, features and settings, and how to use them.</p>
+</div>
+</div>
 <div class="section" id="starting-and-stopping-qg">
-<h2>Starting and Stopping KADAS<a class="headerlink" href="#starting-and-stopping-qg" title="Permalink to this headline">¶</a></h2>
+<span id="label-startingqgis"></span><h2>Starting and Stopping KADAS<a class="headerlink" href="#starting-and-stopping-qg" title="Permalink to this headline">¶</a></h2>
+<p>In section <a class="reference internal" href="#samplesession"><em>Sample Session</em></a> you already learned how to start KADAS. We will
+repeat this here, and you will see that KADAS also provides further command line
+options.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> Assuming that KADAS is installed in the PATH, you can start KADAS
+by typing <tt class="docutils literal"><span class="pre">qgis</span></tt> at a command prompt or by double clicking on the KADAS
+application link (or shortcut) on the desktop or in the Applications menu.</li>
+<li><a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> Start KADAS using the Start menu or desktop shortcut, or double click on
+a KADAS project file.</li>
+<li><a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a> Double click the icon in your Applications folder. If you need to
+start KADAS in a shell, run
+<tt class="docutils literal"><span class="pre">/path-to-installation-executable/Contents/MacOS/Qgis</span></tt>.</li>
+</ul>
+<p>To stop KADAS, click the menu option <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> <a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> <em class="menuselection">File</em> <a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a>
+<em class="menuselection">QGIS ‣ Quit</em>, or use the shortcut <tt class="kbd docutils literal"><span class="pre">Ctrl+Q</span></tt>.</p>
+</div>
+<div class="section" id="command-line-options">
+<span id="label-commandline"></span><h2>Command Line Options<a class="headerlink" href="#command-line-options" title="Permalink to this headline">¶</a></h2>
+<p id="index-0"><a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> KADAS supports a number of options when started from the command line. To
+get a list of the options, enter <tt class="docutils literal"><span class="pre">qgis</span> <span class="pre">--help</span></tt> on the command line. The usage
+statement for QGIS is:</p>
+<div class="highlight-python"><pre>qgis --help
+QGIS - 2.6.0-Brighton 'Brighton' (exported)
+QGIS is a user friendly Open Source Geographic Information System.
+Usage: /usr/bin/qgis.bin [OPTION] [FILE]
+OPTION:
+      [--snapshot filename]   emit snapshot of loaded datasets to given file
+      [--width width] width of snapshot to emit
+      [--height height]       height of snapshot to emit
+      [--lang language]       use language for interface text
+      [--project projectfile] load the given QGIS project
+      [--extent xmin,ymin,xmax,ymax]  set initial map extent
+      [--nologo]      hide splash screen
+      [--noplugins]   don't restore plugins on startup
+      [--nocustomization]     don't apply GUI customization
+      [--customizationfile]   use the given ini file as GUI customization
+      [--optionspath path]    use the given QSettings path
+      [--configpath path]     use the given path for all user configuration
+      [--code path]   run the given python file on load
+      [--defaultui]   start by resetting user ui settings to default
+      [--help]                this text
+
+FILE:
+  Files specified on the command line can include rasters,
+  vectors, and QGIS project files (.qgs):
+   1. Rasters - supported formats include GeoTiff, DEM
+      and others supported by GDAL
+   2. Vectors - supported formats include ESRI Shapefiles
+      and others supported by OGR and PostgreSQL layers using
+      the PostGIS extension</pre>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p><strong>Example Using command line arguments</strong></p>
+<p class="last">You can start KADAS by specifying one or more data files on the command
+line. For example, assuming you are in the <tt class="file docutils literal"><span class="pre">qgis_sample_data</span></tt>
+directory, you could start KADAS with a vector layer and a raster file
+set to load on startup using the following command:
+<tt class="docutils literal"><span class="pre">qgis</span> <span class="pre">./raster/landcover.img</span> <span class="pre">./gml/lakes.gml</span></tt></p>
+</div>
+<p><strong>Command line option</strong> <tt class="docutils literal"><span class="pre">--snapshot</span></tt></p>
+<p>This option allows you to create a snapshot in PNG format from the current view.
+This comes in handy when you have a lot of projects and want to generate
+snapshots from your data.</p>
+<p>Currently, it generates a PNG file with 800x600 pixels. This can be adjusted
+using the <tt class="docutils literal"><span class="pre">--width</span></tt> and <tt class="docutils literal"><span class="pre">--height</span></tt> command line arguments. A filename can
+be added after <tt class="docutils literal"><span class="pre">--snapshot</span></tt>.</p>
+<p><strong>Command line option</strong> <tt class="docutils literal"><span class="pre">--lang</span></tt></p>
+<p>Based on your locale, KADAS selects the correct localization. If you would like
+to change your language, you can specify a language code. For example,
+<tt class="docutils literal"><span class="pre">--lang=it</span></tt> starts KADAS in italian localization.</p>
+<p><strong>Command line option</strong> <tt class="docutils literal"><span class="pre">--project</span></tt></p>
+<p>Starting QGIS with an existing project file is also possible. Just add the
+command line option <tt class="docutils literal"><span class="pre">--project</span></tt> followed by your project name and KADAS will
+open with all layers in the given file loaded.</p>
+<p><strong>Command line option</strong> <tt class="docutils literal"><span class="pre">--extent</span></tt></p>
+<p>To start with a specific map extent use this option. You need to add the
+bounding box of your extent in the following order separated by a comma:</p>
+<div class="highlight-python"><pre>--extent xmin,ymin,xmax,ymax</pre>
+</div>
+<p><strong>Command line option</strong> <tt class="docutils literal"><span class="pre">--nologo</span></tt></p>
+<p>This command line argument hides the splash screen when you start KADAS.</p>
+<p><strong>Command line option</strong> <tt class="docutils literal"><span class="pre">--noplugins</span></tt></p>
+<p>If you have trouble at start-up with plugins, you can avoid loading them at
+start-up with this option. They will still be available from the Plugins Manager afterwards.</p>
+<p><strong>Command line option</strong> <tt class="docutils literal"><span class="pre">--customizationfile</span></tt></p>
+<p>Using this command line argument, you can define a GUI customization file, that will
+be used at startup.</p>
+<p><strong>Command line option</strong> <tt class="docutils literal"><span class="pre">--nocustomization</span></tt></p>
+<p>Using this command line argument, existing GUI customization will not be applied
+at startup.</p>
+<p><strong>Command line option</strong> <tt class="docutils literal"><span class="pre">--optionspath</span></tt></p>
+<p>You can have multiple configurations and decide which one to use when starting
+KADAS with this option. See <a class="reference internal" href="qgis_configuration.html#gui-options"><em>Options</em></a> to confirm where the
+operating system saves the settings files. Presently, there is no way to specify
+a file to write settings to; therefore, you can create a copy of
+the original settings file and rename it. The option specifies path to directory
+with settings. For example, to use /path/to/config/QGIS/QGIS2.ini settings file,
+use option:</p>
+<div class="highlight-python"><pre>--optionspath /path/to/config/</pre>
+</div>
+<p><strong>Command line option</strong> <tt class="docutils literal"><span class="pre">--configpath</span></tt></p>
+<p>This option is similar to the one above, but furthermore overrides the default
+path for user configuration (<tt class="file docutils literal"><span class="pre">~/.qgis2</span></tt>) and forces <strong>QSettings</strong> to use
+this directory, too. This allows users to, for instance, carry a KADAS installation on a
+flash drive together with all plugins and settings.</p>
+<p><strong>Command line option</strong> <tt class="docutils literal"><span class="pre">--code</span></tt></p>
+<p>This option can be used to run a given python file directly after KADAS has started.</p>
+<p>For example, when you have a python file named <tt class="file docutils literal"><span class="pre">load_alaska.py</span></tt> with following content:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">qgis.utils</span> <span class="kn">import</span> <span class="n">iface</span>
+<span class="n">raster_file</span> <span class="o">=</span> <span class="s">&quot;/home/gisadmin/Documents/qgis_sample_data/raster/landcover.img&quot;</span>
+<span class="n">layer_name</span> <span class="o">=</span> <span class="s">&quot;Alaska&quot;</span>
+<span class="n">iface</span><span class="o">.</span><span class="n">addRasterLayer</span><span class="p">(</span><span class="n">raster_file</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Assuming you are in the directory where the file <tt class="file docutils literal"><span class="pre">load_alaska.py</span></tt> is located, you
+can start KADAS, load the raster file <tt class="file docutils literal"><span class="pre">landcover.img</span></tt> and give the layer the name
+&#8216;Alaska&#8217; using the following command:
+<tt class="docutils literal"><span class="pre">qgis</span> <span class="pre">--code</span> <span class="pre">load_alaska.py</span></tt></p>
 </div>
 <div class="section" id="projects">
 <span id="sec-projects"></span><h2>Projects<a class="headerlink" href="#projects" title="Permalink to this headline">¶</a></h2>
-<p>TODO: überarbeiten</p>
+<p>The state of your KADAS session is considered a project. KADAS works on one
+project at a time. Settings are considered as being either per-project or as a
+default for new projects (see section <a class="reference internal" href="qgis_configuration.html#gui-options"><em>Options</em></a>). KADAS can save the
+state of your workspace into a project file using the menu options
+<em class="menuselection">Project ‣</em> <a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="mActionFileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a> <em class="menuselection">Save</em>
+or <em class="menuselection">Project ‣</em> <a class="reference internal" href="../../../_images/mActionFileSaveAs.png"><img alt="mActionFileSaveAs" src="../../../_images/mActionFileSaveAs.png" style="width: 1.5em;" /></a> <em class="menuselection">Save As...</em>.</p>
+<p>Load saved projects into a KADAS session using <em class="menuselection">Project ‣</em>
+<a class="reference internal" href="../../../_images/mActionFileOpen.png"><img alt="mActionFileOpen" src="../../../_images/mActionFileOpen.png" style="width: 1.5em;" /></a> <em class="menuselection">Open...</em>,
+<em class="menuselection">Project ‣ New from template</em> or
+<em class="menuselection">Project ‣ Open Recent ‣</em>.</p>
+<p>If you wish to clear your session and start fresh, choose
+<em class="menuselection">Project ‣</em> <a class="reference internal" href="../../../_images/mActionFileNew.png"><img alt="mActionFileNew" src="../../../_images/mActionFileNew.png" style="width: 1.5em;" /></a> <em class="menuselection">New</em>.
+Either of these menu options will prompt you to save the existing project if
+changes have been made since it was opened or last saved.</p>
+<p>The kinds of information saved in a project file include:</p>
+<ul class="simple">
+<li>Layers added</li>
+<li>Which layers can be queried</li>
+<li>Layer properties, including symbolization and styles</li>
+<li>Projection for the map view</li>
+<li>Last viewed extent</li>
+<li>Print Composers</li>
+<li>Print Composer elements with settings</li>
+<li>Print Composer atlas settings</li>
+<li>Digitizing settings</li>
+<li>Table Relations</li>
+<li>Project Macros</li>
+<li>Project default styles</li>
+<li>Plugins settings</li>
+<li>QGIS Server settings from the OWS settings tab in the Project properties</li>
+<li>Queries stored in the DB Manager</li>
+</ul>
+<p>The project file is saved in XML format, so it is possible to edit the file
+outside KADAS if you know what you are doing. The file format has been updated several
+times compared with earlier KADAS versions. Project files from older KADAS versions
+may not work properly anymore. To be made aware of this, in the
+<em class="guilabel">General</em> tab under <em class="menuselection">Settings ‣ Options</em> you can
+select:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Prompt to save project and data source changes when
+required</em></li>
+<li><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Warn when opening a project file saved with an older
+version of QGIS</em></li>
+</ul>
+<p>Whenever you save a project in KADAS a backup of the project file is made with the extension ~.</p>
 </div>
 <div class="section" id="output">
 <span id="sec-output"></span><h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
-<p>TODO: Überarbeiten</p>
+<span class="target" id="index-1"></span><p id="index-2">There are several ways to generate output from your KADAS session. We have
+discussed one already in section <a class="reference internal" href="../ribbons/my_maps.html#sec-projects"><em>Projects</em></a>, saving as a project file.
+Here is a sampling of other ways to produce output files:</p>
+<ul class="simple">
+<li>Menu option <em class="menuselection">Project ‣</em> <a class="reference internal" href="../../../_images/mActionSaveMapAsImage.png"><img alt="mActionSaveMapAsImage" src="../../../_images/mActionSaveMapAsImage.png" style="width: 1.5em;" /></a> <sup>Save
+as Image</sup> opens a file dialog where you select the name, path and type of
+image (PNG,JPG and many other formats). A world file with extension PNGW or JPGW saved
+in the same folder georeferences the image.</li>
+<li>Menu option <em class="menuselection">Project ‣</em> <em class="guilabel">DXF Export ...</em> opens
+a dialog where you can define the &#8216;Symbology mode&#8217;, the &#8216;Symbology scale&#8217; and
+vector layers you want to export to DXF. Through the &#8216;Symbology mode&#8217; symbols
+from the original QGIS Symbology can be exported with high fidelity.</li>
+<li>Menu option <em class="menuselection">Project ‣</em> <a class="reference internal" href="../../../_images/mActionNewComposer.png"><img alt="mActionNewComposer" src="../../../_images/mActionNewComposer.png" style="width: 1.5em;" /></a>
+<em class="menuselection">New Print Composer</em> opens a dialog where you can layout and
+print the current map canvas (see section <a class="reference internal" href="../print_composer/print_composer.html#label-printcomposer"><em>Print Composer</em></a>).</li>
+</ul>
 </div>
 </div>
 
@@ -244,12 +524,6 @@ and vector layers.</p>
        
       
       <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="qgis_gui.html" title="KADAS GUI"
-             >next</a></li>
-        <li class="right" >
-          <a href="../preamble/foreword.html" title="Foreword"
-             >previous</a> |</li>
         <li><a href="../index.html"></a> &raquo;</li> 
       </ul>
     </div>

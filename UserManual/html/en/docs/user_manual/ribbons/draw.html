@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Editing</title>
+    <title>Zeichnen</title>
     
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -31,9 +31,8 @@
     <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
     <link rel="top" title="" href="../../../index.html" />
-    <link rel="up" title="Working with MSS" href="index.html" />
-    <link rel="next" title="Import" href="import_export.html" />
-    <link rel="prev" title="Gallery" href="gallery.html" />
+    <link rel="next" title="GPS" href="gps.html" />
+    <link rel="prev" title="Analyse" href="analysis.html" />
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -68,7 +67,7 @@
 </select>
 
 <script>
-    var currentPage = 'docs/user_manual/working_with_mss/editing.html'; // coming from sphinx, always without starting '/'
+    var currentPage = 'docs/user_manual/ribbons/draw.html'; // coming from sphinx, always without starting '/'
     var currentLang = 'en';
     // split index.html if currentUrl is ended by '/'
     var currentUrl = window.location.href;
@@ -159,21 +158,20 @@
       
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="import_export.html" title="Import"
+          <a href="gps.html" title="GPS"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="gallery.html" title="Gallery"
+          <a href="analysis.html" title="Analyse"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html"></a> &raquo;</li>
-          <li><a href="index.html" accesskey="U">Working with MSS</a> &raquo;</li> 
+        <li><a href="../index.html"></a> &raquo;</li> 
       </ul>
     </div>
     <div style="display:none;" class="container" id="nextprev" >
     
-    <a accesskey="p" href="gallery.html">&lt;&lt; prev</a>
+    <a accesskey="p" href="analysis.html">&lt;&lt; prev</a>
     
     
-    <a accesskey="n" href="import_export.html">next &gt;&gt;</a>
+    <a accesskey="n" href="gps.html">next &gt;&gt;</a>
     
     </div>
 
@@ -190,22 +188,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Preamble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Foreword</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">General Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">KADAS Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">Working with Projections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">Working with Vector Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">Working with Raster Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">Working with GPS Data</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Working with MSS</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="gallery.html">Gallery</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Editing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="import_export.html">Import</a></li>
-<li class="toctree-l2"><a class="reference internal" href="import_export.html#export">Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="my_maps.html">Meine Karten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analyse</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Zeichnen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#redlining-objekte-zeichnen">Redlining Objekte zeichnen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stecknadeln">Stecknadeln</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kamerabilder">Kamerabilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#objekte-loschen">Objekte löschen</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../print_composer/print_composer.html">Print Composer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Hilfe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendix</a></li>
 </ul>
 
@@ -214,20 +211,49 @@
                 <div class="span8">
                     
                         
-                            <div class="section" id="editing">
-<h1>Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h1>
-<p>TODO: fill in</p>
-<div class="section" id="edit-symbols">
-<h2>Edit Symbols<a class="headerlink" href="#edit-symbols" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="multipointsymbol">
-<h3>Multipointsymbol<a class="headerlink" href="#multipointsymbol" title="Permalink to this headline">¶</a></h3>
+                            <p>.</p>
+<div class="section" id="zeichnen">
+<h1>Zeichnen<a class="headerlink" href="#zeichnen" title="Permalink to this headline">¶</a></h1>
+<p>Im Zeichen Tab werden Funktionen zum Erstellen von Redlining Objekte sowie
+Plazieren von Stecknadeln und georeferenzierte Bilder angeboten.</p>
+<div class="section" id="redlining-objekte-zeichnen">
+<h2>Redlining Objekte zeichnen<a class="headerlink" href="#redlining-objekte-zeichnen" title="Permalink to this headline">¶</a></h2>
+<p>Als Redlining Objekte gelten Punkte, Linien, Rechtecke, Polygone, Kreise und
+Textbeschriftungen, die der Karte hinzugefügt werden können. Grösse und Füll-
+und Konturmuster und Farben der Objekte können, abhängig vom Objekttyp,
+angepasst werden.</p>
+<p>Redlining Objekte werden in einem eigenen Layer namens &#8220;Redlining&#8221; im Layerbaum
+abgelegt. Im Context-Menu des Layerbaumeintrags kann unter anderem die globale
+Transparenz der Ebene eingestellt werden, sowie die gesamte Ebene entfernt
+werden.</p>
 </div>
-<div class="section" id="singlepointsymbol">
-<h3>Singlepointsymbol<a class="headerlink" href="#singlepointsymbol" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="stecknadeln">
+<h2>Stecknadeln<a class="headerlink" href="#stecknadeln" title="Permalink to this headline">¶</a></h2>
+<p>Stecknadeln sind georeferenzierte Positions-Marker, welche zusätzlich mit einem
+Name sowie mit weiteren Anmerkungen versehen werden können. Durch Doppelclick
+auf einer plazierten Stecknadel können diese Attribute editiert werden.
+Im Tooltop der Stecknadel werden die markierte Position, die Höhe an dieser
+Stelle (sofern ein Höhenmodell in Projekt definiert ist) sowie die Attribute
+angezeigt.</p>
+<p>Stecknadeln können in der globalen Suche nach Name und Anmerkungen durchsucht
+werden.</p>
 </div>
+<div class="section" id="kamerabilder">
+<h2>Kamerabilder<a class="headerlink" href="#kamerabilder" title="Permalink to this headline">¶</a></h2>
+<p>Georeferenzierte Kamerabilder können der Karte hinzugefügt werden. Die
+Georeferenzierzung wird aus den GPS EXIF Tags gelesen. Ein Doppelclick
+auf ein der Karte hinzugefügtes Kamerabild öffnet das Bild im standard
+Bilddarstellungsprogramm des Systems.</p>
 </div>
-<div class="section" id="editor">
-<h2>Editor<a class="headerlink" href="#editor" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="objekte-loschen">
+<h2>Objekte löschen<a class="headerlink" href="#objekte-loschen" title="Permalink to this headline">¶</a></h2>
+<p>Individuelle Objekte können via Kontextmenu oder DEL Taste gelöscht werden.</p>
+<p>Das Objekte löschen Werkzeug erlaubt es, mehrere Objekte auf einmal zu löschen.
+Nach dem Aufziehen eines Reckteckes über einen Kartenbereich werden die Objekte
+aufgelistet, die sich vollständig in diesem Bereich befinden, wobei der
+Benutzer auswählen kann, welche Objekttype gelöscht werden sollen.</p>
+<p>Diese Funktionalität kann auch direkt im Pan-Modus via CTRL+Reckteckaufziehen
+aufgerufen werden.</p>
 </div>
 </div>
 
@@ -245,13 +271,12 @@
       
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="import_export.html" title="Import"
+          <a href="gps.html" title="GPS"
              >next</a></li>
         <li class="right" >
-          <a href="gallery.html" title="Gallery"
+          <a href="analysis.html" title="Analyse"
              >previous</a> |</li>
-        <li><a href="../index.html"></a> &raquo;</li>
-          <li><a href="index.html" >Working with MSS</a> &raquo;</li> 
+        <li><a href="../index.html"></a> &raquo;</li> 
       </ul>
     </div>
   </body>
