@@ -13,7 +13,7 @@
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from qgis.core import *
-
+import os
 import resources
 
 
@@ -40,9 +40,13 @@ class AboutDialog(QDialog):
         hline.setFrameShadow(QFrame.Sunken)
         l.addWidget(hline, l.rowCount(), 0, 1, 1)
 
-        dataTermsLink = QLabel("<a href=\"http://www.toposhop.admin.ch/%s/shop/terms/use/geodata_business\">%s</a>" % (locale, self.tr("Terms of use for geodata")))
-        dataTermsLink.setOpenExternalLinks(True)
-        l.addWidget(dataTermsLink, l.rowCount(), 0, 1, 1)
+        swisstopoDataTermsLink = QLabel("<a href=\"file://%s\">%s</a>" % (os.path.join(os.path.dirname(__file__), "Nutzungsbestimmungen_Daten_swisstopo_KADAS_Albireo.pdf"), self.tr("Terms of use for swisstopo geodata")))
+        swisstopoDataTermsLink.setOpenExternalLinks(True)
+        l.addWidget(swisstopoDataTermsLink, l.rowCount(), 0, 1, 1)
+
+        swissGDIdataTermsLink = QLabel("<a href=\"http://www.toposhop.admin.ch/%s/shop/terms/use/geodata_business\">%s</a>" % (locale, self.tr("Terms of use for Swiss GDI geodata")))
+        swissGDIdataTermsLink.setOpenExternalLinks(True)
+        l.addWidget(swissGDIdataTermsLink, l.rowCount(), 0, 1, 1)
 
         dataContactLink = QLabel("<a href=\"http://www.geo.admin.ch/internet/geoportal/%s/home/geoadmin/contact.htm\">%s<a>" % (locale, self.tr("Data management and controller contacts")))
         dataContactLink.setOpenExternalLinks(True)
