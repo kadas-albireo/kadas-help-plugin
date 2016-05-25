@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Recommandations pour la traduction</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../index.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../user_manual/index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="Anglais">English</option>
+  <option value="de" title="Allemand">Deutsch</option>
+  <option value="fr" title="Français">Français</option>
+  <option value="it" title="Italien">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/documentation_guidelines/do_translations.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../site/about/index.html">Découvrir</a></li>
+            <li><a href="../../site/forusers/index.html">Pour les utilisateurs</a></li>
+            <li><a href="../../site/getinvolved/index.html">Contribuer</a></li>
+            <li><a href="../index.html">Documentation</a></li>-->
+            <li><a href="../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Rechercher" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../user_manual/index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../user_manual/index.html">Table Des Matières</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/preamble/preamble.html">Préambule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/preamble/conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/preamble/foreword.html">Avant-propos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/introduction/qgis_gui.html">Interface de KADAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/my_maps.html">Mes cartes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/analysis.html">Analyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/draw.html">Dessiner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/appendices/appendices.html">Annexe</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <div class="section" id="translation-guidelines">
+<span id="id1"></span><h1>Recommandations pour la traduction<a class="headerlink" href="#translation-guidelines" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce manuel a pour but d&#8217;aider le traducteur. D&#8217;abord il présente de façon technique le processus général de réalisation d&#8217;une traduction. Ensuite, il explique la mise en traduction d&#8217;un document rst de l&#8217;anglais vers le néerlandais et enfin, un résumé des &#8220;Règles de traduction&#8221; est proposé.</p>
+<div class="section" id="foreword">
+<h2>Avant-propos<a class="headerlink" href="#foreword" title="Lien permanent vers ce titre">¶</a></h2>
+<p><strong>Note importante :</strong> Si vous voulez traduire le contenu des dossiers (pas celui du web), ne faites jamais ça sur la version principale. Pour cela, il y a toujours des versions de traduction disponibles, une fois celle en anglais complète. Par exemple pour traduire le manuel de QGIS 1.8, utilisez la version manual_en_v1.8. Si vous avez des questions, merci de contacter la qgis-community-team à <a class="reference external" href="http://lists.osgeo.org/mailman/listinfo/qgis-community-team">http://lists.osgeo.org/mailman/listinfo/qgis-community-team</a>.</p>
+</div>
+<div class="section" id="general-information">
+<span id="translation-general"></span><h2>Information générale<a class="headerlink" href="#general-information" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour expliquer le fonctionnement de la traduction, nous allons prendre l&#8217;extension &#8220;Carte de chaleur&#8221; pour exemple. Dans cet exemple, nous traduirons de l&#8217;anglais vers le néerlandais mais c&#8217;est pratiquement la même démarche pour d&#8217;autres documents, dans toutes les langues.</p>
+<div class="section" id="first-translation">
+<span id="id2"></span><h3>Première traduction<a class="headerlink" href="#first-translation" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour créer une documentation, des premiers documents rst sont créés. Un script pré-préparé génère les fichiers de traduction nommés fichiers .po pour la langue anglaise, dans le dossier /QGIS-Documentation/i18n/en.</p>
+<p>Ces fichiers &#8220;originaux&#8221; sont copiés par le script dans les dossiers i18n des autres langues.</p>
+<p>Les phrases dans les fichiers .po nécessitent d&#8217;être traduites de l&#8217;anglais vers une autre langue avec un éditeur de traduction. Il existe un outil web de traduction nommé pootle que nous pourrions utiliser, mais il n&#8217;est pas encore activé. Toutefois, il y a un excellent outil fourni avec les outils de développement qt nommé Qt Linguist.</p>
+<p>Lorsque vous souhaitez contribuer, récupérez d&#8217;abord un fichier .po et ajoutez les traductions des phrases dans le fichier .po.</p>
+<p>Lorsque vous avez fini, le fichier .po est remis à sa place et lors de la compilation suivante, le script crée des fichiers .mo à côté des fichiers .po.</p>
+<p>Ces fichiers .mo sont en réalité utilisés par le script pour créer une version traduite.</p>
+</div>
+<div class="section" id="update-translations">
+<span id="update-translation"></span><h3>Mettre à jour les traductions<a class="headerlink" href="#update-translations" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Après la mise à jour d&#8217;un document rst, un nouveau fichier .po est créé dans la partie anglaise. Le contenu de ce fichier sera comparé avec chaque fichier .po existant, pour chaque langage. Cela signifie que lorsqu&#8217;une ligne est ajoutée à un document rst déjà traduit, seules les phrases ajoutées/modifiées seront intégrées dans le fichier .po et auront besoin d&#8217;être traduites. La quantité de travail nécessaire pour mettre à jour la traduction pour les prochaines versions de KADAS en sera relativement réduite.</p>
+</div>
+</div>
+<div class="section" id="translate-a-po-file">
+<span id="translate-po-file"></span><h2>Traduire un fichier .po<a class="headerlink" href="#translate-a-po-file" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour cet exemple, nous utiliserons le plus petit document rst de l&#8217;extension Carte de chaleur. La source du document est disponible ici :</p>
+<blockquote>
+<div>QGIS-Documentation/source/docs/user_manual/plugins/plugins_heatmap.rst</div></blockquote>
+<p>Pourquoi ai-je donc choisi ce document?</p>
+<ol class="arabic">
+<li><p class="first">Il est considéré comme finalisé pour la version actuelle. Lorsque le fichier n&#8217;est pas encore complet, le texte suivant suivi d&#8217;une ligne vide est affiché en haut du document.</p>
+<p><tt class="docutils literal"><span class="pre">|updatedisclamer|</span></tt></p>
+<p>Ceci va générer un avertissement visible dans le fichier de sortie. Il y a de fortes chances qu&#8217;une traduction initiée sur un document ayant un avertissement de mise à jour nécessitera plus tard une retouche.</p>
+</li>
+<li><p class="first">Il contient également des images, des captures d&#8217;écran, des en-têtes, des références et des substitutions.</p>
+</li>
+<li><p class="first">Je l&#8217;ai rédigé donc il m&#8217;est plus facile de le traduire ;-)</p>
+</li>
+</ol>
+<p>Le processus de compilation a créé un fichier .po en anglais disponible ici :</p>
+<blockquote>
+<div>QGIS-Documentation/i18n/en/LC_MESSAGES/docs/user_manual/plugins/plugins_heatmap.po</div></blockquote>
+<p>L&#8217;équivalent néerlandais du fichier .po (en fait, une copie) est disponible ici :</p>
+<blockquote>
+<div>QGIS-Documentation/i18n/nl/LC_MESSAGES/docs/user_manual/plugins/plugins_heatmap.po</div></blockquote>
+<p>A côté de ce fichier se trouve fichier .mo très léger, indiquant qu&#8217;il ne contient encore aucune traduction.</p>
+<p>Maintenant, je vais prendre ce fichier .po et commencer à le traduire. Au cours de cette session de traduction, je veillerai à préciser quelles parties (instructions rst) nécessitent d&#8217;être traduites.</p>
+<div class="section" id="translation-in-qt-linguist">
+<span id="translation-linguist"></span><h3>Traduction dans Qt Linguist<a class="headerlink" href="#translation-in-qt-linguist" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Lorsque vous ouvrez le fichier .po dans Qt Linguist pour la première fois, vous obtenez la fenêtre suivante :</p>
+<p id="figure-translation-1"><strong>Figure Translation 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../_images/linguist_choose_language.png" src="../../_images/linguist_choose_language.png" />
+<p class="caption">Sélection de la langue de traduction dans le menu de Linguist <a class="reference internal" href="../../_images/osx.png"><img alt="osx" src="../../_images/osx.png" style="width: 1em;" /></a></p>
+</div>
+<p>La langue cible devrait être renseignée correctement. La langue d&#8217;origine peut être laissée sur POSIX de même que l&#8217;option Pays/Région peut être laissée sur Tout Pays.</p>
+<p>Lorsque vous appuyez sur le bouton <strong>[OK]</strong>, Qt Linguist récupère et affiche des phrases et vous pouvez dès lors débuter la traduction. Voir Figure translation 2.</p>
+<p id="figure-translation-2"><strong>Figure Translation 2:</strong></p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/linguist_menu.png"><img alt="../../_images/linguist_menu.png" src="../../_images/linguist_menu.png" style="width: 50em;" /></a>
+<p class="caption">Traduire avec le menu linguist <a class="reference internal" href="../../_images/osx.png"><img alt="osx" src="../../_images/osx.png" style="width: 1em;" /></a></p>
+</div>
+<p>Dans le menu figurent les boutons suivants, pratiques à utiliser.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../_images/linguist_done_next.png"><img alt="linguist_done_next" src="../../_images/linguist_done_next.png" style="width: 2em;" /></a> Le bouton Traduction Faîte, Au Suivant est le bouton le plus important. Si l&#8217;élément nécessite une traduction, on saisit la traduction dans le champ texte, puis on appuie sur ce bouton. Si l&#8217;élément ne nécessite aucune traduction, il suffit de laisser le champ texte vide, puis de cliquer sur ce bouton qui indiquera que l&#8217;élément a été traité et  qui passera au suivant.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../_images/linguist_previous.png"><img alt="linguist_previous" src="../../_images/linguist_previous.png" style="width: 2em;" /></a> Le bouton Aller au précédent peut être utilisé pour aller à la traduction précédente.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../_images/linguist_next.png"><img alt="linguist_next" src="../../_images/linguist_next.png" style="width: 2em;" /></a> Le bouton Aller au suivant peut être utilisé pour aller à la traduction suivante.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../_images/linguist_previous_todo.png"><img alt="linguist_previous_todo" src="../../_images/linguist_previous_todo.png" style="width: 2em;" /></a> Le bouton Suivant A Faire saute sur le premier texte non encore traduit. Pratique lorsque le document original a subi des modifications et que seules quelques phrases nouvelles ou modifiées nécessitent d&#8217;être traduites.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../_images/linguist_previous_todo.png"><img alt="linguist_previous_todo" src="../../_images/linguist_previous_todo.png" style="width: 2em;" /></a> Le bouton Précédent A Faire effectue une recherche vers l&#8217;arrière et saute sur le premier texte non encore traduit.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="translate-a-manual">
+<span id="translate-manual"></span><h3>Traduire un manuel<a class="headerlink" href="#translate-a-manual" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Commençons maintenant la traduction du manuel de l&#8217;extension Carte de chaleur !</p>
+<p>Les deux premiers éléments n&#8217;ont pas besoin d&#8217;être traduits, appuyez juste sur le bouton de la barre d&#8217;outils pour considérer la traduction comme effectuée et passez à l&#8217;élément suivant.</p>
+<p>Quand on arrive sur le troisième élément, on découvre une phrase plus intéressante à traduire :</p>
+<div class="highlight-python"><pre>The |heatmap| :sup:`Heatmap` plugin allows to create a heatmap from a point vector map. A heatmap is a raster map showing the density or magnitude of point related information. From the result "hotspots" can easily be identified.</pre>
+</div>
+<dl class="docutils">
+<dt>Cette phrase contient deux instructions rst :</dt>
+<dd><ol class="first last arabic simple">
+<li><p class="first"><tt class="docutils literal"><span class="pre">|heatmap|</span></tt> Les mots entre <tt class="docutils literal"><span class="pre">|</span></tt> sont des textes de substitution et ne devraient jamais être traduits. Celui-ci sera remplacé par l&#8217;icône de l&#8217;extension Carte de chaleur !</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">:sup:`Heatmap`</span> <span class="pre">``</span> <span class="pre">L'instruction</span> <span class="pre">``:sup:</span></tt> est une instruction de superposition et affiche le texte suivant un peu en hauteur. Cela sert à afficher les textes de popup qui apparaissent lorsque vous déplacez le pointeur au-dessus de l&#8217;élément de la barre d&#8217;outils, et ceci peut être différent de la traduction faite dans l&#8217;application QGIS. Dans ce cas-ci, il ne l&#8217;est pas !</p>
+</li>
+</ol>
+</dd>
+</dl>
+<p>Tous les autres textes bruts dans cette phrase peuvent être traduits !</p>
+<p>Le cinquième élément à traduire contient l&#8217;instruction rst <tt class="docutils literal"><span class="pre">:ref:</span></tt> qui est communément utilisée pour faire référence à une autre section du manuel ! Le texte qui suit une instruction <tt class="docutils literal"><span class="pre">:ref:</span></tt> ne devrait jamais être modifié car il s&#8217;agit d&#8217;un identifiant unique !</p>
+<div class="highlight-python"><pre>First this core plugin needs to be activated using the Plugin Manager (see Section :ref:`load_core_plugin`). After activation the heatmap icon |heatmap| can be found in the Raster Toolbar.</pre>
+</div>
+<p>Dans le cas présent, &#8220;load_core_plugin&#8221; est un code d&#8217;identification unique placé avant un élément rst ayant une légende. L&#8217;instruction ref sera remplacé par le texte d&#8217;en-tête et converti en lien hypertexte. Lorsque l&#8217;en-tête auquel renvoie la référence est traduite, toutes les occurrences de la référence le sont automatiquement.</p>
+<p>L&#8217;élément suivant contient la balise rst <tt class="docutils literal"><span class="pre">:menuselection:</span></tt> suivi du texte réellement affiché dans un menu de l&#8217;application QGIS ; ce texte peut être traduit dans l&#8217;application et par conséquent doit être modifié si tel est le cas.</p>
+<div class="highlight-python"><pre>Select from menu :menuselection:`View --&gt;` :menuselection:`Toolbars --&gt;` :menuselection:`Raster` to activate the Raster Toolbar when it is not yet activated.</pre>
+</div>
+<p>Ci-dessus, l&#8217;élément &#8220;View &#8211;&gt;&#8221; est en réalité traduit en &#8220;Beeld &#8211;&gt;&#8221; parce que c&#8217;est la traduction utilisée dans la version en néerlandais de QGIS.</p>
+<p>Un peu plus loin, nous voyons un point délicat de traduction :</p>
+<div class="highlight-python"><pre>The |heatmap| :sup:`Heatmap` toolbutton starts the Dialog of the Heatmap plugin (see figure_heatmap_2_).</pre>
+</div>
+<p>Il contient une référence à une figure <tt class="docutils literal"><span class="pre">figure_heatmap_2_</span></tt>,  et comme pour une référence de section, cette référence ne devrait pas être modifiée ! La définition même de la référence depuis le document rst n&#8217;est pas incluse dans le fichier .po et ne peut pas par conséquent être modifiée. Cela signifie que la référence aux figures ne peut être traduite. Lorsqu&#8217;un lien HTML est créé, vous aurez <tt class="docutils literal"><span class="pre">figure_heatmap_2</span></tt>. S&#8217;il s&#8217;agit d&#8217;un document PDF, <tt class="docutils literal"><span class="pre">figure_heatmap_2_</span></tt> sera remplacé par un numéro de figure.</p>
+<p>L&#8217;élément suivant à traduire qui contient des attributs rst est :</p>
+<div class="highlight-python"><pre>**Input Point dialog**: Provides a selection of loaded point vector maps.</pre>
+</div>
+<p>Ne pas enlever les étoiles dans la ligne. ci-dessus Il affiche le texte qu&#8217;elle contient en caractères gras. Le texte lui-même est souvent inclus dans la boîte de dialogue elle-même et peut bien être traduite dans l&#8217;application.</p>
+<p>L&#8217;élément de traduction suivant contient la balise rst <tt class="docutils literal"><span class="pre">:guilabel:</span></tt>.</p>
+<div class="highlight-python"><pre>When the |checkbox| :guilabel:`Advanced` checkbox is checked it will give acces to additional advanced options.</pre>
+</div>
+<p>Le texte <cite>Advanced</cite> de la balise guilabel pourrait bien être traduit dans l&#8217;application QGIS et devrait probablement être modifié !</p>
+<p>L&#8217;élément de traduction suivant contient ``airports``. Les apostrophes sont utilisées afin de donner au texte un autre style de texte. Dans ce cas-ci, il s&#8217;agit d&#8217;une valeur littérale et cela ne requiert pas de traduction.</p>
+<div class="highlight-python"><pre>For the following example, we will use the ``airports`` vector point layer from the QGIS sample dataset (see :ref:`label_sampledata`). Another exellent QGIS tutorial on making heatmaps can be found on `http://qgis.spatialthoughts.com &lt;http://qgis.spatialthoughts.com/2012/07/tutorial-making-heatmaps-using-qgis-and.html&gt;`_.</pre>
+</div>
+<p>Cet élément comprend également un lien hypertexte avec une url et un texte de présentation. L&#8217;url doit bien sûr être laissée intacte, mais vous êtes autorisé à modifier le texte externe &#8220;<a class="reference external" href="http://qgis.spatialthoughts.com">http://qgis.spatialthoughts.com</a>&#8221; qui est visible par le lecteur. Ne jamais supprimer le trait de soulignement à la fin du lien hypertexte qui forme une partie essentielle de celui-ci !</p>
+</div>
+<div class="section" id="summary-rules-for-translation">
+<span id="translation-summary"></span><h3>Résumé des règles de traduction<a class="headerlink" href="#summary-rules-for-translation" title="Lien permanent vers ce titre">¶</a></h3>
+<ol class="arabic simple">
+<li><p class="first">Ne pas remplacer les chaînes comme <tt class="docutils literal"><span class="pre">|nix|</span></tt></p>
+</li>
+<li><p class="first">Ne changez pas les références qui commencent avec l&#8217;étiquette <tt class="docutils literal"><span class="pre">:ref:</span></tt></p>
+</li>
+<li><p class="first">Ne changez pas les références qui finissent par un trait de soulignement comme par exemple <tt class="docutils literal"><span class="pre">figure_1_</span></tt></p>
+</li>
+<li><p class="first">Ne changez pas l&#8217;url dans les liens hypertextes, mais vous pouvez changer la description externe. Laissez le trait de soulignement à la fin du lien hypertexte</p>
+</li>
+<li><p class="first">Changez le contenu des instructions <tt class="docutils literal"><span class="pre">:sup:</span></tt>, <tt class="docutils literal"><span class="pre">:guilabel:</span></tt> et <tt class="docutils literal"><span class="pre">:menuselection:</span></tt>, vérifiez si et comment il est traduit dans l&#8217;application QGIS.</p>
+</li>
+<li><p class="first">Les textes entre double étoile et double apostrophe indiquent souvent des valeurs ou des noms de champs, et nécessitent parfois d&#8217;être traduits.</p>
+</li>
+<li><p class="first">Veillez à utiliser les mêmes apostrophes que dans le texte source.</p>
+</li>
+<li><p class="first">Ne finissez pas les chaînes traduites par un nouveau paragraphe sinon le texte ne sera pas traduit lors de la génération du html.</p>
+</li>
+</ol>
+<p>Conformez-vous aux règles présentées ci-dessus et la traduction du document sera réussie !</p>
+</div>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../user_manual/index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

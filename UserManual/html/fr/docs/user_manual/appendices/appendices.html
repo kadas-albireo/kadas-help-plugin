@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Annexe</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <link rel="prev" title="Hilfe" href="../ribbons/help.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="Anglais">English</option>
+  <option value="de" title="Allemand">Deutsch</option>
+  <option value="fr" title="Français">Français</option>
+  <option value="it" title="Italien">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/appendices/appendices.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Découvrir</a></li>
+            <li><a href="../../../site/forusers/index.html">Pour les utilisateurs</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Contribuer</a></li>
+            <li><a href="../../index.html">Documentation</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Rechercher" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../ribbons/help.html" title="Hilfe"
+             accesskey="P">précédent</a></li>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    <a accesskey="p" href="../ribbons/help.html">&lt;&lt; prev</a>
+    
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Table Des Matières</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Préambule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Avant-propos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">Interface de KADAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Mes cartes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Dessiner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Annexe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gnu-general-public-license">licence GNU General Public License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gnu-free-documentation-license">Licence GNU de documentation libre</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="appendix">
+<h1>Annexe<a class="headerlink" href="#appendix" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="gnu-general-public-license">
+<span id="gpl-appendix"></span><h2>licence GNU General Public License<a class="headerlink" href="#gnu-general-public-license" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Version 2, Juin 1991</p>
+<p>Copyright (C) 1989, 1991 Free Software Foundation, Inc.
+59 Temple Place - Suite 330, Boston, MA  02111-1307, USA</p>
+<p>La copie et la distribution de copies exactes de ce document sont autorisées, mais aucune modification n&#8217;est permise.</p>
+<p>Préambule</p>
+<p>Les licences d&#8217;utilisation de la plupart des programmes sont définies pour limiter ou supprimer toute liberté à l&#8217;utilisateur. À l&#8217;inverse, la <span class="target" id="index-3"></span>GNU General Public License est destinée à vous garantir la liberté de partager et de modifier les logiciels libres, et de s&#8217;assurer que ces logiciels sont effectivement accessibles à tout utilisateur. Cette Licence Publique Générale s&#8217;applique à la plupart des programmes de la Free Software Foundation, comme à tout autre programme dont l&#8217;auteur l&#8217;aura décidé (d&#8217;autres logiciels de la FSF sont couverts pour leur part par la Licence Publique Générale pour Bibliothèques GNU (LGPL)). Vous pouvez aussi appliquer les termes de cette Licence à vos propres programmes, si vous le désirez.</p>
+<p>Liberté des logiciels ne signifie pas nécessairement gratuité. Notre Licence est conçue pour vous assurer la liberté de distribuer des copies des programmes, gratuitement ou non, de recevoir le code source ou de pouvoir l&#8217;obtenir, de modifier les programmes ou d&#8217;en utiliser des éléments dans de nouveaux programmes libres, en sachant que vous y êtes autorisé.</p>
+<p>Afin de garantir ces droits, nous avons dû introduire des restrictions interdisant à quiconque de vous les refuser ou de vous demander d&#8217;y renoncer. Ces restrictions vous imposent en retour certaines obligations si vous distribuez ou modifiez des copies de programmes protégés par la Licence.</p>
+<p>Par exemple, si vous distribuez des copies de ce programme, soit gratuitement, soit contre une certaine somme d&#8217;argent, vous devez transmettre aux destinataires tous les droits que vous possédez. Vous devez vous assurer d&#8217;expédier aux destinataires le code source ou bien tenir celui-ci à leur disposition. Enfin, vous devez leur remettre cette Licence afin qu&#8217;ils prennent connaissance de leurs droits.</p>
+<p>Nous protégeons vos droits de deux façons : d&#8217;abord par le copyright du logiciel, ensuite par la remise de cette Licence qui vous autorise légalement à copier, distribuer et/ou modifier le logiciel.</p>
+<p>En outre, pour protéger chaque auteur ainsi que la FSF, nous affirmons solennellement que le programme concerné ne fait l&#8217;objet d&#8217;aucune garantie. Si un tiers le modifie puis le redistribue, tous ceux qui en recevront une copie doivent savoir qu&#8217;il ne s&#8217;agit pas de l&#8217;original afin qu&#8217;une copie défectueuse n&#8217;entache pas la réputation de l&#8217;auteur du logiciel.</p>
+<p>Enfin, tout programme libre est sans cesse menacé par des dépôts de brevets. Nous souhaitons à tout prix éviter que des distributeurs puissent déposer des brevets sur les Logiciels Libres pour leur propre compte. Pour éviter cela, nous stipulons bien que tout dépôt éventuel de brevet doit accorder expressément à tout un chacun le libre usage du produit.</p>
+<p>Les dispositions précises et les conditions de copie, de distribution et de modification de nos logiciels sont les suivantes : STIPULATIONS ET CONDITIONS RELATIVES A LA COPIE, LA DISTRIBUTION ET LA MODIFICATION</p>
+<ol class="arabic" start="0">
+<li><p class="first">La présente Licence s&#8217;applique à tout Programme (ou autre travail) où figure une note, placée par le détenteur des droits, stipulant que ledit Programme ou travail peut être distribué selon les termes de la présente Licence. Le terme Programme désigne aussi bien le Programme lui-même que tout travail qui en est dérivé selon la loi, c&#8217;est-à-dire tout ouvrage reproduisant le Programme ou une partie de celui-ci, à l&#8217;identique ou bien modifié, et/ou traduit dans une autre langue (la traduction est considérée comme une modification). Chaque personne concernée par la Licence Publique Générale sera désignée par le terme Vous.</p>
+<p>Les activités autres que copie, distribution et modification ne sont pas couvertes par la présente Licence et sortent de son cadre. Rien ne restreint l&#8217;utilisation du Programme et les données issues de celui-ci ne sont couvertes que si leur contenu constitue un travail basé sur le logiciel (indépendemment du fait d&#8217;avoir été réalisé en lançant le Programme). Tout dépend de ce que le Programme est censé produire.</p>
+</li>
+<li><p class="first">Vous pouvez copier et distribuer des copies conformes du code source du Programme, tel que Vous l&#8217;avez reçu, sur n&#8217;importe quel support, à condition de placer sur chaque copie un copyright approprié et une restriction de garantie, de ne pas modifier ou omettre toutes les stipulations se référant à la présente Licence et à la limitation de garantie, et de fournir avec toute copie du Programme un exemplaire de la Licence.</p>
+<p>Vous pouvez demander une rétribution financière pour la réalisation de la copie et demeurez libre de proposer une garantie assurée par vos soins, moyennant finances.</p>
+</li>
+<li><p class="first">Vous pouvez modifier votre copie ou vos copies du Programme ou partie de celui-ci, ou d&#8217;un travail basé sur ce Programme, et copier et distribuer ces modifications selon les termes de l&#8217;article 1, à condition de Vous conformer également aux conditions suivantes :</p>
+<ol class="loweralpha simple">
+<li><p class="first">Ajouter aux fichiers modifiés l&#8217;indication très claire des modifications effectuées, ainsi que la date de chaque changement.</p>
+</li>
+<li><p class="first">Distribuer sous les termes de la Licence Publique Générale l&#8217;ensemble de toute réalisation contenant tout ou partie du Programme, avec ou sans modifications.</p>
+</li>
+<li><p class="first">Si le Programme modifié lit des commandes de manière interactive lors de son exécution, faire en sorte qu&#8217;il affiche, lors d&#8217;une invocation ordinaire, le copyright approprié en indiquant clairement la limitation de garantie (ou la garantie que Vous Vous engagez à fournir Vous-même), qu&#8217;il stipule que tout utilisateur peut librement redistribuer le Programme selon les conditions de la Licence Publique Générale GNU, et qu&#8217;il montre à tout utilisateur comment lire une copie de celle-ci (exception : si le Programme original est interactif mais n&#8217;affiche pas un tel message en temps normal, tout travail dérivé de ce Programme ne sera pas non plus contraint de l&#8217;afficher).</p>
+</li>
+</ol>
+<p>Toutes ces conditions s&#8217;appliquent à l&#8217;ensemble des modifications. Si des éléments identifiables de ce travail ne sont pas dérivés du Programme et peuvent être raisonnablement considérés comme indépendants, la présente Licence ne s&#8217;applique pas à ces éléments lorsque Vous les distribuez seuls. Mais, si Vous distribuez ces mêmes éléments comme partie d&#8217;un ensemble cohérent dont le reste est basé sur un Programme soumis à la Licence, ils lui sont également soumis, et la Licence s&#8217;étend ainsi à l&#8217;ensemble du produit, quel qu&#8217;en soit l&#8217;auteur.</p>
+<p>Cet article n&#8217;a pas pour but de s&#8217;approprier ou de contester vos droits sur un travail entièrement réalisé par Vous, mais plutôt d&#8217;ouvrir droit à un contrôle de la libre distribution de tout travail dérivé ou collectif basé sur le Programme.</p>
+<p>En outre, toute fusion d&#8217;un autre travail, non basé sur le Programme, avec le Programme (ou avec un travail dérivé de ce dernier), effectuée sur un support de stockage ou de distribution, ne fait pas tomber cet autre travail sous le contrôle de la Licence.</p>
+</li>
+<li><p class="first">Vous pouvez copier et distribuer le Programme (ou tout travail dérivé selon les conditions énoncées dans l&#8217;article 1) sous forme de code objet ou exécutable, selon les termes des articles 0 et 1, à condition de respecter l&#8217;une des clauses suivantes :</p>
+<ol class="loweralpha simple">
+<li><p class="first">Fournir le code source complet du Programme, sous une forme lisible par un ordinateur et selon les termes des articles 0 et 1, sur un support habituellement utilisé pour l&#8217;échange de données ; ou,</p>
+</li>
+<li><p class="first">Faire une offre écrite, valable pendant au moins trois ans, prévoyant de donner à tout tiers qui en fera la demande une copie, sous forme lisible par un ordinateur, du code source correspondant, pour un tarif n&#8217;excédant pas le coût de la copie, selon les termes des articles 0 et 1, sur un support couramment utilisé pour l&#8217;échange de données informatiques ; ou,</p>
+</li>
+<li><p class="first">Informer le destinataire de l&#8217;endroit où le code source peut être obtenu (cette solution n&#8217;est recevable que dans le cas d&#8217;une distribution non commerciale, et uniquement si Vous avez reçu le Programme sous forme de code objet ou exécutable avec l&#8217;offre prévue à l&#8217;alinéa b ci-dessus).</p>
+</li>
+</ol>
+<p>Le code source d&#8217;un travail désigne la forme de cet ouvrage sous laquelle les modifications sont les plus aisées. Sont ainsi désignés la totalité du code source de tous les modules composant un Programme exécutable, de même que tout fichier de définition associé, ainsi que les scripts utilisés pour effectuer la compilation et l&#8217;installation du Programme exécutable. Toutefois, l&#8217;environnement standard de développement du système d&#8217;exploitation mis en oeuvre (source ou binaire) &#8211; compilateurs, bibliothèques, noyau, etc. &#8211; constitue une exception, sauf si ces éléments sont diffusés en même temps que le Programme exécutable.</p>
+<p>Si la distribution de l&#8217;exécutable ou du code objet consiste à offrir un accès permettant de copier le Programme depuis un endroit particulier, l&#8217;offre d&#8217;un accès équivalent pour se procurer le code source au même endroit est considéré comme une distribution de ce code source, même si l&#8217;utilisateur choisit de ne pas profiter de cette offre.</p>
+</li>
+<li><p class="first">Vous ne pouvez pas copier, modifier, céder, déposer ou distribuer le Programme d&#8217;une autre manière que l&#8217;autorise la Licence Publique Générale. Toute tentative de ce type annule immédiatement vos droits d&#8217;utilisation du Programme sous cette Licence. Toutefois, les tiers ayant reçu de Vous des copies du Programme ou le droit d&#8217;utiliser ces copies continueront à bénéficier de leur droit d&#8217;utilisation tant qu&#8217;ils respecteront pleinement les conditions de la Licence.</p>
+</li>
+<li><p class="first">Ne l&#8217;ayant pas signée, Vous n&#8217;êtes pas obligé d&#8217;accepter cette Licence. Cependant, rien d&#8217;autre ne Vous autorise à modifier ou distribuer le Programme ou quelque travaux dérivés : la loi l&#8217;interdit tant que Vous n&#8217;acceptez pas les termes de cette Licence. En conséquence, en modifiant ou en distribuant le Programme (ou tout travail basé sur lui), Vous acceptez implicitement tous les termes et conditions de cette Licence.</p>
+</li>
+<li><p class="first">La diffusion d&#8217;un Programme (ou de tout travail dérivé) suppose l&#8217;envoi simultané d&#8217;une licence autorisant la copie, la distribution ou la modification du Programme, aux termes et conditions de la Licence. Vous n&#8217;avez pas le droit d&#8217;imposer de restrictions supplémentaires aux droits transmis au destinataire. Vous n&#8217;êtes pas responsable du respect de la Licence par un tiers.</p>
+</li>
+<li><p class="first">Si, à la suite d&#8217;une décision de Justice, d&#8217;une plainte en contrefaçon ou pour toute autre raison (liée ou non à la contrefaçon), des conditions Vous sont imposées (que ce soit par ordonnance, accord amiable ou autre) qui se révèlent incompatibles avec les termes de la présente Licence, Vous n&#8217;êtes pas pour autant dégagé des obligations liées à celle-ci : si Vous ne pouvez concilier vos obligations légales ou autres avec les conditions de cette Licence, Vous ne devez pas distribuer le Programme.</p>
+<p>Si une partie quelconque de cet article est invalidée ou inapplicable pour quelque raison que ce soit, le reste de l&#8217;article continue de s&#8217;appliquer et l&#8217;intégralité de l&#8217;article s&#8217;appliquera en toute autre circonstance.</p>
+<p>Le présent article n&#8217;a pas pour but de Vous pousser à enfreindre des droits ou des dispositions légales ni en contester la validité ; son seul objectif est de protéger l&#8217;intégrité du système de distribution du Logiciel Libre. De nombreuses personnes ont généreusement contribué à la large gamme de Programmes distribuée de cette façon en toute confiance ; il appartient à chaque auteur/donateur de décider de diffuser ses Programmes selon les critères de son choix.</p>
+<p>Cette section a pour but de rendre totalement limpide ce que l&#8217;on pense être une conséquence du reste de la présente Licence.</p>
+</li>
+<li><p class="first">Si la distribution et/ou l&#8217;utilisation du Programme est limitée dans certains pays par des brevets ou des droits sur des interfaces, le détenteur original des droits qui place le Programme sous la Licence Publique Générale peut ajouter explicitement une clause de limitation géographique excluant ces pays. Dans ce cas, cette clause devient une partie intégrante de la Licence.</p>
+</li>
+<li><p class="first">La Free Software Foundation se réserve le droit de publier périodiquement des mises à jour ou de nouvelles versions de la Licence. Rédigées dans le même esprit que la présente version, elles seront cependant susceptibles d&#8217;en modifier certains détails à mesure que de nouveaux problèmes se font jour.</p>
+<p>Chaque version possède un numéro distinct. Si le Programme précise un numéro de version de cette Licence et « toute version ultérieure », Vous avez le choix de suivre les termes et conditions de cette version ou de toute autre version plus récente publiée par la Free Software Foundation. Si le Programme ne spécifie aucun numéro de version, Vous pouvez alors choisir l&#8217;une quelconque des versions publiées par la Free Software Foundation.</p>
+</li>
+<li><p class="first">Si vous désirez incorporer des éléments du Programme dans d&#8217;autres Programmes libres dont les conditions de distribution diffèrent, vous devez écrire à l&#8217;auteur pour lui en demander la permission. Pour ce qui est des programmes directement déposés par la Free Software Foundation, écrivez-nous : une exception est toujours envisageable. Notre décision sera basée sur notre volonté de préserver la liberté de notre Programme ou de ses dérivés et celle de promouvoir le partage et la réutilisation du logiciel en général.</p>
+</li>
+</ol>
+<p>LIMITATION DE GARANTIE</p>
+<ol class="arabic simple" start="11">
+<li><p class="first">Parce que l&#8217;utilisation de ce Programme est libre et gratuite, aucune garantie n&#8217;est fournie, comme le permet la loi. Sauf mention écrite, les détenteurs du copyright et/ou les tiers fournissent le Programme en l&#8217;état, sans aucune sorte de garantie explicite ou implicite, y compris les garanties de commercialisation ou d&#8217;adaptation dans un but particulier. Vous assumez tous les risques quant à la qualité et aux effets du Programme. Si le Programme est défectueux, Vous assumez le coût de tous les services, corrections ou réparations nécessaires.</p>
+</li>
+<li><p class="first">Sauf lorsqu&#8217;explicitement prévu par la Loi ou accepté par écrit, ni le détenteur des droits, ni quiconque autorisé à modifier et/ou redistribuer le Programme comme il est permis ci-dessus ne pourra être tenu pour responsable de tout dommage direct, indirect, secondaire ou accessoire (pertes financières dues au manque à gagner, à l&#8217;interruption d&#8217;activités ou à la perte de données, etc., découlant de l&#8217;utilisation du Programme ou de l&#8217;impossibilité d&#8217;utiliser celui-ci).</p>
+</li>
+</ol>
+<p><strong>Exception Qt à la GPL pour QGIS</strong></p>
+<blockquote>
+<div><p>De plus, l&#8217;équipe de développement de QGIS vous donne la permission, à titre d&#8217;exception spéciale, de lier le code de ce programme avec la bibliothèque Qt, incluant sans limite les versions suivantes (à la fois libres et commerciales): Qt/Non-commerical Windows, Qt/Windows, Qt/X11, Qt/Mac, and Qt/Embedded (ou avec des versions modifiées de Qt qui utilisent la même licence que Qt) et de distribuer des combinaisons liées incluant les deux. Vous devez respecter la GNU General Public Licence pour tout le code qui ne concerne pas Qt. Si vous modifiez ce fichier, vous pouvez étendre cette exception à votre version de ce fichier mais vous n&#8217;êtes pas obligé de le faire. Si vous ne voulez pas le faire, supprimez cette déclaration d&#8217;exception de votre version.</p>
+</div></blockquote>
+</div>
+<div class="section" id="gnu-free-documentation-license">
+<span id="gfl-appendix"></span><h2>Licence GNU de documentation libre<a class="headerlink" href="#gnu-free-documentation-license" title="Lien permanent vers ce titre">¶</a></h2>
+<blockquote>
+<div><p>Version 1.3, 3 Novembre 2008</p>
+<p>Copyright  2000, 2001, 2002, 2007, 2008  Free Software Foundation, Inc</p>
+<p>&lt;<a class="reference external" href="http://fsf.org/">http://fsf.org/</a>&gt;</p>
+</div></blockquote>
+<p>Tout le monde est autorisé à copier et redistribuer à l&#8217;identique le texte de cette licence, mais le modifier n&#8217;est pas autorisé.</p>
+<p><strong>Préambule</strong></p>
+<p>Le but de cette Licence est de rendre un manuel, un livre, ou un autre document fonctionnel et utile &#8220;libre&#8221; : d&#8217;assurer à tout le monde la liberté effective de le copier et de le redistribuer, en le modifiant ou non, commercialement ou bénévolement. Accessoirement, cette Licence donne la possibilité à l&#8217;auteur et à l&#8217;éditeur d&#8217;être crédités de leur travail, sans être considérés comme responsables des modifications faites par d&#8217;autres.</p>
+<p>Cette Licence est une sorte de &#8220;gauche d&#8217;auteur&#8221; (&#8220;copyleft&#8221;), ce qui signifie que les œuvres dérivées du document doivent elles aussi être libres. Elle est le complément de la licence publique générale GNU, qui est une licence de type gauche d&#8217;auteur conçue pour les logiciels libres.</p>
+<p>Nous avons conçu cette Licence pour l&#8217;utiliser dans les manuels de logiciel libre, parce que les logiciels libres nécessitent de la documentation libre : un programme libre doit être fourni avec des manuels assurant des libertés identiques à celles qu&#8217;assure le logiciel. Mais cette Licence n&#8217;est pas limitée aux manuels de logiciels ; elle peut être utilisée pour n&#8217;importe quelle œuvre textuelle, quel que soit le sujet traité, que cette œuvre soit publiée en tant que livre imprimé, ou non. Nous recommandons cette Licence principalement pour les œuvres à but éducatif ou pour les manuels de référence.</p>
+<p><strong>1. APPLICABILITÉ ET DÉFINITIONS</strong></p>
+<p>Cette Licence s&#8217;applique à tout manuel ou autre œuvre, sur n&#8217;importe quel support, qui contient une mention, placée par le détenteur des droits d&#8217;auteur, disant que le manuel ou l&#8217;œuvre peut être distribuée selon les termes de cette Licence. Une telle mention accorde une autorisation valable dans le monde entier, gratuite, sans limite de durée, d&#8217;utiliser l&#8217;œuvre selon les conditions établies ici. Le terme &#8220;Document&#8221;, utilisé ci-après désigne tout manuel ou œuvre contenant une telle mention. Tout membre du public est un licencié, et est désigné par &#8220;vous&#8221;. Vous acceptez la licence si vous copiez, modifiez ou distribuez l&#8217;œuvre d&#8217;une façon qui requiert une permission selon la loi sur le droit d&#8217;auteur.</p>
+<p>Une &#8220;<strong>Version Modifiée</strong>&#8221; du Document désigne toute œuvre contenant le Document ou une portion du Document, copié à l&#8217;identique, ou copié avec des modifications ou traduit dans une autre langue.</p>
+<p>Une &#8220;<strong>Section Secondaire</strong>&#8221; est une annexe portant un nom spécifique ou une section préliminaire du Document qui traite exclusivement de la relation des éditeurs ou des auteurs du Document au thème général du Document (ou à des thèmes liés) et ne contient rien qui pourrait relever directement de ce thème général. (Ainsi, si le Document est en partie un manuel de mathématiques, une Section Secondaire ne peut donner aucune explication en mathématiques.) La relation peut être une connexion historique avec le sujet ou avec des sujets liés, ou elle peut être un point de vue juridique, commercial, philosophique, éthique ou politique sur ces sujets.</p>
+<p>Les &#8220;<strong>Sections Invariantes</strong>&#8221; sont certaines Sections Secondaires, dont les titres sont désignés comme étant des Sections Invariantes dans la mention disant que le Document est publié selon les termes de cette Licence. Si une section ne correspond pas à la définition de Section Secondaire établie ci-dessus, alors il n&#8217;est pas permis de la désigner comme Invariante. Le Document peut contenir zéro Section Invariante. Si le Document n&#8217;identifie aucune Section Invariante, alors il n&#8217;y en a aucune.</p>
+<p>Les &#8220;<strong>Textes De Couverture</strong>&#8221; sont certains courts passages de texte qui sont mentionnés comme Textes De Première De Couverture ou Textes De Quatrième De Couverture dans la mention disant que le Document est publié selon les termes de cette Licence. Un Texte De Première De Couverture peut contenir 5 mots au maximum, et un Texte De Quatrième De Couverture peut contenir 25 mots au maximum.</p>
+<p>Une copie &#8220;<strong>Transparente</strong>&#8221; du Document désigne une copie lisible par une machine, représentée dans un format dont les spécifications sont disponibles pour le grand public, qui permet de corriger facilement le document avec des éditeurs de texte génériques ou (pour les images composées de pixels) avec des éditeurs d&#8217;image génériques ou (pour les dessins) avec des éditeurs de dessin largement disponibles, et qui est approprié pour servir de données d&#8217;entrée aux formateurs de texte ou pour être traduit automatiquement dans une variété de formats appropriés pour servir de données d&#8217;entrée aux formateurs de texte. Une copie faite dans un format de fichier par ailleurs Transparent, mais dont le marquage, ou l&#8217;absence de marquage, a été conçu de façon à empêcher ou décourager les lecteurs de faire des modifications ultérieurement n&#8217;est pas Transparente. Un format d&#8217;image n&#8217;est pas Transparent s&#8217;il est utilisé pour afficher toute quantité substantielle de texte. Une copie qui n&#8217;est pas &#8220;Transparente&#8221; est appelée &#8220;<strong>Opaque</strong>&#8221;.</p>
+<p>Voici des exemples de formats appropriés pour faire des copies Transparentes : du texte brut ASCII sans marquage ; le format d&#8217;entrée de Texinfo ; le format d&#8217;entrée de LaTeX ; le format SGML ou XML en utilisant une DTD disponible publiquement ; du HTML simple et conforme aux standards ; du PostScript ou du PDF conçu pour être modifié par des humains. Voici des exemple de formats d&#8217;image transparents : PNG, XCF et JPG. Voici des exemples de formats opaques : les formats privateurs qui ne peuvent être lus et modifiés que par des logiciels de traitement de texte privateurs ; du SGML ou du XML dont la DTD ou les outils de traitement ne sont pas largement disponibles ; le HTML généré par une machine ; du PostScript ou du PDF produit par un logiciel de traitement de texte dans un but d&#8217;affichage seulement.</p>
+<p>La &#8220;<strong>Page De Titre</strong>&#8221; désigne, pour un livre imprimé, la page de titre elle-même, plus les pages suivantes nécessaires pour contenir, lisiblement, les mentions que cette Licence oblige à inscrire dans la page de titre. Pour les œuvres dont le format ne possède pas de page de titre en tant que telle, &#8220;Page De Titre&#8221; désigne le texte placé à côté de l&#8217;inscription la plus en vue du titre de l&#8217;œuvre, qui précède le début du corps du texte.</p>
+<p>L&#8217; &#8220;<strong>éditeur</strong>&#8221; désigne toute personne ou entité qui distribue des copies du Document au public.</p>
+<p>Une section &#8220;<strong>Intitulée XYZ</strong>&#8221; désigne soit une sous-unité du Document dont le titre est exactement XYZ, soit une sous-unité du Document dont le titre contient XYZ entre parenthèses après le texte traduisant XYZ dans une autre langue. (Ici XYZ représente un nom de section spécifique mentionné ci-après, tel que &#8220;<strong>Acknowledgements</strong>&#8221; [Remerciements], &#8220;<strong>Dedications</strong>&#8221; [Dédicaces], &#8220;<strong>Endorsements</strong>&#8221; [Approbations], ou &#8220;<strong>History</strong>&#8221; [Historique]). &#8220;<strong>Conserver le Titre</strong>&#8221; d&#8217;une telle section, quand vous modifiez le Document, signifie que cette section reste une section &#8220;Intitulée XYZ&#8221; selon la présente définition.</p>
+<p>Le Document peut inclure des Mentions De Limitation De Garantie à côté de la mention indiquant que cette Licence s&#8217;applique au Document. Ces Mentions De Limitation De Garantie sont considérées comme incluses par référence dans cette Licence, mais elles ne peuvent que limiter des garanties : toute autre implication que ces Mentions De Limitation De Garantie pourraient avoir est nulle et n&#8217;a aucun effet sur la signification de cette Licence.</p>
+<p><strong>2. COPIE À L&#8217;IDENTIQUE</strong></p>
+<p>Vous pouvez copier et distribuer le Document sur tout support, commercialement ou bénévolement, à condition que cette Licence, les mentions de droit d&#8217;auteur, et la mention disant que cette Licence s&#8217;applique au Document soient reproduites dans toutes les copies, et que vous n&#8217;ajoutiez absolument aucune autre condition aux conditions de cette Licence. Vous ne pouvez pas utiliser de mesures techniques pour entraver ou contrôler la lecture ou la copie des copies que vous faites ou distribuez. Toutefois, vous pouvez accepter une rémunération en échange de copies. Si vous distribuez un nombre de copies suffisamment important, vous devez aussi vous conformer aux conditions de la section 3.</p>
+<p>Vous pouvez aussi prêter des copies, selon les mêmes conditions que ci-dessus, et vous pouvez afficher publiquement des copies.</p>
+<p><strong>3. COPIE EN GRANDE QUANTITÉ</strong></p>
+<p>Si vous publiez plus de 100 copies imprimées (ou 100 copies dans un média qui a communément une couverture imprimée) du Document, et que la mention de licence du Document indique qu&#8217;il y a des Textes De Couverture, vous devez insérer chaque copie dans une couverture qui porte, clairement et lisiblement, tous ces Textes De Couverture : les Textes De Première De Couverture sur la première de couverture, et les Textes De Quatrième De Couverture sur la quatrième de couverture. Ces deux pages de couvertures doivent aussi vous identifier clairement et lisiblement comme l&#8217;éditeur de ces copies. La première de couverture doit présenter le titre complet, et tous les mots du titre doivent avoir la même importance et la même visibilité. Vous pouvez ajouter d&#8217;autres choses en supplément sur la couverture. Faire des copies avec des changements uniquement sur la couverture, tant que les copies conservent le titre du Document et satisfont ces conditions, est considéré comme faire des copies à l&#8217;identique.</p>
+<p>Si les textes requis pour l&#8217;une ou l&#8217;autre des pages de couverture sont trop volumineux pour y figurer lisiblement, vous devez mettre les premiers de la liste (autant qu&#8217;il est possible d&#8217;en mettre de façon lisible) sur la page de couverture elle-même, et mettre le reste sur les pages adjacentes.</p>
+<p>Si vous publiez ou distribuez plus de 100 copies Opaques du Document, vous devez soit inclure une copie Transparente et lisible par une machine avec chaque copie Opaque, soit indiquer dans chaque copie Opaque (ou dans une notice accompagnant chaque copie opaque) un emplacement sur le réseau informatique à partir duquel le grand public utilisant le réseau peut accéder au téléchargement, en utilisant des protocoles réseau publics et standards, d&#8217;une copie complète et Transparente du Document, sans aucun ajout. Si vous utilisez cette dernière option, vous devez prendre des précautions raisonnablement prudentes, quand vous commencez la distribution de copies Opaques en grande quantité, pour garantir que cette copie Transparente restera accessible par les moyens et à l&#8217;emplacement indiqués pendant au moins un an après la dernière distribution de copie Opaque (directement ou par l&#8217;intermédiaire de vos agents ou de vos revendeurs au détail) de cette édition au public.</p>
+<p>Il est demandé, sans que cela soit une obligation, que vous contactiez les auteurs du Document bien avant de redistribuer tout nombre important de copies, pour leur donner une chance de vous fournir une version mise à jour du Document.</p>
+<p><strong>4. MODIFICATIONS</strong></p>
+<p>Vous pouvez copier et distribuer une Version Modifiée du Document selon les conditions des sections 2 et 3 ci-dessus, à condition que vous accordiez le droit à tous ceux à qui vous distribuez la Version Modifiée de copier et de distribuer la Version Modifiée selon les termes de cette Licence, avec la Version Modifiée jouant le rôle du Document, autorisant ainsi la distribution et la modification de la Version Modifiée à toute personne qui en possède une copie. De plus, vous devez faire les choses suivantes dans la Version Modifiée :</p>
+<ol class="upperalpha simple">
+<li><p class="first">Utiliser dans la Page De Titre (et sur la couverture, s&#8217;il y en a) un titre distinct de celui du Document et de ceux des précédentes versions (qui devraient, s&#8217;il y en a, être énumérées dans la section History de ce Document). Vous pouvez utiliser le même titre que celui d&#8217;une version précédente si l&#8217;éditeur original de cette version vous en donne la permission.</p>
+</li>
+<li><p class="first">Citer sur la Page De Titre, en tant qu&#8217;auteurs, une ou plusieurs personnes ou entités responsables des modifications faites dans la Version Modifiée, ainsi qu&#8217;au moins cinq des auteurs principaux du Document (tous les auteurs principaux, s&#8217;il y en a moins de cinq), sauf s&#8217;ils vous dispensent de cette obligation.</p>
+</li>
+<li><p class="first">Spécifier sur la Page de titre le nom de l&#8217;éditeur de la Version Modifiée, en précisant que c&#8217;est lui l&#8217;éditeur.</p>
+</li>
+<li><p class="first">Conserver toutes les mentions de droit d&#8217;auteur du Document.</p>
+</li>
+<li><p class="first">Ajouter une mention appropriée indiquant vos droits d&#8217;auteur pour les modifications que vous avez faites ; cette mention doit être adjacente aux autres mentions de droit d&#8217;auteur.</p>
+</li>
+<li><p class="first">Inclure, immédiatement après les mentions de droit d&#8217;auteur, une mention de licence donnant la permission au public d&#8217;utiliser la Version Modifiée selon les termes de cette Licence, en respectant la forme indiquée dans la section Addendum ci-dessous.</p>
+</li>
+<li><p class="first">Conserver dans cette mention de licence les listes complètes des Sections Invariantes et des Textes De Couverture inscrites dans la mention de licence du Document.</p>
+</li>
+<li><p class="first">Inclure une copie non modifiée de cette Licence.</p>
+</li>
+<li><p class="first">Conserver la section Intitulée &#8220;History&#8221;, Conserver son Titre, et ajouter à cette section un paragraphe indiquant au minimum le titre, l&#8217;année, les nouveaux auteurs, et l&#8217;éditeur de la Version Modifiée comme cela est fait sur la Page De Titre. S&#8217;il n&#8217;y a pas de section Intitulée &#8220;History&#8221; dans le Document, en créer une qui indique le titre, l&#8217;année, les auteurs, et l&#8217;éditeur du Document comme cela est fait sur la Page De Titre, et ensuite ajouter un paragraphe décrivant la Version Modifiée comme indiqué dans la phrase précédente.</p>
+</li>
+<li><p class="first">Conserver l&#8217;indication d&#8217;emplacement sur le réseau, s&#8217;il y en a une, donnée dans le Document pour l&#8217;accès public à une copie Transparente du Document, et Conserver de la même manière les indications d&#8217;emplacement sur le réseau données dans le Document pour les versions précédentes sur lesquelles il est basé. Celles-ci peuvent être placées dans la section &#8220;History&#8221;. Vous pouvez omettre une indication d&#8217;emplacement sur le réseau pour une œuvre qui a été publiée au moins quatre ans avant le Document lui-même, ou si l&#8217;éditeur original de la version à laquelle elle réfère vous en donne la permission.</p>
+</li>
+<li><p class="first">Pour toute section Intitulée &#8220;Acknowledgements&#8221; ou &#8220;Dedications&#8221;, Conserver le Titre de la section et, à l&#8217;intérieur de la section, toute la substance et le ton de chacun des remerciements aux contributeurs ou de chacune des dédicaces qui y figure.</p>
+</li>
+<li><p class="first">Conserver toutes les Sections Invariantes du Document, non modifiées dans leurs textes et dans leurs titres. Les numéros de sections ou leurs équivalents ne sont pas considérés comme faisant partie des titres de section.</p>
+</li>
+<li><p class="first">Supprimer toute section Intitulée &#8220;Endorsements&#8221;. Une telle section ne peut pas être incluse dans la Version Modifiée.</p>
+</li>
+<li><p class="first">Ne pas modifier le titre d&#8217;une section existante en lui donnant le titre &#8220;Endorsements&#8221; ou en lui donnant un titre qui entre en conflit avec le titre d&#8217;une Section Invariante.</p>
+</li>
+<li><p class="first">Conserver toute Mention De Limitation De Garantie.</p>
+</li>
+</ol>
+<p>Si la Version Modifiée inclut de nouvelles sections préliminaires ou de nouvelles annexes qui répondent à la définition de Sections Secondaires et ne contiennent rien qui soit copié du Document, vous pouvez si vous le souhaitez désigner certaines ou toutes ces sections comme invariantes. Pour faire cela, ajoutez leurs titres à la liste des Sections Invariantes dans la mention de licence de la Version Modifiée. Ces titres doivent être distincts de tout autre titre de section.</p>
+<p>Vous pouvez ajouter une section Intitulée &#8220;Endorsements&#8221;, à condition qu&#8217;elle ne contienne que des marques de soutien pour votre Version Modifiée faites par d&#8217;autres parties—par exemple, des déclarations d&#8217;évaluation par les pairs ou des déclarations stipulant que votre texte a été approuvé par une organisation comme définition officielle d&#8217;un standard.</p>
+<p>Vous pouvez ajouter un passage de cinq mots au maximum comme Texte De Première De Couverture, et un passage de 25 mots au maximum comme Texte De Quatrième De Couverture, à la fin de la liste des Textes De Couverture dans la Version Modifiée. Un seul passage de Texte De Première De Couverture et un seul passage de Texte De Quatrième De Couverture peut être ajouté par (ou par l&#8217;intermédiaire d&#8217;arrangements faits par) une même entité. Si le Document inclut déjà un texte pour la même page de couverture, précédemment ajouté par vous ou par arrangement fait par la même entité que celle au nom de laquelle vous agissez, vous ne pouvez pas en ajouter d&#8217;autre ; mais vous pouvez remplacer l&#8217;ancien à condition que l&#8217;éditeur précédent ayant placé l&#8217;ancien texte vous en donne la permission explicite.</p>
+<p>Par cette Licence, l&#8217;auteur (ou les auteurs) et l&#8217;éditeur (ou les éditeurs) du Document ne donnent pas la permission d&#8217;utiliser leurs noms pour un usage publicitaire ou pour exprimer explicitement ou implicitement leur soutien à une Version Modifiée.</p>
+<p><strong>5. COMBINAISON DE DOCUMENTS</strong></p>
+<p>Vous pouvez combiner le Document avec d&#8217;autres documents publiés selon les termes de cette Licence, à condition de respecter les termes définis dans la section 4 ci-dessus pour les Versions Modifiées, et à condition que vous incluiez dans la combinaison toutes les Sections Invariantes de tous les documents originaux, non modifiées, et que vous les énumériez toutes comme Sections Invariantes de votre œuvre combinée dans sa mention de licence, et que de plus vous conserviez toutes les Mentions De Limitation De Garantie de tous les documents originaux.</p>
+<p>L&#8217;œuvre combinée n&#8217;a besoin de contenir qu&#8217;une seule copie de cette Licence, et de multiples Sections Invariantes identiques peuvent être remplacées par une seule d&#8217;entre elles. S&#8217;il y a plusieurs Sections Invariantes avec le même nom mais avec des contenus différents, rendez unique le titre de chaque section en question en ajoutant à la fin de celui-ci, entre parenthèses, le nom de l&#8217;auteur ou de l&#8217;éditeur original de cette section s&#8217;il est connu, ou, à défaut, un nombre unique. Faites le même ajustement aux titres de section dans la liste des Sections Invariantes figurant dans la mention de licence de l&#8217;œuvre combinée.</p>
+<p>Dans la combinaison, vous devez combiner toutes les sections Intitulées &#8220;History&#8221; de tous les documents originaux, en formant une unique section Intitulée &#8220;History&#8221; ; de la même manière, combinez toutes les sections Intitulées &#8220;Acknowledgements&#8221;, puis toutes les sections Intitulées &#8220;Dedications&#8221;. Vous devez supprimer toutes les sections Intitulées &#8220;Endorsements&#8221;.</p>
+<p><strong>6. COLLECTIONS DE DOCUMENTS</strong></p>
+<p>Vous pouvez faire une collection composée du Document et d&#8217;autres documents publiés selon les termes de cette Licence, et remplacer les copies individuelles de cette Licence dans les divers documents par une unique copie incluse dans la collection, à condition qu&#8217;à tous les autres égards et pour chacun des documents vous vous conformiez aux règles de cette Licence régissant la copie à l&#8217;identique.</p>
+<p>Vous pouvez extraire un document d&#8217;une telle collection, et le distribuer individuellement selon les termes de cette Licence, à condition que vous insériez une copie de cette Licence dans le document extrait, et que vous vous conformiez à cette Licence à tous les autres égards, en ce qui concerne la copie du document extrait.</p>
+<p><strong>7. AGRÉGATION AVEC DES ŒUVRES INDÉPENDANTES</strong></p>
+<p>Une compilation du Document ou de ses dérivés avec d&#8217;autres documents ou œuvres séparés et indépendants, dans une unité de stockage ou sur un support de distribution, est appelée &#8220;agrégat&#8221; si le droit d&#8217;auteur résultant de la compilation n&#8217;est pas utilisé pour limiter les droits légaux des utilisateurs de la compilation au-delà de ce que les œuvres individuelles permettent. Quand le Document est inclus dans un agrégat, cette Licence ne s&#8217;applique pas aux autres œuvres de l&#8217;agrégat qui ne sont pas elles-mêmes des œuvres dérivées du Document.</p>
+<p>Si l&#8217;obligation de Texte De Couverture de la section 3 est applicable à ces copies du Document, alors si le Document correspond à moins de la moitié de l&#8217;agrégat entier, les Textes De Couverture du Document peuvent être placés sur la couverture qui contient le Document à l&#8217;intérieur de l&#8217;agrégat, ou l&#8217;équivalent électronique de cette couverture si le Document est sous forme électronique. Dans le cas contraire, elles doivent apparaître sur la couverture imprimée qui contient l&#8217;agrégat entier.</p>
+<p><strong>8. TRADUCTION</strong></p>
+<p>Une compilation du Document ou de ses dérivés avec d&#8217;autres documents ou œuvres séparés et indépendants, dans une unité de stockage ou sur un support de distribution, est appelée &#8220;agrégat&#8221; si le droit d&#8217;auteur résultant de la compilation n&#8217;est pas utilisé pour limiter les droits légaux des utilisateurs de la compilation au-delà de ce que les œuvres individuelles permettent. Quand le Document est inclus dans un agrégat, cette Licence ne s&#8217;applique pas aux autres œuvres de l&#8217;agrégat qui ne sont pas elles-mêmes des œuvres dérivées du Document.</p>
+<p>Si une section du Document est Intitulée &#8220;Acknowledgements&#8221;, &#8220;Dedications&#8221;, ou &#8220;History&#8221;, l&#8217;obligation (section 4) de Conserver son Titre (section 1) nécessitera typiquement un ajustement du titre traduit.</p>
+<p><strong>9. EXPIRATION</strong></p>
+<p>Vous ne pouvez pas copier, modifier, sous-licencier, ou distribuer le Document sauf aux conditions expressément prévues par la présente Licence. Toute tentative de le copier, le modifier, le sous-licencier ou le distribuer d&#8217;une autre manière est nulle, et entrainera automatiquement l&#8217;expiration des droits qui vous ont été conférés par cette Licence.</p>
+<p>Toutefois, si vous cessez toute violation de cette Licence, alors la licence qui vous a été octroyée par un détenteur particulier des droits d&#8217;auteur est rétablie (a) provisoirement, sauf si et jusqu&#8217;à ce que le détenteur des droits d&#8217;auteur annule votre licence de manière explicite et définitive, et (b) définitivement, si le détenteur des droits d&#8217;auteur ne parvient pas à vous notifier la violation par des moyens raisonnables dans un délai de 60 jours après la cessation de la violation.</p>
+<p>De plus, la licence qui vous a été octroyée par un détenteur particulier des droits d&#8217;auteur est rétablie définitivement si ce détenteur des droits d&#8217;auteur vous notifie de la violation par des moyens raisonnables, si c&#8217;est la première fois que vous avez reçu une notification de violation de cette Licence (pour toute œuvre) de la part de ce même détenteur des droits d&#8217;auteur, et si vous remédiez à la violation dans un délai de 30 jours après avoir reçu la notification.</p>
+<p>L&#8217;expiration de vos droits engendrée par cette section n&#8217;entraine pas l&#8217;expiration des licences des parties auxquelles vous avez envoyé des copies en les autorisant à utiliser les copies selon les termes de cette Licence. Si vos droits ont expirés et n&#8217;ont pas été rétablis définitivement, le fait de recevoir une copie de la même œuvre ou une copie d&#8217;une partie de la même œuvre ne vous donne aucun droit de l&#8217;utiliser.</p>
+<p><strong>10. RÉVISIONS FUTURES DE CETTE LICENCE</strong></p>
+<p>Il se peut que de temps en temps la Fondation pour le logiciel libre publie une nouvelle version, révisée, de la licence GNU de documentation libre. Ces nouvelles versions seront dans le même esprit, mais elles pourront différer dans les détails, pour répondre à de nouveaux problèmes ou inquiétudes. Référez-vous à <a class="reference external" href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.</p>
+<p>Chaque version de la Licence possède un numéro de version distinct. Si le Document spécifie qu&#8217;il peut être utilisé selon les termes d&#8217;une version numérotée particulière de cette Licence &#8220;ou toute version ultérieure&#8221;, vous avez le choix de vous conformer aux termes et aux conditions de la version spécifiée ou de toute version ultérieure qui a été publiée (pas en tant que brouillon) par la Fondation pour le logiciel libre. Si le Document ne spécifie pas de numéro de version, vous pouvez choisir n&#8217;importe quelle version publiée (pas en tant que brouillon) par la Fondation pour le logiciel libre. Si le Document spécifie qu&#8217;un serveur mandataire peut décider quelles versions futures de cette Licence peuvent être utilisées, la déclaration publique d&#8217;acceptation d&#8217;une version de la part de ce serveur mandataire vous autorise de manière permanente à choisir cette version pour utiliser le Document.</p>
+<p><strong>11. RELICENCIER</strong></p>
+<p>&#8220;Site de Collaboration Massive Multi-auteur&#8221; (ou &#8220;Site CMM&#8221;) désigne tout serveur du World Wide Web qui publie des œuvres auxquelles le droit d&#8217;auteur est applicable et qui fournit aussi une infrastructure conséquente permettant à n&#8217;importe qui de modifier ces œuvres. Un wiki public que tout le monde peut modifier est un exemple d&#8217;un tel serveur. Une &#8220;Collaboration Massive Multi-auteur&#8221; (ou &#8220;CMM&#8221;) contenue dans ce site désigne tout ensemble d&#8217;œuvres concernées par le droit d&#8217;auteur ainsi publiées sur le site CMM.</p>
+<p>&#8220;CC-BY-SA&#8221; désigne la licence Creative Commons attribution de paternité, partage à l&#8217;identique, 3.0, publiée par l&#8217;organisation Creative Commons, une organisation à but non lucratif basée à San Francisco, en Californie, ainsi que toute version future de type gauche d&#8217;auteur de cette licence, publiée par la même organisation.</p>
+<p>&#8220;Incorporer&#8221; signifie publier ou republier un Document, en entier ou en partie, comme partie d&#8217;un autre Document.</p>
+<p>Une CMM est &#8220;éligible pour relicencier&#8221; si elle est licenciée sous cette Licence, et si toutes les œuvres qui ont été publiées antérieurement sous cette Licence ailleurs que sur cette CMM, et incorporées ensuite en totalité ou en partie dans la CMM, (1) n&#8217;ont pas de textes de couverture ou de sections invariantes, et (2) ont été ainsi incorporées avant le premier novembre 2008.</p>
+<p>L&#8217;opérateur d&#8217;un Site CMM peut republier une CMM contenue dans le site sous licence CC-BY-SA sur le même site, à n&#8217;importe quelle date avant le premier août 2009, à condition que la CMM soit éligible pour relicencier.</p>
+<p><strong>ADDENDUM : Comment utiliser cette Licence dans vos documents</strong></p>
+<p>Pour utiliser cette Licence dans un document que vous avez écrit, incluez une copie de cette Licence dans le document et inscrivez les mentions de droit d&#8217;auteur et de licence suivantes juste après la page de titre :</p>
+<blockquote>
+<div><p>Copyright (C)  ANNÉE  VOTRE NOM. Vous avez la permission de copier, distribuer ou modifier ce document selon les termes de la licence GNU de documentation libre, dans sa version 1.3 ou dans toute version ultérieure publiée par la Free Software Foundation ; sans section Invariante, sans Texte De Première De Couverture, et sans Texte De Quatrième De Couverture.  Une copie de cette licence est incluse dans la section intitulée &#8220;Licence GNU de documentation libre&#8221;.</p>
+</div></blockquote>
+<p>Si vous avez des Sections Invariantes, des Textes De Première de Couverture et des Textes De Quatrième De Couverture, remplacez les lignes &#8220;sans Texte …&#8221; par :</p>
+<blockquote>
+<div><p>avec les Sections Invariantes suivantes : LISTE DE LEURS TITRES ; avec les Textes De Première De Couverture suivants : LISTE ; et avec les Textes De Quatrième De Couverture suivants : LISTE.</p>
+</div></blockquote>
+<p>Si vous avez des Sections Invariantes mais pas de Texte De Couverture, ou une autre combinaison des trois, fusionner les deux possibilités pour que cela convienne à la situation.</p>
+<p>Si votre document contient des exemples non triviaux de code source de logiciel, nous recommandons de publier ces exemples en parallèle sous une licence de logiciel libre de votre choix, telle que la licence publique générale GNU, pour permettre leur utilisation dans des logiciels libres.</p>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../ribbons/help.html" title="Hilfe"
+             >précédent</a></li>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

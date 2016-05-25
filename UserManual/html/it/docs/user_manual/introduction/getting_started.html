@@ -1,0 +1,461 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Come Iniziare</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="Inglese">English</option>
+  <option value="de" title="Tedesco">Deutsch</option>
+  <option value="fr" title="Francese">Français</option>
+  <option value="it" title="Italiano">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/introduction/getting_started.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Scopri QGIS</a></li>
+            <li><a href="../../../site/forusers/index.html">Per gli Utenti</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Partecipa</a></li>
+            <li><a href="../../index.html">Documentazione</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Cerca" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Indice</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Convenzioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Premessa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Le mie mappe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analisi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Disegno</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendice</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="getting-started">
+<span id="label-getstarted"></span><h1>Come Iniziare<a class="headerlink" href="#getting-started" title="link permanente per questa intestazione">¶</a></h1>
+<p>Questo capitolo fornisce una rapida panoramica sull’installazione di QGIS, su alcuni dati campione scaricabili dal sito di QGIS e su come avviare una prima semplice sessione in cui visualizzare raster e vettori.</p>
+<div class="section" id="installation">
+<span id="label-installation"></span><h2>Installazione<a class="headerlink" href="#installation" title="link permanente per questa intestazione">¶</a></h2>
+<p>L’installazione di KADAS è molto semplice. Pacchetti standard per l’installazione sono disponibili per MS Windows e Mac OS X. Per le distribuzioni GNU/Linux sono disponibili pacchetti binari (rpm e deb) o repository da aggiungere al gestore di installazione. Maggiori informazioni sul sito <a class="reference external" href="http://download.qgis.org">http://download.qgis.org</a>.</p>
+<div class="section" id="installation-from-source">
+<h3>Installazione da codice sorgente<a class="headerlink" href="#installation-from-source" title="link permanente per questa intestazione">¶</a></h3>
+<p>Se devi compilare KADAS da codice sorgente, fai riferimento alle istruzioni di installazione. Queste sono fornite insieme al codice sorgente di KADAS in un file chiamato &#8216;INSTALL&#8217;. Puoi trovare questo file all&#8217;indirizzo <a class="reference external" href="http://htmlpreview.github.io/?https://raw.github.com/qgis/QGIS/master/doc/INSTALL.html">http://htmlpreview.github.io/?https://raw.github.com/qgis/QGIS/master/doc/INSTALL.html</a></p>
+</div>
+<div class="section" id="installation-on-external-media">
+<h3>Installazione su supporti esterni<a class="headerlink" href="#installation-on-external-media" title="link permanente per questa intestazione">¶</a></h3>
+<p>Puoi avviare KADAS con l&#8217;opzione <tt class="docutils literal"><span class="pre">--configpath</span></tt>; questa andrà a sostituire il percorso predefinito delle cartelle create da qgis (per esempio, <tt class="file docutils literal"><span class="pre">~/.qgis2</span></tt> in Linux)  e obbligherà <strong>QSettings</strong> ad utilizzare questa cartella. Questa opzione permette di creare un&#8217;installazione personalizzata di KADAS, inclusi plugin e impostazioni, e di copiarla su un supporto esterno (penna USB). Vedi la sezione <a class="reference internal" href="qgis_configuration.html#env-options"><em>Menu Sistema</em></a> per ulteriori informazioni.</p>
+</div>
+</div>
+<div class="section" id="sample-data">
+<span id="label-sampledata"></span><h2>Dati campione<a class="headerlink" href="#sample-data" title="link permanente per questa intestazione">¶</a></h2>
+<p>La guida utente presenta alcuni esempi basati sull&#8217;insieme di dati campione di KADAS.</p>
+<p><a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> Durante l&#8217;installazione di KADAS in Windows hai la possibilità di scaricare un insieme di dati campione. Se hai selezionato questa opzione, i dati verranno scaricati nella cartella <cite>Documenti</cite> e verranno copiati in una cartella chiamata <cite>GIS Database</cite>. Puoi usare Windows Explorer per spostare questa cartella in qualunque altra posizione. Se non hai selezionato l’opzione per scaricare l&#8217;insieme di dati campione durante l’installazione iniziale di KADAS puoi scegliere fra:</p>
+<ul class="simple">
+<li><p class="first">usare dati GIS che hai già;</p>
+</li>
+<li>Download sample data from
+<a class="reference external" href="http://qgis.org/downloads/data/qgis_sample_data.zip">http://qgis.org/downloads/data/qgis_sample_data.zip</a></li>
+<li><p class="first">disinstallare KADAS e reinstallarlo selezionando l’opzione per lo scaricamento dei dati (opzione consigliata solo se le soluzioni precedenti non sono riuscite)</p>
+</li>
+</ul>
+<p><a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> <a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a> For GNU/Linux and Mac OS X, there are not yet dataset installation
+packages available as rpm, deb or dmg. To use the sample dataset, download the
+file <tt class="file docutils literal"><span class="pre">qgis_sample_data</span></tt> as a ZIP archive from
+<a class="reference external" href="http://qgis.org/downloads/data">http://qgis.org/downloads/data</a> and unzip the archive
+on your system.</p>
+<p>L&#8217;insieme di dati Alaska comprende tutti i dati GIS usati come esempi e schermate nel manuale d&#8217;uso, e include anche un piccolo database GRASS. La proiezione per l&#8217;insieme di dati campione di KADAS è Alaska Albers Equal Area con unità in piedi. Il codice EPSG è 2964.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">PROJCS</span><span class="p">[</span><span class="s">&quot;Albers Equal Area&quot;</span><span class="p">,</span>
+<span class="n">GEOGCS</span><span class="p">[</span><span class="s">&quot;NAD27&quot;</span><span class="p">,</span>
+<span class="n">DATUM</span><span class="p">[</span><span class="s">&quot;North_American_Datum_1927&quot;</span><span class="p">,</span>
+<span class="n">SPHEROID</span><span class="p">[</span><span class="s">&quot;Clarke 1866&quot;</span><span class="p">,</span><span class="mf">6378206.4</span><span class="p">,</span><span class="mf">294.978698213898</span><span class="p">,</span>
+<span class="n">AUTHORITY</span><span class="p">[</span><span class="s">&quot;EPSG&quot;</span><span class="p">,</span><span class="s">&quot;7008&quot;</span><span class="p">]],</span>
+<span class="n">TOWGS84</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">142</span><span class="p">,</span><span class="mi">183</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+<span class="n">AUTHORITY</span><span class="p">[</span><span class="s">&quot;EPSG&quot;</span><span class="p">,</span><span class="s">&quot;6267&quot;</span><span class="p">]],</span>
+<span class="n">PRIMEM</span><span class="p">[</span><span class="s">&quot;Greenwich&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span>
+<span class="n">AUTHORITY</span><span class="p">[</span><span class="s">&quot;EPSG&quot;</span><span class="p">,</span><span class="s">&quot;8901&quot;</span><span class="p">]],</span>
+<span class="n">UNIT</span><span class="p">[</span><span class="s">&quot;degree&quot;</span><span class="p">,</span><span class="mf">0.0174532925199433</span><span class="p">,</span>
+<span class="n">AUTHORITY</span><span class="p">[</span><span class="s">&quot;EPSG&quot;</span><span class="p">,</span><span class="s">&quot;9108&quot;</span><span class="p">]],</span>
+<span class="n">AUTHORITY</span><span class="p">[</span><span class="s">&quot;EPSG&quot;</span><span class="p">,</span><span class="s">&quot;4267&quot;</span><span class="p">]],</span>
+<span class="n">PROJECTION</span><span class="p">[</span><span class="s">&quot;Albers_Conic_Equal_Area&quot;</span><span class="p">],</span>
+<span class="n">PARAMETER</span><span class="p">[</span><span class="s">&quot;standard_parallel_1&quot;</span><span class="p">,</span><span class="mi">55</span><span class="p">],</span>
+<span class="n">PARAMETER</span><span class="p">[</span><span class="s">&quot;standard_parallel_2&quot;</span><span class="p">,</span><span class="mi">65</span><span class="p">],</span>
+<span class="n">PARAMETER</span><span class="p">[</span><span class="s">&quot;latitude_of_center&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">],</span>
+<span class="n">PARAMETER</span><span class="p">[</span><span class="s">&quot;longitude_of_center&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">154</span><span class="p">],</span>
+<span class="n">PARAMETER</span><span class="p">[</span><span class="s">&quot;false_easting&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+<span class="n">PARAMETER</span><span class="p">[</span><span class="s">&quot;false_northing&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+<span class="n">UNIT</span><span class="p">[</span><span class="s">&quot;us_survey_feet&quot;</span><span class="p">,</span><span class="mf">0.3048006096012192</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Se vuoi usare KADAS come interfaccia grafica per GRASS, scarica una location campione di GRASS (per esempio Spearfish o South Dakota) direttamente dal sito ufficiale <a class="reference external" href="http://grass.osgeo.org/download/sample-data/">http://grass.osgeo.org/download/sample-data/</a>.</p>
+</div>
+<div class="section" id="sample-session">
+<span id="samplesession"></span><h2>Sessione di esempio<a class="headerlink" href="#sample-session" title="link permanente per questa intestazione">¶</a></h2>
+<p>Ora che hai installato KADAS e hai a disposizione un insieme di dati campione, ti faremo vedere una breve e semplice dimostrazione. Visualizzeremo un raster e un vettore. Useremo il raster <tt class="file docutils literal"><span class="pre">landcover</span></tt>, <tt class="file docutils literal"><span class="pre">qgis_sample_data/raster/landcover.img</span></tt>, e il vettore <tt class="file docutils literal"><span class="pre">lakes</span></tt>, <tt class="file docutils literal"><span class="pre">qgis_sample_data/gml/lakes.gml</span></tt>.</p>
+<div class="section" id="start-qgis">
+<h3>Avvio di QGIS<a class="headerlink" href="#start-qgis" title="link permanente per questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> Avvia QGIS digitando &#8220;KADAS&#8221; nel terminale, oppure, se hai installato KADAS con pacchetti binari precompilati, trovalo nel menu delle applicazioni.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> Avvia KADAS usando il menu Start o l’icona sul desktop, oppure fai doppio click su un file di progetto KADAS.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a> Doppio click sull’icona nella cartella Applicazioni.</p>
+</li>
+</ul>
+<span class="target" id="fig-simple-session"></span></div>
+<div class="section" id="load-raster-and-vector-layers-from-the-sample-dataset">
+<h3>Caricare raster e vettori dall&#8217;insieme di dati campione<a class="headerlink" href="#load-raster-and-vector-layers-from-the-sample-dataset" title="link permanente per questa intestazione">¶</a></h3>
+<ol class="arabic simple">
+<li>Click on the <a class="reference internal" href="../../../_images/mActionAddRasterLayer.png"><img alt="mActionAddRasterLayer" src="../../../_images/mActionAddRasterLayer.png" style="width: 1.5em;" /></a> <sup>Add Raster Layer</sup> icon.</li>
+<li><p class="first">Trova la cartella <tt class="file docutils literal"><span class="pre">qgis_sample_data/raster/</span></tt>, seleziona il file ERDAS IMG <tt class="file docutils literal"><span class="pre">landcover.img</span></tt> e clicca <strong>[Apri]</strong>.</p>
+</li>
+<li>If the file is not listed, check if the <em class="guilabel">Files of type</em>
+<a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> combo box at the bottom of the dialog is set on the right
+type, in this case &#8220;Erdas Imagine Images (*.img, *.IMG)&#8221;.</li>
+<li>Now click on the <a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> <sup>Add Vector Layer</sup> icon.</li>
+<li><p class="first"><img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">File</em> deve essere selezionato come <em class="guilabel">Tipo di sorgente</em>  nella finestra di dialogo <em class="guilabel">Aggiungi vettore</em> . Ora clicca su <strong>[Sfoglia]</strong> per selezionare il vettore.</p>
+</li>
+<li>Browse to the folder <tt class="file docutils literal"><span class="pre">qgis_sample_data/gml/</span></tt>, select &#8216;Geography Markup
+Language [GML] [OGR] (.gml,.GML)&#8217; from the <em class="guilabel">Filter</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> combo box, then select the GML file <tt class="file docutils literal"><span class="pre">lakes.gml</span></tt> and
+click <strong>[Open]</strong>. In the <em class="guilabel">Add vector layer</em> dialog, click <strong>[OK]</strong>.
+The <em class="guilabel">Coordinate Reference System Selector</em> dialog opens with <em class="guilabel">NAD27 / Alaska Alberts</em> selected, click <strong>[OK]</strong>.</li>
+<li><p class="first">Ingrandisci la mappa su un’area con alcuni laghi.</p>
+</li>
+<li><p class="first">Fai doppio click sul vettore <tt class="file docutils literal"><span class="pre">lakes</span></tt>  nella legenda per aprire la finestra di dialogo <em class="guilabel">Proprietà</em>.</p>
+</li>
+<li><p class="first">Clicca sulla scheda <em class="guilabel">Stile</em> e seleziona blu come colore di riempimento.</p>
+</li>
+<li><p class="first">Clicca sulla scheda <em class="guilabel">Etichette</em> e spunta la casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Etichetta questo valore con</em> per abilitare l’etichettatura. Scegli il campo &#8220;NAMES&#8221; come campo per l’etichetta.</p>
+</li>
+<li><p class="first">Per migliorare la leggibilità delle etichette, puoi aggiungere un contorno bianco cliccando su &#8220;Contorno&#8221; nell&#8217;elenco a sinistra. Spunta la casella <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Disegna contorno del testo</em> e scegli 3 come dimensione.</p>
+</li>
+<li><p class="first">Clicca <strong>[Applica]</strong>, controlla se il risultato è buono e infine clicca <strong>[OK]</strong>.</p>
+</li>
+</ol>
+<p>Hai visto come è facile visualizzare raster e vettori in KADAS!? Prosegui con la sezione successiva per imparare ulteriori funzionalità, caratteristiche ed impostazioni.</p>
+</div>
+</div>
+<div class="section" id="starting-and-stopping-qg">
+<span id="label-startingqgis"></span><h2>Avvio e chiusura di KADAS<a class="headerlink" href="#starting-and-stopping-qg" title="link permanente per questa intestazione">¶</a></h2>
+<p>Nella sezione <a class="reference internal" href="#samplesession"><em>Sessione di esempio</em></a> abbiamo già visto come avviare KADAS. Ora ripetiamo questa operazione per dimostrare come KADAS fornisca ulteriori opzioni all’avvio da riga di comando.</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> Assumendo che KADAS sia installato nel tuo PATH, puoi avviarlo semplicemente digitando <tt class="docutils literal"><span class="pre">qgis</span></tt> nel terminale oppure facendo doppio click sull&#8217;icona di KADAS presente sul desktop o nel menu delle applicazioni.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> Avvia KADAS usando il menu Start o l’icona sul desktop, oppure fai doppio click su un file di progetto KADAS.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a> Fai doppio click sull’icona di KADAS nella cartella Applicazioni (Applications). Se vuoi avviare KADAS da una terminale, digita <tt class="docutils literal"><span class="pre">/percorso-installazione-eseguibile/Contents/MacOS/Qgis</span></tt>.</p>
+</li>
+</ul>
+<p>Per uscire da KADAS, clicca il menu opzioni <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> <a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> <em class="menuselection">Progetto</em> <a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a> <em class="menuselection">QGIS ‣ Esci</em>, oppure usa la scorciatoia <tt class="kbd docutils literal"><span class="pre">Ctrl+Q</span></tt>.</p>
+</div>
+<div class="section" id="command-line-options">
+<span id="label-commandline"></span><h2>Opzioni linea di comando<a class="headerlink" href="#command-line-options" title="link permanente per questa intestazione">¶</a></h2>
+<p id="index-0"><a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> KADAS supporta un certo numero di opzioni se avviato da riga di comando. Per avere una lista delle opzioni possibili, digita &#8220;qgis &#8211;help&#8221; nel terminale. La corretta sintassi di KADAS è:</p>
+<div class="highlight-python"><pre>qgis --help
+QGIS - 2.6.0-Brighton 'Brighton' (exported)
+QGIS is a user friendly Open Source Geographic Information System.
+Usage: /usr/bin/qgis.bin [OPTION] [FILE]
+OPTION:
+      [--snapshot filename]   emit snapshot of loaded datasets to given file
+      [--width width] width of snapshot to emit
+      [--height height]       height of snapshot to emit
+      [--lang language]       use language for interface text
+      [--project projectfile] load the given QGIS project
+      [--extent xmin,ymin,xmax,ymax]  set initial map extent
+      [--nologo]      hide splash screen
+      [--noplugins]   don't restore plugins on startup
+      [--nocustomization]     don't apply GUI customization
+      [--customizationfile]   use the given ini file as GUI customization
+      [--optionspath path]    use the given QSettings path
+      [--configpath path]     use the given path for all user configuration
+      [--code path]   run the given python file on load
+      [--defaultui]   start by resetting user ui settings to default
+      [--help]                this text
+
+FILE:
+  Files specified on the command line can include rasters,
+  vectors, and QGIS project files (.qgs):
+   1. Rasters - supported formats include GeoTiff, DEM
+      and others supported by GDAL
+   2. Vectors - supported formats include ESRI Shapefiles
+      and others supported by OGR and PostgreSQL layers using
+      the PostGIS extension</pre>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Suggerimento</p>
+<p><strong>Esempio di utilizzo delle opzioni da riga di comando</strong></p>
+<p class="last">Puoi avviare KADAS con dei file grazie all&#8217;opzione fornita da riga di comando. Per esempio,  ipotizzando di trovarsi nella cartella <tt class="file docutils literal"><span class="pre">qgis_sample_data</span></tt>, puoi avviare KADAS con un vettore e un raster inserendo il comando: <tt class="docutils literal"><span class="pre">qgis</span> <span class="pre">./raster/landcover.img</span> <span class="pre">./gml/lakes.gml</span></tt></p>
+</div>
+<p><strong>Opzioni linea di comando</strong> <tt class="docutils literal"><span class="pre">--snapshot</span></tt></p>
+<p>L’opzione consente di catturare una schermata in formato PNG della mappa. Utile quando hai molti progetti e vuoi generare schermate dai propri dati.</p>
+<p>Il file PNG generato ha una risoluzione di 800x600 pixels. Puoi adattare la risoluzione grazie agli argomenti &#8220;&#8211;width&#8221; e &#8220;&#8211;height&#8221; da riga di comando. Puoi anche aggiungere il nome del file dopo l&#8217;argomento &#8220;&#8211;snapshot&#8221;.</p>
+<p><strong>Opzioni linea di comando</strong> <tt class="docutils literal"><span class="pre">--lang</span></tt></p>
+<p>Based on your locale, KADAS selects the correct localization. If you would like
+to change your language, you can specify a language code. For example,
+<tt class="docutils literal"><span class="pre">--lang=it</span></tt> starts KADAS in italian localization.</p>
+<p><strong>Opzioni linea di comando</strong> <tt class="docutils literal"><span class="pre">--project</span></tt></p>
+<p>Puoi avviare QGIS anche con un file di progetto. Basta semplicemente aggiungere l’opzione <tt class="docutils literal"><span class="pre">--project</span></tt> alla riga di comando seguita dal percorso e dal nome del progetto. In questo modo KADAS si aprirà caricando tutti i layer indicati nel file specificato.</p>
+<p><strong>Opzioni linea di comando</strong> <tt class="docutils literal"><span class="pre">--extent</span></tt></p>
+<p>Per avviare KADAS con un specifica estensione devi aggiungere i confini della bounding box in questo ordine e separati da una virgola:</p>
+<div class="highlight-python"><pre>--extent xmin,ymin,xmax,ymax</pre>
+</div>
+<p><strong>Opzioni linea di comando</strong> <tt class="docutils literal"><span class="pre">--nologo</span></tt></p>
+<p>Questa opzione nasconde lo splash screen all&#8217;avvio di KADAS.</p>
+<p><strong>Opzioni linea di comando</strong> <tt class="docutils literal"><span class="pre">--noplugins</span></tt></p>
+<p>Se all&#8217;avvio di KADAS si verificano problemi con i plugin puoi evitare di caricarli con questa opzione. I plugin rimarranno comunque disponibili nel Gestore plugin.</p>
+<p><strong>Opzioni linea di comando</strong> <tt class="docutils literal"><span class="pre">--customizationfile</span></tt></p>
+<p>Usando questa opzione puoi specificare un file di personalizzazione dell&#8217;interfaccia grafica che verrà caricato all&#8217;avvio.</p>
+<p><strong>Opzioni linea di comando</strong> <tt class="docutils literal"><span class="pre">--nocustomization</span></tt></p>
+<p>Usando questa opzione le personalizzazioni dell&#8217;interfaccia non verranno applicate all&#8217;avvio.</p>
+<p><strong>Opzioni linea di comando</strong> <tt class="docutils literal"><span class="pre">--optionspath</span></tt></p>
+<p>Puoi avere più configurazioni e decidere quale usare all&#8217;avvio KADAS con questa opzione. Vedi <a class="reference internal" href="qgis_configuration.html#gui-options"><em>Opzioni dell’interfaccia grafica (GUI)</em></a> per confermare dove  il sistema operativo salva i file di impostazioni. Attualmente, non c&#8217;è modo di specificare un file da scrivere impostazioni; Pertanto, puoi creare una copia del file impostazioni originali e rinominarlo. L&#8217;opzione specifica il percorso alla cartella con le impostazioni. Ad esempio, per utilizzare il file di impostazioni /path/to/config/QGIS/QGIS2.ini, utilizza:</p>
+<div class="highlight-python"><pre>--optionspath /path/to/config/</pre>
+</div>
+<p><strong>Opzioni linea di comando</strong> <tt class="docutils literal"><span class="pre">--configpath</span></tt></p>
+<p>Questa opzione è simile alla precedente, ma in più sovrascrive il percorso predefinito delle cartelle create da KADAS (<tt class="file docutils literal"><span class="pre">~/.qgis2</span></tt>) e obbligherà <strong>QSettings</strong> ad utilizzare questa cartella. Questa opzione permette di creare un&#8217;installazione personalizzata di KADAS, inclusi plugin e impostazioni, e di copiarla su un supporto esterno (penna USB).</p>
+<p><strong>Opzioni linea di comando</strong> <tt class="docutils literal"><span class="pre">--code</span></tt></p>
+<p>Puoi utilizzare uesta opzione  per eseguire un  file python subito dopo l&#8217;avvio di KADAS.</p>
+<p>Per esempio, se hai un file python <tt class="file docutils literal"><span class="pre">load_alaska.py</span></tt> con il seguente contenuto:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">qgis.utils</span> <span class="kn">import</span> <span class="n">iface</span>
+<span class="n">raster_file</span> <span class="o">=</span> <span class="s">&quot;/home/gisadmin/Documents/qgis_sample_data/raster/landcover.img&quot;</span>
+<span class="n">layer_name</span> <span class="o">=</span> <span class="s">&quot;Alaska&quot;</span>
+<span class="n">iface</span><span class="o">.</span><span class="n">addRasterLayer</span><span class="p">(</span><span class="n">raster_file</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Dando per scontato che sei  nella cartella dove si trova  il <tt class="file docutils literal"><span class="pre">load_alaska.py</span></tt>, puoi avviare KADAS, caricare il file raster <tt class="file docutils literal"><span class="pre">landcover.img</span></tt> e dare il layer il nome di &#8216;Alaska&#8217; con il seguente comando: <tt class="docutils literal"><span class="pre">qgis</span> <span class="pre">--code</span> <span class="pre">load_alaska.py</span></tt></p>
+</div>
+<div class="section" id="projects">
+<span id="sec-projects"></span><h2>Progetti<a class="headerlink" href="#projects" title="link permanente per questa intestazione">¶</a></h2>
+<p>Lo stato della sessione KADAS è considerato un Progetto. KADAS lavora su un progetto alla volta. Le impostazioni sono considerate proprie di un progetto oppure predefinite per nuovi progetti (vedi la sezione <a class="reference internal" href="qgis_configuration.html#gui-options"><em>Opzioni dell’interfaccia grafica (GUI)</em></a>). KADAS può salvare lo stato del tuo spazio di lavoro in un file di progetto usando il menu opzioni <em class="menuselection">Progetto ‣</em> <a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="mActionFileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a> <em class="menuselection">Salva`o :menuselection:`Progetto ‣</em> <a class="reference internal" href="../../../_images/mActionFileSaveAs.png"><img alt="mActionFileSaveAs" src="../../../_images/mActionFileSaveAs.png" style="width: 1.5em;" /></a> <em class="menuselection">Salva Come...</em>.</p>
+<p>Carica i progetti memorizzati in una sessione di KADAS usando <em class="menuselection">Progetto ‣</em> <a class="reference internal" href="../../../_images/mActionFileOpen.png"><img alt="mActionFileOpen" src="../../../_images/mActionFileOpen.png" style="width: 1.5em;" /></a> <em class="menuselection">Apri ...</em>, <em class="menuselection">Progetto ‣ Nuovo da modello</em> oppure <em class="menuselection">Progetto ‣ Apri recenti ‣</em>.</p>
+<p>Se vuoi iniziare una nuova sessione, scegli <em class="menuselection">Progetto ‣</em> <a class="reference internal" href="../../../_images/mActionFileNew.png"><img alt="mActionFileNew" src="../../../_images/mActionFileNew.png" style="width: 1.5em;" /></a> <em class="menuselection">Nuovo</em>. Se hai apportato qualche modifica al progetto, ti verrà chiesto se lo vuoi salvare.</p>
+<p>Le informazioni salvate nel file di progetto includono:</p>
+<ul class="simple">
+<li><p class="first">Layer aggiunti</p>
+</li>
+<li>Which layers can be queried</li>
+<li>Layer properties, including symbolization and styles</li>
+<li><p class="first">Proiezione usata per la mappa</p>
+</li>
+<li><p class="first">Ultima estensione della mappa</p>
+</li>
+<li>Print Composers</li>
+<li>Print Composer elements with settings</li>
+<li>Print Composer atlas settings</li>
+<li>Digitizing settings</li>
+<li>Table Relations</li>
+<li>Project Macros</li>
+<li>Project default styles</li>
+<li>Plugins settings</li>
+<li>QGIS Server settings from the OWS settings tab in the Project properties</li>
+<li>Queries stored in the DB Manager</li>
+</ul>
+<p>Il file di progetto è un file  XML; in questo modo, se conosci la sintassi XML, puoi modificarlo con un qualunque editor di testo. Il formato del file di progetto è stato modificato parecchie volte rispetto a quello delle precedenti versioni di KADAS, quindi i progetti salvati con versioni precedenti di KADAS potrebbero non funzionare più correttamente. Caricando un progetto di un&#8217;altra versione di KADAS sarai avvertito con un messaggio. Puoi scegliere di disattivare questo avviso dalla scheda <em class="guilabel">Generale</em> del menu <em class="menuselection">Impostazioni ‣ Opzioni</em>:</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Chiedi di salvare il progetto e cambia sorgenti dati quando richiesto</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Avvisa quando viene aperto un file di progetto salvato con una vecchia versione di QGIS</em></p>
+</li>
+</ul>
+<p>Whenever you save a project in KADAS a backup of the project file is made with the extension ~.</p>
+</div>
+<div class="section" id="output">
+<span id="sec-output"></span><h2>Output<a class="headerlink" href="#output" title="link permanente per questa intestazione">¶</a></h2>
+<span class="target" id="index-1"></span><p id="index-2">Ci sono diversi modi per generare file di output da una sessione KADAS. Uno è già stato discusso nella sezione <a class="reference internal" href="../ribbons/my_maps.html#sec-projects"><em>Progetti</em></a>, ovvero il salvataggio di un progetto. Qui un elenco di altri file di output che puoi generare:</p>
+<ul class="simple">
+<li>Menu option <em class="menuselection">Project ‣</em> <a class="reference internal" href="../../../_images/mActionSaveMapAsImage.png"><img alt="mActionSaveMapAsImage" src="../../../_images/mActionSaveMapAsImage.png" style="width: 1.5em;" /></a> <sup>Save
+as Image</sup> opens a file dialog where you select the name, path and type of
+image (PNG,JPG and many other formats). A world file with extension PNGW or JPGW saved
+in the same folder georeferences the image.</li>
+<li>Menu option <em class="menuselection">Project ‣</em> <em class="guilabel">DXF Export ...</em> opens
+a dialog where you can define the &#8216;Symbology mode&#8217;, the &#8216;Symbology scale&#8217; and
+vector layers you want to export to DXF. Through the &#8216;Symbology mode&#8217; symbols
+from the original QGIS Symbology can be exported with high fidelity.</li>
+<li>Menu option <em class="menuselection">Project ‣</em> <a class="reference internal" href="../../../_images/mActionNewComposer.png"><img alt="mActionNewComposer" src="../../../_images/mActionNewComposer.png" style="width: 1.5em;" /></a>
+<em class="menuselection">New Print Composer</em> opens a dialog where you can layout and
+print the current map canvas (see section <a class="reference internal" href="../print_composer/print_composer.html#label-printcomposer"><em>Compositore di stampe</em></a>).</li>
+</ul>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

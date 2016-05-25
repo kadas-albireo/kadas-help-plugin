@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>GPS</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <link rel="next" title="MSS" href="mss.html" />
+    <link rel="prev" title="Disegno" href="draw.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="Inglese">English</option>
+  <option value="de" title="Tedesco">Deutsch</option>
+  <option value="fr" title="Francese">Français</option>
+  <option value="it" title="Italiano">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/ribbons/gps.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Scopri QGIS</a></li>
+            <li><a href="../../../site/forusers/index.html">Per gli Utenti</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Partecipa</a></li>
+            <li><a href="../../index.html">Documentazione</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Cerca" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="mss.html" title="MSS"
+             accesskey="N">successivo</a></li>
+        <li class="right" >
+          <a href="draw.html" title="Disegno"
+             accesskey="P">precedente</a> |</li>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    <a accesskey="p" href="draw.html">&lt;&lt; prev</a>
+    
+    
+    <a accesskey="n" href="mss.html">next &gt;&gt;</a>
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Indice</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Convenzioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Premessa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="my_maps.html">Le mie mappe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analisi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="draw.html">Disegno</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">GPS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gps-aktivieren">Attivazione GPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mit-gps-bewegen">Movimento con GPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wegpunkte-und-routen-zeichnen">Disegno di waypoint e percorsi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gpx-export-und-import">Esportazione e importazione GPX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendice</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="gps">
+<h1>GPS<a class="headerlink" href="#gps" title="link permanente per questa intestazione">¶</a></h1>
+<p>Nella linguetta GPS si trovano le funzionalità per l&#8217;interazione con un apparecchio GPS collegato e gli strumenti per disegnare, importare ed esportare waypoint e percorsi GPX (GPS Exchange Format).</p>
+<div class="section" id="gps-aktivieren">
+<h2>Attivazione GPS<a class="headerlink" href="#gps-aktivieren" title="link permanente per questa intestazione">¶</a></h2>
+<p>Per poter usare un GPS con KADAS, sul sistema deve essere installata l&#8217;applicazione GpsGate Splitter. Per la configurazione GPS vedere <a class="reference internal" href="../working_with_gps/gpsgate.html#gpsgate"><em>GpsGate</em></a>.</p>
+<p>Lo stato del collegamento GPS viene visualizzato nella riga di stato nell&#8217;area di programma inferiore. Questo pulsante di stato GPS può essere attivato ovvero disattivato per poter realizzare o interrompere la connessione. Il colore di riempimento del pulsante di stato cambia in base allo stato di connessione attuale:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p class="first">Nero: GPS non attivato</p>
+</li>
+<li><p class="first">Blu: connessione in fase di inizializzazione</p>
+</li>
+<li><p class="first">Bianco: connessione inizializzata, nessun dato ricevuto</p>
+</li>
+<li><p class="first">Rosso: connessione inizializzata, nessuna informazione sulla posizione disponibile</p>
+</li>
+<li><p class="first">Giallo: connessione inizializzata, solo 2D Fix</p>
+</li>
+<li><p class="first">Verde: connessione inizializzata, 3D Fix</p>
+</li>
+</ul>
+</div></blockquote>
+<p>Sobald KADAS vom GPS Positionsdaten empfängt, wir auf der Karte ein
+entsprechender Positionsmarker gezeichnet.</p>
+</div>
+<div class="section" id="mit-gps-bewegen">
+<h2>Movimento con GPS<a class="headerlink" href="#mit-gps-bewegen" title="link permanente per questa intestazione">¶</a></h2>
+<p>Questa funzione attiva lo spostamento automatico della sezione di mappa visibile, centrata sulla posizione GPS attuale.</p>
+</div>
+<div class="section" id="wegpunkte-und-routen-zeichnen">
+<h2>Disegno di waypoint e percorsi<a class="headerlink" href="#wegpunkte-und-routen-zeichnen" title="link permanente per questa intestazione">¶</a></h2>
+<p>Con queste funzioni vengono disegnati waypoint e percorsi che potranno essere successivamente salvati in formato GPX, ad esempio per il caricamento su un apparecchio GPS.</p>
+<p>I waypoint sono punti semplici sulla mappa che possono essere inoltre dotati di un nome.</p>
+<p>I percorsi sono polilinee che possono essere dotate di nome e numero.</p>
+<p>Waypoint e percorsi sono salvati nell&#8217;albero dei livelli in un proprio livello &#8220;Percorsi GPS&#8221;, analogo al livello Redlining.</p>
+</div>
+<div class="section" id="gpx-export-und-import">
+<h2>Esportazione e importazione GPX<a class="headerlink" href="#gpx-export-und-import" title="link permanente per questa intestazione">¶</a></h2>
+<p>Queste funzioni permettono l&#8217;esportazione dei waypoint e dei percorsi disegnati in un file GPX e l&#8217;importazione di un file GPX esistente nel livello &#8220;Percorsi GPS&#8221;.</p>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="mss.html" title="MSS"
+             >successivo</a></li>
+        <li class="right" >
+          <a href="draw.html" title="Disegno"
+             >precedente</a> |</li>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

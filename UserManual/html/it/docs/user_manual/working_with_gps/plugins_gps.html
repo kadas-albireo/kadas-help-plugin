@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Plugin GPS</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="Inglese">English</option>
+  <option value="de" title="Tedesco">Deutsch</option>
+  <option value="fr" title="Francese">Français</option>
+  <option value="it" title="Italiano">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/working_with_gps/plugins_gps.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Scopri QGIS</a></li>
+            <li><a href="../../../site/forusers/index.html">Per gli Utenti</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Partecipa</a></li>
+            <li><a href="../../index.html">Documentazione</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Cerca" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Indice</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Convenzioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Premessa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Le mie mappe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analisi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Disegno</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendice</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="gps-plugin">
+<span id="plugin-gps"></span><h1>Plugin GPS<a class="headerlink" href="#gps-plugin" title="link permanente per questa intestazione">¶</a></h1>
+<div class="section" id="what-is-gps">
+<span id="whatsgps"></span><h2>Cos&#8217;è un GPS?<a class="headerlink" href="#what-is-gps" title="link permanente per questa intestazione">¶</a></h2>
+<p>Il GPS, il Sistema di Posizionamento Globale, è un sistema satellitare che permette, a chiunque sia dotato di un ricevitore GPS, di individuare la sua posizione in qualunque parte del mondo. Il GPS è utilizzato come supporto per la navigazione, per esempio sugli aeroplani, sulle barche e anche dagli escursionisti. Il ricevitore GPS usa i segnali inviati dai satelliti per calcolare la propria latitudine, longitudine e (qualche volta) l&#8217;altitudine. Molti ricevitori possono memorizzare: la posizione (detta <strong>waypoints</strong>), la sequenza delle posizioni che formano una <strong>route</strong> e il tracciato o <strong>track</strong> dei movimenti che il ricevitore ha compiuto nel tempo. Waypoints, routes e tracks sono i tre principali elementi dei dati GPS. KADAS
+mostra i waypoints in un vettore puntuale, mentre routes e tracks sono mostrati in un vettore lineare.</p>
+</div>
+<div class="section" id="loading-gps-data-from-a-file">
+<span id="label-loadgps"></span><h2>Caricamento dei dati GPS da file<a class="headerlink" href="#loading-gps-data-from-a-file" title="link permanente per questa intestazione">¶</a></h2>
+<p>Ci sono una dozzina di formati di file diversi per memorizzare dati GPS. Il formato utilizzato da KADAS è chiamato GPX (GPS eXchange format), il quale è un formato standard di interscambio che può contenere  waypoint, route e track nello stesso file.</p>
+<p>To load a GPX file, you first need to load the plugin.
+<em class="menuselection">Plugins ‣</em> <a class="reference internal" href="../../../_images/mActionShowPluginManager.png"><img alt="mActionShowPluginManager" src="../../../_images/mActionShowPluginManager.png" style="width: 1.5em;" /></a>
+<em class="menuselection">Plugin Manager...</em> opens the Plugin Manager Dialog.
+Activate the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">GPS Tools</em> checkbox. When this plugin
+is loaded, a button with a small handheld GPS device will show up in the
+toolbar and in <em class="menuselection">Layer ‣ Create Layer ‣</em> :</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/gps_importer.png"><img alt="gps_importer" src="../../../_images/gps_importer.png" style="width: 1.5em;" /></a> <sup>Strumenti GPS</sup></p>
+</li>
+<li><a class="reference internal" href="../../../_images/create_gpx.png"><img alt="create_gpx" src="../../../_images/create_gpx.png" style="width: 1.5em;" /></a> <em class="guilabel">Create new GPX Layer</em></li>
+</ul>
+<p>Per lavorare con i dati GPS è formito un file GPX di esempio, il quale è disponibile nell&#8217;insieme di dati di KADAS: file:<cite>qgis_sample_data/gps/national_monuments.gpx</cite>. Vedere la sezione <a class="reference internal" href="../introduction/getting_started.html#label-sampledata"><em>Dati campione</em></a> per maggiori informazioni sull&#8217;insieme di dati a disposizione.</p>
+<ol class="arabic simple">
+<li><p class="first">Selezionare <em class="menuselection">Vettore ‣ GPS ‣ Strumenti GPS</em> o cliccare sull&#8217;icona  <a class="reference internal" href="../../../_images/import_gpx.png"><img alt="import_gpx" src="../../../_images/import_gpx.png" style="width: 1.5em;" /></a> <sup>GPS Tools</sup> presente sulla barra degli strumenti e apri la scheda <cite>Carica file GPX</cite> (vedere <a class="reference internal" href="#figure-gps-1">figure_GPS_1</a>)</p>
+</li>
+<li><p class="first">Navigare all&#8217;interno della cartella <tt class="file docutils literal"><span class="pre">qgis_sample_data/gps/</span></tt>, selezionare il file GPX <tt class="file docutils literal"><span class="pre">national_monuments.gpx</span></tt> e cliccare <strong>[Apri]</strong>.</p>
+</li>
+</ol>
+<p id="figure-gps-1"><strong>Figure GPS 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/loadgpx.png" src="../../../_images/loadgpx.png" />
+<p class="caption">Finestra di dialogo degli <em>Strumenti GPS</em> <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>Use the <strong>[Browse...]</strong> button to select the GPX file, then use the checkboxes
+to select the feature types you want to load from that GPX file.
+Each feature type will be loaded in a separate layer when you click
+<strong>[OK]</strong>. The file <tt class="file docutils literal"><span class="pre">national_monuments.gpx</span></tt> only includes waypoints.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">I dispositivi GPS ti consentono di registrare i dati in differenti sistemi di coordinate. Quando scarichi un file GPX (dal dispositivo GPS o da un sito internet) e lo carichi in  KADAS, assicurati che i dati presenti nel file GPX siano in WGS 84 (latitudine/longitudine). KADAS si aspetta questo  SR, così come indicato dalle specifiche ufficiali dei formato GPX. Vedere <a class="reference external" href="http://www.topografix.com/GPX/1/1/">http://www.topografix.com/GPX/1/1/</a>.</p>
+</div>
+</div>
+<div class="section" id="gpsbabel">
+<h2>GPSBabel<a class="headerlink" href="#gpsbabel" title="link permanente per questa intestazione">¶</a></h2>
+<p>Dato che  KADAS usa i file GPX, ti occorrerà un modo per convertire gli altri formati GPS in GPX. Questa operazione potrà essere compiuta, sulla maggior parte dei formati utilizzati, con il programma gratuito GPSBabel, il quale è disponibile sul sito <a class="reference external" href="http://www.gpsbabel.org">http://www.gpsbabel.org</a>. Questo programma può anche trasferire i dati GPS dal tuo computer al dispositivo GPS e viceversa. KADAS usa GPSBabel per effettuare tutte queste operazioni, perciò è consigliato installarlo. Tuttavia, se vuoi soltanto caricare dati GPS contenuti in files GPX, non è necessario avere il programma installato.  La versione 1.2.3 di GPSBabel funziona con KADAS, ma potrai utilizzare versioni successive senza problemi.</p>
+</div>
+<div class="section" id="importing-gps-data">
+<h2>Importare dati GPS<a class="headerlink" href="#importing-gps-data" title="link permanente per questa intestazione">¶</a></h2>
+<p>Per importare dei dati che non sono dei file GPX, utilizza lo strumento <em class="guilabel">Importa altro file</em> presente nella finestra di dialogo degli Strumenti GPS. Qui, puoi scegliere il file da importare (e il formato del files), il tipo di dato da estrarre da esso, dove vuoi salvare il file una volta convertito in GPX e il nome che vuoi dare al nuovo vettore. Nota che non tutti i formati di dati GPS supportano tutti e tre i tipi di dato, così per alcuni formati potrai scegliere solo uno e due tipi.</p>
+</div>
+<div class="section" id="downloading-gps-data-from-a-device">
+<h2>Scaricare dati GPS da un dispositivo<a class="headerlink" href="#downloading-gps-data-from-a-device" title="link permanente per questa intestazione">¶</a></h2>
+<p>KADAS utilizza GPSBabel per scaricare dati da un dispositivo GPS, e caricarli direttamente come nuovi vettori. Per fare questo si utilizza la scheda <em class="guilabel">Scarica dal GPS</em> presente nella finestra di dialogo degli Strumenti GPS (vedi <a class="reference internal" href="#figure-gps-2">Figure_GPS_2</a>). Qui, è possibile selezionare la periferica GPS, la porta alla quale il dispositivo è connesso (o la porta USB se il GPS supporta questa opzione), il tipo di dato che si desidera scaricare, il file GPX in cui i dati dovranno essere memorizzati, e il nome del nuovo layer.</p>
+<p id="figure-gps-2"><strong>Figure GPS 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/download.png" src="../../../_images/download.png" />
+<p class="caption">Lo strumento di scaricamento</p>
+</div>
+<p>GPSBabel comunica con il GPS in base al tipo di dispositivo che viene selezionato nel menu. Se nessuna delle opzioni disponibili è compatibile con il proprio dispositivo GPS è possibile creare un nuovo tipo (vedi sezione :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>defining-new-device).</p>
+<p>La porta potrebbe essere il nome del file o qualche altro termine che il tuo sistema operativo riconosce come porta fisica alla quale è connesso il dispositivo GPS. Essa potrebbe essere un&#8217;uscita USB, nel caso di dispositivi abilitati per l&#8217;USB.</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> Nei sistemi Linux è qualcosa di simile a <tt class="docutils literal"><span class="pre">/dev/ttyS0</span></tt> or <tt class="docutils literal"><span class="pre">/dev/ttyS1</span></tt></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> In Windows è <tt class="docutils literal"><span class="pre">COM1</span></tt> or <tt class="docutils literal"><span class="pre">COM2</span></tt>.</p>
+</li>
+</ul>
+<p>Quando si clicca su <strong>[OK]</strong> i dati saranno scaricati dal dispositivo e appariranno come nuovi vettori in KADAS.</p>
+</div>
+<div class="section" id="uploading-gps-data-to-a-device">
+<h2>Caricare dati GPS sul dispositivo<a class="headerlink" href="#uploading-gps-data-to-a-device" title="link permanente per questa intestazione">¶</a></h2>
+<p>Puoi anche caricare direttamente dei dati vettoriali sulla periferica GPS utilizzando la scheda <em class="guilabel">Carica sul GPS</em> presente nella finestra di dialogo Strumenti GPS. Per effettuare questa operazione devi semplicemente selezionare il layer che desideri caricare (che deve essere un layer GPX), la periferica GPS utilizzata, e la porta (o l&#8217;usb) alla quale la periferica è collegata. Come per lo scaricamento dei dati, anche in questo caso è possibile specificare un nuovo tipo di periferica, nel caso non fosse presente nella lista proposta.</p>
+<p>Questo strumento è molto utile in combinazione con le capacità di editing dei dati vettoriali di  KADAS. Permette di caricare una mappa, creare dei waypoints e delle routes, e successivamente caricarli nel dispositivo per poi utilizzarli.</p>
+</div>
+<div class="section" id="defining-new-device-types">
+<span id="defining-new-device"></span><h2>Definire un nuovo tipo di dispositivo<a class="headerlink" href="#defining-new-device-types" title="link permanente per questa intestazione">¶</a></h2>
+<p>Ci sono molteplici tipologie di dispositivi GPS. Gli sviluppatori di KADAS non possono configurare tutti i dispositivi, perciò se hai un dispositivo non compatibile con quelli messi a disposizione nelle  schede <em class="guilabel">Scarica dal GPS</em> e <em class="guilabel">Carica su GPS</em>, ti puoi configurare il tuo dispositivo. Per fare questo puoi utilizzare l&#8217;editor dei dispositivi GPS, che si avvia cliccando sul bottone <strong>[Modifica periferiche]</strong> sia nella scheda di download che in quella di upload dei dati.</p>
+<p>Per configurare una nuova periferica devi semplicemente cliccare il pulsante <strong>[Nuovo]</strong>, inserire il nome del dispositivo, i vari comandi di download e di upload, e cliccare il pulsante <strong>[Aggiorna]</strong>. Il nome del dispositivo sarà inserito nella lista delle periferiche GPS presenti nelle schede di download e upload dei dati. Il comando di download è il comando che viene utilizzato per scaricare i dati dal dispositivo come file GPX. Solitamente è un comando di GPSBabel, ma puoi utilizzare qualsiasi altro programma a linea di comando che permette di creare un file GPX. KADAS rimpiazzerà i tasti <tt class="docutils literal"><span class="pre">%type</span></tt>, <tt class="docutils literal"><span class="pre">%in</span></tt>, e <tt class="docutils literal"><span class="pre">%out</span></tt> quando elaborerà il comando.</p>
+<p><tt class="docutils literal"><span class="pre">%type</span></tt> sarà sostituito da <tt class="docutils literal"><span class="pre">-w</span></tt> se stai scaricando dei waypoints, <tt class="docutils literal"><span class="pre">-r</span></tt> se stai scaricando delle routes e <tt class="docutils literal"><span class="pre">-t</span></tt> se stai scaricando dei tracks. Queste sono le opzioni che comunicano a GPSBabel quali elementi scaricare.</p>
+<p><tt class="docutils literal"><span class="pre">%in</span></tt> sarà sostituito dal norme della porta selezionata nella finestra di download,  <tt class="docutils literal"><span class="pre">%out</span></tt> sarà sostituito dal nome del file GPX nel quale verranno salvati i dati. Quindi se configuri una nuova periferica con il comando <tt class="docutils literal"><span class="pre">gpsbabel</span> <span class="pre">%type</span> <span class="pre">-i</span> <span class="pre">garmin</span> <span class="pre">-o</span> <span class="pre">gpx</span> <span class="pre">%in</span> <span class="pre">%out</span></tt> (questo è il comando di download per i dispositivi predefiniti &#8216;Garmin serial&#8217;) e lo usi per scaricare dei waypoints tramite una porta <tt class="docutils literal"><span class="pre">/dev/ttyS0</span></tt> in un file GPX denominato <tt class="docutils literal"><span class="pre">output.gpx</span></tt>, KADAS leggerà la stringa e avvierà il comando <tt class="docutils literal"><span class="pre">gpsbabel</span> <span class="pre">-w</span> <span class="pre">-i</span> <span class="pre">garmin</span> <span class="pre">-o</span> <span class="pre">gpx</span> <span class="pre">/dev/ttyS0</span> <span class="pre">output.gpx</span></tt>.</p>
+<p>Il comando di upload è il comando che viene utilizzato per caricare dati sul dispositivo. Vengono utilizzati i stessi tasti, ma <tt class="docutils literal"><span class="pre">%in</span></tt> è utilizzato per indicare il nome del file GPX che contiene il layer in caricamento, e <tt class="docutils literal"><span class="pre">%out</span></tt> viene sostituito dal nome della porta.</p>
+<p>Puoi avere maggiori informazioni su GPSBabel e sulle opzioni utilizzabili tramite linea di comando sul sito <a class="reference external" href="http://www.gpsbabel.org">http://www.gpsbabel.org</a>.</p>
+<p>Una volta che avrai creato una nuova periferica, essa apparirà nella lista dei dispositivi presente sia nella scheda Scarica dal GPS sia nella scheda Carica sul GPS.</p>
+</div>
+<div class="section" id="download-of-points-tracks-from-gps-units">
+<h2>Scaricare points/tracks dall&#8217;unità GPS<a class="headerlink" href="#download-of-points-tracks-from-gps-units" title="link permanente per questa intestazione">¶</a></h2>
+<p>Come descritto nei paragrafi precedenti QGIS usa GPSBabel per scaricare punti/track direttamente nel progetto. QGIS si configura con impostazioni predefinite per scaricare da dispositivi Garmin. Purtroppo vi è un <cite>bug #6318 &lt;http://hub.qgis.org/issues/6318&gt;</cite>  che non permette di creare altre impostazioni, così al momento è llimitato solo alle unità USB Garmi scaricare direttamente QGIS utilizzando gli strumenti GPS.</p>
+<div class="section" id="garmin-gpsmap-60cs">
+<h3>Garmin GPSMAP 60cs<a class="headerlink" href="#garmin-gpsmap-60cs" title="link permanente per questa intestazione">¶</a></h3>
+<p><strong>MS Windows</strong></p>
+<p>Installare i drivers  Garmin USB dal sito <a class="reference external" href="http://www8.garmin.com/support/download_details.jsp?id=591">http://www8.garmin.com/support/download_details.jsp?id=591</a></p>
+<p>Connect the unit. Open GPS Tools and use <tt class="docutils literal"><span class="pre">type=garmin</span> <span class="pre">serial</span></tt> and <tt class="docutils literal"><span class="pre">port=usb:</span></tt>
+Fill the fields <em class="guilabel">Layer name</em> and <em class="guilabel">Output file</em>. Sometimes
+it seems to have problems saving in a certain folder, using something like
+<tt class="docutils literal"><span class="pre">c:\temp</span></tt> usually works.</p>
+<p><strong>Ubuntu/Mint GNU/Linux</strong></p>
+<p>Per prima cosa occorre risolvere un problema inerente i permessi di accesso alla periferica, seguendo quanto scritto qui <a class="reference external" href="https://wiki.openstreetmap.org/wiki/USB_Garmin_on_GNU/Linux">https://wiki.openstreetmap.org/wiki/USB_Garmin_on_GNU/Linux</a>. Puoi provare a creare un file <tt class="file docutils literal"><span class="pre">/etc/udev/rules.d/51-garmin.rules</span></tt> contenente il seguente codice:</p>
+<div class="highlight-python"><pre>ATTRS{idVendor}=="091e", ATTRS{idProduct}=="0003", MODE="666"</pre>
+</div>
+<p>Successivamente occorre essere sicuri che il modulo del kernel  <a href="#id1"><span class="problematic" id="id2">``</span></a>garmin_gps` non sia caricato</p>
+<div class="highlight-python"><pre>rmmod garmin_gps</pre>
+</div>
+<p>e quindi puoi utilizzare gli strumenti GPS. Purtroppo sembra che ci sia un <cite>bug # 7182 &lt;http://hub.qgis.org/issues/7182&gt;</cite> _ e di solito QGIS si blocca più volte prima della fine.</p>
+</div>
+<div class="section" id="btgp-38km-datalogger-only-bluetooth">
+<h3>Data logger BTGP-38KM (solo Bluetooth)<a class="headerlink" href="#btgp-38km-datalogger-only-bluetooth" title="link permanente per questa intestazione">¶</a></h3>
+<p><strong>MS Windows</strong></p>
+<p>Il baco già discusso non consente di scaricare i dati tramite QGIS, per cui è necessario utilizzare GPSBabel dalla riga di comando o tramite la sua interfaccia. Il comando da eseguire è</p>
+<div class="highlight-python"><pre>gpsbabel -t -i skytraq,baud=9600,initbaud=9600 -f COM9 -o gpx -F C:/GPX/aaa.gpx</pre>
+</div>
+<p><strong>Ubuntu/Mint GNU/Linux</strong></p>
+<p>Utilizzare lo stesso comando (o gli stessi parametri, se usate la GUI di GPSBabel). Su Linux potrebbe capitare di vedere un messaggio tipo</p>
+<div class="highlight-python"><pre>skytraq: Too many read errors on serial port</pre>
+</div>
+<p>Si tratta solo di spegnere e riaccendere il data logger e ritentare</p>
+</div>
+<div class="section" id="bluemax-gps-4044-datalogger-both-bt-and-usb">
+<h3>BlueMax GPS-4044 datalogger (sia BT che USB)<a class="headerlink" href="#bluemax-gps-4044-datalogger-both-bt-and-usb" title="link permanente per questa intestazione">¶</a></h3>
+<p><strong>MS Windows</strong></p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Ha bisogno di installare i propri driver prima di essere utilizzato su Windows 7. Si veda il sito del costruttore per il file corretto da scaricare.</p>
+</div>
+<p>Scaricando con GSPBabel, sia con USB che BT, si ottiene sempre un errore tipo</p>
+<div class="highlight-python"><pre>gpsbabel -t -i mtk -f COM12 -o gpx -F C:/temp/test.gpx
+mtk_logger: Can't create temporary file data.bin
+Error running gpsbabel: Process exited unsucessfully with code 1</pre>
+</div>
+<p><strong>Ubuntu/Mint GNU/Linux</strong></p>
+<p><strong>con USB</strong></p>
+<p>Dopo aver collecato il cavo, usare il comando <tt class="docutils literal"><span class="pre">dmesg</span></tt> per capire quale porta viene utilizzata, ad esempio <tt class="docutils literal"><span class="pre">/dev/ttyACM3</span></tt>. Poi, come al solito, utilizzare GPSBabel dalla riga di comando o dalla GUI</p>
+<div class="highlight-python"><pre>gpsbabel -t -i mtk -f /dev/ttyACM3 -o gpx -F /home/user/bluemax.gpx</pre>
+</div>
+<p><strong>Con Bluetooth</strong></p>
+<p>Utilizzare il Gestore di dispositivi Blueman per accoppiare il dispositivo e renderlo disponibile tramite una porta di sistema, poio eserguire GPSBabel</p>
+<div class="highlight-python"><pre>gpsbabel -t -i mtk -f /dev/rfcomm0 -o gpx -F /home/user/bluemax_bt.gpx</pre>
+</div>
+</div>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

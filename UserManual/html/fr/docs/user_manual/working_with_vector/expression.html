@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Expressions</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="Anglais">English</option>
+  <option value="de" title="Allemand">Deutsch</option>
+  <option value="fr" title="Français">Français</option>
+  <option value="it" title="Italien">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/working_with_vector/expression.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Découvrir</a></li>
+            <li><a href="../../../site/forusers/index.html">Pour les utilisateurs</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Contribuer</a></li>
+            <li><a href="../../index.html">Documentation</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Rechercher" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Table Des Matières</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Préambule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Avant-propos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">Interface de KADAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Mes cartes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Dessiner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Annexe</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="expressions">
+<span id="vector-expressions"></span><span id="index-0"></span><h1>Expressions<a class="headerlink" href="#expressions" title="Lien permanent vers ce titre">¶</a></h1>
+<p>TODO: wird nur mit feldrechner benutzt</p>
+<p>Les <strong>Expressions</strong> sont disponibles dans la Calculatrice de champ ou via le bouton Ajout d&#8217;une nouvelle colonne dans la table attributaire ou via l&#8217;onglet Champ dans les Propriétés de la couche; via les rendus Gradué, Catégorisé et Basé sur un ensemble de règles dans l&#8217;onglet Style des Propriétés de la couche; via le bouton <a class="reference internal" href="../../../_images/browsebutton.png"><img alt="browsebutton" src="../../../_images/browsebutton.png" style="width: 2.3em;" /></a> d&#8217;étiquetage basé sur une formule dans l&#8217;<sup>Étiquetage</sup> <a class="reference internal" href="../../../_images/mActionLabeling.png"><img alt="mActionLabeling" src="../../../_images/mActionLabeling.png" style="width: 1.5em;" /></a>; via la sélection d&#8217;entité et via l&#8217;onglet diagramme des Propriétés de la couche ainsi que dans le Composeur d&#8217;impression pour les <em class="guilabel">Propriétés principales</em> d&#8217;un objet étiquette et dans l&#8217;onglet <em class="guilabel">Génération d&#8217;Atlas</em> .</p>
+<p>Il y a un moyen efficace de manipuler la valeur d&#8217;attribut pour changer dynamiquement la valeur finale afin de changer le style de géométrie, le contenu d&#8217;une étiquette, la valeur d&#8217;un diagramme, sélectionner des entités ou créer une colonne virtuelle.</p>
+<div class="section" id="functions-list">
+<h2>Liste de fonctions<a class="headerlink" href="#functions-list" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La <strong>Liste de fonctions</strong> contient aussi bien des fonctions que des champs et des valeurs. Référez-vous à la fonction d&#8217;aide dans l&#8217;<strong>Aide pour la fonction sélectionnée</strong>. Dans <strong>Expression</strong>, vous pouvez voir les expressions de calcul que vous créez avec la <strong>Liste de fonctions</strong>. Pour les opérateurs les plus couramment utilisés, voir sous <strong>Opérateurs</strong>.</p>
+<p>Dans la <strong>Liste de fonctions</strong>, cliquez sur <em class="guilabel">Champs et valeurs</em> pour visualiser tous les attributs de la table attributaire à chercher. Pour ajouter un attribut au champ &#8216;<strong>Expression</strong> de la Calculatrice de champ, double-cliquez sur son nom dans la liste <em class="guilabel">Champs et valeurs</em>. Vous pouvez en général utiliser les différents champs, valeurs et fonctions pour construire votre expression de calcul, ou vous pouvez simplement les taper dans la zone expression. Pour afficher les valeurs d&#8217;un champ, faites un clic-droit sur le champ voulu. Vous avez le choix entre <em class="guilabel">Charger les 10 premières valeurs uniques</em> et <em class="guilabel">Charger toutes les valeurs uniques</em>. Une liste <strong>Valeurs de champs</strong> apparaît à droite avec les valeurs uniques. Pour ajouter une valeur à la zone <strong>Expression</strong> de la Calculatrice de champ, double-cliquez dessus dans la liste des <strong>Valeurs de champs</strong>.</p>
+<p>Les groupes <em class="guilabel">Opérateurs</em>, <em class="guilabel">Math</em>, <em class="guilabel">Conversions</em>, <em class="guilabel">Chaîne</em>, <em class="guilabel">Géométrie</em> et <em class="guilabel">Enregistrement</em> offrent plusieurs fonctions. Dans <em class="guilabel">Opérateurs</em>, vous trouvez des opérateurs mathématiques. Regardez dans <em class="guilabel">Math</em> pour les fonctions mathématiques. Le groupe <em class="guilabel">Conversions</em> contient des fonctions qui convertissent un type de données en un autre. Le groupe <em class="guilabel">Chaîne</em> contient des fonctions pour des chaînes de données. Dans le groupe <em class="guilabel">Géométrie</em>, vous trouvez des fonctions pour des objets géométriques. Avec le groupe de fonctions <em class="guilabel">Enregistrement</em>, vous pouvez ajouter une numérotation à votre jeu de données. Pour ajouter une fonction à la zone <strong>Expression</strong> de la Calculatrice de champ, cliquez sur &gt; et ensuite double-cliquez sur la fonction.</p>
+<span class="target" id="index-1"></span><div class="section" id="operators">
+<h3>Opérateurs<a class="headerlink" href="#operators" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette catégorie contient les opérateurs (par exemple, +, -, *).</p>
+<div class="highlight-python"><pre>a + b      a plus b
+a - b      a minus b
+a * b      a multiplied by b
+a / b      a divided by b
+a % b      a modulo b (for example, 7 % 2 = 1, or 2 fits into 7 three
+           times with remainder 1)
+a ^ b      a power b (for example, 2^2=4 or 2^3=8)
+a = b      a and b are equal
+a &gt; b      a is larger than b
+a &lt; b      a is smaller than b
+a &lt;&gt; b     a and b are not equal
+a != b     a and b are not equal
+a &lt;= b     a is less than or equal to b
+a &gt;= b     a is larger than or equal to b
+a ~ b      a matches the regular expression b
++ a        positive sign
+- a        negative value of a
+||         joins two values together into a string 'Hello' || ' world'
+LIKE       returns 1 if the string matches the supplied pattern
+ILIKE      returns 1 if the string matches case-insensitive the supplied
+           pattern (ILIKE can be used instead of LIKE to make the match
+           case-insensitive)
+IS         returns 1 if a is the same as b
+OR         returns 1 when condition a or b is true
+AND        returns 1 when condition a and b are true
+NOT        returns 1 if a is not the same as b
+column name "column name"     value of the field column name, take
+                              care to not be confused with simple
+                              quote, see below
+'string'                      a string value, take care to not be
+                              confused with double quote, see above
+NULL                          null value
+a IS NULL                     a has no value
+a IS NOT NULL                 a has a value
+a IN (value[,value])          a is below the values listed
+a NOT IN (value[,value])      a is not below the values listed</pre>
+</div>
+<p><strong>Quelques exemples :</strong></p>
+<ul>
+<li><p class="first">Joint une chaîne et une valeur depuis un nom de colonne:</p>
+<div class="highlight-python"><pre>'My feature's id is: ' || "gid"</pre>
+</div>
+</li>
+<li><p class="first">Teste si la &#8220;description&#8221; du champ d&#8217;attribut commence avec la chaîne &#8216;Hello&#8217; dans la valeur (notez la position du caractère %):</p>
+<div class="highlight-python"><pre>"description" LIKE 'Hello%'</pre>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="conditionals">
+<h3>Conditions<a class="headerlink" href="#conditionals" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce groupe contient des fonctions permettant de gérer des conditions dans les expressions.</p>
+<div class="highlight-python"><pre>CASE                          evaluates multiple expressions and returns a
+                              result
+CASE ELSE                     evaluates multiple expressions and returns a
+                              result
+coalesce                      returns the first non-NULL value from the
+                              expression list
+regexp_match                  returns true if any part of a string matches
+                              the supplied regular expression</pre>
+</div>
+<p><strong>Quelques exemples:</strong></p>
+<ul>
+<li><p class="first">Envoie une valeur en retour si la première condition est vraie, sinon une autre valeur:</p>
+<div class="highlight-python"><pre>CASE WHEN "software" LIKE '%QGIS%' THEN 'QGIS' ELSE 'Other'</pre>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="mathematical-functions">
+<h3>Fonctions mathématiques<a class="headerlink" href="#mathematical-functions" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce groupe contient des fonctions mathématiques (par ex. racine carré, sin et cos).</p>
+<div class="highlight-python"><pre>sqrt(a)                       square root of a
+abs                           returns the absolute value of a number
+sin(a)                        sine of a
+cos(a)                        cosine of a
+tan(a)                        tangent of a
+asin(a)                       arcsin of a
+acos(a)                       arccos of a
+atan(a)                       arctan of a
+atan2(y,x)                    arctan of y/x using the signs of the two
+                              arguments to determine the quadrant of the
+                              result
+exp                           exponential of a value
+ln                            value of the natural logarithm of the passed
+                              expression
+log10                         value of the base 10 logarithm of the passed
+                              expression
+log                           value of the logarithm of the passed value
+                              and base
+round                         round to number of decimal places
+rand                          random integer within the range specified by
+                              the minimum
+                              and maximum argument (inclusive)
+randf                         random float within the range specified by
+                              the minimum
+                              and maximum argument (inclusive)
+max                           largest value in a set of values
+min                           smallest value in a set of values
+clamp                         restricts an input value to a specified
+                              range
+scale_linear                  transforms a given value from an input
+                              domain to an output
+                              range using linear interpolation
+scale_exp                     transforms a given value from an input
+                              domain to an output
+                              range using an exponential curve
+floor                         rounds a number downwards
+ceil                          rounds a number upwards
+$pi                           pi as value for calculations</pre>
+</div>
+</div>
+<div class="section" id="conversions">
+<h3>Conversions<a class="headerlink" href="#conversions" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce groupe contient des fonctions pour convertir un type de données en un autre (par ex. chaîne à entier, entier à chaîne).</p>
+<div class="highlight-python"><pre>toint                        converts a string to integer number
+toreal                       converts a string to real number
+tostring                     converts number to string
+todatetime                   converts a string into Qt data time type
+todate                       converts a string into Qt data type
+totime                       converts a string into Qt time type
+tointerval                   converts a string to an interval type (can be
+                             used to take days, hours, months, etc. off a
+                             date)</pre>
+</div>
+</div>
+<div class="section" id="date-and-time-functions">
+<h3>Fonctions de Date et Heure<a class="headerlink" href="#date-and-time-functions" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce groupe contient des fonctions permettant de gérer des données de date et d&#8217;heure.</p>
+<div class="highlight-python"><pre>$now       current date and time
+age        difference between two dates
+year       extract the year part from a date, or the number of years from
+           an interval
+month      extract the month part from a date, or the number of months
+           from an interval
+week       extract the week number from a date, or the number of weeks
+           from an interval
+day        extract the day from a date, or the number of days from an
+           interval
+hour       extract the hour from a datetime or time, or the number
+           of hours from an interval
+minute     extract the minute from a datetime or time, or the number
+           of minutes from an interval
+second     extract the second from a datetime or time, or the number
+           of minutes from an interval</pre>
+</div>
+<p><strong>Quelques exemples:</strong></p>
+<ul>
+<li><p class="first">Obtenir le mois et l&#8217;année d&#8217;aujourd&#8217;hui dans le format &#8220;10/2014&#8221;</p>
+<div class="highlight-python"><pre>month($now) || '/' || year($now)</pre>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="string-functions">
+<h3>Fonctions de Chaîne<a class="headerlink" href="#string-functions" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce groupe contient des fonctions qui opèrent sur des chaînes (par ex. qui remplace, convertit en majuscule).</p>
+<div class="highlight-python"><pre>lower                        convert string a to lower case
+upper                        convert string a to upper case
+title                        converts all words of a string to title
+                             case (all words lower case with leading
+                             capital letter)
+trim                         removes all leading and trailing white
+                             space (spaces, tabs, etc.) from a string
+wordwrap                     returns a string wrapped to a maximum/
+                             minimum number of characters
+length                       length of string a
+replace                      returns a string with the supplied string
+                             replaced
+regexp_replace(a,this,that)  returns a string with the supplied regular
+                             expression replaced
+regexp_substr                returns the portion of a string which matches
+                             a supplied regular expression
+substr(*a*,from,len)         returns a part of a string
+concat                       concatenates several strings to one
+strpos                       returns the index of a regular expression
+                             in a string
+left                         returns a substring that contains the n
+                             leftmost characters of the string
+right                        returns a substring that contains the n
+                             rightmost characters of the string
+rpad                         returns a string with supplied width padded
+                             using the fill character
+lpad                         returns a string with supplied width padded
+                             using the fill character
+format                       formats a string using supplied arguments
+format_number                returns a number formatted with the locale
+                             separator for thousands (also truncates the
+                             number to the number of supplied places)
+format_date                  formats a date type or string into a custom
+                             string format</pre>
+</div>
+</div>
+<div class="section" id="color-functions">
+<h3>Fonctions de Couleur<a class="headerlink" href="#color-functions" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce groupe contient des fonctions pour manipuler les couleurs.</p>
+<div class="highlight-python"><pre>color_rgb       returns a string representation of a color based on its
+                red, green, and blue components
+color_rgba      returns a string representation of a color based on its
+                red, green, blue, and alpha (transparency) components
+ramp_color      returns a string representing a color from a color ramp
+color_hsl       returns a string representation of a color based on its
+                hue, saturation, and lightness attributes
+color_hsla      returns a string representation of a color based on its
+                hue, saturation, lightness and alpha (transparency)
+                attributes
+color_hsv       returns a string representation of a color based on its
+                hue, saturation, and value attributes
+color_hsva      returns a string representation of a color based on its
+                hue, saturation, value and alpha (transparency) attributes
+color_cmyk      returns a string representation of a color based on its
+                cyan, magenta, yellow and black components
+color_cmyka     returns a string representation of a color based on its
+                cyan, magenta, yellow, black and alpha (transparency)
+                components</pre>
+</div>
+</div>
+<div class="section" id="geometry-functions">
+<h3>Fonctions de Géométrie<a class="headerlink" href="#geometry-functions" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce groupe contient des fonctions qui opèrent sur des objets géométriques (par ex. longueur, aire).</p>
+<div class="highlight-python"><pre>$geometry        returns the geometry of the current feature (can be used
+                 for processing with other functions)
+$area            returns the area size of the current feature
+$length          returns the length size of the current feature
+$perimeter       returns the perimeter length of the current feature
+$x               returns the x coordinate of the current feature
+$y               returns the y coordinate of the current feature
+xat              retrieves the nth x coordinate of the current feature.
+                 n given as a parameter of the function
+yat              retrieves the nth y coordinate of the current feature.
+                 n given as a parameter of the function
+xmin             returns the minimum x coordinate of a geometry.
+                 Calculations are in the Spatial Reference System of this
+                 Geometry
+xmax             returns the maximum x coordinate of a geometry.
+                 Calculations are in the Spatial Reference System of this
+                 Geometry
+ymin             returns the minimum y coordinate of a geometry.
+                 Calculations are in the Spatial Reference System of this
+                 Geometry
+ymax             returns the maximum y coordinate of a geometry.
+                 Calculations are in the Spatial Reference System of this
+                 Geometry
+geomFromWKT      returns a geometry created from a well-known text (WKT)
+                 representation
+geomFromGML      returns a geometry from a GML representation of geometry
+bbox
+disjoint         returns 1 if the geometries do not share any space
+                 together
+intersects       returns 1 if the geometries spatially intersect
+                 (share any portion of space) and 0 if they don't
+touches          returns 1 if the geometries have at least one point in
+                 common, but their interiors do not intersect
+crosses          returns 1 if the supplied geometries have some, but not
+                 all, interior points in common
+contains         returns true if and only if no points of b lie in the
+                 exterior of a, and at least one point of the interior
+                 of b lies in the interior of a
+overlaps         returns 1 if the geometries share space, are of the
+                 same dimension, but are not completely contained by
+                 each other
+within           returns 1 if geometry a is completely inside geometry b
+buffer           returns a geometry that represents all points whose
+                 distance from this geometry is less than or equal to
+                 distance
+centroid         returns the geometric center of a geometry
+bounds           returns a geometry which represents the bounding box of
+                 an input geometry. Calculations are in the Spatial
+                 Reference System of this Geometry.
+bounds_width     returns the width of the bounding box of a geometry.
+                 Calculations are in the Spatial Reference System of
+                 this Geometry.
+bounds_height    returns the height of the bounding box of a geometry.
+                 Calculations are in the Spatial Reference System of
+                 this Geometry.
+convexHull       returns the convex hull of a geometry (this represents
+                 the minimum convex geometry that encloses all geometries
+                 within the set)
+difference       returns a geometry that represents that part of geometry
+                 a that does not intersect with geometry b
+distance         returns the minimum distance (based on spatial ref)
+                 between two geometries in projected units
+intersection     returns a geometry that represents the shared portion
+                 of geometry a and geometry b
+symDifference    returns a geometry that represents the portions of a and
+                 b that do not intersect
+combine          returns the combination of geometry a and geometry b
+union            returns a geometry that represents the point set union of
+                 the geometries
+geomToWKT        returns the well-known text (WKT) representation of the
+                 geometry without SRID metadata
+geometry         returns the feature's geometry
+transform        returns the geometry transformed from the source CRS to
+                 the dest CRS</pre>
+</div>
+</div>
+<div class="section" id="record-functions">
+<h3>Fonctions d&#8217;Enregistrement<a class="headerlink" href="#record-functions" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce groupe contient des fonctions qui permettent d&#8217;accéder aux identifiants des enregistrements.</p>
+<div class="highlight-python"><pre>$rownum                  returns the number of the current row
+$id                      returns the feature id of the current row
+$currentfeature          returns the current feature being evaluated.
+                         This can be used with the 'attribute' function
+                         to evaluate attribute values from the current
+                         feature.
+$scale                   returns the current scale of the map canvas
+$uuid                    generates a Universally Unique Identifier (UUID)
+                         for each row. Each UUID is 38 characters long.
+getFeature               returns the first feature of a layer matching a
+                         given attribute value.
+attribute                returns the value of a specified attribute from
+                         a feature.
+$map                     returns the id of the current map item if the map
+                         is being drawn in a composition, or "canvas" if
+                         the map is being drawn within the main QGIS
+                         window.</pre>
+</div>
+</div>
+<div class="section" id="fields-and-values">
+<h3>Champs et Valeurs<a class="headerlink" href="#fields-and-values" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Contient une liste de champs de la couche. Un échantillon de valeurs peut aussi être obtenu avec un clic-droit.</p>
+<p>Sélectionnez le nom du champ de la liste, puis faites un clic-droit pour accéder à un menu contextuel avec des options pour charger des valeurs d&#8217;échantillon du champ sélectionné.</p>
+<p>Le nom des champs devrait être entre guillemets double. Les valeurs ou chaînes devraient être entre guillemets simples.</p>
+</div>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Outils généraux</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="Anglais">English</option>
+  <option value="de" title="Allemand">Deutsch</option>
+  <option value="fr" title="Français">Français</option>
+  <option value="it" title="Italien">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/introduction/general_tools.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Découvrir</a></li>
+            <li><a href="../../../site/forusers/index.html">Pour les utilisateurs</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Contribuer</a></li>
+            <li><a href="../../index.html">Documentation</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Rechercher" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Table Des Matières</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Préambule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Avant-propos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qgis_gui.html">Interface de KADAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Mes cartes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Dessiner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Annexe</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="general-tools">
+<span id="id1"></span><h1>Outils généraux<a class="headerlink" href="#general-tools" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="keyboard-shortcuts">
+<span id="shortcuts"></span><h2>Raccourcis clavier<a class="headerlink" href="#keyboard-shortcuts" title="Lien permanent vers ce titre">¶</a></h2>
+<p id="index-0">KADAS fournit des raccourcis claviers par défaut pour de nombreuses fonctionnalités. Vous les trouverez dans la section <a class="reference internal" href="qgis_gui.html#label-menubar"><em>Barre de Menu</em></a>. Le sous-menu  <em class="menuselection">Préférences ‣ Configurer les raccourcis...</em> permet de personnaliser ces raccourcis clavier et d&#8217;en définir pour les autres fonctionnalités de KADAS listées.</p>
+<p id="figure-shortcuts"><strong>Figure Shortcuts 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/shortcuts.png" src="../../../_images/shortcuts.png" />
+<p class="caption">Définir les options des raccourcis <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> (Gnome)</p>
+</div>
+<p>La configuration est très simple. Sélectionnez une action dans la liste et cliquez sur le bouton <strong>[Changement]</strong>, <strong>[Ne rien mettre]</strong> ou <strong>[Définir par défaut]</strong>. Lorsque vous avez terminé, vous pouvez sauver la configuration dans un fichier XML en vue de charger ce dernier dans un autre environnement d&#8217;exécution de KADAS (sur un autre ordinateur par exemple).</p>
+</div>
+<div class="section" id="context-help">
+<span id="id2"></span><h2>Aide contextuelle<a class="headerlink" href="#context-help" title="Lien permanent vers ce titre">¶</a></h2>
+<p id="index-1">Lorsque vous avez besoin d&#8217;aide sur un sujet spécifique, vous pouvez accéder à l&#8217;aide contextuelle via le bouton <strong>[Aide]</strong> disponible dans la plupart des fenêtres &#8212; notez que les extensions additionnelles peuvent pointer vers des pages web dédiées.</p>
+</div>
+<div class="section" id="rendering">
+<span id="redraw-events"></span><h2>Rendu<a class="headerlink" href="#rendering" title="Lien permanent vers ce titre">¶</a></h2>
+<p id="index-2">Par défaut, KADAS effectue le rendu de toutes les couches visibles à chaque fois que l&#8217;affichage de la carte est mis à jour. Les événements qui déclenchent ce rafraîchissement sont :</p>
+<ul class="simple">
+<li><p class="first">l&#8217;ajout d&#8217;une couche</p>
+</li>
+<li><p class="first">le déplacement ou le zoom</p>
+</li>
+<li><p class="first">Redimensionnement de la fenêtre de KADAS</p>
+</li>
+<li><p class="first">la modification de la visibilité d&#8217;une ou plusieurs couches</p>
+</li>
+</ul>
+<p>KADAS vous laisse contrôler le processus de rendu de plusieurs manières.</p>
+<div class="section" id="scale-dependent-rendering">
+<h3>Rendu dépendant de l&#8217;échelle<a class="headerlink" href="#scale-dependent-rendering" title="Lien permanent vers ce titre">¶</a></h3>
+<p id="index-3">Le rendu dépendant de l&#8217;échelle permet de spécifier des échelles minimale et maximale auxquelles la couche doit être visible. Pour définir une échelle de rendu, ouvrez la fenêtre de <em class="guilabel">Propriétés</em> en double-cliquant sur une couche dans la légende et dans l&#8217;onglet <em class="guilabel">Général</em>, cochez la case <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><em class="guilabel">Visibilité dépendante de l&#8217;échelle</em> puis saisissez les valeurs voulues.</p>
+<p>Vous pouvez déterminer les valeurs d&#8217;échelle en zoomant au niveau que vous voulez utiliser et en notant les valeurs de la barre d&#8217;état de KADAS.</p>
+</div>
+<div class="section" id="controlling-map-rendering">
+<span id="label-controlmap"></span><span id="index-4"></span><h3>Contrôler le rendu<a class="headerlink" href="#controlling-map-rendering" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le rendu de la carte peut être contrôlé de différentes manières, décrites ci-dessous.</p>
+<div class="section" id="suspending-rendering">
+<span id="label-suspendrender"></span><h4>Suspendre le rendu<a class="headerlink" href="#suspending-rendering" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Pour suspendre le rendu, cliquez sur la case <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Rendu</em> dans le coin inférieur droit de la barre de statut. Quand cette case n&#8217;est pas cochée, KADAS ne redessine pas la carte en réponse aux événements décrits dans la section <a class="reference internal" href="#redraw-events"><em>Rendu</em></a>. Voici quelques cas pour lesquels vous pourriez souhaiter ce comportement :</p>
+<ul class="simple">
+<li><p class="first">Ajouter plusieurs couches et réaliser leur symbologie avant de les afficher</p>
+</li>
+<li><p class="first">Ajouter une ou plusieurs couches et définir leur dépendance d&#8217;échelle avant de les afficher</p>
+</li>
+<li><p class="first">Ajouter une ou plusieurs couches et zoomer à une vue spécifique avant de les afficher</p>
+</li>
+<li><p class="first">N&#8217;importe quelle combinaison des éléments précédents</p>
+</li>
+</ul>
+<p>Cocher la case <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Rendu</em> activera de nouveau le rendu et provoquera un rafraîchissement immédiat de la carte.</p>
+</div>
+<div class="section" id="setting-layer-add-option">
+<span id="label-settinglayer"></span><h4>Définir les options d&#8217;ajout de couche<a class="headerlink" href="#setting-layer-add-option" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Il est possible de définir une option qui chargera toutes les nouvelles couches sans les dessiner, elles seront ajoutées à la carte, mais la case de visibilité sera décochée par défaut. Pour définir cette option, sélectionnez l&#8217;option <em class="menuselection">Préférences ‣ Options</em> et cliquez sur l&#8217;onglet <em class="guilabel">Rendu</em>. Décochez la case <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Par défaut les couches supplémentaires sont affichées</em>. Les nouvelles couches ajoutées à la carte seront invisibles par défaut.</p>
+</div>
+<div class="section" id="stopping-rendering">
+<h4>Arrêter le rendu<a class="headerlink" href="#stopping-rendering" title="Lien permanent vers ce titre">¶</a></h4>
+<p id="label-stoprender"><span id="index-5"></span>Pour arrêter le rendu de la carte, appuyez sur la touche <tt class="kbd docutils literal"><span class="pre">ESC</span></tt>. Ceci stoppera le rafraîchissement de la vue de la carte et laissera la carte partiellement dessinée. Il est possible qu&#8217;il y ait un délai entre le moment où la touche est pressée et le moment où le rendu de la carte est effectivement arrêté.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il n&#8217;est maintenant plus possible d&#8217;arrêter le rendu &#8212; cela a été désactivé dans Qt4 à cause de problèmes et de crashes dans l&#8217;interface utilisateur (IHM).</p>
+</div>
+</div>
+<div class="section" id="updating-the-map-display-during-rendering">
+<span id="label-updatemap"></span><h4>Mettre à jour l&#8217;affichage de la carte pendant le rendu de l&#8217;affichage<a class="headerlink" href="#updating-the-map-display-during-rendering" title="Lien permanent vers ce titre">¶</a></h4>
+<p id="index-6">Vous pouvez définir une option pour mettre à jour l&#8217;affichage de la carte quand des entités sont dessinées. Par défaut, KADAS n&#8217;affiche pas les entités d&#8217;une couche tant que la couche n&#8217;a pas été rendue entièrement. Pour mettre à jour l&#8217;affichage à mesure que les entités sont lues dans la table attributaire, sélectionnez le menu <em class="menuselection">Préférences ‣ Options</em> puis l&#8217;onglet <em class="guilabel">Rendu</em>. Mettez comme valeur le nombre d&#8217;entités à mettre à jour durant le rendu. Si elle est égale à 0, cela désactive la mise à jour durant le dessin (c&#8217;est la valeur par défaut). Une valeur trop basse risque d&#8217;impacter les performances, car la vue de la carte sera constamment mise à jour durant la lecture des entités. Il est suggéré de commencer à 500.</p>
+</div>
+<div class="section" id="influence-rendering-quality">
+<span id="label-renderquality"></span><h4>Influencer la qualité du rendu<a class="headerlink" href="#influence-rendering-quality" title="Lien permanent vers ce titre">¶</a></h4>
+<p id="index-7">Pour influencer la qualité du rendu de la carte vous avez deux possibilités. Dans le menu <em class="menuselection">Préférences ‣ Options</em> puis l&#8217;onglet <em class="guilabel">Rendu</em> et sélectionnez ou désélectionnez les cases suivantes :</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Les lignes semblent moins déchiquetées aux dépens d&#8217;une certaine vitesse d&#8217;exécution</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Corriger les polygones remplis de manière erronée</em></p>
+</li>
+</ul>
+</div>
+<div class="section" id="speed-up-rendering">
+<h4>Accéler le rendu<a class="headerlink" href="#speed-up-rendering" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Il y a deux manières d&#8217;améliorer la rapidité du rendu de la carte. Dans le menu <em class="menuselection">Préférences ‣ Options</em> puis onglet <em class="guilabel">Rendu</em>, sélectionnez ou désélectionnez les cases suivantes :</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Activer la mémoire tampon d&#8217;arrière-plan</em>. Elle offre de meilleures performances graphiques au détriment de la possibilité d&#8217;annuler le rendu et l&#8217;affichage des entités au fur et à mesure qu&#8217;elles sont lues dans la table. Si cette option est décochée, vous pouvez définir un <em class="guilabel">Nombre d&#8217;entités à afficher avant d&#8217;actualiser l&#8217;affichage</em>, sinon, ceci est désactivé.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Utiliser le cache du rendu si possible pour accélérer l&#8217;affichage</em></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="measuring">
+<span id="sec-measure"></span><h2>Mesurer<a class="headerlink" href="#measuring" title="Lien permanent vers ce titre">¶</a></h2>
+<p id="index-8">Les mesures fonctionnent uniquement au sein des systèmes de coordonnées projetées (par exemple : UTM, Lambert 93) et pour les données sans système de coordonnées. Si la couche active est définie par un système de coordonnées géographiques (latitude/longitude), les résultats d&#8217;une mesure de ligne ou d&#8217;aires seront incorrects. Pour y remédier, vous devez spécifier un système de coordonnées plus approprié (voir section <a class="reference internal" href="../working_with_projections/working_with_projections.html#label-projections"><em>Utiliser les projections</em></a>). Les outils de mesure utilisent les paramètres d&#8217;accrochage de l&#8217;outil de numérisation. C&#8217;est utile pour mesurer des distances et des aires pour des couches vectorielles.</p>
+<p>Pour choisir un outil de mesure, cliquez sur <a class="reference internal" href="../../../_images/mActionMeasure.png"><img alt="mActionMeasure" src="../../../_images/mActionMeasure.png" style="width: 1.5em;" /></a> et sélectionnez l&#8217;outil que vous souhaitez utiliser.</p>
+<div class="section" id="measure-length-areas-and-angles">
+<h3>Mesurer des longueurs, des aires et des angles<a class="headerlink" href="#measure-length-areas-and-angles" title="Lien permanent vers ce titre">¶</a></h3>
+<span class="target" id="index-9"></span><span class="target" id="index-10"></span><p id="index-11"><a class="reference internal" href="../../../_images/mActionMeasure.png"><img alt="mActionMeasure" src="../../../_images/mActionMeasure.png" style="width: 1.5em;" /></a> <sup>Mesurer une longueur</sup> : KADAS peut mesurer des distances réelles entre des points donnés selon un ellipsoïde défini. Pour le configurer, allez dans le menu <em class="menuselection">Préférences ‣ Options</em> puis dans l&#8217;onglet <em class="guilabel">Outils cartographiques</em> et sélectionnez l&#8217;ellipsoïde approprié. Vous pouvez également modifier ici la couleur du trait, votre unité de mesure (mètre ou pied) et unité d&#8217;angle (degrés, radians ou grades) préférées. L&#8217;outil vous permet alors de placer des points sur la carte. La longueur de chaque segment s&#8217;affiche dans la fenêtre de mesure ainsi que la longueur cumulée totale. Pour stopper les mesures, faites un clic droit. Notez que vous pouvez interactivement changer les unités de mesures dans la boîte de dialogue de mesures. Elles remplacent alors les <em class="guilabel">Unités de mesures préférées</em> des options. Il y a une section information dans la boîte de dialogue qui affiche les paramètres du SCR qui sont utilisés lors des calculs de mesure.</p>
+<p id="figure-measure-length"><strong>Figure Measure 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/measure_line.png" src="../../../_images/measure_line.png" />
+<p class="caption">Mesure de distance <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> (Gnome)</p>
+</div>
+<p><a class="reference internal" href="../../../_images/mActionMeasureArea.png"><img alt="mActionMeasureArea" src="../../../_images/mActionMeasureArea.png" style="width: 1.5em;" /></a> <sup>Mesurer une aire</sup> : les aires peuvent aussi être mesurées. Dans la fenêtre de mesure la surface totale mesurée apparaît. En complément, l&#8217;outil de mesure s&#8217;accrochera à la couche sélectionnée à partir du moment où celle-ci a un seuil d&#8217;accrochage défini (voir section <em class="xref std std-ref">snapping_tolerance</em>). Donc si vous voulez mesurer avec exactitude le long d&#8217;une ligne ou autour d&#8217;un polygone, spécifiez d&#8217;abord un seuil d&#8217;accrochage puis sélectionnez la couche. Avec l&#8217;outil de mesure, chaque clic de souris (se situant dans ce seuil de tolérance) s&#8217;accrochera aux entités de cette couche.</p>
+<p id="figure-measure-area"><strong>Figure Measure 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/measure_area.png" src="../../../_images/measure_area.png" />
+<p class="caption">Mesure d&#8217;aire <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> (Gnome)</p>
+</div>
+<p><a class="reference internal" href="../../../_images/mActionMeasureAngle.png"><img alt="mActionMeasureAngle" src="../../../_images/mActionMeasureAngle.png" style="width: 1.5em;" /></a> <sup>Mesurer un angle</sup> : vous pouvez aussi mesurer des angles. Le curseur adopte une forme en croix. Cliquez pour dessiner le premier côté de l&#8217;angle à mesurer puis bougez le curseur pour dessiner l&#8217;angle désiré. La mesure est affichée dans une fenêtre.</p>
+<p id="figure-measure-angle"><strong>Figure Measure 3:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/measure_angle.png" src="../../../_images/measure_angle.png" />
+<p class="caption">Mesure d&#8217;angle <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> (Gnome)</p>
+</div>
+</div>
+<div class="section" id="select-and-deselect-features">
+<span id="sec-selection"></span><h3>Sélectionner et désélectionner des entités<a class="headerlink" href="#select-and-deselect-features" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La barre d&#8217;outils KADAS fournit plusieurs outils de sélection d&#8217;entités à partir du canevas de la carte. Pour sélectionner une ou plusieurs entités, cliquez sur <a class="reference internal" href="../../../_images/mActionSelect.png"><img alt="mActionSelect" src="../../../_images/mActionSelect.png" style="width: 1.5em;" /></a> et choisissez votre outil :</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionSelect.png"><img alt="mActionSelect" src="../../../_images/mActionSelect.png" style="width: 1.5em;" /></a> <sup>Sélection d&#8217;entités</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionSelectRectangle.png"><img alt="mActionSelectRectangle" src="../../../_images/mActionSelectRectangle.png" style="width: 1.5em;" /></a> <sup>Sélection d&#8217;entités avec un rectangle</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionSelectPolygon.png"><img alt="mActionSelectPolygon" src="../../../_images/mActionSelectPolygon.png" style="width: 1.5em;" /></a> <sup>Sélection d&#8217;entités avec un polygone</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionSelectFreehand.png"><img alt="mActionSelectFreehand" src="../../../_images/mActionSelectFreehand.png" style="width: 1.5em;" /></a> <sup>Sélection d&#8217;entités à main levée</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionSelectRadius.png"><img alt="mActionSelectRadius" src="../../../_images/mActionSelectRadius.png" style="width: 1.5em;" /></a> <sup>Sélection d&#8217;entités selon un rayon</sup></p>
+</li>
+</ul>
+<p>Pour désélectionner toutes les entités, cliquez sur <a class="reference internal" href="../../../_images/mActionDeselectAll.png"><img alt="mActionDeselectAll" src="../../../_images/mActionDeselectAll.png" style="width: 1.5em;" /></a> <sup>Désélectionner toutes les entités</sup>.</p>
+<p><a class="reference internal" href="../../../_images/mIconExpressionSelect.png"><img alt="mIconExpressionSelect" src="../../../_images/mIconExpressionSelect.png" style="width: 1.5em;" /></a> <sup>Sélectionner une entité en utilisant une expression</sup> permet à l&#8217;utilisateur de sélectionner une entité en utilisant la boîte de dialogue des expressions. Consultez le chapitre <a class="reference internal" href="../working_with_vector/expression.html#vector-expressions"><em>Expressions</em></a> pour des exemples.</p>
+<p>Les utilisateurs peuvent sauvegarder les entités sélectionnées dans une <strong>Nouvelle Couche Vecteur en Mémoire</strong> ou dans une <strong>Nouvelle Couche Vecteur</strong> en utilisant <em class="menuselection">Édition ‣ Coller les entités en tant que ...</em> et choisir le mode désiré.</p>
+</div>
+</div>
+<div class="section" id="identify">
+<span id="identify-features"></span><h2>Identifier les entités<a class="headerlink" href="#identify" title="Lien permanent vers ce titre">¶</a></h2>
+<p id="index-12">L&#8217;outil Identifier les entités vous permet d&#8217;interagir avec le canevas de la carte et d&#8217;afficher des informations sur les entités dans un menu contextuel. Pour identifier une entité, utilisez <em class="menuselection">Vue ‣ Identifier les entités</em> ou <tt class="kbd docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">I</span></tt> ou encore cliquez sur l&#8217;icône <a class="reference internal" href="../../../_images/mActionIdentify.png"><img alt="mActionIdentify" src="../../../_images/mActionIdentify.png" style="width: 1.5em;" /></a> <sup>Identifier les entités</sup> dans la barre d&#8217;outils.</p>
+<p>Si vous cliquez sur plusieurs entités, la boîte de dialogue <em class="guilabel">Identifier les résultats</em> listera les informations relatives à toutes les entités sélectionnées. Le premier élément correspond au numéro de la couche dans la liste des résultats, suivi du nom de la couche. Puis, son premier élément sera le nom d&#8217;un champ et sa valeur. Le premier champ est celui sélectionné dans <em class="menuselection">Propriétés ‣ Affichage</em>. Enfin, toutes les informations des entités sont affichées.</p>
+<p>Cette fenêtre se personnalise pour afficher les champs choisis mais par défaut, trois types d&#8217;information sont affichés :</p>
+<ul class="simple">
+<li><p class="first">Actions : il est possible de lancer des actions depuis la fenêtre d&#8217;identification. Une action se lance en cliquant sur son nom. Par défaut, seule une action est présente et permet d&#8217;afficher le formulaire de l&#8217;entité.</p>
+</li>
+<li><p class="first">Dérivé : ces informations sont calculées ou dérivées d&#8217;autres informations. Vous y trouverez les coordonnées du point cliqué, les coordonnées X et Y pour un point, l&#8217;aire et le périmètre dans les unités de la carte pour un polygone, la longueur dans les unités de la carte pour une ligne et l&#8217;identifiant de l&#8217;entité.</p>
+</li>
+<li><p class="first">Données attributaires : il s&#8217;agit de la liste des champs attributaires de la donnée.</p>
+</li>
+</ul>
+<p id="figure-identify"><strong>Figure Identify 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/identify_features.png" src="../../../_images/identify_features.png" />
+<p class="caption">Fenêtre d&#8217;identification des entités <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> (Gnome)</p>
+</div>
+<p>En haut de la fenêtre, vous avez cinq icônes :</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionExpandTree.png"><img alt="mActionIdentifyExpand" src="../../../_images/mActionExpandTree.png" style="width: 1.5em;" /></a> <sup>Déplier</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionCollapseTree.png"><img alt="mActionIdentifyCollapse" src="../../../_images/mActionCollapseTree.png" style="width: 1.5em;" /></a> <sup>Replier</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionExpandNewTree.png"><img alt="mActionIdentifyDefaultExpand" src="../../../_images/mActionExpandNewTree.png" style="width: 1.5em;" /></a> <sup>Comportement par défaut</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionEditCopy.png"><img alt="mActionIdentifyCopyAttributes" src="../../../_images/mActionEditCopy.png" style="width: 1.5em;" /></a> <sup>Copier les attributs</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionFilePrint.png"><img alt="mActionIdentifyPrint" src="../../../_images/mActionFilePrint.png" style="width: 1.5em;" /></a> <sup>Imprimer la réponse HTML sélectionnée</sup></p>
+</li>
+</ul>
+<p>En bas de la fenêtre, vous avez deux listes déroulantes <em class="guilabel">Mode</em> et <em class="guilabel">Vue</em>. Avec la liste <em class="guilabel">Mode</em> vous pouvez définir le mode d&#8217;identification : &#8216;Couche actuelle&#8217;, &#8216;De haut en bas, s&#8217;arrêter à la première&#8217;, &#8216;De haut en bas&#8217; et &#8216;Choix de la couche&#8217;. La liste <em class="guilabel">Vue</em> peut être défini avec &#8216;Arbre&#8217;, &#8216;Table&#8217; ou &#8216;Graphique&#8217;.</p>
+<p>L&#8217;outil d&#8217;identification permet d&#8217;ouvrir automatiquement le formulaire. Dans ce mode, vous pouvez modifier les attributs des objets.</p>
+<p>D&#8217;autres fonctions peuvent être trouvées dans le menu contextuel d&#8217;un élément identifié, via un clic droit. Par exemple, depuis le menu contextuel, vous pouvez :</p>
+<ul class="simple">
+<li><p class="first">Voir le formulaire d&#8217;entité</p>
+</li>
+<li><p class="first">Zoomer sur l&#8217;entité</p>
+</li>
+<li><p class="first">Copier l&#8217;entité : copie toute la géométrie et les attributs d&#8217;une entité</p>
+</li>
+<li><p class="first">Activer la sélection d&#8217;entités: ajoute les entités identifiées à la sélection</p>
+</li>
+<li><p class="first">Copier les valeurs d&#8217;attributs : copie uniquement les valeurs d&#8217;attributs de l&#8217;entité identifiée</p>
+</li>
+<li><p class="first">Copier les attributs des entités : copie uniquement les valeurs d&#8217;attributs</p>
+</li>
+<li><p class="first">Lâcher les résultats : la fenêtre de résultats est vidée</p>
+</li>
+<li><p class="first">Masquer la surbrillance : la surbrillance des entités identifiées sur la carte est retirée</p>
+</li>
+<li><p class="first">Tout mettre en surbrillance</p>
+</li>
+<li><p class="first">Mettre la couche en surbrillance</p>
+</li>
+<li><p class="first">Activer une couche : Choisir la couche à activer</p>
+</li>
+<li><p class="first">Propriétés : ouvre la fenêtre des propriétés de la couche</p>
+</li>
+<li><p class="first">Tout déplier</p>
+</li>
+<li><p class="first">Tout replier</p>
+</li>
+</ul>
+</div>
+<div class="section" id="decorations">
+<span id="id3"></span><h2>Décorations<a class="headerlink" href="#decorations" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les éléments de décorations dans KADAS incluent l’étiquette de Copyright, la flèche du nord et la barre d&#8217;échelle. Ils s&#8217;utilisent pour &#8216;décorer&#8217; la carte.</p>
+<div class="section" id="grid">
+<h3>Grille<a class="headerlink" href="#grid" title="Lien permanent vers ce titre">¶</a></h3>
+<p><a class="reference internal" href="../../../_images/transformed.png"><img alt="transformed" src="../../../_images/transformed.png" style="width: 1.5em;" /></a> <sup>Grille</sup> vous permet d&#8217;ajouter un graticule et des coordonnées à la carte.</p>
+<p id="figure-decorations-1"><strong>Figure Decorations 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/grid_dialog.png" src="../../../_images/grid_dialog.png" />
+<p class="caption">La fenêtre Grille <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ol class="arabic simple">
+<li><p class="first">Sélectionnez via le menu <em class="menuselection">Vue ‣ Décorations ‣ Grille</em>. La fenêtre s&#8217;affiche (voir <a class="reference internal" href="#figure-decorations-1">figure_decorations_1</a>).</p>
+</li>
+<li><p class="first">Cochez la case <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Activer la grille</em> et définissez les paramètres de la grille en fonction des couches chargées dans le canevas de carte.</p>
+</li>
+<li><p class="first">Cochez la case <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Dessiner une annotation</em> et définissez les propriétés de l&#8217;annotation en fonction des couches chargées dans le canevas de carte.</p>
+</li>
+<li><p class="first">Cliquez sur <strong>[Appliquer]</strong> pour vérifier si le rendu est celui escompté.</p>
+</li>
+<li><p class="first">Cliquez sur le bouton <strong>[OK]</strong> pour appliquer et fermer la fenêtre.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="copyright-label">
+<h3>Étiquette de Copyright<a class="headerlink" href="#copyright-label" title="Lien permanent vers ce titre">¶</a></h3>
+<p><a class="reference internal" href="../../../_images/copyright_label.png"><img alt="copyright_label" src="../../../_images/copyright_label.png" style="width: 1.5em;" /></a> <sup>Étiquette de Copyright</sup> ajoute une zone de texte permettant de spécifier le Copyright de la carte.</p>
+<p id="figure-decorations-2"><strong>Figure Decorations 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/copyright.png" src="../../../_images/copyright.png" />
+<p class="caption">La fenêtre de Copyright <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ol class="arabic simple">
+<li><p class="first">Sélectionnez via le menu <em class="menuselection">Vue ‣ Décorations ‣ Étiquette de Copyright</em>. La fenêtre s&#8217;affiche (voir <a class="reference internal" href="#figure-decorations-2">figure_decorations_2</a>).</p>
+</li>
+<li><p class="first">Entrez le texte que vous souhaitez afficher sur la carte. Vous pouvez utiliser du code HTML comme le montre l&#8217;exemple.</p>
+</li>
+<li><p class="first">Choisissez l&#8217;emplacement de l&#8217;étiquette dans la liste déroulante <em class="guilabel">Position</em>.</p>
+</li>
+<li><p class="first">Assurez-vous que la case <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Activer l&#8217;étiquette des droits d&#8217;auteur</em> est cochée.</p>
+</li>
+<li><p class="first">Cliquez sur le bouton <strong>[OK]</strong>.</p>
+</li>
+</ol>
+<p>Dans l&#8217;exemple ci-dessus, proposé par défaut, KADAS place un symbole de copyright suivi de la date dans le coin inférieur droit de la carte.</p>
+</div>
+<div class="section" id="north-arrow">
+<h3>Flèche du nord<a class="headerlink" href="#north-arrow" title="Lien permanent vers ce titre">¶</a></h3>
+<p><a class="reference internal" href="../../../_images/north_arrow.png"><img alt="north_arrow" src="../../../_images/north_arrow.png" style="width: 1.5em;" /></a> <sup>Flèche du nord</sup> place une simple flèche sur la carte. Pour le moment, seul un style de flèche est disponible. Vous pouvez modifier l&#8217;angle de la flèche ou laisser KADAS définir la direction automatiquement. Si vous choisissez cette dernière option, KADAS fait au mieux. Quatre options sont disponibles concernant l&#8217;emplacement, correspondant aux quatre coins de la carte.</p>
+<p id="figure-decorations-3"><strong>Figure Decorations 3:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/north_arrow_dialog.png" src="../../../_images/north_arrow_dialog.png" />
+<p class="caption">La fenêtre de flèche du nord <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+</div>
+<div class="section" id="scale-bar">
+<h3>Échelle graphique<a class="headerlink" href="#scale-bar" title="Lien permanent vers ce titre">¶</a></h3>
+<p><a class="reference internal" href="../../../_images/scale_bar.png"><img alt="scale_bar" src="../../../_images/scale_bar.png" style="width: 2.5em;" /></a> <sup>Échelle graphique</sup> ajoute une simple barre d&#8217;échelle sur la carte. Vous choisissez le style, l&#8217;emplacement ainsi que les étiquettes de la barre.</p>
+<p id="figure-decorations-4"><strong>Figure Decorations 4:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/scale_bar_dialog.png" src="../../../_images/scale_bar_dialog.png" />
+<p class="caption">La fenêtre de barre d&#8217;échelle <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>KADAS permet uniquement d&#8217;afficher l&#8217;échelle dans la même unité que celle de la carte. Donc, si l&#8217;unité est le mètre, vous ne pouvez créer une échelle en pieds. De la même manière, si vous utilisez les degrés décimaux, vous ne pouvez afficher une échelle en mètres.</p>
+<p>Pour ajouter une échelle graphique :</p>
+<ol class="arabic simple">
+<li><p class="first">Sélectionnez le menu <em class="menuselection">Vue ‣ Décorations ‣ Échelle graphique</em>. Une fenêtre s&#8217;affiche (voir <a class="reference internal" href="#figure-decorations-4">figure_decorations_4</a>).</p>
+</li>
+<li><p class="first">Choisissez l&#8217;emplacement dans la liste déroulante <em class="guilabel">Emplacement</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>.</p>
+</li>
+<li><p class="first">Choisissez le style dans la liste déroulante <em class="guilabel">Style de la barre d&#8217;échelle</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>.</p>
+</li>
+<li><p class="first">Sélectionnez la couleur dans <em class="guilabel">Couleur de la barre</em> <img alt="selectcolor" src="../../../_images/selectcolor.png" /> ou laissez le noir défini par défaut.</p>
+</li>
+<li><p class="first">Définissez la taille de la barre et son étiquette dans <em class="guilabel">Taille de la barre</em> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a>.</p>
+</li>
+<li><p class="first">Assurez-vous que la case <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Activer l&#8217;échelle graphique</em> est cochée.</p>
+</li>
+<li><p class="first">En option, vous pouvez cocher <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Arrondir automatiquement lors du changement de zoom</em>.</p>
+</li>
+<li><p class="first">Cliquez sur le bouton <strong>[OK]</strong>.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p><strong>Paramètre des décorations</strong></p>
+<p class="last">Lorsque vous sauvegardez un projet <tt class="file docutils literal"><span class="pre">.qgs</span></tt>, toutes modifications faites sur le Carroyage, la Flèche du Nord, la Barre d’Échelle et le Copyright seront sauvées dans le fichier de projet et restaurées à la prochaine ouverture du projet.</p>
+</div>
+<span class="target" id="sec-annotations"></span></div>
+</div>
+<div class="section" id="annotation-tools">
+<span id="index-13"></span><h2>Outils d&#8217;annotation<a class="headerlink" href="#annotation-tools" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L&#8217;outil <a class="reference internal" href="../../../_images/mActionTextAnnotation.png"><img alt="mActionTextAnnotation" src="../../../_images/mActionTextAnnotation.png" style="width: 1.5em;" /></a> <sup>Annotation de texte</sup> de la barre d&#8217;outils Attributs offre la possibilité de placer du texte formaté dans des bulles sur la carte. Sélectionnez l&#8217;outil <em class="guilabel">Annotation de texte</em> puis cliquez sur la carte.</p>
+<p id="annotation"><strong>Figure annotation 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/annotation.png" src="../../../_images/annotation.png" />
+<p class="caption">La fenêtre d&#8217;annotation de texte <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>Un double clic sur l&#8217;annotation ouvre une fenêtre avec diverses options. Il y a un éditeur de texte pour entrer du texte formaté et d&#8217;autres options notamment la possibilité de figer la position de l&#8217;annotation dans la carte (montré par un symbole de marqueur) ou d&#8217;avoir la position de l&#8217;annotation relativement à l&#8217;écran (non liée à la carte). La position de l&#8217;élément peut être déplacé sur la carte (en déplaçant le marqueur de carte) ou en déplaçant seulement la bulle. Les icônes font partie du thème SIG et sont utilisées par défaut dans les autres thèmes, aussi.</p>
+<p>L&#8217;outil <a class="reference internal" href="../../../_images/mActionAnnotation.png"><img alt="mActionAnnotation" src="../../../_images/mActionAnnotation.png" style="width: 1.5em;" /></a> <sup>Déplacer une annotation</sup> vous permet de déplacer l&#8217;annotation sélectionnée sur la carte.</p>
+<div class="section" id="html-annotations">
+<h3>Annotations HTML<a class="headerlink" href="#html-annotations" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L&#8217;outil <a class="reference internal" href="../../../_images/mActionFormAnnotation.png"><img alt="mActionFormAnnotation" src="../../../_images/mActionFormAnnotation.png" style="width: 1.5em;" /></a> <sup>Annotation HTML</sup> de la barre d&#8217;outils Attributs offre la possibilité de placer le contenu d&#8217;un fichier html dans une bulle dans le canevas de carte de KADAS. Pour cela, sélectionnez l&#8217;outil <em class="guilabel">Annotation HTML</em>, cliquez quelque part dans la carte et ajoutez le chemin vers le fichier html dans la boîte de dialogue.</p>
+</div>
+<div class="section" id="svg-annotations">
+<h3>Annotations SVG<a class="headerlink" href="#svg-annotations" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L&#8217;outil <a class="reference internal" href="../../../_images/mActionSaveAsSVG.png"><img alt="mActionSaveAsSVG" src="../../../_images/mActionSaveAsSVG.png" style="width: 1.5em;" /></a> <sup>Annotation SVG</sup> de la barre d&#8217;outils Attributs offre la possibilité de placer un symbole SVG dans une bulle sur la carte. Pour cela, sélectionnez l&#8217;outil <em class="guilabel">Annotation SVG</em>, cliquez quelque part dans la carte et ajoutez le chemin vers le fichier SVG dans la boîte de dialogue.</p>
+</div>
+<div class="section" id="form-annotations">
+<h3>Formulaire d&#8217;annotation<a class="headerlink" href="#form-annotations" title="Lien permanent vers ce titre">¶</a></h3>
+<p>En outre, vous pouvez créer vos propres formulaires d&#8217;annotation. L&#8217;outil <a class="reference internal" href="../../../_images/mActionFormAnnotation.png"><img alt="mActionFormAnnotation" src="../../../_images/mActionFormAnnotation.png" style="width: 1.5em;" /></a> <sup>Formulaire d&#8217;annotation</sup> est utile pour afficher les attributs d&#8217;une entité dans un formulaire personnalisé via Qt Designer (voir <a class="reference internal" href="#figure-custom-annotation">figure_custom_annotation</a>). L&#8217;approche est similaire à la conception de formulaires pour l&#8217;outil <em class="guilabel">Identifier les entités</em>, mais elle affiche les informations sous la forme d&#8217;une annotation. Pour un complément d&#8217;information, regardez cette vidéo de Tim Sutton <a class="reference external" href="https://www.youtube.com/watch?v=0pDBuSbQ02o">https://www.youtube.com/watch?v=0pDBuSbQ02o</a>.</p>
+<p id="figure-custom-annotation"><strong>Figure annotation 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/custom_annotation.png" src="../../../_images/custom_annotation.png" />
+<p class="caption">Le formulaire d&#8217;annotations qt personnalisé <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Si vous pressez les touches <tt class="kbd docutils literal"><span class="pre">Ctrl+T</span></tt> alors que l&#8217;outil <em class="guilabel">Annotation</em> est activé (déplacement d&#8217;annotation, annotation de texte ou formulaire d&#8217;annotation), les annotations sont automatiquement cachées ou, inversement, rendues visibles.</p>
+</div>
+</div>
+</div>
+<div class="section" id="spatial-bookmarks">
+<span id="sec-bookmarks"></span><h2>Signets spatiaux<a class="headerlink" href="#spatial-bookmarks" title="Lien permanent vers ce titre">¶</a></h2>
+<span class="target" id="index-14"></span><p id="index-15">Les signets spatiaux vous permettent de marquer une zone de la carte pour y retourner plus tard.</p>
+<div class="section" id="creating-a-bookmark">
+<h3>Créer un signet<a class="headerlink" href="#creating-a-bookmark" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour créer un signet :</p>
+<ol class="arabic simple">
+<li><p class="first">Déplacez-vous sur la zone concernée.</p>
+</li>
+<li><p class="first">Sélectionnez le menu <em class="menuselection">Vue ‣ Nouveau signet...</em> ou appuyez sur les touches  <tt class="kbd docutils literal"><span class="pre">Ctrl-B</span></tt>.</p>
+</li>
+<li><p class="first">Entrez un nom pour décrire le signet (jusqu&#8217;à 255 caractères).</p>
+</li>
+<li><p class="first">Appuyez sur <tt class="kbd docutils literal"><span class="pre">Entrée</span></tt> pour ajouter le signet ou sur <strong>[Annuler]</strong> pour sortir de la fenêtre sans l&#8217;enregistrer.</p>
+</li>
+</ol>
+<p>Notez que vous pouvez avoir plusieurs signets portant le même nom.</p>
+</div>
+<div class="section" id="working-with-bookmarks">
+<h3>Travailler avec les signets<a class="headerlink" href="#working-with-bookmarks" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour utiliser ou gérer les signets allez dans le menu <em class="menuselection">Vue ‣ Montrer les signets</em>.
+La fenêtre <em class="guilabel">Signets géospatiaux</em> vous permet de rappeler ou d&#8217;effacer un signet. Vous ne pouvez pas modifier le nom d&#8217;un signet ou ses coordonnées.</p>
+</div>
+<div class="section" id="zooming-to-a-bookmark">
+<h3>Zoomer sur un signet<a class="headerlink" href="#zooming-to-a-bookmark" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Depuis la fenêtre <em class="guilabel">Signets géospatiaux</em>, sélectionnez le signet voulu en cliquant dessus puis sur le bouton <strong>[Zoomer sur]</strong>. Vous pouvez aussi zoomer en opérant un double-clic.</p>
+</div>
+<div class="section" id="deleting-a-bookmark">
+<h3>Effacer un signet<a class="headerlink" href="#deleting-a-bookmark" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour effacer un signet depuis la fenêtre <em class="guilabel">Signets géospatiaux</em>, cliquez dessus puis sur le bouton <strong>[Effacer]</strong>. Confirmez votre choix en cliquant sur <strong>[Oui]</strong> ou annulez en cliquant sur <strong>[Non]</strong>.</p>
+</div>
+<div class="section" id="import-or-export-a-bookmark">
+<h3>Importer ou exporter les signets<a class="headerlink" href="#import-or-export-a-bookmark" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour partager ou transférer vos signets entre ordinateurs vous pouvez utiliser le menu déroulant <em class="guilabel">Partager</em> dans la boîte de dialogue <em class="guilabel">Signets Géospatiaux</em>.</p>
+</div>
+</div>
+<div class="section" id="nesting-projects">
+<span id="id4"></span><h2>Inclusion de projets<a class="headerlink" href="#nesting-projects" title="Lien permanent vers ce titre">¶</a></h2>
+<p id="index-16">Si vous souhaitez inclure dans votre projet QGIS des couches ou des groupes de couches issus d&#8217;un autre projet, utilisez le menu <em class="menuselection">Couches ‣ Intégrer des couches et des groupes</em>.</p>
+<div class="section" id="embedding-layers">
+<h3>Intégrer des couches<a class="headerlink" href="#embedding-layers" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La fenêtre suivante vous permet d&#8217;intégrer des couches provenant d&#8217;autres projets QGIS :</p>
+<ol class="arabic simple">
+<li><p class="first">Cliquez sur <a class="reference internal" href="../../../_images/browsebutton.png"><img alt="browsebutton" src="../../../_images/browsebutton.png" style="width: 2.3em;" /></a> pour rechercher un autre projet dans le jeu de données Alaska.</p>
+</li>
+<li><p class="first">Sélectionnez le fichier de projet <tt class="file docutils literal"><span class="pre">grassland</span></tt>. Vous en visualisez le contenu (voir <a class="reference internal" href="#figure-embed-dialog">figure_embed_dialog</a>).</p>
+</li>
+<li><p class="first">Maintenez la touche <tt class="kbd docutils literal"><span class="pre">Ctrl</span></tt> et sélectionnez les couches <tt class="file docutils literal"><span class="pre">grassland</span></tt> et <tt class="file docutils literal"><span class="pre">regions</span></tt>. Appuyez sur  <strong>[OK]</strong>. Ces couches sont maintenant intégrées à la légende de carte et à la vue carte.</p>
+</li>
+</ol>
+<p id="figure-embed-dialog"><strong>Figure Nesting 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/embed_dialog.png" src="../../../_images/embed_dialog.png" />
+<p class="caption">Sélection des couches et des groupes à intégrer <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>Bien que les couches intégrées soient éditables, vous ne pouvez pas en modifier le style et l&#8217;étiquetage.</p>
+</div>
+<div class="section" id="removing-embedded-layers">
+<h3>Supprimer des couches intégrées<a class="headerlink" href="#removing-embedded-layers" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Faites un clic-droit sur la couche intégrée et sélectionnez <a class="reference internal" href="../../../_images/mActionRemoveLayer.png"><img alt="mActionRemoveLayer" src="../../../_images/mActionRemoveLayer.png" style="width: 1.5em;" /></a> <sup>Supprimer</sup>.</p>
+</div>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

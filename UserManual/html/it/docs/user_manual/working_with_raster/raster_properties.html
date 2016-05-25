@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Proprietà raster</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="Inglese">English</option>
+  <option value="de" title="Tedesco">Deutsch</option>
+  <option value="fr" title="Francese">Français</option>
+  <option value="it" title="Italiano">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/working_with_raster/raster_properties.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Scopri QGIS</a></li>
+            <li><a href="../../../site/forusers/index.html">Per gli Utenti</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Partecipa</a></li>
+            <li><a href="../../index.html">Documentazione</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Cerca" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Indice</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Convenzioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Premessa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Le mie mappe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analisi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Disegno</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendice</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="raster-properties-dialog">
+<span id="label-raster-properties"></span><h1>Proprietà raster<a class="headerlink" href="#raster-properties-dialog" title="link permanente per questa intestazione">¶</a></h1>
+<p>Per visualizzare ed impostare le proprietà di un raster, fai doppio click sul nome del raster nella legenda o cliccaci sopra con il tasto destro e scegli <em class="guilabel">Proprietà</em> dal menu contestuale. Si aprirà cosi la finestra di dialogo <em class="guilabel">Proprietà del layer</em> (vedi <a class="reference internal" href="#figure-raster-1">figure_raster_1</a>).</p>
+<p>Ci sono diversi menu nella finestra di dialogo:</p>
+<ul class="simple">
+<li><p class="first"><em class="guilabel">Generale</em></p>
+</li>
+<li><p class="first"><em class="guilabel">Stile</em></p>
+</li>
+<li><p class="first"><em class="guilabel">Trasparenza</em></p>
+</li>
+<li><p class="first"><em class="guilabel">Piramidi</em></p>
+</li>
+<li><p class="first"><em class="guilabel">Istogramma</em></p>
+</li>
+<li><p class="first"><em class="guilabel">Metadati</em></p>
+</li>
+</ul>
+<p id="figure-raster-1"><strong>Figure Raster 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/rasterPropertiesDialog.png" src="../../../_images/rasterPropertiesDialog.png" />
+<p class="caption">Finestra di dialogo proprietà del raster <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<div class="section" id="general-menu">
+<span id="label-generaltab"></span><h2>Menu Generale<a class="headerlink" href="#general-menu" title="link permanente per questa intestazione">¶</a></h2>
+<div class="section" id="layer-info">
+<h3>Informazioni del layer<a class="headerlink" href="#layer-info" title="link permanente per questa intestazione">¶</a></h3>
+<p>Il menu <em class="guilabel">Generale</em> contiene informazioni basilari del raster selezionato, inclusa la sorgente del file, il nome visualizzato nella legenda (che puoi modificare) e il numero di colonne, righe e valori nulli.</p>
+</div>
+<div class="section" id="coordinate-reference-system">
+<h3>Sistema Riferimento Coordinate<a class="headerlink" href="#coordinate-reference-system" title="link permanente per questa intestazione">¶</a></h3>
+<p>Qui puoi trovare il sistema di riferimento spaziale (SR) visualizzato in formato stringa PROJ.4. Se l&#8217;impostazione non è corretta la puoi modificare con il pulsante <strong>[Specifica]</strong>.</p>
+</div>
+<div class="section" id="scale-dependent-visibility">
+<h3>Visibilità dipendente dalla scala<a class="headerlink" href="#scale-dependent-visibility" title="link permanente per questa intestazione">¶</a></h3>
+<p>In questo menu puoi attivare la funzione che imposta la visibilità del raster in funzione della scala. Spuntando la casella di controllo puoi impostare l&#8217;intervallo di scala in cui vuoi che il raster venga visualizzato nella mappa.</p>
+<p>Nella parte inferiore puoi vedere un&#8217;anteprima del raster, la sua simbologia e la tavolozza.</p>
+</div>
+</div>
+<div class="section" id="style-menu">
+<span id="label-symbology"></span><span id="index-0"></span><h2>Menu Stile<a class="headerlink" href="#style-menu" title="link permanente per questa intestazione">¶</a></h2>
+<div class="section" id="band-rendering">
+<h3>Visualizzazione banda<a class="headerlink" href="#band-rendering" title="link permanente per questa intestazione">¶</a></h3>
+<p>KADAS offre quattro tipologie di <em class="guilabel">Visualizzazione del layer</em>. La scelta dipende dal tipo di dato.</p>
+<ol class="arabic simple">
+<li><p class="first">Colori banda multipla - se il file è caricato come multibanda e ha diverse bande di colori (per esempio un&#8217;immagine satellitare con molte bande diverse)</p>
+</li>
+<li><p class="first">Tavolozza - se un file ha una tavolozza indicizzata (per esempio una mappa topografica digitale)</p>
+</li>
+<li><p class="first">Banda singola grigia - (una banda) l&#8217;immagine verrà visualizzata in grigio: KADAS sceglierà questo tipo di visualizzazione se il file non ha né bande multiple né una tavolozza indicizzata né una tavolozza continua (comune per una mappa dei rilievi)</p>
+</li>
+<li><p class="first">Banda singola falso colore - puoi usare questo visualizzatore per i file che hanno una tavolozza continua o una mappa di colore (per esempio una mappa delle altimetrie)</p>
+</li>
+</ol>
+<p id="multiband-color"><strong>Colori banda multipla</strong></p>
+<p>Con il visualizzatore colore banda multipla verranno visualizzate le tre bande selezionate dell&#8217;immagine, ognuna delle quali corrisponde alle componenti rosso, verde e blu che verranno usate per creare i colori dell&#8217;immagine stessa. Puoi scegliere fra diversi metodi di <em class="guilabel">Miglioramento contrasto</em>: &#8216;Nessun miglioramento&#8217;, &#8216;Stira a MinMax&#8217;, &#8216;Stira e taglia a MinMax&#8217; e &#8216;Taglia a MinMax&#8217;.</p>
+<p id="figure-raster-2"><strong>Figure Raster 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/rasterMultibandColor.png" src="../../../_images/rasterMultibandColor.png" />
+<p class="caption">Visualizzatore raser - colori banda multipla <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>Questa sezione offre un&#8217;ampia gamma di opzioni per modificare l&#8217;aspetto del tuo raster. Prima di tutto scegli l&#8217;estensione dell&#8217;immagine da <em class="guilabel">Estensione</em> e poi premi il pulsante <strong>[Carica]</strong>. KADAS può scegliere l&#8217;<em class="guilabel">Accuratezza</em> stimando i valori <em class="guilabel">Min</em> e <em class="guilabel">Max</em> tramite i pulsanti <em class="guilabel">Stimato (veloce)</em> e <em class="guilabel">Attuale (lento)</em>.</p>
+<p>Ora puoi impostare i colori con l&#8217;aiuto della sezione <em class="guilabel">Carica i valori min/max</em>. Molte immagini hanno pochi valori estremi. Puoi eliminare questi outlier con l&#8217;impostazione <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Cumulative count cut</em>. L&#8217;intervallo standard è impostato dal 2% al 98% dei valori del file e può essere adattato manualmente. Con questa impostazione potrebbero sparire i caratteri grigi. Con l&#8217;opzione  <img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Min/max</em>, KADAS crea una tabella di colori con tutti i valori dell&#8217;immagine originale (per esempio KADAS crea una tabella di colori con 256 valori, se la tua immagine ha bande a 8 bit). Puoi anche creare la tua tabella dei colori usando l&#8217;opzione <img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Media +/- deviazione standard x</em> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a>. In questo modo solamente i valori inclusi nella deviazione standard o in multipli della deviazione standard verranno considerati nella tabella dei colori. Questo è molto utile quando hai una o due celle con valori molto grandi che avrebbero un impatto negativo nella visualizzazione del raster.</p>
+<p>Le stesse impostazioni sono valide anche per l&#8217;estensione <img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Attuale</em>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Suggerimento</p>
+<p><strong>Visualizzare una singola banda di un raster multibanda</strong></p>
+<p class="last">Se vuoi vedere solamente una banda singola di un&#8217;immagine multibanda (per esempio, rossa) potresti pensare di impostare le bande verde e blu come &#8220;Non impostato&#8221;. Ma questo non è il miglior modo di agire. Per visualizzare la banda rossa, seleziona il visualizzatore &#8216;Banda grigia singola&#8217; e poi seleziona il rosso come colore da usare al posto del grigio.</p>
+</div>
+<p><strong>Tavolozza</strong></p>
+<p>Questo è il visualizzatore standard per i file a banda singola che hanno già una tavola di colori, dove a ogni valore dei pixel è associato un determinato colore. In questo caso, la tavolozza viene visualizzata automaticamente. Se vuoi cambiare i colori assegnati a certi valori fai semplicemente doppio click sul colore e si aprirà cosi la finestra <em class="guilabel">Seleziona colore</em>. In KADAS 2.2 puoi anche assegnare un&#8217;etichetta ai valori dei colori. L&#8217;etichetta comparirà cosi nella legenda.</p>
+<p id="figure-raster-3"><strong>Figure Raster 3:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/rasterPaletted.png" src="../../../_images/rasterPaletted.png" />
+<p class="caption">Visualizzatore raster - tavolozza <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p id="index-1"><strong>Miglioramento contrasto</strong></p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Quando aggiungi un raster di GRASS, l&#8217;opzione <em>Miglioramento contrasto</em> è sempre impostata su <em>Stira a MInMax</em> anche se hai impostato altri valori nelle opzioni di KADAS.</p>
+</div>
+<p><strong>Banda singola grigia</strong></p>
+<p>Questo visualizzatore ti permette di visualizzare un raster a banda singola con un <em class="guilabel">Gradiente di colore</em>: &#8216;Da nero a bianco&#8217; o &#8216;Da bianco a nero&#8217;. Puoi selezionare il valore <em class="guilabel">Min</em> e quello <em class="guilabel">Max</em> scegliendo prima l&#8217;opzione <em class="guilabel">Estensione</em> e poi premendo il pulsante <strong>[Carica]</strong>. KADAS può scegliere l&#8217;<em class="guilabel">Accuratezza</em> stimando i valori <em class="guilabel">Min</em> e <em class="guilabel">Max</em> tramite i pulsanti <em class="guilabel">Stimato (veloce)</em> e <em class="guilabel">Attuale (lento)</em>.</p>
+<p id="figure-raster-4"><strong>Figure Raster 4:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/rasterSingleBandGray.png" src="../../../_images/rasterSingleBandGray.png" />
+<p class="caption">Visualizzatore raster - banda singola grigia <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>Nella sezione <em class="guilabel">Carica i valori min/max</em> puoi scegliere la tabella dei colori. Puoi eliminare questi outlier con l&#8217;impostazione <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Cumulative count cut</em>. L&#8217;intervallo standard è impostato dal 2% al 98% dei valori del file e può essere adattato manualmente. Con questa impostazione potrebbero sparire i caratteri grigi. Puoi effettuare altri cambiamenti con le impostazioni <em class="guilabel">Min/max</em> e <img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Media +/- deviazione standard x</em> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a>. Mentre la prima crea una tabella di colori con tutti i valori dell&#8217;immagine originale, la seconda opzione che una tabella di colori in cui vengono considerati solamente i valori che ricascano all&#8217;interno della deviazione standard o a un multiplo di questa. Questo è molto utile quando hai una o due celle con valori molto grandi che avrebbero un impatto negativo nella visualizzazione del raster.</p>
+<p><strong>Banda singola falso colore</strong></p>
+<p>Questa è l&#8217;opzione di visualizzazione per i file a banda singola, inclusa una tavolozza continua. Puoi anche creare mappe di colori singoli per le bande singole.</p>
+<p id="figure-raster-5"><strong>Figure Raster 5:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/rasterSingleBandPseudocolor.png" src="../../../_images/rasterSingleBandPseudocolor.png" />
+<p class="caption">Visualizzatore raster - banda singola falso colore <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<span class="target" id="label-colormaptab"></span><span class="target" id="index-2"></span><p id="index-3">Sono disponibili tre tipologie di interpolazione di colore:</p>
+<ol class="arabic simple">
+<li><p class="first">Discreto</p>
+</li>
+<li><p class="first">Lineare</p>
+</li>
+<li><p class="first">Esatto</p>
+</li>
+</ol>
+<p>Nella parte sinistra, il pulsante <a class="reference internal" href="../../../_images/mActionSignPlus.png"><img alt="mActionSignPlus" src="../../../_images/mActionSignPlus.png" style="width: 1.5em;" /></a> <sup>Aggiungi un valore manualmente</sup> aggiunge un valore alla tabella dei colori. Il pulsante <a class="reference internal" href="../../../_images/mActionSignMinus.png"><img alt="mActionSignMinus" src="../../../_images/mActionSignMinus.png" style="width: 1.5em;" /></a> <sup>Rimuovi la riga selezionata</sup> cancella un valore dalla tabella dei colori e il pulsante <a class="reference internal" href="../../../_images/mActionArrowDown.png"><img alt="mActionArrowDown" src="../../../_images/mActionArrowDown.png" style="width: 1.5em;" /></a> <sup>Ordina gli elementi della mappa dei colori</sup> ordina i colori della tabella in funzione dei valori dei pixel e dei valori della colonna. Facendo doppio click sul valore presente nella colonna potrai inserire un valore specifico. Facendo invece doppio click su un colore, potrai scegliere un colore specifico da assegnare a quel valore. Inoltre puoi anche aggiungere un&#8217;etichetta per ogni colore, ma questa etichetta non verrà visualizzata quando userai lo strumento Informazioni elementi. Puoi anche cliccare sul pulsante <a class="reference internal" href="../../../_images/mActionDraw.png"><img alt="mActionDraw" src="../../../_images/mActionDraw.png" style="width: 1.5em;" /></a> <sup>Carica mappa colore dalla banda</sup>, che prova a caricare la tabella dalla banda (se questa esiste). Puoi usare i pulsanti <a class="reference internal" href="../../../_images/mActionFileOpen.png"><img alt="mActionFileOpen" src="../../../_images/mActionFileOpen.png" style="width: 1.5em;" /></a> <sup>Carica mappa colore da file</sup> oppure <a class="reference internal" href="../../../_images/mActionFileSaveAs.png"><img alt="mActionFileSaveAs" src="../../../_images/mActionFileSaveAs.png" style="width: 1.5em;" /></a> <sup>Esporta mappa colore su file</sup> per caricare una tabella di colori esistente o per salvarne una per le sessioni successive.</p>
+<p>Nella parte destra, la sezione <em class="guilabel">Genera nuova mappa colore</em> ti permette di creare mappe di colore categorizzate. Per la <em class="guilabel">Modalità</em>  <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> &#8216;Intervallo uguale&#8217; devi solamente scegliere il <em class="guilabel">numero di classi</em> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a> e premere il pulsante <em class="guilabel">Classifica</em>. Puoi invertire i colori spuntando la casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Inverti</em>. Se hai scelto la <em class="guilabel">Modalità</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> &#8216;Continuo&#8217;, KADAS crea automaticamente le classi in funzione dei valori <em class="guilabel">Min</em> e <em class="guilabel">Max</em>. Puoi definire i valori <em class="guilabel">Min/Max</em> con l&#8217;aiuto della sezione <em class="guilabel">Carica i valori min/max</em>. Molte immagini hanno pochi valori estremi. Puoi eliminare questi outlier con l&#8217;impostazione <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Cumulative count cut</em>. L&#8217;intervallo standard è impostato dal 2% al 98% dei valori del file e può essere adattato manualmente. Con questa impostazione potrebbero sparire i caratteri grigi. Con l&#8217;opzione <img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Min/max</em>, KADAS crea una tabella di colori con tutti i valori dell&#8217;immagine originale (per esempio KADAS crea una tabella di colori con 256 valori, se la tua immagine ha bande a 8 bit). Puoi anche creare la tua tabella dei colori usando l&#8217;opzione <img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Media +/- deviazione standard x</em> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a>. In questo modo solamente i valori inclusi nella deviazione standard o in multipli della deviazione standard verranno considerati nella tabella dei colori.</p>
+</div>
+<div class="section" id="color-rendering">
+<h3>Visualizzazione colore<a class="headerlink" href="#color-rendering" title="link permanente per questa intestazione">¶</a></h3>
+<p>Per ogni <em class="guilabel">Visualizzazione banda</em>, è disponibile una <em class="guilabel">Visualizzazione colore</em>.</p>
+<p>Puoi anche ottenere effetti speciali per i tuoi raster usando una delle modalità fusione (vedi <a class="reference internal" href="../working_with_vector/vector_properties.html#vector-properties-dialog"><em>Proprietà dei vettori</em></a>).</p>
+<p>Ulteriori impostazioni possono essere fatte modificando la  <em class="guilabel">Luminosità</em>, la <em class="guilabel">Saturazione</em> e il <em class="guilabel">Contrasto</em>. Puoi usare anche l&#8217;opzione <em class="guilabel">Scala di grigi</em> dove puoi scegliere fra &#8216;Per chiarezza&#8217;, &#8216;Per luminosità&#8217; e &#8216;Per media&#8217;. Puoi modificare la &#8216;Forza&#8217; per ogni tonalità della tabella dei colori.</p>
+</div>
+<div class="section" id="resampling">
+<h3>Ricampionamento<a class="headerlink" href="#resampling" title="link permanente per questa intestazione">¶</a></h3>
+<p>La sezione <em class="guilabel">Ricampionamento</em> ha effetto quando ingrandisci o rimpicciolisci l&#8217;immagine. I metodi di ricampionamento ottimizzano l&#8217;aspetto della mappa perché calcolano una nuova matrice di grigi attraverso una trasformazione geometrica.</p>
+<p id="figure-raster-6"><strong>Figure Raster 6:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/rasterRenderAndRessampling.png" src="../../../_images/rasterRenderAndRessampling.png" />
+<p class="caption">Visualizzatore raster - ricampionamento <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>Applicando il metodo &#8216;vicino più prossimo&#8217; la mappa potrebbe avere una struttura con molti pixel quando viene ingrandita. Questo aspetto può essere migliorato usando i metodi &#8216;Bilineare&#8217; o &#8216;Cubico&#8217; perché creano delle geometrie più appuntite e offuscate. Il risultato è un&#8217;immagine più morbida. Puoi applicare questo metodo, per esempio, a mappe raster topografiche.</p>
+</div>
+</div>
+<div class="section" id="transparency-menu">
+<span id="index-4"></span><h2>Menu Trasparenza<a class="headerlink" href="#transparency-menu" title="link permanente per questa intestazione">¶</a></h2>
+<p>KADAS riesce a visualizzare ogni raster con differenti livelli di trasparenza. Usa il cursore trasparenza <img alt="slider" src="../../../_images/slider.png" /> per impostare il livello di trasparenza che desideri. Questa opzione è molto utile se vuoi sovrapporre diversi raster (per esempio una mappa dei rilievi sovrapposta a un raster classificato). In questo modo puoi simulare un effetto tridimensionale.</p>
+<p>Inoltre puoi inserire nel menu <em class="guilabel">Valori nulli aggiuntivi</em> un valore che deve essere trattato come <em>Valore nullo</em>.</p>
+<p>Puoi definire la trasparenza in maniera ancora più dettagliata e personalizzata nella sezione <em class="guilabel">Opzioni di trasparenza personalizzate</em>, nella quale puoi impostare il grado di trasparenza di ogni singola cella (o pixel).</p>
+<p>Per esempio, vogliamo impostare l&#8217;acqua del file <tt class="file docutils literal"><span class="pre">landcover.tif</span></tt> con una trasparenza del 20%. Questi sono i passi necessari:</p>
+<ol class="arabic simple">
+<li><p class="first">Carica il file</p>
+</li>
+<li><p class="first">Apri la finestra di dialogo <em class="guilabel">Proprietà</em> facendo doppio click sul nome del raster nella legenda o cliccando su di esso con il tasto destro del mouse e scegliendo <em class="menuselection">Proprietà</em> dal menu contestuale.</p>
+</li>
+<li><p class="first">Seleziona il menu <em class="guilabel">Trasparenza</em>.</p>
+</li>
+<li><p class="first">Scegli &#8216;Nessuno&#8217; dal menu <em class="guilabel">Banda trasparenza</em>.</p>
+</li>
+<li><p class="first">Clicca sul pulsante  <a class="reference internal" href="../../../_images/mActionSignPlus.png"><img alt="mActionSignPlus" src="../../../_images/mActionSignPlus.png" style="width: 1.5em;" /></a> <sup>Aggiungi valori manualmente</sup>. Apparirà cosi una nuova riga nell&#8217;elenco.</p>
+</li>
+<li><p class="first">Inserisci il valore nelle colonne &#8216;Da&#8217; e &#8216;A&#8217; (nell&#8217;esempio viene usato 0) e aggiusta la trasparenza al 20%.</p>
+</li>
+<li><p class="first">Clicca sul pulsante  <strong>[Applica]</strong> per visualizzare il risultato.</p>
+</li>
+</ol>
+<p>Ripeti i passaggi 5 e 6 per aggiustare più valori con trasparenze personalizzate.</p>
+<p>Come puoi vedere è molto semplice impostare una trasparenza personalizzata, però richiede comunque un po&#8217; di lavoro. Proprio per questo puoi usare il pulsante  <a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="mActionFileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a> <sup>Esporta su file</sup> per salvare la lista dei valori su un file esterno. Il pulsante <a class="reference internal" href="../../../_images/mActionFileOpen.png"><img alt="mActionFileOpen" src="../../../_images/mActionFileOpen.png" style="width: 1.5em;" /></a> <sup>Importa da file</sup> ti permette di caricare le impostazioni di trasparenza e applicarle al raster selezionato.</p>
+</div>
+<div class="section" id="metadata-menu">
+<span id="index-5"></span><h2>Menu Metadati<a class="headerlink" href="#metadata-menu" title="link permanente per questa intestazione">¶</a></h2>
+<p>La scheda <em class="guilabel">Metadati</em> mostra una serie di informazioni sul raster, incluse le statistiche di ogni banda. Da questo menu hai accesso a diverse sezioni: <em class="guilabel">Descrizione</em>, <em class="guilabel">Assegnazione</em>, <em class="guilabel">URL Metadati</em> e <em class="guilabel">Proprietà</em>. Nella sezione <em class="guilabel">Proprietà</em> le statistiche sono ottenute da una base &#8216;che si deve ancora conoscere&#8217;, quindi è meglio che le statistiche di questo raster non siano ancora state calcolate.</p>
+<p id="figure-raster-9"><strong>Figure Raster 9:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/rasterMetadata.png" src="../../../_images/rasterMetadata.png" />
+<p class="caption">Metadati raster <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

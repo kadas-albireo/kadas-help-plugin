@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Conventions</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <link rel="next" title="Avant-propos" href="foreword.html" />
+    <link rel="prev" title="Préambule" href="preamble.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="Anglais">English</option>
+  <option value="de" title="Allemand">Deutsch</option>
+  <option value="fr" title="Français">Français</option>
+  <option value="it" title="Italien">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/preamble/conventions.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Découvrir</a></li>
+            <li><a href="../../../site/forusers/index.html">Pour les utilisateurs</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Contribuer</a></li>
+            <li><a href="../../index.html">Documentation</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Rechercher" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="foreword.html" title="Avant-propos"
+             accesskey="N">suivant</a></li>
+        <li class="right" >
+          <a href="preamble.html" title="Préambule"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    <a accesskey="p" href="preamble.html">&lt;&lt; prev</a>
+    
+    
+    <a accesskey="n" href="foreword.html">next &gt;&gt;</a>
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Table Des Matières</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="preamble.html">Préambule</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Conventions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gui-conventions">Conventions pour les éléments d&#8217;interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#text-or-keyboard-conventions">Text or Keyboard Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#platform-specific-instructions">Instructions spécifiques à un système d&#8217;exploitation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">Avant-propos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">Interface de KADAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Mes cartes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Dessiner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Annexe</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="conventions">
+<span id="label-conventions"></span><h1>Conventions<a class="headerlink" href="#conventions" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Cette section décrit les styles utilisés uniformément dans ce manuel.</p>
+<div class="section" id="gui-conventions">
+<h2>Conventions pour les éléments d&#8217;interface<a class="headerlink" href="#gui-conventions" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les conventions de styles de l&#8217;interface (GUI) dans le texte ressemblent autant que possible à l&#8217;apparence du logiciel. En général, le style reflètera l&#8217;apparence des éléments lorsque la souris ne passe pas dessus, l&#8217;objectif étant de permettre à l&#8217;utilisateur de repérer plus facilement les éléments mentionnés dans les instructions.</p>
+<ul class="simple">
+<li><p class="first">Options du menu : <em class="menuselection">Couches ‣ Ajouter une couche raster</em> ou <em class="menuselection">Préférences ‣ Barre d&#8217;outils ‣ Numérisation</em></p>
+</li>
+<li><p class="first">Outil : <a class="reference internal" href="../../../_images/mActionAddRasterLayer.png"><img alt="mActionAddRasterLayer" src="../../../_images/mActionAddRasterLayer.png" style="width: 1.5em;" /></a> <sup>Ajouter une couche raster</sup></p>
+</li>
+<li><p class="first">Bouton : <strong>[Sauvegarder par défaut]</strong></p>
+</li>
+<li><p class="first">Titre de boîte de dialogue : <em class="guilabel">Propriétés de la couche</em></p>
+</li>
+<li><p class="first">Onglet : <em class="guilabel">Général</em></p>
+</li>
+<li><p class="first">Case à cocher : <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Rendu</em></p>
+</li>
+<li><p class="first">Bouton radio : <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Postgis SRID</em> <img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">EPSG ID</em></p>
+</li>
+<li><p class="first">Sélection d&#8217;un chiffre : <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a></p>
+</li>
+<li><p class="first">Sélection d&#8217;une ligne : <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a></p>
+</li>
+<li><p class="first">Parcourir un fichier : <a class="reference internal" href="../../../_images/browsebutton.png"><img alt="browsebutton" src="../../../_images/browsebutton.png" style="width: 2.3em;" /></a></p>
+</li>
+<li><p class="first">Sélection d&#8217;une couleur : <img alt="selectcolor" src="../../../_images/selectcolor.png" /></p>
+</li>
+<li><p class="first">Barre coulissante : <img alt="slider" src="../../../_images/slider.png" /></p>
+</li>
+<li><p class="first">Zone de saisie de texte : <img alt="inputtext" src="../../../_images/inputtext.png" /></p>
+</li>
+</ul>
+<p>Une ombre indique un élément de l&#8217;interface qui peut être cliqué.</p>
+</div>
+<div class="section" id="text-or-keyboard-conventions">
+<h2>Text or Keyboard Conventions<a class="headerlink" href="#text-or-keyboard-conventions" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le manuel utilise également des styles pour le texte, les commandes du clavier et le code pour désigner différents éléments tels que des classes et des méthodes. Ces styles ne correspondent pas à l&#8217;apparence réelle dans KADAS.</p>
+<ul class="simple">
+<li><p class="first">Liens hypertexte : <a class="reference external" href="http://qgis.org">http://qgis.org</a></p>
+</li>
+<li><p class="first">Combinaisons de touches : appuyez sur <tt class="kbd docutils literal"><span class="pre">Ctrl+B</span></tt>, signifie qu&#8217;il faut rester en appui sur la touche Contrôle (Ctrl) tout en pressant la touche B.</p>
+</li>
+<li><p class="first">Nom d&#8217;un fichier : <tt class="file docutils literal"><span class="pre">lakes.shp</span></tt></p>
+</li>
+<li><p class="first">Nom d&#8217;une classe : <strong>NewLayer</strong></p>
+</li>
+<li><p class="first">Méthode : <em>classFactory</em></p>
+</li>
+<li><p class="first">Serveur : <em>myhost.de</em></p>
+</li>
+<li><p class="first">Texte pour l&#8217;utilisateur : <tt class="docutils literal"><span class="pre">qgis</span> <span class="pre">--help</span></tt></p>
+</li>
+</ul>
+<p>Les lignes de code sont indiquées comme suit :</p>
+<div class="highlight-python"><pre>PROJCS["NAD_1927_Albers",
+  GEOGCS["GCS_North_American_1927",</pre>
+</div>
+</div>
+<div class="section" id="platform-specific-instructions">
+<h2>Instructions spécifiques à un système d&#8217;exploitation<a class="headerlink" href="#platform-specific-instructions" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une séquence d&#8217;interface peut être exprimée sur une ligne : Cliquez sur <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> <a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> <em class="menuselection">Fichier</em> <a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a> <em class="menuselection">QGIS ‣ Quitter pour fermer QGIS</em>. Ceci indique que sur Linux, Unix et Windows, vous devez cliquer sur le menu Fichier puis sur Quitter, alors que sur Macintosh OS X, vous devez cliquer sur le menu KADAS  puis sur Quitter.</p>
+<p>Les textes plus longs seront formatés comme des listes :</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> Faites ceci</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> Faites cela</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a> Faites autre chose</p>
+</li>
+</ul>
+<p>ou comme des paragraphes :</p>
+<p><a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> <a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a> Faites ceci et cela. Puis cela et ceci pour obtenir ça, etc.</p>
+<p><a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> Faites ceci et cela. Puis cela et ceci pour obtenir ça, etc.</p>
+<p>Les copies d&#8217;écrans ont été prises sous différentes plateformes, un icône à la fin de la légende de la figure indique le système en question.</p>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="foreword.html" title="Avant-propos"
+             >suivant</a></li>
+        <li class="right" >
+          <a href="preamble.html" title="Préambule"
+             >précédent</a> |</li>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

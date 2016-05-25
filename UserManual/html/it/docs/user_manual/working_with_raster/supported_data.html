@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Lavorare con i dati raster</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="Inglese">English</option>
+  <option value="de" title="Tedesco">Deutsch</option>
+  <option value="fr" title="Francese">Français</option>
+  <option value="it" title="Italiano">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/working_with_raster/supported_data.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Scopri QGIS</a></li>
+            <li><a href="../../../site/forusers/index.html">Per gli Utenti</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Partecipa</a></li>
+            <li><a href="../../index.html">Documentazione</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Cerca" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Indice</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Convenzioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Premessa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Le mie mappe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analisi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Disegno</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendice</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<span class="target" id="index-0"></span><span class="target" id="index-1"></span><div class="section" id="working-with-raster-data">
+<span id="index-2"></span><h1>Lavorare con i dati raster<a class="headerlink" href="#working-with-raster-data" title="link permanente per questa intestazione">¶</a></h1>
+<p>Questa sezione descrive come visualizzare ed impostare le proprietà dei dati raster. KADAS usa la libreria <span class="target" id="index-8"></span>GDAL per l’accesso alla lettura/scrittura a formati raster, tipo ArcInfo Binary Grid, ArcInfo ASCII Grid, GeoTIFF, ERDAS IMAGINE e molti altri. Il supporto ai raster GRASS è garantito da un plugin nativo di KADAS. Puoi caricare i dati raster in KADAS anche in sola lettura da archivi zip e gzip.</p>
+<p>Attualmente, la libreria GDAL supporta più di 100 formati raster (vedi GDAL-SOFTWARE-SUITE <em class="xref std std-ref">literature_and_web</em>). La lista completa è
+disponibile alla pagina web <a class="reference external" href="http://www.gdal.org/formats_list.html">http://www.gdal.org/formats_list.html</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Per diverse ragioni, non tutti i formati elencati potrebbero funzionare in KADAS. Per esempio, alcuni formati richiedono la presenza di librerie commerciali di terze parti oppure l’installazione di GDAL potrebbe essere avvenuta senza il supporto al formato che intendi usare. Quando carichi un raster in KADAS, solo i formati ben testati appariranno nell’elenco dei tipi di file; altri formati non testati possono essere caricati selezionando l&#8217;opzione <tt class="docutils literal"><span class="pre">[GDAL]</span> <span class="pre">Tutti</span> <span class="pre">i</span> <span class="pre">file</span> <span class="pre">(*)</span></tt>.</p>
+</div>
+<p>Per caricare e lavorare con dati raster di GRASS, fai riferimento alla sezione <em class="xref std std-ref">sec_grass</em>.</p>
+<div class="section" id="what-is-raster-data">
+<h2>Cosa sono i dati raster?<a class="headerlink" href="#what-is-raster-data" title="link permanente per questa intestazione">¶</a></h2>
+<p>I dati raster sono matrici di celle discrete che rappresentano elementi della superficie terrestre o dell’ambiente al di sopra o al di sotto di essa. Ogni cella nella matrice ha la stessa dimensione e le celle sono solitamente rettangolari (in KADAS sono sempre rettangolari). Esempi tipici di dati raster sono quelli provenienti dal telerilevamento come le fotografie aeree, le immagini da satellite e dati modellati come le matrici dell’elevazione.</p>
+<p>Diversamente dai vettori, i dati raster di solito non hanno associato un database contenente i dati descrittivi di ogni cella e sono geocodificati in base alla risoluzione del pixel e alle coordinate x/y di un angolo del raster. Questo permette a KADAS di posizionare correttamente il dato sulla mappa.</p>
+<p>Per posizionare e visualizzare correttamente un raster, KADAS legge le informazioni di georeferenziazione incorporate direttamente nel file raster (ad es.  <span class="target" id="index-9"></span>GeoTiff) o gestite da un apposito file (world file).</p>
+</div>
+<div class="section" id="loading-raster-data-in-qg">
+<span id="load-raster"></span><span id="index-5"></span><h2>Caricare dati raster in KADAS<a class="headerlink" href="#loading-raster-data-in-qg" title="link permanente per questa intestazione">¶</a></h2>
+<p>Puoi caricare i raster cliccando sull&#8217;icona <a class="reference internal" href="../../../_images/mActionAddRasterLayer.png"><img alt="mActionAddRasterLayer" src="../../../_images/mActionAddRasterLayer.png" style="width: 1.5em;" /></a> <sup>Aggiungi raster</sup> oppure selezionando l&#8217;opzione <em class="menuselection">Layer ‣</em> <a class="reference internal" href="../../../_images/mActionAddRasterLayer.png"><img alt="mActionAddRasterLayer" src="../../../_images/mActionAddRasterLayer.png" style="width: 1.5em;" /></a> <em class="guilabel">Aggiungi raster</em>. Puoi caricare più raster contemporaneamente tenendo premuto il tasto <tt class="kbd docutils literal"><span class="pre">Ctrl</span></tt> o <tt class="kbd docutils literal"><span class="pre">Shift</span></tt> e cliccando su più elementi presenti nella finestra di dialogo <em class="guilabel">Apri una formato raster supportato da GDAL</em>.</p>
+<p>Una volta caricato il raster puoi cliccare sul suo nome nella legenda con il tasto destro del mouse per selezionare ed attivare opzioni specifiche, o per aprire la finestra per l’impostazione delle proprietà.</p>
+<p><strong>Menu contestuale per layer raster</strong></p>
+<ul class="simple">
+<li><p class="first"><em class="menuselection">Zoom all&#8217;estensione del layer</em></p>
+</li>
+<li><em class="menuselection">Zoom to Best Scale (100%)</em></li>
+<li><p class="first"><em class="menuselection">Stira usando l&#8217;estensione attuale</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Aggiungi alla panoramica</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Rimuovi</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Duplica</em></p>
+</li>
+<li><em class="menuselection">Set Layer CRS</em></li>
+<li><p class="first"><em class="menuselection">Imposta il SR del progetto dal layer</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Salva come ...</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Proprietà</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Rinomina</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Copia lo stile</em></p>
+</li>
+<li><em class="menuselection">Add New Group</em></li>
+<li><p class="first"><em class="menuselection">Espandi tutto</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Comprimi tutto</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Aggiorna l&#8217;ordine del disegno</em></p>
+</li>
+</ul>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduzione</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <link rel="next" title="Convenzioni" href="conventions.html" />
+    <link rel="prev" title="User Guide" href="../index.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="Inglese">English</option>
+  <option value="de" title="Tedesco">Deutsch</option>
+  <option value="fr" title="Francese">Français</option>
+  <option value="it" title="Italiano">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/preamble/preamble.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Scopri QGIS</a></li>
+            <li><a href="../../../site/forusers/index.html">Per gli Utenti</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Partecipa</a></li>
+            <li><a href="../../index.html">Documentazione</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Cerca" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="conventions.html" title="Convenzioni"
+             accesskey="N">successivo</a></li>
+        <li class="right" >
+          <a href="../index.html" title="User Guide"
+             accesskey="P">precedente</a> |</li>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    <a accesskey="p" href="../index.html">&lt;&lt; prev</a>
+    
+    
+    <a accesskey="n" href="conventions.html">next &gt;&gt;</a>
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Indice</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conventions.html">Convenzioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">Premessa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Le mie mappe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analisi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Disegno</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendice</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="preamble">
+<span id="qgis-documentation-preamble"></span><h1>Introduzione<a class="headerlink" href="#preamble" title="link permanente per questa intestazione">¶</a></h1>
+<p>TODO: auf kadas geschnitten machen</p>
+<p>Questo documento è la guida utente originale del softwae KADAS. I componenti software e hardware descritti nel documento sono, nella maggior parte dei casi, marchi registrati e quindi soggetti a questioni legali. KADAS è soggetto alla licenza GNU General Public. Ulteriori informazioni sono disponibili all&#8217;indirizzo <a class="reference external" href="http://www.qgis.org">http://www.qgis.org</a>.</p>
+<p>I dettagli, i dati, i risultati ecc. presenti in questo documento sono stati scritti e verificati al meglio delle conoscenze e della responsabilità degli autori e degli editori. Ciononostante, possono essere presenti errori nei contenuti.</p>
+<p>Pertanto, nessun dato è soggetto ad alcun obbligo o garanzia. Gli autori, i redattori e gli editori non si assumono alcun obbligo o responsabilità per malfunzionamenti e possibili conseguenze. Tutti gli utenti sono pertanto invitati a segnalare eventuali errori.</p>
+<p>Questo documento è stato creato con il software reStructuredText. Il codice sorgente di questo documento è disponibile su <a class="reference external" href="https://github.com/qgis/QGIS-Documentation">github</a> e online in formato HTML e PDF <a class="reference external" href="http://www.qgis.org/en/docs/">http://www.qgis.org/en/docs/</a>. Le traduzioni di questo documento possono essere scaricate in diversi formati nella sezione dedicata di KADAS. Per ulteriori informazioni su come contribuire alla documentazione e alla traduzione visita il sito <a class="reference external" href="http://www.qgis.org/wiki/">http://www.qgis.org/wiki/</a>.</p>
+<p><strong>Collegamenti presenti in questo documento</strong></p>
+<p>Questo documento contiene collegamenti interni ed esterni. Cliccando su un collegamento interno puoi spostarti all&#8217;interno del manuale, mentre cliccando su un collegamento esterno si aprirà un indirizzo internet. in formato PDF i collegamenti interni ed esterni sono mostrati in colore blu e sono gestiti dal browser del sistema operativo. In formato HTML, il browser gestisce e mostra entrambi allo stesso modo.</p>
+<p><strong>Autori e redattori delle guide per l&#8217;utente, l&#8217;installazione e la programmazione:</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="20%" />
+<col width="21%" />
+<col width="21%" />
+<col width="21%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Tara Athan</td>
+<td>Radim Blazek</td>
+<td>Godofredo Contreras</td>
+<td>Otto Dassau</td>
+<td>Martin Dobias</td>
+</tr>
+<tr class="row-even"><td>Peter Ersts</td>
+<td>Anne Ghisla</td>
+<td>Stephan Holl</td>
+<td>N. Horning</td>
+<td>Magnus Homann</td>
+</tr>
+<tr class="row-odd"><td>Werner Macho</td>
+<td>Carson J.Q. Farmer</td>
+<td>Tyler Mitchell</td>
+<td>K. Koy</td>
+<td>Lars Luthman</td>
+</tr>
+<tr class="row-even"><td>Claudia A. Engel</td>
+<td>Brendan Morely</td>
+<td>David Willis</td>
+<td>Jürgen E. Fischer</td>
+<td>Marco Hugentobler</td>
+</tr>
+<tr class="row-odd"><td>Larissa Junek</td>
+<td>Diethard Jansen</td>
+<td>Paolo Corti</td>
+<td>Gavin Macaulay</td>
+<td>Gary E. Sherman</td>
+</tr>
+<tr class="row-even"><td>Tim Sutton</td>
+<td>Alex Bruy</td>
+<td>Raymond Nijssen</td>
+<td>Richard Duivenvoorde</td>
+<td>Andreas Neumann</td>
+</tr>
+<tr class="row-odd"><td>Astrid Emde</td>
+<td>Yves Jacolin</td>
+<td>Alexandre Neto</td>
+<td>Andy Schmid</td>
+<td>Hien Tran-Quang</td>
+</tr>
+</tbody>
+</table>
+<p>Copyright (c) 2004 - 2014 KADAS Development Team</p>
+<p><strong>Internet:</strong> <a class="reference external" href="http://www.qgis.org">http://www.qgis.org</a></p>
+<p><strong>Licenza di questo documento</strong></p>
+<p>È garantito il permesso di copiare, distribuire e/o modificare questo documento in base ai termini della GNU Free Documentation License, Versione 1.3 o ogni versione successiva pubblicata dalla Free Software Foundation; senza alcuna sezione non modificabile, senza testo di copertina e retro-copertina. Una copia della licenza è inclusa nell&#8217;appendice</p>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="conventions.html" title="Convenzioni"
+             >successivo</a></li>
+        <li class="right" >
+          <a href="../index.html" title="User Guide"
+             >precedente</a> |</li>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

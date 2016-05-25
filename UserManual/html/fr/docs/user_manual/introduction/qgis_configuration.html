@@ -1,0 +1,680 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Configuration de KADAS</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="Anglais">English</option>
+  <option value="de" title="Allemand">Deutsch</option>
+  <option value="fr" title="Français">Français</option>
+  <option value="it" title="Italien">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/introduction/qgis_configuration.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Découvrir</a></li>
+            <li><a href="../../../site/forusers/index.html">Pour les utilisateurs</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Contribuer</a></li>
+            <li><a href="../../index.html">Documentation</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Rechercher" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Table Des Matières</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Préambule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Avant-propos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qgis_gui.html">Interface de KADAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Mes cartes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Dessiner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Annexe</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="qg-configuration">
+<h1>Configuration de KADAS<a class="headerlink" href="#qg-configuration" title="Lien permanent vers ce titre">¶</a></h1>
+<p>KADAS se configure via le menu <em class="menuselection">Préférences ‣</em>. Les Panneaux, Barres d&#8217;outils, Propriétés du Projet, Options et Personnalisation s&#8217;y configurent.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">KADAS suit les indications des systèmes d&#8217;exploitations pour définir la localisation des options et des propriétés du projet.
+En fonction de votre Système d&#8217;Opération, les adresses des éléments décrits ci-dessus peuvent se situer dans le menu <em class="menuselection">Vue</em> (panneaux et barres d&#8217;outils) ou dans <em class="menuselection">Projet</em> pour les options.</p>
+</div>
+<div class="section" id="panels-and-toolbars">
+<span id="sec-panels-and-toolbars"></span><h2>Panneaux et barres d&#8217;outils<a class="headerlink" href="#panels-and-toolbars" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans le menu <em class="menuselection">Panneaux‣</em>, vous pouvez afficher ou cacher les panneaux. De même pour les barres d&#8217;outils avec le menu <em class="menuselection">Barres d&#8217;outils‣</em> (voir <a class="reference internal" href="#figure-panels-toolbars">figure_panels_toolbars</a>).</p>
+<p id="figure-panels-toolbars"><strong>Figure Panels and Toolbars:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/panels_and_toolbars.png" src="../../../_images/panels_and_toolbars.png" />
+<p class="caption">Les menus Panneaux et Barre d&#8217;outils <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<div class="admonition tip" id="index-0">
+<p class="first admonition-title">Astuce</p>
+<p><strong>Activer la fenêtre d&#8217;aperçu</strong></p>
+<p class="last">Dans KADAS, vous avez la possibilité de visualiser la totalité de l&#8217;étendue des couches en les ajoutant à l&#8217;aperçu. La fenêtre d&#8217;aperçu s&#8217;affiche via le menu <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> <em class="menuselection">Préférences ‣ Panneaux</em> ou <a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> <em class="menuselection">Vue‣ Panneaux</em> . Au sein de cette fenêtre se situe un rectangle qui représente l&#8217;étendue de la carte, cela permet de savoir quelle région de la carte vous êtes en train de visualiser. Les étiquettes ne sont pas affichées dans l&#8217;aperçu même si les couches visibles ont l&#8217;étiquetage activé. Si vous cliquez et déplacez le rectangle rouge qui montre votre emprise actuelle, la vue principale se mettra à jour en conséquence.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p><strong>Voir le journal des messages</strong></p>
+<p class="last">Il est possible de suivre les messages produits par KADAS. Activez cette fonctionnalité en cochant  <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Journal des messages</em> dans le menu <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> <em class="menuselection">Préférences‣ Panneaux</em> ou <a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> <em class="menuselection">Vue ‣ Panneaux</em> et retrouvez les messages dans les différents onglets lors du chargement de données ou de l&#8217;exécution d&#8217;opérations.</p>
+</div>
+</div>
+<div class="section" id="project-properties">
+<h2>Propriétés du projet<a class="headerlink" href="#project-properties" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans la fenêtre des propriétés du projet du menu <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> <em class="menuselection">Préférences ‣ Propriétés du projet</em> (kde) ou <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> <a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> <em class="menuselection">Projet‣ Propriétés du projet</em> (Gnome), vous pouvez définir les options spécifiques à un projet. Cela inclut :</p>
+<ul class="simple">
+<li><p class="first">Dans le menu <em class="guilabel">Général</em>, le titre du projet, la couleur de la sélection et du fond, les unités des couches et leur précision, ainsi que la possibilité de sauvegarder les chemins des couches en relatif peuvent être définis. Si la transformation du SCR est activée, vous pouvez choisir l&#8217;ellipsoïde pour la mesure des distances. Vous pouvez définir les unités de la carte (utilisé seulement si la transformation de SCR est désactivé) et la précision des décimaux. Vous pouvez également définir une liste d&#8217;échelles de projet, qui se substitue aux échelles prédéfinies globalement.</p>
+</li>
+<li><p class="first">Le menu <em class="guilabel">SCR</em> vous permet de choisir le Système de Coordonnées de Référence pour le projet et d&#8217;activer la projection à la volée des couches raster et vecteur définies dans un SCR différent.</p>
+</li>
+<li><p class="first">Avec le troisième menu <em class="guilabel">Identification des couches</em>, vous définissez (ou désactivez) les couches qui réagiront à l&#8217;outil d&#8217;identification (voir le paragraphe sur les outils cartographiques de la section <a class="reference internal" href="#gui-options"><em>Options</em></a> pour l&#8217;identification de couches multiples).</p>
+</li>
+<li><p class="first">Le menu <em class="guilabel">Styles par défaut</em> vous permet de contrôler comment les nouvelles couches seront représentées lorsqu&#8217;elles ne disposent pas d&#8217;un style <tt class="file docutils literal"><span class="pre">.qml</span></tt> prédéfini. Vous pouvez aussi définir leur niveau de transparence par défaut et si les symboles devraient avoir des couleurs attribuées au hasard. Une zone permet également de spécifier des couleurs pour le projet en cours. Vous retrouverez les couleurs ajoutées dans un menu déroulant de la fenêtre de choix des couleurs.</p>
+</li>
+<li><p class="first">L&#8217;onglet <em class="guilabel">Serveur OWS</em> vous permet de définir les informations concernant les capacités WMS et WFS de KADAS Server, l&#8217;étendue et de restreindre les SCR.</p>
+</li>
+<li><p class="first">Le menu <em class="guilabel">Macros</em> permet d&#8217;éditer des modules Python pour les projets. Actuellement, seules trois macros sont disponibles :  <tt class="docutils literal"><span class="pre">openProject()</span></tt>, <tt class="docutils literal"><span class="pre">saveProject()</span></tt> et <tt class="docutils literal"><span class="pre">closeProject()</span></tt>.</p>
+</li>
+</ul>
+<p id="figure-macro-menu"><strong>Figure Macro Menu:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/macro.png" src="../../../_images/macro.png" />
+<p class="caption">Paramètres des macros dans KADAS</p>
+</div>
+<ul class="simple">
+<li><p class="first">L&#8217;onglet <em class="guilabel">Relations</em> permet de définir des relations 1:n. Les relations sont définies dans la fenêtre des propriétés du projet. Une fois les relations définies sur une couche, un nouvel élément apparaît dans la vue formulaire de cette couche (par exemple, lors de l&#8217;identification d&#8217;une entité et l&#8217;ouverture du formulaire associé) et vous liste les entités qui lui sont reliées. Ceci fournit un moyen puissant d&#8217;exprimer, par exemple, l&#8217;historique d&#8217;inspection le long d&#8217;une pipeline ou d&#8217;un tronçon de route. Vous trouverez de plus amples informations sur les relation 1:n dans la section <em class="xref std std-ref">vector_relations</em>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="options">
+<span id="gui-options"></span><h2>Options<a class="headerlink" href="#options" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="mActionOptions" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> Quelques options basiques peuvent être sélectionnées dans la fenêtre <em class="guilabel">Options</em> via le menu <em class="menuselection">Préférences ‣</em> <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="mActionOptions" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <em class="menuselection">Options</em>. Les onglets dans lesquels vous pouvez configurer les options sont décrits ci-dessous.</p>
+<div class="section" id="general-menu">
+<h3>Onglet Général<a class="headerlink" href="#general-menu" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Application</strong></p>
+<ul class="simple">
+<li><p class="first">Sélectionnez <em class="guilabel">Style (redémarrage de QGIS nécessaire)</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> et choisissez entre &#8216;Oxygen&#8217;, &#8216;Windows&#8217;, &#8216;Motif&#8217;, &#8216;CDE&#8217;, &#8216;Plastique&#8217; ou &#8216;Cleanlooks&#8217; (<a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a>).</p>
+</li>
+<li><p class="first">Définissez le <em class="guilabel">Thème d&#8217;Icône</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>. Actuellement seul le thème &#8216;default&#8217; est disponible.</p>
+</li>
+<li><p class="first">Définissez la <em class="guilabel">Taille de l&#8217;icône</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>.</p>
+</li>
+<li><p class="first">Définissez la <em class="guilabel">Police</em> et choisissez entre <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Défaut Qt</em> et une police de votre choix.</p>
+</li>
+<li><p class="first">Changez le <em class="guilabel">Délai d&#8217;abandon pour les messages ou les fenêtres</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Cacher l&#8217;écran de démarrage</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Montrer les astuces au démarrage</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Titre des groupes de couches en gras</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Style QGIS pour les groupes de couches</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Utiliser les fenêtres natives de choix de couleur</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Fenêtres de choix de couleur avec mise à jour dynamique</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Style personnalisé de la barre latérale</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Rotation du canevas de la carte (expérimental, redémarrage requis)</em></p>
+</li>
+</ul>
+<p><strong>Fichiers projet</strong></p>
+<ul class="simple">
+<li><p class="first"><em class="guilabel">Ouverture du projet au démarrage</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> (choisissez entre &#8216;Nouveau&#8217;, &#8216;Dernier utilisé&#8217; et &#8216;Spécifique&#8217;). Lorsque vous choisissez &#8216;Spécifique&#8217;, utilisez le bouton <a class="reference internal" href="../../../_images/browsebutton.png"><img alt="browsebutton" src="../../../_images/browsebutton.png" style="width: 2.3em;" /></a> pour sélectionner un projet.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Créer les nouveaux projets à partir du projet par défaut</em>. Vous pouvez choisir d&#8217;<em class="guilabel">Utiliser le projet courant comme défaut</em> ou de <em class="guilabel">Réinitialiser le projet par défaut</em>. Vous pouvez parcourir vos fichiers et sélectionner le répertoire où sont stockés vos modèles de projets personnalisés. Cela créera une nouvelle entrée dans le menu <em class="menuselection">Projet ‣ Nouveau depuis un modèle</em> si vous cochez <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Créer les nouveaux projets à partir du projet par défaut</em> et sauvegardez un projet dans le répertoire de modèles de projets spécifié.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Demander de sauver le projet et les sources de données quand nécessaire</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Demander une confirmation lorsqu&#8217;une couche va être supprimée</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">M&#8217;avertir lors de l&#8217;ouverture d&#8217;un fichier projet sauvegardé avec une version précédente de QGIS</em></p>
+</li>
+<li><p class="first"><em class="guilabel">Activer les macros</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> . Cette option a été créée pour gérer les macros devant exécuter des actions sur des événements du projet. Vous pouvez choisir entre &#8216;Jamais&#8217;, &#8216;Demander&#8217;, &#8216;Uniquement pour cette session&#8217; et &#8216;Toujours (non recommandé)&#8217;.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="system-menu">
+<span id="env-options"></span><h3>Menu Système<a class="headerlink" href="#system-menu" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Environnement</strong></p>
+<p>Les variables d&#8217;environnement Système peuvent maintenant être visualisées et configurées pour certains dans le groupe <strong>Environnement</strong> (voir <a class="reference internal" href="#figure-environment-variables">figure_environment_variables</a>). Ceci est pratique sur certaines plateformes, notamment sur Mac, ou une application avec interface graphique n&#8217;hérite pas nécessairement des paramètres de l&#8217;environnement en ligne de commande de l&#8217;utilisateur. Ceci est aussi utile pour paramétrer/visualiser les variables d&#8217;environnement des outils externes contrôlés par la boîte à outils de traitement (par exemple SAGA, GRASS) et activer les sorties de débogage pour des sections spécifiques du code source.</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Utiliser des variables personnalisées (redémarrage requis - inclure des séparateurs)</em>. Vous pouvez <strong>[Ajouter]</strong> et <strong>[Supprimer]</strong> des variables. Les variables d&#8217;environnement déjà définies sont affichées dans <em class="menuselection">Variables d&#8217;environnement courantes</em>, et il est possible de les filtrer en activant <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Afficher uniquement les variables liées à QGIS</em>.</p>
+</li>
+</ul>
+<p id="figure-environment-variables"><strong>Figure System Environment:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/sys-env-options.png" src="../../../_images/sys-env-options.png" />
+<p class="caption">Variables d&#8217;environnement Système dans KADAS</p>
+</div>
+<p><strong>Chemins vers les extensions</strong></p>
+<p><strong>[Ajouter]</strong> ou <strong>[Supprimer]</strong> un ou des <em class="guilabel">Chemin(s) vers des extensions C++ supplémentaires</em></p>
+</div>
+<div class="section" id="data-sources-menu">
+<h3>Onglet Sources de données<a class="headerlink" href="#data-sources-menu" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Attributs et tables</strong></p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Ouvrir la table d&#8217;attributs dans une fenêtre intégrée (redémarrage requis)</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Copier la représentation WKT de la géométrie depuis la table attributaire</em>. Lorsque vous utilisez <a class="reference internal" href="../../../_images/mActionCopySelected.png"><img alt="mActionCopySelected" src="../../../_images/mActionCopySelected.png" style="width: 1.5em;" /></a> <sup>Copier les lignes choisies dans le presse-papier</sup> depuis la fenêtre <em class="guilabel">Table attributaire</em>, cette option permet de recopier aussi les coordonnées des points ou des vertex dans le presse-papier.</p>
+</li>
+<li><p class="first"><em class="guilabel">Comportement de la table attributaire</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>. Il y a trois possibilités : &#8216;Montrer toutes les entités&#8217;, &#8216;Ne montrer que les entités sélectionnées&#8217; ou &#8216;Montrer les entités visibles sur la carte&#8217;.</p>
+</li>
+<li><p class="first"><em class="guilabel">Cache de la table attributaire</em> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a>. Ce cache permet de garder en mémoire les n dernières lignes d&#8217;attributs chargées afin de rendre l&#8217;utilisation de la table attributaire plus réactive. Le cache est supprimé à la fermeture de la table attributaire.</p>
+</li>
+<li><p class="first"><em class="guilabel">Représentation des valeurs NULL</em> permet de définir une valeur par défaut pour les champs contenant la valeur NULL.</p>
+</li>
+</ul>
+<p><strong>Gestion des sources de données</strong></p>
+<ul class="simple">
+<li><p class="first"><em class="guilabel">Rechercher les fichiers valides dans l&#8217;explorateur</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>. Vous pouvez choisir entre &#8216;Vérifier l&#8217;extension&#8217; ou &#8216;Vérifier le contenu du fichier&#8217;.</p>
+</li>
+<li><p class="first"><em class="guilabel">Rechercher du contenu dans les fichiers compressés (*.zip)</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>. Vous avez le choix entre &#8216;Scan basique&#8217;, &#8216;Scan complet&#8217; ou &#8216;Non&#8217;.</p>
+</li>
+<li><p class="first"><em class="guilabel">Demande à l&#8217;ouverture s&#8217;il y a des sous-couches raster</em>. Certains rasters comportent des sous-couches - appelées sous-jeux de données dans GDAL. Par exemple les fichiers netCDF - s&#8217;il y a de nombreuses variables netCDF, GDAL considérera chaque variable comme un sous-jeux de données. L&#8217;option vous permet de choisir comment traiter les sous-jeux de données quand un fichier avec des sous-couches est ouvert. Vous avez les choix suivants :</p>
+<ul>
+<li><p class="first">&#8216;Toujours&#8217; : Demande toujours (s&#8217;il existe des sous-couches)</p>
+</li>
+<li><p class="first">&#8216;Si nécessaire&#8217; : Demande si la couche n&#8217;a pas de bande, mais qu&#8217;elle possède des sous-couches</p>
+</li>
+<li><p class="first">&#8216;Jamais&#8217; : Ne demande jamais, mais ne charge rien</p>
+</li>
+<li><p class="first">&#8216;Charger tout&#8217; : Ne demande jamais, mais charge toutes les sous-couches</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Ignorer la déclaration interne d&#8217;encodage des shapefiles</em>. Si une couche shapefile a un encodage déjà renseigné, cette information sera ignorée par KADAS.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Ajouter des couches PostGIS avec un double-clic et sélectionner en mode étendu</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Ajouter les couches Oracle par double-clic et sélection en mode étendu</em></p>
+</li>
+</ul>
+</div>
+<div class="section" id="rendering-menu">
+<h3>Onglet Rendu<a class="headerlink" href="#rendering-menu" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Comportement du rendu</strong></p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Par défaut les couches supplémentaires sont affichées</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Utiliser le cache du rendu si possible pour accélérer l&#8217;affichage</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Rendu des couches en parallèle en utilisant plusieurs cœurs du processeur</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Nombre de cœurs à utiliser</em></p>
+</li>
+<li><p class="first"><em class="guilabel">Intervalle de rafraîchissement de l&#8217;affichage de la carte (par défaut de 250 ms)</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Activer la simplification dynamique des entités par défaut pour les nouvelles couches ajoutées</em></p>
+</li>
+<li><p class="first"><em class="guilabel">Seuil de simplification</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Réaliser la simplification par le prestataire de service lorsque c&#8217;est possible</em></p>
+</li>
+<li><p class="first"><em class="guilabel">Échelle maximale à partir de laquelle la couche doit être simplifiée</em></p>
+</li>
+</ul>
+<p><strong>Qualité du rendu</strong></p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Les lignes semblent moins déchiquetées aux dépends d&#8217;une certaine vitesse d&#8217;exécution</em></p>
+</li>
+</ul>
+<p><strong>Rasters</strong></p>
+<ul class="simple">
+<li><p class="first">Avec la <em class="guilabel">Sélection de bande RVB</em>, vous pouvez définir la valeur des bandes Rouge, Verte et Bleue.</p>
+</li>
+</ul>
+<p><em>Amélioration du contraste</em></p>
+<ul class="simple">
+<li><p class="first"><em class="guilabel">Bande grise unique</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>. Les valeurs possibles sont &#8216;Pas d&#8217;étirement&#8217;, &#8216;Étirer jusqu&#8217;au MinMax&#8217;, &#8216;Étirer et couper jusqu&#8217;au MinMax&#8217;, &#8216;Couper jusqu&#8217;au MinMax&#8217;.</p>
+</li>
+<li><p class="first"><em class="guilabel">Couleur à bandes multiples (octet/bande)</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>. Les valeurs possibles sont &#8216;Pas d&#8217;étirement&#8217;, &#8216;Étirer jusqu&#8217;au MinMax&#8217;, &#8216;Étirer et couper jusqu&#8217;au MinMax&#8217;, &#8216;Couper jusqu&#8217;au MinMax&#8217;.</p>
+</li>
+<li><p class="first"><em class="guilabel">Couleur à bandes multiples (&gt;octet/bande)</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>. Les valeurs possibles sont &#8216;Pas d&#8217;étirement&#8217;, &#8216;Étirer jusqu&#8217;au MinMax&#8217;, &#8216;Étirer et couper jusqu&#8217;au MinMax&#8217;, &#8216;Couper jusqu&#8217;au MinMax&#8217;.</p>
+</li>
+<li><p class="first"><em class="guilabel">Limites (minimum/maximum)</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>. Les valeurs possibles sont &#8216;Limite de découpe pour le comptage cumulé de pixels&#8217;, &#8216;Minimum/Maximum&#8217;, &#8216;Moyenne +/- écart type&#8217;</p>
+</li>
+<li><p class="first"><em class="guilabel">Limite de découpe pour le comptage cumulé de pixels</em></p>
+</li>
+<li><p class="first"><em class="guilabel">Multiplicateur de l&#8217;écart-type</em></p>
+</li>
+</ul>
+<p><strong>Déboggage</strong></p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Actualisation de la carte</em></p>
+</li>
+</ul>
+</div>
+<div class="section" id="colors-menu">
+<h3>Onglet couleurs<a class="headerlink" href="#colors-menu" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cet onglet vous permet d&#8217;ajouter des couleurs personnalisées supplémentaires que vous pouvez trouver dans chaque fenêtre de dialogue des rendus de couleur. Vous verrez un jeu de couleurs prédéfinies dans l&#8217;onglet : vous pouvez supprimer ou éditer chacune d&#8217;entre elles. Vous pouvez également ajouter la couleur que vous voulez et effectuer une opération de copier-coller. Finalement, vous pouvez importer ou exporter un jeu de couleurs comme fichier <tt class="file docutils literal"><span class="pre">gpl</span></tt>.</p>
+</div>
+<div class="section" id="canvas-and-legend-menu">
+<h3>Onglet Carte et légende<a class="headerlink" href="#canvas-and-legend-menu" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Apparence de la carte par défaut (écrasée par les propriétés du projet si définies)</strong></p>
+<ul class="simple">
+<li><p class="first">Définir la <em class="guilabel">Couleur de la sélection</em> et la <em class="guilabel">Couleur de fond</em>.</p>
+</li>
+</ul>
+<p><strong>Légende des couches</strong></p>
+<ul class="simple">
+<li><p class="first"><em class="guilabel">Double-clic dans la légende</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>. Vous pouvez soit &#8216;Ouvrir les propriétés de la couche&#8217; soit &#8216;Ouvrir la table attributaire&#8217; en double-cliquant sur une couche</p>
+</li>
+<li><p class="first">Les <em class="guilabel">Styles des objets de la légende</em> peuvent être :</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Noms de couches en majuscules</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Noms de couches en gras</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Noms de groupes de couches en gras</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Afficher le nom du champ de classification</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Créer des icônes raster dans la légende (lent)</em></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="map-tools-menu">
+<h3>Onglet Outils cartographiques<a class="headerlink" href="#map-tools-menu" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce menu offre certaines options concernant le comportement de l&#8217;<em class="guilabel">Outil Identifier</em>.</p>
+<ul class="simple">
+<li><p class="first"><em class="guilabel">Rayon de recherche pour identifier les entités et afficher les infobulles</em> est un facteur de tolérance exprimé comme un pourcentage de la largeur de la carte. Cela signifie que l&#8217;outil identifier illustrera les résultats tant que vous cliquez à l&#8217;intérieur de cette tolérance.</p>
+</li>
+<li><p class="first"><em class="guilabel">Couleur de surbrillance</em> vous permet de choisir avec quelle couleur les entités qui devraient être identifiées sont en surbrillance.</p>
+</li>
+<li><p class="first"><em class="guilabel">Tampon</em> exprimée en pourcentage de la largeur de la carte, détermine une zone tampon pour la mise en surbrillance des bordures des entités identifiés.</p>
+</li>
+<li><p class="first"><em class="guilabel">Largeur minimum</em> exprimée comme un pourcentage de la largeur de la carte détermine l&#8217;épaisseur de la bordure d&#8217;un objet en surbrillance.</p>
+</li>
+</ul>
+<p><strong>Outils de mesure</strong></p>
+<ul class="simple">
+<li><p class="first">Définir la <em class="guilabel">Couleur du trait</em> des outils de mesure</p>
+</li>
+<li><p class="first">Définir le <em class="guilabel">Nombre de décimales</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Garder l&#8217;unité de base</em></p>
+</li>
+<li><p class="first"><em class="guilabel">Unités de mesure préférées</em> <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> (&#8216;Mètres&#8217;, &#8216;Pieds&#8217;, &#8216;Miles Nautiques&#8217; ou &#8216;Degrés&#8217;)`</p>
+</li>
+<li><p class="first"><em class="guilabel">Unités d&#8217;angle préférées</em> <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> (&#8216;Degrés&#8217;, &#8216;Radians&#8217; ou &#8216;Grades&#8217;)</p>
+</li>
+</ul>
+<p><strong>Déplacement et zoom</strong></p>
+<ul class="simple">
+<li><p class="first">Définir l&#8217;<em class="guilabel">Action de la molette de la souris</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> (&#8216;Zoom&#8217;, &#8216;Zoom et recentrage&#8217;, &#8216;Zoom sur le curseur de la souris&#8217;, &#8216;Rien&#8217;)</p>
+</li>
+<li><p class="first">Définir le <em class="guilabel">Facteur de zoom</em> pour la molette de la souris</p>
+</li>
+</ul>
+<p><strong>Échelles prédéfinies</strong></p>
+<p>Vous trouverez ici une liste d&#8217;échelles prédéfinies. Vous pouvez en ajouter ou en supprimer avec les boutons <strong>[+]</strong> et <strong>[-]</strong>.</p>
+</div>
+<div class="section" id="composer-menu">
+<h3>Onglet Composeur d&#8217;impression<a class="headerlink" href="#composer-menu" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Valeurs par défaut pour les compositions</strong></p>
+<p>Vous pouvez définir une <em class="guilabel">Police par défaut</em> ici.</p>
+<p><strong>Apparence de la grille</strong></p>
+<ul class="simple">
+<li><p class="first">Définir le <em class="guilabel">Style de la grille</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> (&#8216;Continu&#8217;, &#8216;Pointillés&#8217;, &#8216;Croix&#8217;)</p>
+</li>
+<li><p class="first">Définir la <em class="guilabel">Couleur de la grille</em></p>
+</li>
+</ul>
+<p><strong>Grille et guide par défaut</strong></p>
+<ul class="simple">
+<li><p class="first">Définir l&#8217;<em class="guilabel">Espacement de la grille</em> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a></p>
+</li>
+<li><p class="first">Définir le <em class="guilabel">Décalage de la grille</em> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a> en x et en y</p>
+</li>
+<li><p class="first">Définir la <em class="guilabel">Tolérance d&#8217;accrochage</em> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="digitizing-menu">
+<h3>Onglet Numérisation<a class="headerlink" href="#digitizing-menu" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Création d&#8217;entités</strong></p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Supprimer les fenêtres d&#8217;avertissements lors de la création de chaque entité</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Réutiliser la dernière valeur attributaire saisie</em></p>
+</li>
+<li><p class="first"><em class="guilabel">Valider les géométries</em>. L&#8217;édition de lignes ou de polygones complexes, composés de nombreux nœuds, peut générer une lenteur du rendu. Ceci est lié aux procédures par défaut de validation de géométrie qui peuvent requérir beaucoup de temps. Pour accélérer le rendu, sélectionnez l&#8217;option de validation GEOS (à partir de GEOS 3.3) ou désactivez-la. La validation de géométrie GEOS est beaucoup plus rapide, mais l&#8217;inconvénient est qu&#8217;elle ne signale que le premier problème de géométrie rencontré.</p>
+</li>
+</ul>
+<p><strong>Contours d&#8217;édition</strong></p>
+<ul class="simple">
+<li><p class="first">Définissez la <em class="guilabel">Largeur de ligne</em> et la <em class="guilabel">Couleur de ligne</em> du trait lors de l&#8217;édition.</p>
+</li>
+</ul>
+<p><strong>Accrochage</strong></p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Ouvrir les options d&#8217;accrochage dans une fenêtre intégrée (redémarrage de QGIS requis)</em></p>
+</li>
+<li><p class="first">Définir le <em class="guilabel">Mode d&#8217;accrochage par défaut</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> (&#8216;Sur un sommet&#8217;, &#8216;Sur un segment&#8217;, &#8216;Sur un sommet et un segment&#8217;, &#8216;Off&#8217;)</p>
+</li>
+<li><p class="first">Définir <em class="guilabel">Tolérance d&#8217;accrochage par défaut</em> en unités de carte ou en pixels</p>
+</li>
+<li><p class="first">Définir le <em class="guilabel">Rayon de recherche pour l&#8217;édition des sommets</em> en unités de carte ou en pixels</p>
+</li>
+</ul>
+<p><strong>Symbole des sommets</strong></p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Montrer les symboles uniquement pour les entités sélectionnées</em></p>
+</li>
+<li><p class="first">Définir le <em class="guilabel">Syle de marqueur</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> (&#8216;Croix&#8217; (par défaut), &#8216;Cercle semi-transparent&#8217; ou &#8216;Aucun&#8217;) du sommet</p>
+</li>
+<li><p class="first">Définir la <em class="guilabel">Taille du marqueur</em> des sommets</p>
+</li>
+</ul>
+<p><strong>Outil de décalage de courbe</strong></p>
+<p>Les trois options suivantes se réfèrent à l&#8217;outil de <a class="reference internal" href="../../../_images/mActionOffsetCurve.png"><img alt="mActionOffsetCurve" src="../../../_images/mActionOffsetCurve.png" style="width: 1.5em;" /></a> <sup>Décalage X,Y</sup> : <em class="xref std std-ref">sec_advanced_edit</em>. Elles permettent de modifier la forme du décalage de ligne. Elles sont issues de GEOS 3.3.</p>
+<ul class="simple">
+<li><p class="first"><em class="guilabel">Style de jointure</em></p>
+</li>
+<li><p class="first"><em class="guilabel">Segments de quadrant</em></p>
+</li>
+<li><p class="first"><em class="guilabel">Limite de la pointe</em></p>
+</li>
+</ul>
+</div>
+<div class="section" id="gdal-menu">
+<h3>Onglet GDAL<a class="headerlink" href="#gdal-menu" title="Lien permanent vers ce titre">¶</a></h3>
+<p>GDAL est une bibliothèque qui permet de gérer les fichiers raster. Dans cet onglet, vous pouvez <em class="guilabel">Modifier les options des pyramides</em> et <em class="guilabel">Modifier les options de création</em> des différents formats raster ainsi que définir quel pilote GDAL utiliser dans le cas où plus d&#8217;un est disponible.</p>
+</div>
+<div class="section" id="crs-menu">
+<h3>Onglet SCR<a class="headerlink" href="#crs-menu" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>SCR par défaut pour les nouveaux projets</strong></p>
+<ul class="simple">
+<li><p class="first"><img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Ne pas activer la reprojection à la volée</em></p>
+</li>
+<li><p class="first"><img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Activer automatiquement la projection à la volée si les couches ont des SCR différents</em></p>
+</li>
+<li><p class="first"><img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Activer la reprojection &#8216;à la volée&#8217; par défaut</em></p>
+</li>
+<li><p class="first">Sélectionner un SCR et <em class="guilabel">Toujours lancer ce SCR pour les nouveaux projets</em></p>
+</li>
+</ul>
+<p><strong>SCR pour les nouvelles couches</strong></p>
+<p>Cet espace vous permet de définir une action à faire lorsqu&#8217;une nouvelle couche est créée ou lorsqu&#8217;une couche sans SCR est chargée.</p>
+<ul class="simple">
+<li><p class="first"><img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Demander le SCR</em></p>
+</li>
+<li><p class="first"><img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Utiliser le SCR du projet</em></p>
+</li>
+<li><p class="first"><img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Utiliser ce SCR par défaut</em></p>
+</li>
+</ul>
+<p><strong>Transformations géodésiques par défaut</strong></p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Demander un datum pour la conversion de coordonnées lorsque aucun n&#8217;est défini par défaut</em></p>
+</li>
+<li><p class="first">Si vous avez utilisé la &#8216;projection à la volée&#8217;, vous pouvez visualiser les transformations effectuées en bas de la fenêtre. Vous y trouverez des informations sur le &#8216;SCR source&#8217; et le &#8216;SCR cible&#8217; ainsi que la &#8216;Transformation géodésique source&#8217;, appliquée au SCR source, et la &#8216;Transformation géodésique cible&#8217;, appliquée au SCR cible.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="locale-menu">
+<h3>Onglet Langue<a class="headerlink" href="#locale-menu" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Écraser la langue du système</em> et la <em class="guilabel">Langue à utiliser</em></p>
+</li>
+<li><p class="first">Informations sur les paramètres de langue du système</p>
+</li>
+</ul>
+</div>
+<div class="section" id="network-menu">
+<h3>Onglet Réseau<a class="headerlink" href="#network-menu" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Général</strong></p>
+<ul class="simple">
+<li><p class="first">Définir l&#8217;<em class="guilabel">Adresse de recherche WMS</em>, par défaut : <tt class="docutils literal"><span class="pre">http://geopole.org/wms/search?search=\%1\&amp;type=rss</span></tt></p>
+</li>
+<li><p class="first">Définir le <em class="guilabel">Délai d&#8217;abandon pour les requêtes réseaux (ms)</em> - la valeur par défaut est 60000</p>
+</li>
+<li><p class="first">Définir le <em class="guilabel">Délai d&#8217;expiration pour les tuiles WMSC/WMTS (en heures)</em>- la valeur par défaut est 24</p>
+</li>
+<li><p class="first">Définir le <em class="guilabel">Nombre d&#8217;essais maximum lors d&#8217;une erreur de requête vers une tuile</em></p>
+</li>
+<li><p class="first">Définir le <em class="guilabel">User-Agent</em></p>
+</li>
+</ul>
+<p id="figure-network-tab"><strong>Figure Network Tab:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/proxy-settings.png" src="../../../_images/proxy-settings.png" />
+<p class="caption">Paramètres de proxy dans KADAS</p>
+</div>
+<p><strong>Paramètres du cache</strong></p>
+<p>Définir le <em class="guilabel">Répertoire</em> et la <em class="guilabel">Taille</em> du cache.</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Utiliser un proxy pour l&#8217;accès internet</em> et définir l&#8217;&#8216;Hôte&#8217;, le &#8216;Port&#8217;, l&#8217;&#8216;Utilisateur&#8217;, et le &#8216;Mot de passe&#8217;.</p>
+</li>
+<li><p class="first">Sélection du <em class="guilabel">Type de proxy</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> selon vos besoins.</p>
+<ul>
+<li><p class="first"><em class="menuselection">Default Proxy</em> : le proxy est déterminé sur la base du proxy de l&#8217;application</p>
+</li>
+<li><p class="first"><em class="menuselection">Socks5Proxy</em> : proxy générique pour tout type de connexion. Supporte le TCP, UDP, binding à un port (connexions entrantes) et l&#8217;authentification.</p>
+</li>
+<li><p class="first"><em class="menuselection">HttpProxy</em> : implémenté avec la commande &#8220;CONNECT&#8221; , supporte uniquement les connexions TCP sortantes, supporte l&#8217;authentification.</p>
+</li>
+<li><p class="first"><em class="menuselection">HttpCachingProxy</em> : implémenté via les commandes HTTP normales, utile uniquement dans un contexte de requêtes HTTP.</p>
+</li>
+<li><p class="first"><em class="menuselection">FtpCachingProxy</em> : implémenté avec un proxy FTP, utile uniquement dans un contexte de requêtes FTP.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Vous pouvez exclure certaines adresses en les ajoutant dans la zone de texte sous les paramètres de proxy (voir <a class="reference internal" href="#figure-network-tab">Figure_Network_Tab</a>).</p>
+<p>Si vous avez besoin d&#8217;informations plus détaillées sur les différents paramètres de proxy, référez-vous au manuel de la bibliothèque sous-jacente QT : <a class="reference external" href="http://doc.trolltech.com/4.5/qnetworkproxy.html#ProxyType-enum">http://doc.trolltech.com/4.5/qnetworkproxy.html#ProxyType-enum</a>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p><strong>Utiliser les proxy</strong></p>
+<p class="last">L&#8217;utilisation de proxy peut se révéler difficile. Il est utile de tester les types de proxy décrits ci-dessus et vérifier s&#8217;ils conviennent.</p>
+</div>
+<p>Vous pouvez modifier les options selon vos besoins. Certaines modifications peuvent nécessiter un redémarrage de KADAS pour qu&#8217;elles soient effectives.</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> Les paramètres sont sauvegardés dans un fichier texte : <tt class="file docutils literal"><span class="pre">$HOME/.config/QGIS/QGIS2.conf</span></tt></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a> Les paramètres se trouvent dans: <tt class="file docutils literal"><span class="pre">$HOME/Library/Preferences/org.qgis.qgis.plist</span></tt></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> Les paramètres sont stockés dans la base de registre, sous: <tt class="docutils literal"><span class="pre">HKEY\CURRENT_USER\Software\QGIS\qgis</span></tt></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="customization">
+<span id="sec-customization"></span><h2>Personnalisation<a class="headerlink" href="#customization" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L&#8217;outil de personnalisation vous permet de (dés)activer la quasi totalité des éléments de l&#8217;interface de KADAS. Ceci peut être très utile si vous avez de nombreuses extensions que vous n&#8217;utilisez pas et qui encombrent votre écran.</p>
+<p id="figure-customization"><strong>Figure Customization 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/customization.png" src="../../../_images/customization.png" />
+<p class="caption">La fenêtre de Personnalisation <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>La fenêtre de personnalisation de KADAS est subdivisée en cinq groupes. Sous <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Menus</em> vous pouvez dissimuler des éléments de la Barre de menu. Sous <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Panneaux</em> vous trouverez les fenêtres de panneaux. Les fenêtres de panneaux sont des applications qui peuvent être lancées et utilisées comme fenêtre flottante de premier plan ou intégrées à la fenêtre principale de KADAS en tant qu&#8217;outils intégrés (voir aussi <a class="reference internal" href="#sec-panels-and-toolbars"><em>Panneaux et barres d&#8217;outils</em></a>). Sous <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Barre d&#8217;état</em> les informations telles que les coordonnées peuvent être désactivées. Sous <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Barre d&#8217;outils</em> vous pouvez (désactiver)activer les icônes des barres d&#8217;outils de KADAS, et sous <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Outils</em> vous pouvez (désactiver)activer certaines boîtes de dialogue ainsi que les boutons associés.</p>
+<p>Avec <a class="reference internal" href="../../../_images/mActionSelect.png"><img alt="mActionSelect" src="../../../_images/mActionSelect.png" style="width: 1.5em;" /></a> <em class="guilabel">Sélection interactive d&#8217;objets depuis la fenêtre principale</em>, vous pouvez cliquer sur les éléments de KADAS que vous souhaitez cacher et trouver l&#8217;entrée correspondante dans la liste de Personnalisation (voir <a class="reference internal" href="#figure-customization">figure_customization</a>). Vous pouvez aussi sauvegarder différents états de personnalisation adaptés à différents cas d&#8217;utilisation. Vous devrez redémarrer KADAS pour que les modifications soient appliquées.</p>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

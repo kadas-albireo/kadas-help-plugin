@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Strumenti generali</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="Inglese">English</option>
+  <option value="de" title="Tedesco">Deutsch</option>
+  <option value="fr" title="Francese">Français</option>
+  <option value="it" title="Italiano">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/introduction/general_tools.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Scopri QGIS</a></li>
+            <li><a href="../../../site/forusers/index.html">Per gli Utenti</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Partecipa</a></li>
+            <li><a href="../../index.html">Documentazione</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Cerca" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Indice</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Convenzioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Premessa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Le mie mappe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analisi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Disegno</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendice</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="general-tools">
+<span id="id1"></span><h1>Strumenti generali<a class="headerlink" href="#general-tools" title="link permanente per questa intestazione">¶</a></h1>
+<div class="section" id="keyboard-shortcuts">
+<span id="shortcuts"></span><h2>Scorciatoie da tastiera<a class="headerlink" href="#keyboard-shortcuts" title="link permanente per questa intestazione">¶</a></h2>
+<p id="index-0">Ci sono molte scorciatoie da tastiera per molte funzionalità di KADAS. Le scorciatoie sono elencate nella sezione <a class="reference internal" href="qgis_gui.html#label-menubar"><em>Barra dei Menu</em></a>. Inoltre, l`opzione di menu <em class="menuselection">Impostazioni ‣</em> <em class="menuselection">Configura scorciatoie ‣</em> ti permette di modificare le scorciatoie da tastiera esistenti e di aggiungerne di nuove.</p>
+<p id="figure-shortcuts"><strong>Figure Shortcuts 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/shortcuts.png" src="../../../_images/shortcuts.png" />
+<p class="caption">Finestra scorciatoie <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> (Gnome)</p>
+</div>
+<p>Configurare le scorciatoie è molto semplice; basta selezionare una funzionalità di interesse e cliccare <strong>[Cambia]</strong>, <strong>[Elimina]</strong> o <strong>[Selezione predefinita]</strong>. Le configurazioni possono essere salvate in un file XML e caricate su un’altra installazione di KADAS.</p>
+</div>
+<div class="section" id="context-help">
+<span id="id2"></span><h2>Guide contestuali<a class="headerlink" href="#context-help" title="link permanente per questa intestazione">¶</a></h2>
+<p id="index-1">Se vuoi ottenere maggiori informazioni su una funzionalità specifica puoi usare il pulsante <strong>[Aiuto]</strong> disponibile in molte finestre di dialogo. Nota che nel caso di plugin di terze parti la guida contestuale potrebbe rimandare ad una pagina web dedicata.</p>
+</div>
+<div class="section" id="rendering">
+<span id="redraw-events"></span><h2>Visualizzazione<a class="headerlink" href="#rendering" title="link permanente per questa intestazione">¶</a></h2>
+<p id="index-2">In modo predefinito, KADAS visualizza tutti i layer visibili ogni volta che la mappa viene aggiornata. La mappa viene aggiornata ogni volta che:</p>
+<ul class="simple">
+<li><p class="first">Aggiungi un layer</p>
+</li>
+<li><p class="first">Sposti, ingrandisci o riduci la mappa</p>
+</li>
+<li><p class="first">Ridimensioni la finestra di KADAS</p>
+</li>
+<li><p class="first">Cambi la visibilità di uno o più layer</p>
+</li>
+</ul>
+<p>KADAS consente di controllare il processo di visualizzazione in diverse maniere.</p>
+<div class="section" id="scale-dependent-rendering">
+<h3>Visualizzazione in funzione della scala<a class="headerlink" href="#scale-dependent-rendering" title="link permanente per questa intestazione">¶</a></h3>
+<p id="index-3">La visualizzazione in funzione della scala permette di specificare la scala minima e massima alla quale il vettore verrà visualizzato. Per impostare questa funzionalità, apri la finestra <em class="guilabel">Proprietà</em> facendo doppio click sul vettore. Nella scheda <em class="guilabel">Generale</em>, clicca sulla casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><em class="guilabel">Visualizzazione dipendente dalla scala</em>: potrai cosi inserire i valori minimi e massimi di visualizzazione della scala.</p>
+<p>I valori di scala possono essere determinati usando prima lo zoom sul layer per il quale si vuole impostarel’opzione e prendendo successivamente nota del valore di scala visualizzato nella barra di stato di KADAS.</p>
+</div>
+<div class="section" id="controlling-map-rendering">
+<span id="label-controlmap"></span><span id="index-4"></span><h3>Controllare la visualizzazione della mappa<a class="headerlink" href="#controlling-map-rendering" title="link permanente per questa intestazione">¶</a></h3>
+<p>Puoi controllare la visualizzazione della mappa in molti modi diversi, come descritto di seguito.</p>
+<div class="section" id="suspending-rendering">
+<span id="label-suspendrender"></span><h4>Sospensione della visualizzazione<a class="headerlink" href="#suspending-rendering" title="link permanente per questa intestazione">¶</a></h4>
+<p>Per interrompere la visualizzazione, clicca sulla casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Visualizza</em> in basso a destra della barra di stato. Quando la casella <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Visualizza</em> non è spuntata, KADAS non aggiorna la vista quando si verifica uno degli eventi precedentemente descritti nella sezione <a class="reference internal" href="#redraw-events"><em>Visualizzazione</em></a>. Alcuni casi in cui potresti voler sospendere la visualizzazione sono:</p>
+<ul class="simple">
+<li><p class="first">Aggiunta di molti layer con simbologia predefinita prima della visualizzazione</p>
+</li>
+<li><p class="first">Aggiunta di uno o più layer di grosse dimensioni e impostazione di una scala prima della visualizzazione</p>
+</li>
+<li><p class="first">Aggiunta di uno o più layer di grossa dimensione e zoom ad un’area specifica prima della visualizzazione</p>
+</li>
+<li><p class="first">Combinazioni delle precedenti</p>
+</li>
+</ul>
+<p>Se la casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Aggiorna</em> è spuntata, la visualizzazione e l&#8217;aggiornamento della mappa saranno immediati.</p>
+</div>
+<div class="section" id="setting-layer-add-option">
+<span id="label-settinglayer"></span><h4>Controllare la visibilità dei layer quando sono caricati<a class="headerlink" href="#setting-layer-add-option" title="link permanente per questa intestazione">¶</a></h4>
+<p>Puoi scegliere l’opzione di caricare i nuovi layer senza che questi vengano immediatamente visualizzati sulla mappa. Ciò significa che quando aggiungerai un layer al progetto, la casella di controllo per la visibilità nella legenda risulterà disabilitata. Per impostare questa opzione, apri il menu <em class="menuselection">Impostazioni ‣ Opzioni ‣</em> e clicca sulla scheda <em class="guilabel">Visualizzazione</em>. Deseleziona la casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Per impostazione predefinita i nuovi layer aggiunti alla mappa vengono visualizzati subito</em>. Ogni layer aggiunto alla mappa risulterà essere quindi spento (invisibile).</p>
+</div>
+<div class="section" id="stopping-rendering">
+<h4>Fermare la visualizzazione<a class="headerlink" href="#stopping-rendering" title="link permanente per questa intestazione">¶</a></h4>
+<p id="label-stoprender"><span id="index-5"></span>Per fermare la visualizzazione della mappa primi il tasto <tt class="kbd docutils literal"><span class="pre">ESC</span></tt>. In questo modo l`aggiornamento della mappa verrà bloccato e la mappa rimarrà parzialmente disegnata. Dopo aver premuto il tasto <tt class="kbd docutils literal"><span class="pre">ESC</span></tt> potrebbe passare un po` di tempo finché l`interruzione della visualizzazione della mappa sia effettiva.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Attualmente non si può interrompere la visualizzazione in corso: questa opzione è stata disabilitata nella porta Qt4 a causa di diversi problemi dell&#8217;interfaccia utente (UI).</p>
+</div>
+</div>
+<div class="section" id="updating-the-map-display-during-rendering">
+<span id="label-updatemap"></span><h4>Aggiornamento della mappa durante la visualizzazione<a class="headerlink" href="#updating-the-map-display-during-rendering" title="link permanente per questa intestazione">¶</a></h4>
+<p id="index-6">Puoi impostare un’opzione per aggiornare la mappa man mano che gli elementi del layer vengono letti. In modo predefinito, KADAS non visualizza alcun elemento a video finché l’intero layer non è stato caricato. Per aggiornare la visualizzazione man mano che gli elementi vengono caricati, seleziona il menu <em class="menuselection">Impostazioni‣ Opzioni ‣</em> e clicca sulla scheda <em class="guilabel">Visualizzazione</em>. Imposta il numero di elementi che vuoi che vengano caricati prima che la mappa venga aggiornata. Il valore pari a 0 disabilita l’aggiornamento durante la visualizzazione degli oggetti (impostazione predefinita). Un valore troppo basso diminuisce le prestazioni in quanto la mappa viene continuamente aggiornata man mano che gli elementi del layer vengono caricato. 500 è il valore suggerito.</p>
+</div>
+<div class="section" id="influence-rendering-quality">
+<span id="label-renderquality"></span><h4>Modificare la qualità della visualizzazione<a class="headerlink" href="#influence-rendering-quality" title="link permanente per questa intestazione">¶</a></h4>
+<p id="index-7">Ci sono due opzioni per modificare la qualità della visualizzazione. Dal menu <em class="menuselection">Impostazioni ‣ Opzioni ‣</em> clicca sulla scheda <em class="guilabel">Visualizzazione</em> e seleziona o deseleziona le seguenti caselle di controllo.</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Rendi le linee meno irregolari a spese delle prestazioni</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Risolvi problemi con i poligoni riempiti non correttamente</em></p>
+</li>
+</ul>
+</div>
+<div class="section" id="speed-up-rendering">
+<h4>Velocizzare la visualizzazione<a class="headerlink" href="#speed-up-rendering" title="link permanente per questa intestazione">¶</a></h4>
+<p>Ci sono due opzioni per modificare la qualità della visualizzazione. Dal menu <em class="menuselection">Impostazione ‣ Opzioni ‣</em> clicca sulla scheda <em class="guilabel">Visualizzazione</em> e seleziona o deseleziona le seguenti caselle di controllo.</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Abilita buffer geometrie</em>. Questa opzione fornisce prestazioni grafiche migliori a scapito della possibilità di annullare un ridisegno sullo schermo o di visualizzare i vettori in maniera incrementale. Se disabilitata, puoi impostare il <em class="guilabel">Numero di geometrie da disegnare prima di aggiornare lo schermo</em>, altrimenti questa opzione risulterà essere inattiva.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Usa il caching del disegno quando possibile per velocizzare la visualizzazione</em></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="measuring">
+<span id="sec-measure"></span><h2>Misurazioni<a class="headerlink" href="#measuring" title="link permanente per questa intestazione">¶</a></h2>
+<p id="index-8">Puoi effettuare misurazioni metriche solo con i sistemi di coordinate piane (es. UTM). Se la mappa caricata è definita in un sistema di coordinate geografiche (latitudine/longitudine), il risultato della misurazione di linee o aree sarà errato. Per effettuare misurazioni devi quindi impostare correttamente il sistema di coordinate della mappa (vedi sezione <a class="reference internal" href="../working_with_projections/working_with_projections.html#label-projections"><em>Lavorare con le proiezioni</em></a>). Tutti i moduli di misura usano le opzioni di snapping del modulo di digitalizzazione. Questo è utile se vuoi misurare lungo linee o aree di vettori.</p>
+<p>Per selezionare uno strumento di misura clicca su <a class="reference internal" href="../../../_images/mActionMeasure.png"><img alt="mActionMeasure" src="../../../_images/mActionMeasure.png" style="width: 1.5em;" /></a> e scegli lo strumento che vuoi usare.</p>
+<div class="section" id="measure-length-areas-and-angles">
+<h3>Misurare lunghezze, aree ed angoli<a class="headerlink" href="#measure-length-areas-and-angles" title="link permanente per questa intestazione">¶</a></h3>
+<span class="target" id="index-9"></span><span class="target" id="index-10"></span><p id="index-11"><a class="reference internal" href="../../../_images/mActionMeasure.png"><img alt="mActionMeasure" src="../../../_images/mActionMeasure.png" style="width: 1.5em;" /></a> <sup>Measure Line</sup>: KADAS is able to measure real distances
+between given points according to a defined ellipsoid. To configure this,
+choose menu option <em class="menuselection">Settings ‣ Options</em>, click on the
+<em class="guilabel">Map tools</em> tab and select the appropriate ellipsoid. There, you can
+also define a rubberband color and your preferred measurement units (meters or
+feet) and angle units (degrees, radians and gon). The tool then allows you to
+click points on the map. Each segment length, as well as the total, shows up in
+the measure window. To stop measuring, click your right mouse button.
+Note that you can interactively change the measurement units in the measurement
+dialog. It overrides the <em class="guilabel">Preferred measurement units</em> in the options.
+There is an info section in the dialog that shows which CRS settings are being used
+during measurement calculations.</p>
+<p id="figure-measure-length"><strong>Figure Measure 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/measure_line.png" src="../../../_images/measure_line.png" />
+<p class="caption">Misura distanze <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> (Gnome)</p>
+</div>
+<p><a class="reference internal" href="../../../_images/mActionMeasureArea.png"><img alt="mActionMeasureArea" src="../../../_images/mActionMeasureArea.png" style="width: 1.5em;" /></a> <sup>Misura area</sup> Questo strumento consente di misurare le aree; la finestra mostrerà unicamente l’area totale misurata. In più, se hai impostato una tolleranza di snap per il vettore (sezione <em class="xref std std-ref">snapping_tolerance</em>), lo strumento farà lo snap sul vettore selezionato. Quindi, se vuoi misurare esattamente lungo una linea o un poligono devi prima definire la tolleranza di snap e poi selezionare il vettore. In questo modo, quando vengono usati gli strumenti di misura, ogni click del mouse (all’interno della tolleranza definita) si aggancerà a quel preciso vettore.</p>
+<p id="figure-measure-area"><strong>Figure Measure 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/measure_area.png" src="../../../_images/measure_area.png" />
+<p class="caption">Misura area <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> (Gnome)</p>
+</div>
+<p><a class="reference internal" href="../../../_images/mActionMeasureAngle.png"><img alt="mActionMeasureAngle" src="../../../_images/mActionMeasureAngle.png" style="width: 1.5em;" /></a> <sup>Misura angoli</sup>: grazie a questo strumento puoi misurare gli angoli. Clicca e disegna il primo segmento dell’angolo, poi sposta il mouse per disegnare l’angolo stesso; la misura apparirà in una finestra pop-up.</p>
+<p id="figure-measure-angle"><strong>Figure Measure 3:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/measure_angle.png" src="../../../_images/measure_angle.png" />
+<p class="caption">Misura angolo <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> (Gnome)</p>
+</div>
+</div>
+<div class="section" id="select-and-deselect-features">
+<span id="sec-selection"></span><h3>Selezionare e deselezionare elementi<a class="headerlink" href="#select-and-deselect-features" title="link permanente per questa intestazione">¶</a></h3>
+<p>KADAS fornisce diversi strumenti per la selezione di elementi nella mappa. Per selezionare uno o più elementi clicca semplicemente su <a class="reference internal" href="../../../_images/mActionSelect.png"><img alt="mActionSelect" src="../../../_images/mActionSelect.png" style="width: 1.5em;" /></a> e scegli lo strumento che preferisci:</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionSelect.png"><img alt="mActionSelect" src="../../../_images/mActionSelect.png" style="width: 1.5em;" /></a> <sup>Seleziona il singolo elemento</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionSelectRectangle.png"><img alt="mActionSelectRectangle" src="../../../_images/mActionSelectRectangle.png" style="width: 1.5em;" /></a> <sup>Seleziona elementi con un rettangolo</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionSelectPolygon.png"><img alt="mActionSelectPolygon" src="../../../_images/mActionSelectPolygon.png" style="width: 1.5em;" /></a> <sup>Seleziona elementi con un poligono</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionSelectFreehand.png"><img alt="mActionSelectFreehand" src="../../../_images/mActionSelectFreehand.png" style="width: 1.5em;" /></a> <sup>Seleziona elementi a mano libera</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionSelectRadius.png"><img alt="mActionSelectRadius" src="../../../_images/mActionSelectRadius.png" style="width: 1.5em;" /></a> <sup>Seleziona elementi con un cerchio</sup></p>
+</li>
+</ul>
+<p>Per deselezionare tutti gli elementi selezionati clicca su <a class="reference internal" href="../../../_images/mActionDeselectAll.png"><img alt="mActionDeselectAll" src="../../../_images/mActionDeselectAll.png" style="width: 1.5em;" /></a> <sup>Deseleziona gli elementi da tutti i vettori</sup>.</p>
+<p><a class="reference internal" href="../../../_images/mIconExpressionSelect.png"><img alt="mIconExpressionSelect" src="../../../_images/mIconExpressionSelect.png" style="width: 1.5em;" /></a> <sup>Seleziona la geometria con una espressione</sup> permette di selezionare le geometrie tramite la finestra di dialogo delle espressioni. Vedere il capitolo <a class="reference internal" href="../working_with_vector/expression.html#vector-expressions"><em>Expressions</em></a> per alcuni esempi..</p>
+<p>Gli utenti possono salvare le geometrie selezionate in un <strong>Nuovo vettore in memoria</strong> oppure in un <strong>Nuovo vettore</strong> dal menu <em class="menuselection">Modifica ‣ Incolla geometrie come...</em> e selezionare la modalità desiderata.</p>
+</div>
+</div>
+<div class="section" id="identify">
+<span id="identify-features"></span><h2>Informazione elementi<a class="headerlink" href="#identify" title="link permanente per questa intestazione">¶</a></h2>
+<p id="index-12">Con lo strumento Informazioni elementi puoi interagire con gli elementi nella mappa ed ottenere gli attributi delle geometrie. Attiva lo strumento cliccando su <em class="menuselection">Visualizza ‣ Informazione elementi</em>,  oppure usa la scorciatoia da tastiera <tt class="kbd docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">I</span></tt> oppure ancora clicca sull&#8217;icona <a class="reference internal" href="../../../_images/mActionIdentify.png"><img alt="mActionIdentify" src="../../../_images/mActionIdentify.png" style="width: 1.5em;" /></a> <sup>Informazione elementi</sup> nella barra degli strumenti.</p>
+<p>If you click on several features, the <em class="guilabel">Identify results</em> dialog will
+list information about all the selected features. The first item is the number of the
+layer in the list of results, followed by the layer name. Then, its first child will
+be the name of a field with its value. The first field is the one selected in
+<em class="menuselection">Properties ‣ Display</em>. Finally, all information about the feature
+is displayed.</p>
+<p>Puoi personalizzare questa finestra in modo da visualizzare determinati campi, ma in modo predefinito vengono mostrati tre tipi di informazione:</p>
+<ul class="simple">
+<li><p class="first">Azioni: puoi aggiungere le azioni nella lista degli elementi. Devi solamente cliccare sull&#8217;icona azione per eseguire l&#8217;azione. In modo predefinito è presente solo l&#8217;azione che apre il modulo degli attributi per la successiva modifica.</p>
+</li>
+<li><p class="first">Derivato: queste informazioni vengono calcolate o derivano da altre informazioni. Verranno visualizzate le coordinate X e Y cliccate, l&#8217;area e il perimetro in unità di mappa per i poligoni, la lunghezza per le linee e gli ID delle geometrie.</p>
+</li>
+<li><p class="first">Attributi dei dati: questa è l&#8217;elenco dei campi e relativi attributi della geometria cliccata.</p>
+</li>
+</ul>
+<p id="figure-identify"><strong>Figure Identify 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/identify_features.png" src="../../../_images/identify_features.png" />
+<p class="caption">Finestra di dialogo Informazioni elementi <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> (Gnome)</p>
+</div>
+<p>Al di sopra della finestra ci sono cinque icone</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionExpandTree.png"><img alt="mActionIdentifyExpand" src="../../../_images/mActionExpandTree.png" style="width: 1.5em;" /></a> <sup>Espandi albero</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionCollapseTree.png"><img alt="mActionIdentifyCollapse" src="../../../_images/mActionCollapseTree.png" style="width: 1.5em;" /></a> <sup>Racchiudi albero</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionExpandNewTree.png"><img alt="mActionIdentifyDefaultExpand" src="../../../_images/mActionExpandNewTree.png" style="width: 1.5em;" /></a> <sup>Impostazione predefinita</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionEditCopy.png"><img alt="mActionIdentifyCopyAttributes" src="../../../_images/mActionEditCopy.png" style="width: 1.5em;" /></a> <sup>Copia attributi</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionFilePrint.png"><img alt="mActionIdentifyPrint" src="../../../_images/mActionFilePrint.png" style="width: 1.5em;" /></a> <sup>Stampa il responso HTML selezionato</sup></p>
+</li>
+</ul>
+<p>At the bottom of the window, you have the <em class="guilabel">Mode</em> and <em class="guilabel">View</em>
+comboboxes.
+With the <em class="guilabel">Mode</em> combobox you can define the identify mode: &#8216;Current layer&#8217;,
+&#8216;Top down, stop at first&#8217;, &#8216;Top down&#8217; and &#8216;Layer selection&#8217;.
+The <em class="guilabel">View</em> can be set as &#8216;Tree&#8217;, &#8216;Table&#8217; and &#8216;Graph&#8217;.</p>
+<p>Lo strumento identifica permette di aprire automaticamente una maschera. In questo modo è possibile modificare gli attributi delle geometrie.</p>
+<p>Puoi trovare altre opzioni nel menu contestuale dell&#8217;elemento identificato. Per esempio, dal menu contestuale puoi:</p>
+<ul class="simple">
+<li><p class="first">Visualizzare modulo geometria</p>
+</li>
+<li><p class="first">Zoomare alla geometria</p>
+</li>
+<li><p class="first">Copiare elementi: copiare tutti gli elementi e gli attributi della geometria</p>
+</li>
+<li><p class="first">Imposta/ rimuovi la selezione della geometria: aggiungi alla selezione la geometria identificata</p>
+</li>
+<li><p class="first">Copiare un valore di un attributo: copiare solo il valore dell&#8217;attributo identificato</p>
+</li>
+<li><p class="first">Copiare attributi geometria: copiare solamente gli attributi;</p>
+</li>
+<li><p class="first">Cancellare risultati: verranno cancellati i risultati nella finestra</p>
+</li>
+<li><p class="first">Cancellare evidenziati: verranno cancellate le geometrie evidenziate sulla mappa</p>
+</li>
+<li><p class="first">Evidenziare tutto</p>
+</li>
+<li><p class="first">Evidenziare vettore</p>
+</li>
+<li><p class="first">Attivare un vettore: scegliere un vettore che deve essere attivato</p>
+</li>
+<li><p class="first">Proprietà del vettore: aprire la finestra delle proprietà del vettore</p>
+</li>
+<li><p class="first">Espandi tutto</p>
+</li>
+<li><p class="first">Racchiudi tutto</p>
+</li>
+</ul>
+</div>
+<div class="section" id="decorations">
+<span id="id3"></span><h2>Decorazioni<a class="headerlink" href="#decorations" title="link permanente per questa intestazione">¶</a></h2>
+<p>Le decorazioni di KADAS includono: il reticolo, l`etichetta copyright, la freccia nord e la barra di scala. Sono usate per &#8216;decorare&#8217; la mappa aggiungendo elementi cartografici.</p>
+<div class="section" id="grid">
+<h3>Reticolo<a class="headerlink" href="#grid" title="link permanente per questa intestazione">¶</a></h3>
+<p><a class="reference internal" href="../../../_images/transformed.png"><img alt="transformed" src="../../../_images/transformed.png" style="width: 1.5em;" /></a> <sup>Reticolo</sup> ti permette di aggiungere un reticolo e le coordinata alla mappa.</p>
+<p id="figure-decorations-1"><strong>Figure Decorations 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/grid_dialog.png" src="../../../_images/grid_dialog.png" />
+<p class="caption">Finestra di dialogo delle proprietà del reticolo <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ol class="arabic simple">
+<li><p class="first">Seleziona dal menu <em class="menuselection">Visualizza ‣ Decorazioni‣ Reticolo</em>. Si aprirà un`altra finestra (vedi <a class="reference internal" href="#figure-decorations-1">figure_decorations_1</a>).</p>
+</li>
+<li><p class="first">Attiva la casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Abilita reticolo</em> e imposta i valori che preferisci in funzione dei layer caricati sulla mappa.</p>
+</li>
+<li><p class="first">Attiva la casella di controllo  <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Scrivi coordinate</em>  e imposta le proprietà migliori in base agli elementi che hai caricato sulla mappa.</p>
+</li>
+<li><p class="first">Clicca su <strong>[Applica]</strong> per verificare che il risultato sia corretto.</p>
+</li>
+<li><p class="first">Clicca <strong>[OK]</strong> per chiudere la finestra di dialogo.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="copyright-label">
+<h3>Etichetta Copyright<a class="headerlink" href="#copyright-label" title="link permanente per questa intestazione">¶</a></h3>
+<p><a class="reference internal" href="../../../_images/copyright_label.png"><img alt="copyright_label" src="../../../_images/copyright_label.png" style="width: 1.5em;" /></a> <sup>Etichetta copyright</sup> aggiunge un`Etichetta Copyright personalizzata in base al testo che preferisci far apparire sulla mappa.</p>
+<p id="figure-decorations-2"><strong>Figure Decorations 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/copyright.png" src="../../../_images/copyright.png" />
+<p class="caption">La finestra di dialogo Copyright <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ol class="arabic simple">
+<li><p class="first">Seleziona dal menu <em class="menuselection">Visualizza ‣ Decorazioni‣ Etichetta copyright</em>. Si aprirà un`altra finestra (vedi <a class="reference internal" href="#figure-decorations-2">figure_decorations_2</a>).</p>
+</li>
+<li><p class="first">Digita il testo che vuoi aggiungere alla mappa. Puoi anche usare il linguaggio HTML come mostrato nell’esempio.</p>
+</li>
+<li><p class="first">Scegli la posizione dell’etichetta dal menu a tendina <em class="guilabel">Posizione</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>.</p>
+</li>
+<li><p class="first">Assicurati che la casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Abilita etichetta di copyright</em> sia spuntata.</p>
+</li>
+<li><p class="first">Clicca <strong>[OK]</strong>.</p>
+</li>
+</ol>
+<p>Nell’esempio di sopra, KADAS inserisce il simbolo di copyright, seguito dalla data, nell&#8217;angolo in basso a destra della mappa.</p>
+</div>
+<div class="section" id="north-arrow">
+<h3>Freccia Nord<a class="headerlink" href="#north-arrow" title="link permanente per questa intestazione">¶</a></h3>
+<p><a class="reference internal" href="../../../_images/north_arrow.png"><img alt="north_arrow" src="../../../_images/north_arrow.png" style="width: 1.5em;" /></a> <sup>Freccia nord</sup> aggiunge alla mappa una semplice freccia indicante il nord. Attualmente c’è un solo stile disponibile. Puoi modificare manualmente l’angolo della freccia o lasciare che KADAS imposti automaticamente la direzione. Per il posizionamento della freccia hai quattro possibilità, corrispondenti ai quattro angoli della mappa.</p>
+<p id="figure-decorations-3"><strong>Figure Decorations 3:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/north_arrow_dialog.png" src="../../../_images/north_arrow_dialog.png" />
+<p class="caption">La finestra Freccia Nord <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+</div>
+<div class="section" id="scale-bar">
+<h3>Barra di Scala<a class="headerlink" href="#scale-bar" title="link permanente per questa intestazione">¶</a></h3>
+<p><a class="reference internal" href="../../../_images/scale_bar.png"><img alt="scale_bar" src="../../../_images/scale_bar.png" style="width: 2.5em;" /></a> <sup>Barra di scala</sup> aggiunge una semplice barra di scala alla mappa. Puoi controllare il posizionamento, lo stile, il colore e le dimensioni della barra.</p>
+<p id="figure-decorations-4"><strong>Figure Decorations 4:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/scale_bar_dialog.png" src="../../../_images/scale_bar_dialog.png" />
+<p class="caption">La finestra Barra di Scala <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>KADAS supporta solamente la visualizzazione della scala nella stessa unità di misura della mappa. Se l’unità di misura dei layer è il metro, non potrai quindi creare una barra di scala in piedi. Allo stesso modo, se usi i gradi decimali, non potrai creare una barra di scala che mostri le distanze in metri.</p>
+<p>Per aggiungere una barra di scala:</p>
+<ol class="arabic simple">
+<li><p class="first">Seleziona dal menu <em class="menuselection">Visualizzazione ‣ Decorazioni‣ Barra di scala</em>. Si aprirà cosi una finestra di dialogo (see <a class="reference internal" href="#figure-decorations-4">figure_decorations_4</a>)</p>
+</li>
+<li><p class="first">Scegli la posizione dell’etichetta dal menu a tendina <em class="guilabel">Posizione</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>.</p>
+</li>
+<li><p class="first">Scegli lo stile dal menu a tendina <em class="guilabel">Stile della Barra di Scala</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>.</p>
+</li>
+<li><p class="first">Scegli il colore della barra di scala dal menu <em class="guilabel">Colore della barra</em> <img alt="selectcolor" src="../../../_images/selectcolor.png" /> o usa il colore nero predefinito.</p>
+</li>
+<li><p class="first">Imposta la dimensione della barra e la sua etichetta <em class="guilabel">Dimensione della barra</em> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a>.</p>
+</li>
+<li><p class="first">Assicurati che la casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Abilitare barra di scala</em> sia spuntata.</p>
+</li>
+<li><p class="first">Se vuoi, spunta anche la casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Arrotonda automaticamente il numero durante il ridimensionamento</em>.</p>
+</li>
+<li><p class="first">Clicca <strong>[OK]</strong>.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="first admonition-title">Suggerimento</p>
+<p><strong>Impostazioni delle decorazioni</strong></p>
+<p class="last">Quando salvi un progetto <tt class="file docutils literal"><span class="pre">.qgs</span></tt>, ogni impostazione relativa alle decorazioni viene salvata nel file e ripristinata alla successiva apertura del progetto.</p>
+</div>
+<span class="target" id="sec-annotations"></span></div>
+</div>
+<div class="section" id="annotation-tools">
+<span id="index-13"></span><h2>Note testuali<a class="headerlink" href="#annotation-tools" title="link permanente per questa intestazione">¶</a></h2>
+<p>Lo strumento <a class="reference internal" href="../../../_images/mActionTextAnnotation.png"><img alt="mActionTextAnnotation" src="../../../_images/mActionTextAnnotation.png" style="width: 1.5em;" /></a> <sup>Nota testuale</sup> nella barra degli attributi permette di posizionare del testo formattato sulla mappa. Per creare una nota, seleziona lo strumento <em class="guilabel">Nota testuale</em> e clicca sulla mappa.</p>
+<p id="annotation"><strong>Figure annotation 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/annotation.png" src="../../../_images/annotation.png" />
+<p class="caption">La finestra di annotazione testuale <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>Se fai doppio click sull’elemento aggiunto alla mappa si aprirà una finestra di dialogo con diverse opzioni. Avrai accesso a un editor per aggiungere il testo della nota. Inoltre hai anche la possibilità di scegliere se la nota dovrà essere posizionata su un punto preciso della mappa (visualizzata come indicatore) oppure se la posizione della nota dovrà essere relativa a una posizione dello schermo (quindi indipendente dalla mappa). Puoi muovere sia tutta la nota (trascinando l&#8217;indicatore) sia solamente il testo (trascinando il riquadro del testo).</p>
+<p>Con lo strumento  <a class="reference internal" href="../../../_images/mActionAnnotation.png"><img alt="mActionAnnotation" src="../../../_images/mActionAnnotation.png" style="width: 1.5em;" /></a> <sup>Muovi nota</sup> puoi spostare la nota dove preferisci.</p>
+<div class="section" id="html-annotations">
+<h3>Note Html<a class="headerlink" href="#html-annotations" title="link permanente per questa intestazione">¶</a></h3>
+<p>Lo strumento <a class="reference internal" href="../../../_images/mActionFormAnnotation.png"><img alt="mActionFormAnnotation" src="../../../_images/mActionFormAnnotation.png" style="width: 1.5em;" /></a> <sup>Nota Html</sup> presente nella barra degli attributi, ti permette di creare una nota con del testo formattato in linguaggio html. Seleziona lo strumento <em class="guilabel">Nota Html</em>, clicca sulla mappa e inserisci il testo html nel riquadro della nota.</p>
+</div>
+<div class="section" id="svg-annotations">
+<h3>Note SVG<a class="headerlink" href="#svg-annotations" title="link permanente per questa intestazione">¶</a></h3>
+<p>Lo strumento <a class="reference internal" href="../../../_images/mActionSaveAsSVG.png"><img alt="mActionSaveAsSVG" src="../../../_images/mActionSaveAsSVG.png" style="width: 1.5em;" /></a> <sup>Nota SVG</sup> ti permette di aggiungere un simbolo SVG nel riquadro della nota e piazzarlo sulla mappa. Per creare una nota SVG, seleziona lo strumento <em class="guilabel">Nota SVG</em>, clicca sulla mappa e aggiungi il percorso al file SVG nella finestra di dialogo.</p>
+</div>
+<div class="section" id="form-annotations">
+<h3>Modulo annotazioni<a class="headerlink" href="#form-annotations" title="link permanente per questa intestazione">¶</a></h3>
+<p>Puoi anche creare moduli di note personalizzati. Usa lo strumento <a class="reference internal" href="../../../_images/mActionFormAnnotation.png"><img alt="mActionFormAnnotation" src="../../../_images/mActionFormAnnotation.png" style="width: 1.5em;" /></a> <sup>Nota con modulo</sup> per visualizzare gli attributi di un vettore con un modulo personalizzato creato con Qt Designer (vedi <a class="reference internal" href="#figure-custom-annotation">figure_custom_annotation</a>). La nota con modulo è simile al modulo dello strumento <em class="guilabel">’Informazioni elementi</em>, con la differenza che le informazioni sono visualizzate attraverso una nota. Vedi il video <a class="reference external" href="https://www.youtube.com/watch?v=0pDBuSbQ02o">https://www.youtube.com/watch?v=0pDBuSbQ02o</a> di Tim Sutton per ulteriori informazioni.</p>
+<p id="figure-custom-annotation"><strong>Figure annotation 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/custom_annotation.png" src="../../../_images/custom_annotation.png" />
+<p class="caption">Modulo personalizzato qt designer di annotazioni <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Nota: Premendo <tt class="kbd docutils literal"><span class="pre">Ctrl+T</span></tt> con uno strumento nota attivo (Nota testuale, Nota con modulo, Muovi nota) lo stato di visualizzazione delle note si inverte: se sono visibili diventano invisibili e viceversa.</p>
+</div>
+</div>
+</div>
+<div class="section" id="spatial-bookmarks">
+<span id="sec-bookmarks"></span><h2>Segnalibri geospaziali<a class="headerlink" href="#spatial-bookmarks" title="link permanente per questa intestazione">¶</a></h2>
+<span class="target" id="index-14"></span><p id="index-15">I segnalibri geospaziali consentono di memorizzare una posizione geografica alla quale potrai ritornare in un secondo momento.</p>
+<div class="section" id="creating-a-bookmark">
+<h3>Creazione di un segnalibro<a class="headerlink" href="#creating-a-bookmark" title="link permanente per questa intestazione">¶</a></h3>
+<p>Per creare un segnalibro:</p>
+<ol class="arabic simple">
+<li><p class="first">Usa lo zoom o muovi la mappa all’estensione d’interesse.</p>
+</li>
+<li><p class="first">Seleziona l&#8217;opzione <em class="menuselection">Visualizza‣ Nuovo segnalibro‣</em> oppure premi <tt class="kbd docutils literal"><span class="pre">Ctrl-B</span></tt>.</p>
+</li>
+<li><p class="first">Inserisci un nome descrittivo per il segnalibro (fino a 255 caratteri).</p>
+</li>
+<li><p class="first">Premi <tt class="kbd docutils literal"><span class="pre">Invio</span></tt> per aggiungere il segnalibro o <strong>[Close]</strong> per uscire senza aggiungerlo.</p>
+</li>
+</ol>
+<p>Nota che puoi avere più di un segnalibro con lo stesso nome.</p>
+</div>
+<div class="section" id="working-with-bookmarks">
+<h3>Uso e gestione dei segnalibri<a class="headerlink" href="#working-with-bookmarks" title="link permanente per questa intestazione">¶</a></h3>
+<p>Per usare o gestire i segnalibri, seleziona l&#8217;opzione <em class="menuselection">Visualizza‣ Mostra segnalibri ‣</em>. La finestra di dialogo <em class="menuselection">Segnalibri geospaziali</em> ti consente zoomare a un segnalibro o di eliminarlo. Non puoi modificare né il nome né le coordinate di un segnalibro.</p>
+</div>
+<div class="section" id="zooming-to-a-bookmark">
+<h3>Zoom a un segnalibro<a class="headerlink" href="#zooming-to-a-bookmark" title="link permanente per questa intestazione">¶</a></h3>
+<p>Dalla finestra <em class="menuselection">Segnalibri geospaziali</em>, seleziona il segnalibro desiderato cliccandoci sopra, quindi clicca su <strong>[Zoom A]</strong>. Puoi usare lo zoom su un segnalibro anche facendoci doppio click.</p>
+</div>
+<div class="section" id="deleting-a-bookmark">
+<h3>Cancellare un segnalibro<a class="headerlink" href="#deleting-a-bookmark" title="link permanente per questa intestazione">¶</a></h3>
+<p>Per cancellare un segnalibro, clicca sulla finestra di dialogo <em class="guilabel">Segnalibri geospaziali</em> <strong>[Elimina]</strong>. Conferma la scelta cliccando su <strong>[OK]</strong> o annulla cliccando su <strong>[Close]</strong>.</p>
+</div>
+<div class="section" id="import-or-export-a-bookmark">
+<h3>Importa/ Esporta segnalibri<a class="headerlink" href="#import-or-export-a-bookmark" title="link permanente per questa intestazione">¶</a></h3>
+<p>Per condividere o trasferire i tuoi segnalibri tra computer differenti puoi utilizzare il menu  <em class="guilabel">Condividi</em> nella finestra  <em class="guilabel">Segnalibri Geospaziali</em></p>
+</div>
+</div>
+<div class="section" id="nesting-projects">
+<span id="id4"></span><h2>Progetti nidificati<a class="headerlink" href="#nesting-projects" title="link permanente per questa intestazione">¶</a></h2>
+<p id="index-16">Se vuoi nidificare dei layer di altri progetti nel tuo progetto attuale, seleziona <em class="menuselection">Layer ‣ Includi layer e gruppi...</em>.</p>
+<div class="section" id="embedding-layers">
+<h3>Layers inclusi<a class="headerlink" href="#embedding-layers" title="link permanente per questa intestazione">¶</a></h3>
+<p>La finestra di dialogo ti permette di scegliere quali layer di altri progetti puoi includere. Di seguito un piccolo esempio:</p>
+<ol class="arabic simple">
+<li><p class="first">Scegliere <a class="reference internal" href="../../../_images/browsebutton.png"><img alt="browsebutton" src="../../../_images/browsebutton.png" style="width: 2.3em;" /></a> per cercare un altro progetto del dataset Alaska.</p>
+</li>
+<li><p class="first">Seleziona il progetto <tt class="file docutils literal"><span class="pre">grassland</span></tt>. Puoi vedere il contenuto del progetto (vedi <a class="reference internal" href="#figure-embed-dialog">figure_embed_dialog</a>).</p>
+</li>
+<li><p class="first">Premi <tt class="kbd docutils literal"><span class="pre">Ctrl</span></tt>, clicca sui layer <tt class="file docutils literal"><span class="pre">grassland</span></tt> e <tt class="file docutils literal"><span class="pre">regions</span></tt> e poi premi su <strong>[OK]</strong>. I layer selezionati verranno aggiunti sia nella legenda che sulla mappa.</p>
+</li>
+</ol>
+<p id="figure-embed-dialog"><strong>Figure Nesting 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/embed_dialog.png" src="../../../_images/embed_dialog.png" />
+<p class="caption">Selezione dei layer e dei gruppi da inserire <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>Anche se i layer nidificati sono modificabili, non puoi modificarne le proprietà, come stile ed etichette.</p>
+</div>
+<div class="section" id="removing-embedded-layers">
+<h3><strong>Rimuovi i layer nidificati</strong><a class="headerlink" href="#removing-embedded-layers" title="link permanente per questa intestazione">¶</a></h3>
+<p>Cliccare con il tasto destro sul layer aggiunto e scegliere <a class="reference internal" href="../../../_images/mActionRemoveLayer.png"><img alt="mActionRemoveLayer" src="../../../_images/mActionRemoveLayer.png" style="width: 1.5em;" /></a> <sup>Rimuovi</sup>.</p>
+</div>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>
