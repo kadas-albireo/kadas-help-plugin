@@ -40,7 +40,8 @@ class AboutDialog(QDialog):
         hline.setFrameShadow(QFrame.Sunken)
         l.addWidget(hline, l.rowCount(), 0, 1, 1)
 
-        swisstopoDataTermsLink = QLabel("<a href=\"file://%s\">%s</a>" % (os.path.join(os.path.dirname(__file__), "Nutzungsbestimmungen_Daten_swisstopo_KADAS_Albireo.pdf"), self.tr("Terms of use for swisstopo geodata")))
+        pdfpath = os.path.join(os.path.dirname(__file__), "Nutzungsbestimmungen_Daten_swisstopo_KADAS_Albireo.pdf")
+        swisstopoDataTermsLink = QLabel("<a href=\"file:///%s\">%s</a>" % (pdfpath, self.tr("Terms of use for swisstopo geodata")))
         swisstopoDataTermsLink.setOpenExternalLinks(True)
         l.addWidget(swisstopoDataTermsLink, l.rowCount(), 0, 1, 1)
 

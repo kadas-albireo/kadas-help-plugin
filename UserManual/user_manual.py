@@ -125,10 +125,8 @@ class UserManual:
             else:
                 lang = 'en'
 
-            # Fix unsupported parts in file URL (UNC path, etc.)
-            basedir = docdir.replace('\\', '/').replace('C:', '')
-            url = QUrl("file://{dir}/{lang}/docs/user_manual/index.html".format(
-                dir=basedir, lang=lang))
+            url = QUrl("file:///{dir}/{lang}/docs/user_manual/index.html".format(
+                dir=docdir, lang=lang))
             self.helpWidget.load(url)
 
         self.helpWidget.show()
