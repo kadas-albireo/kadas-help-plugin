@@ -185,13 +185,14 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Table Of Contents</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Preamble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Foreword</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_maps.html">Meine Karten</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Ansicht</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Ansicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vorheriger-nachster-ausschnitt">Vorheriger/Nächster Ausschnitt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#neues-kartenfenster">Neues Kartenfenster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#d">3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grid">Grid</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">Analyse</a></li>
@@ -210,18 +211,40 @@
                         
                             <p>.</p>
 <div class="section" id="ansicht">
-<h1>Ansicht<a class="headerlink" href="#ansicht" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>Ansicht<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>The Decorations of KADAS include the Grid, the Copyright Label, the North Arrow and
-the Scale Bar. They are used to &#8216;decorate&#8217; the map by adding cartographic
-elements.</p>
+<span id="chapter-view"></span><h1>Ansicht<a class="headerlink" href="#ansicht" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="vorheriger-nachster-ausschnitt">
+<h2>Vorheriger/Nächster Ausschnitt<a class="headerlink" href="#vorheriger-nachster-ausschnitt" title="Permalink to this headline">¶</a></h2>
+<p>Beim Bewegen in der Karte kann über die Funktion <em class="guilabel">Vorheriger Ausschnitt</em> auf den vorher angezeigten Kartenausschnitt zurückgekehrt werden. Über <em class="guilabel">Nächster Ausschnitt</em> wird wieder auf den danach gewählten Kartenausschnitt gewechselt.</p>
+</div>
+<div class="section" id="neues-kartenfenster">
+<h2>Neues Kartenfenster<a class="headerlink" href="#neues-kartenfenster" title="Permalink to this headline">¶</a></h2>
+<p>Über die Funktion <em class="guilabel">Neues Kartenfenster</em> können weitere Kartenfenster geöffnet werden. Diese werden automatisch angeordnet, können aber auch mit der Maus an eine andere Stelle innerhalb oder ausserhalb des Programmfensters bewegt werden.</p>
+<p>Die angezeigten Ebenen können unabhängig vom Hauptfenster im Menu <em class="guilabel">Fenster</em> ausgewählt werden. Durch Aktivierung des Schlosssymbols wird der angezeigte Kartenausschnitt immer vom Hauptfenster übernommen. Ist die Kopplung nicht aktiviert, kann im zusätzlichen Kartenfenster der Ausschnitt mit der Maus eigenständig gewählt werden.</p>
+</div>
 <div class="section" id="d">
-<h3>3D<a class="headerlink" href="#d" title="Permalink to this headline">¶</a></h3>
-<p>TODO: fill in</p>
+<h2>3D<a class="headerlink" href="#d" title="Permalink to this headline">¶</a></h2>
+<p>Über die Funktion <em class="guilabel">3D</em> wird ein zusätzliches Fenster mit einer Globus-Ansicht geöffnet. Dieses Fenster wird automatisch angeordnet, kann aber auch mit der Maus an eine andere Stelle innerhalb oder ausserhalb des Programmfensters bewegt werden.</p>
+<div class="section" id="einstellungen">
+<h3>Einstellungen<a class="headerlink" href="#einstellungen" title="Permalink to this headline">¶</a></h3>
+<p>Die angezeigten Ebenen können unabhängig vom Hauptfenster im Menu <em class="guilabel">Fenster</em> ausgewählt werden.</p>
+<ul class="simple">
+<li><strong>Ausschnitt synchronisieren</strong>: Über das Symbol <cite>Ausschnitt synchronisieren</cite> wird auf dem Globus zum Kartenausschnitt des Hauptfensters navigiert.</li>
+<li><strong>Szene neu laden</strong>: Über das Symbol <cite>Szene neu laden</cite> wird die Ebenen im Globus neu geladen.</li>
+<li><strong>Globus Einstellungen</strong>: Über das Symbol <cite>Globus Einstellungen</cite> wird ein Dialog mit weiteren Einstellungsmöglichkeiten aufgerufen.</li>
+</ul>
+</div>
+<div class="section" id="navigation">
+<h3>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Navigation Ansichtswinkel</strong>: Im oberen Navigationsrad wird die Kamera über die Links-/Rechts-Pfeile nach links bzw. rechts gedreht. Über die Auf-/Ab-Pfeile wird der vertikale Sichtwinkel der Kamera geändert.</li>
+<li><strong>Navigation auf Globus</strong>: Im unteren Navigationsrad wird der Globus über die Pfeiltasten entsprechend nach links, rechts, oben oder unten gedreht.</li>
+<li><strong>+</strong>: Die Kamera bewegt sich näher zum Globus, das heisst die Höhe der Kamera wird reduziert.</li>
+<li><strong>-</strong>: Die Kamera bewegt sich weiter vom Globus weg, das heisst die Höhe der Kamera wird angehoben.</li>
+</ul>
+</div>
 </div>
 <div class="section" id="grid">
-<h3>Grid<a class="headerlink" href="#grid" title="Permalink to this headline">¶</a></h3>
+<h2>Grid<a class="headerlink" href="#grid" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="../../../_images/transformed.png"><img alt="transformed" src="../../../_images/transformed.png" style="width: 1.5em;" /></a> <sup>Grid</sup> allows you to add a coordinate grid and coordinate
 annotations to the map canvas.</p>
 <p id="figure-decorations-1"><strong>Figure Decorations 1:</strong></p>
@@ -239,7 +262,6 @@ annotation definitions according to the layers loaded in the map canvas.</li>
 <li>Click <strong>[Apply]</strong> to verify that it looks as expected.</li>
 <li>Click <strong>[OK]</strong> to close the dialog.</li>
 </ol>
-</div>
 </div>
 </div>
 

@@ -173,9 +173,7 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Table Of Contents</a></h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Preamble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Foreword</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Meine Karten</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
@@ -195,7 +193,7 @@
                         
                             <p>.</p>
 <span class="target" id="index-0"></span><span class="target" id="index-1"></span><div class="section" id="working-with-raster-data">
-<span id="index-2"></span><h1>Working with Raster Data<a class="headerlink" href="#working-with-raster-data" title="Permalink to this headline">¶</a></h1>
+<span id="working-with-raster"></span><span id="index-2"></span><h1>Working with Raster Data<a class="headerlink" href="#working-with-raster-data" title="Permalink to this headline">¶</a></h1>
 <p>This section describes how to visualize and set raster layer properties.
 KADAS uses the <span class="target" id="index-3"></span>GDAL library to read and write raster data formats,
 including ArcInfo Binary Grid, ArcInfo ASCII Grid, GeoTIFF, ERDAS IMAGINE,
@@ -214,7 +212,6 @@ have been well tested will appear in the list of file types when loading a
 raster into KADAS. Other untested formats can be loaded by selecting the
 <tt class="docutils literal"><span class="pre">[GDAL]</span> <span class="pre">All</span> <span class="pre">files</span> <span class="pre">(*)</span></tt> filter.</p>
 </div>
-<p>Working with GRASS raster data is described in section <em class="xref std std-ref">sec_grass</em>.</p>
 <div class="section" id="what-is-raster-data">
 <h2>What is raster data?<a class="headerlink" href="#what-is-raster-data" title="Permalink to this headline">¶</a></h2>
 <p>Raster data in GIS are matrices of discrete cells that represent features on,
@@ -229,37 +226,6 @@ coordinate of a corner pixel of the raster layer. This allows KADAS to position
 the data correctly in the map canvas.</p>
 <p>KADAS makes use of georeference information inside the raster layer (e.g., <span class="target" id="index-4"></span>GeoTiff)
 or in an appropriate world file to properly display the data.</p>
-</div>
-<div class="section" id="loading-raster-data-in-qg">
-<span id="load-raster"></span><span id="index-5"></span><h2>Loading raster data in KADAS<a class="headerlink" href="#loading-raster-data-in-qg" title="Permalink to this headline">¶</a></h2>
-<p>Raster layers are loaded either by clicking on the <a class="reference internal" href="../../../_images/mActionAddRasterLayer.png"><img alt="mActionAddRasterLayer" src="../../../_images/mActionAddRasterLayer.png" style="width: 1.5em;" /></a>
-<sup>Add Raster Layer</sup> icon or by selecting the <em class="menuselection">Layer ‣</em>
-<a class="reference internal" href="../../../_images/mActionAddRasterLayer.png"><img alt="mActionAddRasterLayer" src="../../../_images/mActionAddRasterLayer.png" style="width: 1.5em;" /></a> <em class="guilabel">Add Raster Layer</em> menu option. More than one
-layer can be loaded at the same time by holding down the <tt class="kbd docutils literal"><span class="pre">Ctrl</span></tt> or
-<tt class="kbd docutils literal"><span class="pre">Shift</span></tt> key and clicking on multiple items in the
-<em class="guilabel">Open a GDAL Supported Raster Data Source</em> dialog.</p>
-<p>Once a raster layer is loaded in the map legend, you can click on the layer name
-with the right mouse button to select and activate layer-specific features or to
-open a dialog to set raster properties for the layer.</p>
-<p><strong>Right mouse button menu for raster layers</strong></p>
-<ul class="simple">
-<li><em class="menuselection">Zoom to Layer Extent</em></li>
-<li><em class="menuselection">Zoom to Best Scale (100%)</em></li>
-<li><em class="menuselection">Stretch Using Current Extend</em></li>
-<li><em class="menuselection">Show in Overview</em></li>
-<li><em class="menuselection">Remove</em></li>
-<li><em class="menuselection">Duplicate</em></li>
-<li><em class="menuselection">Set Layer CRS</em></li>
-<li><em class="menuselection">Set Project CRS from Layer</em></li>
-<li><em class="menuselection">Save as ...</em></li>
-<li><em class="menuselection">Properties</em></li>
-<li><em class="menuselection">Rename</em></li>
-<li><em class="menuselection">Copy Style</em></li>
-<li><em class="menuselection">Add New Group</em></li>
-<li><em class="menuselection">Expand all</em></li>
-<li><em class="menuselection">Collapse all</em></li>
-<li><em class="menuselection">Update Drawing Order</em></li>
-</ul>
 </div>
 </div>
 

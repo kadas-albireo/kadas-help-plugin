@@ -173,9 +173,7 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Table Of Contents</a></h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Preamble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Foreword</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Meine Karten</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
@@ -223,87 +221,8 @@ specification of the CRS. This projection file has the same base name as the
 shapefile and a <tt class="file docutils literal"><span class="pre">.prj</span></tt> extension. For example, a shapefile named
 <tt class="file docutils literal"><span class="pre">alaska.shp</span></tt> would have a corresponding projection file named
 <tt class="file docutils literal"><span class="pre">alaska.prj</span></tt>.</p>
-<p>Whenever you select a new CRS, the layer units will automatically be
-changed in the <em class="guilabel">General</em> tab of the <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="mActionOptions" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a>
-<em class="guilabel">Project Properties</em> dialog under the <em class="guilabel">Project</em> (Gnome,
-OS X) or <em class="guilabel">Settings</em> (KDE, Windows) menu.</p>
-</div>
-<div class="section" id="global-projection-specification">
-<span id="index-3"></span><h2>Global Projection Specification<a class="headerlink" href="#global-projection-specification" title="Permalink to this headline">¶</a></h2>
-<p>KADAS starts each new project using the global default projection. The global
-default CRS is EPSG:4326 - WGS 84 (<tt class="docutils literal"><span class="pre">proj=longlat</span> <span class="pre">+ellps=WGS84</span> <span class="pre">+datum=WGS84</span> <span class="pre">+no_defs</span></tt>),
-and it comes predefined in KADAS. This default can be changed via the
-<strong>[Select...]</strong> button in the first section, which is used to define the default
-coordinate reference system for new projects, as shown in
-<a class="reference internal" href="#figure-projection-1">figure_projection_1</a>. This choice will be saved for use in subsequent KADAS
-sessions.</p>
-<p id="figure-projection-1"><strong>Figure Projection 1:</strong></p>
-<div class="figure align-center">
-<img alt="../../../_images/crsdialog.png" src="../../../_images/crsdialog.png" />
-<p class="caption">CRS tab in the KADAS Options Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
-</div>
-<p>When you use layers that do not have a CRS, you need to define how KADAS
-responds to these layers. This can be done globally or project-wide in the
-<em class="guilabel">CRS</em> tab under <em class="menuselection">Settings ‣</em> <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="mActionOptions" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a>
-<em class="guilabel">Options</em>.</p>
-<p>The options shown in <a class="reference internal" href="#figure-projection-1">figure_projection_1</a> are:</p>
-<ul class="simple">
-<li><img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Prompt for CRS</em></li>
-<li><img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Use project CRS</em></li>
-<li><img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Use default CRS displayed below</em></li>
-</ul>
-<p>If you want to define the coordinate reference system for a certain layer
-without CRS information, you can also do that in the <em class="guilabel">General</em> tab
-of the raster and vector properties dialog (see <a class="reference internal" href="../working_with_raster/raster_properties.html#label-generaltab"><em>General Menu</em></a> for rasters and <a class="reference internal" href="../working_with_vector/vector_properties.html#vectorgeneralmenu"><em>General Menu</em></a> for vectors). If your layer already has a CRS
-defined, it will be displayed as shown in <a class="reference internal" href="../working_with_vector/vector_properties.html#figure-vector-properties-1"><em>Vector Layer Properties Dialog </em></a>.</p>
-<div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p><strong>CRS in the Map Legend</strong></p>
-<p class="last">Right-clicking on a layer in the Map Legend (section <a class="reference internal" href="../introduction/qgis_gui.html#label-legend"><em>Map Legend</em></a>)
-provides two CRS shortcuts. <em class="guilabel">Set layer CRS</em> takes you directly
-to the Coordinate Reference System Selector dialog (see <a class="reference internal" href="#figure-projection-2">figure_projection_2</a>).
-<em class="guilabel">Set project CRS from Layer</em> redefines the project CRS using
-the layer&#8217;s CRS.</p>
-</div>
-</div>
-<div class="section" id="define-on-the-fly-otf-reprojection">
-<h2>Define On The Fly (OTF) Reprojection<a class="headerlink" href="#define-on-the-fly-otf-reprojection" title="Permalink to this headline">¶</a></h2>
-<p>TODO: abändern da einzeln</p>
-<p>KADAS supports OTF reprojection for both raster and vector data. However, OTF is
-not activated by default. To use OTF projection, you must activate the
-<a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Enable on the fly CRS transformation</em> checkbox in the
-<em class="guilabel">CRS</em> tab of the <a class="reference internal" href="../../../_images/mActionProjectProperties.png"><img alt="mActionProjectProperties" src="../../../_images/mActionProjectProperties.png" style="width: 1.5em;" /></a> <em class="menuselection">Project
-Properties</em> dialog.</p>
-<p><strong>There are three ways to do this:</strong></p>
+<p>The <em class="guilabel">CRS</em> tab contains the following important components:</p>
 <ol class="arabic simple">
-<li>Select <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="mActionOptions" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <em class="menuselection">Project Properties</em> from the
-<em class="menuselection">Project</em> (Gnome, OSX) or <em class="menuselection">Settings</em> (KDE,
-Windows) menu.</li>
-<li>Click on the <img alt="geographic" src="../../../_images/geographic.png" /> <sup>CRS status</sup> icon in the lower right-hand
-corner of the status bar.</li>
-<li>Turn OTF on by default in the <em class="guilabel">CRS</em> tab of the
-<em class="guilabel">Options</em> dialog by selecting <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a>
-<em class="guilabel">Enable &#8216;on the fly&#8217; reprojection by default</em> or <em class="guilabel">Automatically enable &#8216;on the fly&#8217; reprojection if layers have different CRS</em>.</li>
-</ol>
-<p>If you have already loaded a layer and you want to enable OTF projection, the
-best practice is to open the <em class="guilabel">CRS</em> tab of the <em class="guilabel">Project
-Properties</em> dialog, select a CRS, and activate the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a>
-<em class="guilabel">Enable &#8216;on the fly&#8217; CRS transformation</em> checkbox.
-The <img alt="geographic" src="../../../_images/geographic.png" /> <sup>CRS status</sup> icon will no longer be greyed out, and all
-layers will be OTF projected to the CRS shown next to the icon.</p>
-<p id="index-4"><strong>Figure Projection 2:</strong></p>
-<div class="figure align-center" id="figure-projection-2">
-<img alt="../../../_images/projectionDialog.png" src="../../../_images/projectionDialog.png" />
-<p class="caption">Project Properties Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
-</div>
-<p>The <em class="guilabel">CRS</em> tab of the <em class="guilabel">Project Properties</em> dialog contains
-five important components, as shown in <a class="reference internal" href="#figure-projection-2">Figure_projection_2</a> and described below:</p>
-<ol class="arabic simple">
-<li><strong>Enable &#8216;on the fly&#8217; CRS transformation</strong> &#8212; This checkbox is used to
-enable or disable OTF projection. When off, each layer is drawn using the
-coordinates as read from the data source, and the components described below
-are inactive. When on, the coordinates in each layer are projected to the
-coordinate reference system defined for the map canvas.</li>
 <li><strong>Filter</strong> &#8212; If you know the EPSG code, the identifier, or the name for a
 coordinate reference system, you can use the search feature to find it.
 Enter the EPSG code, the identifier or the name.</li>
@@ -317,28 +236,13 @@ the appropriate node and selecting the CRS. The active CRS is preselected.</li>
 <li><strong>PROJ.4 text</strong> &#8212; This is the CRS string used by the PROJ.4 projection
 engine. This text is read-only and provided for informational purposes.</li>
 </ol>
-<div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p><strong>Project Properties Dialog</strong></p>
-<p>If you open the <em class="guilabel">Project Properties</em> dialog from the
-<em class="menuselection">Project</em> menu, you must click on the <em class="guilabel">CRS</em>
-tab to view the CRS settings.</p>
-<p class="last">Opening the dialog from the <img alt="geographic" src="../../../_images/geographic.png" /> <sup>CRS status</sup> icon will
-automatically bring the <em class="guilabel">CRS</em> tab to the front.</p>
-</div>
 </div>
 <div class="section" id="default-datum-transformations">
 <h2>Default datum transformations<a class="headerlink" href="#default-datum-transformations" title="Permalink to this headline">¶</a></h2>
-<p id="index-5">OTF depends on being able to transform data into a &#8216;default CRS&#8217;, and
+<p id="index-3">OTF depends on being able to transform data into a &#8216;default CRS&#8217;, and
 KADAS uses WGS84. For some CRS there are a number of transforms
 available. KADAS allows you to define the transformation used otherwise
 KADAS uses a default transformation.</p>
-<p>In the <em class="guilabel">CRS</em> tab under <em class="menuselection">Settings ‣</em> <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="mActionOptions" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a>
-<em class="guilabel">Options</em> you can:</p>
-<ul class="simple">
-<li>set KADAS to ask you when it needs define a transformation using <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Ask for datum transformation when no default is defined</em></li>
-<li>edit a list of user defaults for transformations.</li>
-</ul>
 <p>KADAS asks which transformation to use by opening a dialogue box
 displaying PROJ.4 text describing the source and destination
 transforms. Further information may be found by hovering over a

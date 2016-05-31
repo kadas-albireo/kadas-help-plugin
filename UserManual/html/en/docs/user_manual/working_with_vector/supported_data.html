@@ -173,9 +173,7 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Table Of Contents</a></h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Preamble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Foreword</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Meine Karten</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
@@ -222,10 +220,7 @@ further details, see the ESRI technical specification at
 <a class="reference external" href="http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf">http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf</a>.</p>
 <div class="section" id="loading-a-shapefile">
 <span id="vector-load-shapefile"></span><h3>Loading a Shapefile<a class="headerlink" href="#loading-a-shapefile" title="Permalink to this headline">¶</a></h3>
-<p>TODO: wird anders geladen</p>
-<p>To <span class="target" id="index-2"></span>load a shapefile, start KADAS and click on the <a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a>
-<sup>Add Vector Layer</sup> toolbar button, or simply press <tt class="kbd docutils literal"><span class="pre">Ctrl+Shift+V</span></tt>.
-This will bring up a new window (see <a class="reference internal" href="#figure-vector-1">figure_vector_1</a>).</p>
+<p>When loading a vector layer, the following dialog opens:</p>
 <p id="figure-vector-1"><strong>Figure Vector 1:</strong></p>
 <div class="figure align-center">
 <img alt="../../../_images/addvectorlayerdialog.png" src="../../../_images/addvectorlayerdialog.png" />
@@ -242,13 +237,7 @@ shapefile or other supported data source. The selection box <em class="guilabel"
 <img alt="../../../_images/shapefileopendialog.png" src="../../../_images/shapefileopendialog.png" />
 <p class="caption">Open an OGR Supported Vector Layer Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
 </div>
-<p>Selecting a shapefile from the list and clicking <strong>[Open]</strong> loads it into KADAS.
-<a class="reference internal" href="#figure-vector-3">Figure_vector_3</a> shows KADAS after loading the <tt class="file docutils literal"><span class="pre">alaska.shp</span></tt> file.</p>
-<p id="figure-vector-3"><strong>Figure Vector 3:</strong></p>
-<div class="figure align-center">
-<img alt="../../../_images/shapefileloaded.png" src="../../../_images/shapefileloaded.png" />
-<p class="caption">KADAS with Shapefile of Alaska loaded <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
-</div>
+<p>Selecting a shapefile from the list and clicking <strong>[Open]</strong> loads it into KADAS.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p><strong>Layer Colors</strong></p>
@@ -261,16 +250,6 @@ by double clicking on the layer name or by right-clicking on the name in the
 legend and choosing <em class="menuselection">Properties</em> from the context menu. See
 section <a class="reference internal" href="vector_properties.html#vector-style-menu"><em>Style Menu</em></a> for more information on setting symbology of
 vector layers.</p>
-<div class="admonition tip" id="tip-load-from-external-drive-osx">
-<p class="first admonition-title">Tip</p>
-<p><strong>Load layer and project from mounted external drives on OS X</strong></p>
-<p class="last">On OS X, portable drives that are mounted beside the primary hard drive
-do not show up as expected under <em class="menuselection">File ‣ Open Project</em>.
-We are working on a more OSX-native open/save dialog to fix this.
-As a workaround, you can type <tt class="docutils literal"><span class="pre">/Volumes</span></tt> in the <em class="guilabel">File name</em> box
-and press <tt class="kbd docutils literal"><span class="pre">Enter</span></tt>. Then you can navigate to external drives and network
-mounts.</p>
-</div>
 </div>
 <div class="section" id="improving-performance-for-shapefiles">
 <h3>Improving Performance for Shapefiles<a class="headerlink" href="#improving-performance-for-shapefiles" title="Permalink to this headline">¶</a></h3>
@@ -304,18 +283,15 @@ file, it will be used instead of the <tt class="file docutils literal"><span cla
 </div>
 </div>
 <div class="section" id="loading-a-mapinfo-layer">
-<span id="vector-loading-mapinfo"></span><span id="index-3"></span><h2>Loading a MapInfo Layer<a class="headerlink" href="#loading-a-mapinfo-layer" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> To load a MapInfo layer, click on the <a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a>
-<sup>Add Vector Layer</sup> toolbar button; or type <tt class="kbd docutils literal"><span class="pre">Ctrl+Shift+V</span></tt>, change the
+<span id="vector-loading-mapinfo"></span><span id="index-2"></span><h2>Loading a MapInfo Layer<a class="headerlink" href="#loading-a-mapinfo-layer" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> To load a MapInfo layer, change the
 file type filter <em class="guilabel">Files of type</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>: to
 &#8216;Mapinfo File [OGR] (*.mif *.tab *.MIF *.TAB)&#8217; and select the MapInfo layer you
 want to load.</p>
 </div>
 <div class="section" id="loading-an-arcinfo-binary-coverage">
-<span id="vector-loading-arcinfo-coverage"></span><span id="index-4"></span><h2>Loading an ArcInfo Binary Coverage<a class="headerlink" href="#loading-an-arcinfo-binary-coverage" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> To load an ArcInfo Binary Coverage, click on the
-<a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> <sup>Add Vector Layer</sup> toolbar button or press
-<tt class="kbd docutils literal"><span class="pre">Ctrl+Shift+V</span></tt> to open the <em class="guilabel">Add Vector Layer</em> dialog. Select
+<span id="vector-loading-arcinfo-coverage"></span><span id="index-3"></span><h2>Loading an ArcInfo Binary Coverage<a class="headerlink" href="#loading-an-arcinfo-binary-coverage" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> To load an ArcInfo Binary Coverage, select
 <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Directory</em> as <em class="guilabel">Source type</em>. Change the
 file type filter <em class="guilabel">Files of type</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> to
 &#8216;Arc/Info Binary Coverage&#8217;. Navigate to the directory that contains the
