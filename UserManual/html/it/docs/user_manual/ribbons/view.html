@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ansicht</title>
+    <title>Vista</title>
     
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -186,21 +186,22 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Indice</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Convenzioni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Premessa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">GUI KADAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_maps.html">Le mie mappe</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Ansicht</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Ansicht</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Vista</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#previous-next-extent">Visualizzazione precedente/successiva</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-map-window">Nuova finestra della mappa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#d">3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grid">Griglia</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">Analisi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="draw.html">Disegno</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mss.html">MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="settings.html">Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Impostazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Aiuto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendice</a></li>
 </ul>
 
@@ -210,37 +211,66 @@
                     
                         
                             <p>.</p>
-<div class="section" id="ansicht">
-<h1>Ansicht<a class="headerlink" href="#ansicht" title="link permanente per questa intestazione">¶</a></h1>
-<div class="section" id="id1">
-<h2>Ansicht<a class="headerlink" href="#id1" title="link permanente per questa intestazione">¶</a></h2>
-<p>The Decorations of KADAS include the Grid, the Copyright Label, the North Arrow and
-the Scale Bar. They are used to &#8216;decorate&#8217; the map by adding cartographic
-elements.</p>
+<div class="section" id="view">
+<span id="chapter-view"></span><h1>Vista<a class="headerlink" href="#view" title="link permanente per questa intestazione">¶</a></h1>
+<div class="section" id="previous-next-extent">
+<h2>Visualizzazione precedente/successiva<a class="headerlink" href="#previous-next-extent" title="link permanente per questa intestazione">¶</a></h2>
+<p>Spostandosi sulla mappa con la funzione <em class="guilabel">Estratto precedente</em> è possibile tornare all&#8217;estratto di mappa mostrato in precedenza. Tramite guilabel:<a href="#id1"><span class="problematic" id="id2">`</span></a>Estratto successivo&#8217; si passa all&#8217;estratto di mappa selezionato successivamente.</p>
+</div>
+<div class="section" id="new-map-window">
+<h2>Nuova finestra della mappa<a class="headerlink" href="#new-map-window" title="link permanente per questa intestazione">¶</a></h2>
+<p>La funzione <em class="guilabel">Nuova finestra della mappa</em> permette di aprire nuove finestre della mappa. Le finestre aperte sono disposte automaticamente ma possono essere spostate all&#8217;interno o all&#8217;esterno della finestra di programma per mezzo del mouse.</p>
+<p>I livelli visualizzati possono essere selezionati nel menu:guilabel:<cite>Finestra</cite> indipendentemente dalla finestra principale. Selezionando l&#8217;icona a forma di lucchetto, gli estratti di mappa visualizzati vengono estrapolati sempre dalla finestra principale. Se il collegamento con la finestra principale non è attivo, l&#8217;estratto di mappa può essere selezionato autonomamente da un&#8217;altra finestra della mappa per mezzo del mouse.</p>
+</div>
 <div class="section" id="d">
-<h3>3D<a class="headerlink" href="#d" title="link permanente per questa intestazione">¶</a></h3>
-<p>TODO: fill in</p>
+<h2>3D<a class="headerlink" href="#d" title="link permanente per questa intestazione">¶</a></h2>
+<p>Con la funzione <em class="guilabel">3D</em> è possibile aprire una finestra in cui viene visualizzato il globo terrestre. La finestra viene disposta automaticamente ma può essere spostata con il mouse all&#8217;interno o all&#8217;esterno della finestra del programma.</p>
+<div class="section" id="settings">
+<h3>Impostazioni<a class="headerlink" href="#settings" title="link permanente per questa intestazione">¶</a></h3>
+<p>I livelli visualizzati possono essere scelti dal menu <em class="guilabel">Finestra</em> indipendentemente dalla finestra principale.</p>
+<ul class="simple">
+<li><p class="first"><strong>Sincronizza gli estratti</strong>: l&#8217;icona <cite>Sincronizza gli estratti</cite> consente di esplorare il globo attraverso l&#8217;estratto di mappa della finestra principale.</p>
+</li>
+<li><p class="first"><strong>Carica scena</strong>: l&#8217;icona <cite>Ricarica scena</cite> consente di caricare i livelli sulla mappa del globo.</p>
+</li>
+<li><p class="first"><strong>Impostazioni globo</strong>: l&#8217;icona <cite>Impostazioni globo</cite> richiama una finestra di dialogo in cui sono indicate le altre impostazioni possibili.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="navigation">
+<h3>Navigazione<a class="headerlink" href="#navigation" title="link permanente per questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p class="first"><strong>Navigazione angolo di visualizzazione</strong>: nella ruota di navigazione in alto, la telecamera viene fatta ruotare a destra o a sinistra con i rispettivi tasti freccia. I tasti freccia per la navigazione verso l&#8217;alto e verso il basso permettono di cambiare l&#8217;angolo di visualizzazione della telecamera.</p>
+</li>
+<li><p class="first"><strong>Navigazione del globo terrestre</strong>: nella ruota di navigazione in basso, il globo viene fatto ruotare a destra, a sinistra, verso l&#8217;alto e verso il basso con i rispettivi tasti freccia.</p>
+</li>
+<li><p class="first"><strong>+</strong>: la telecamera si avvicina al globo terrestre e si abbassa</p>
+</li>
+<li><p class="first"><strong>-</strong>: la telecamera si allontana dal globo terrestre e si alza.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="section" id="grid">
-<h3>Grid<a class="headerlink" href="#grid" title="link permanente per questa intestazione">¶</a></h3>
-<p><a class="reference internal" href="../../../_images/transformed.png"><img alt="transformed" src="../../../_images/transformed.png" style="width: 1.5em;" /></a> <sup>Grid</sup> allows you to add a coordinate grid and coordinate
-annotations to the map canvas.</p>
+<h2>Griglia<a class="headerlink" href="#grid" title="link permanente per questa intestazione">¶</a></h2>
+<p><a class="reference internal" href="../../../_images/transformed.png"><img alt="transformed" src="../../../_images/transformed.png" style="width: 1.5em;" /></a> <sup>Griglia</sup> consente di aggiungere alla mappa una griglia e annotazioni delle coordinate.</p>
 <p id="figure-decorations-1"><strong>Figure Decorations 1:</strong></p>
 <div class="figure align-center">
 <img alt="../../../_images/grid_dialog.png" src="../../../_images/grid_dialog.png" />
-<p class="caption">The Grid Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+<p class="caption">Finestra di dialogo Griglia <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
 </div>
 <ol class="arabic simple">
-<li>Select from menu <em class="menuselection">View ‣ Decorations ‣ Grid</em>.
-The dialog starts (see <a class="reference internal" href="#figure-decorations-1">figure_decorations_1</a>).</li>
-<li>Activate the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Enable grid</em> checkbox and set grid
-definitions according to the layers loaded in the map canvas.</li>
-<li>Activate the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Draw annotations</em> checkbox and set
-annotation definitions according to the layers loaded in the map canvas.</li>
-<li>Click <strong>[Apply]</strong> to verify that it looks as expected.</li>
-<li>Click <strong>[OK]</strong> to close the dialog.</li>
+<li><p class="first">Selezionare dal menu <em class="menuselection">Vista ‣ Decorazioni ‣ Griglia</em>. Si aprirà una finestra di dialogo (cfr. <a class="reference internal" href="#figure-decorations-1">figure_decorations_1</a>).</p>
+</li>
+<li><p class="first">Selezionare la casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Abilita griglia</em> e impostare i parametri della griglia in base ai livelli caricati sulla mappa.</p>
+</li>
+<li><p class="first">Selezionare la casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Inserisci annotazioni</em> e impostare i parametri delle annotazioni in base ai livelli caricati sulla mappa.</p>
+</li>
+<li><p class="first">Fare clic su <strong>[Applica]</strong> per verificare che la visualizzazione corrisponda alle impostazioni scelte.</p>
+</li>
+<li><p class="first">Fare clic su <strong>[OK]</strong> per chiudere la finestra di dialogo.</p>
+</li>
 </ol>
-</div>
 </div>
 </div>
 

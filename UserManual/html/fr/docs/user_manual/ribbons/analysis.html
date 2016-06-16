@@ -33,7 +33,7 @@
     <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
     <link rel="top" title="" href="../../../index.html" />
     <link rel="next" title="Dessiner" href="draw.html" />
-    <link rel="prev" title="Ansicht" href="view.html" />
+    <link rel="prev" title="Vue" href="view.html" />
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -162,7 +162,7 @@
           <a href="draw.html" title="Dessiner"
              accesskey="N">suivant</a></li>
         <li class="right" >
-          <a href="view.html" title="Ansicht"
+          <a href="view.html" title="Vue"
              accesskey="P">précédent</a> |</li>
         <li><a href="../index.html"></a> &raquo;</li> 
       </ul>
@@ -186,24 +186,22 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Table Des Matières</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Préambule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Avant-propos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">Interface de KADAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_maps.html">Mes cartes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view.html">Vue</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Analyse</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#lange-flachen-und-azimuth-messen">Longueurs, surfaces et mesures azimut</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#hohenprofil-und-sichtbarkeit">Profil d&#8217;altitude et visibilité</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#neigung-und-schummerung">Pente et estompage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#einsehbarkeit">Visibilité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#measuring-lengths-areas-and-azimuth-angles">Longueurs, surfaces et mesures azimut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#height-profile-and-line-of-sight">Profil d&#8217;altitude et visibilité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#slope-and-hillshade">Pente et estompage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#viewshed">Visibilité</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="draw.html">Dessiner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mss.html">MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="settings.html">Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Réglages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Aide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Annexe</a></li>
 </ul>
 
@@ -213,35 +211,35 @@
                     
                         
                             <p>.</p>
-<div class="section" id="analyse">
-<h1>Analyse<a class="headerlink" href="#analyse" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="analysis">
+<h1>Analyse<a class="headerlink" href="#analysis" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Dans l&#8217;onglet analyse, plusieurs fonctions d&#8217;analyse de terrain et de mesures sont proposées.</p>
-<div class="section" id="lange-flachen-und-azimuth-messen">
-<h2>Longueurs, surfaces et mesures azimut<a class="headerlink" href="#lange-flachen-und-azimuth-messen" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="measuring-lengths-areas-and-azimuth-angles">
+<h2>Longueurs, surfaces et mesures azimut<a class="headerlink" href="#measuring-lengths-areas-and-azimuth-angles" title="Lien permanent vers ce titre">¶</a></h2>
 <p id="index-0">Quatre méthodes de mesure sont proposées : ligne (distance)  <a href="#id1"><span class="problematic" id="id2">|MeasureDistance|</span></a>, surface <a href="#id3"><span class="problematic" id="id4">|MeasureArea|</span></a>, surface circulaire <a href="#id5"><span class="problematic" id="id6">|MeasureCircle|</span></a> et azimut MeasureAzimuth|. Toutes les fonctions de mesures se basent sur un éllipsoïde WGS84.</p>
 <p>En activant l&#8217;une des fonctions de mesures, l&#8217;utilisateur peut dessiner la géométrie de mesure correspondante dans la fenêtre de la carte. Les grandeurs pertinentes sont indiquées juste à côté de la géométrie de mesure. Pour les mesures de géométrie et de distance, il est possible de dessiner plusieurs géométries l&#8217;une après l&#8217;autre. Le total des mesures s&#8217;affiche dans la partie inférieure de la fenêtre de la carte, là où l&#8217;unité de mesure peut aussi être modifiée. Plus loin, il est possible de mesurer une géométrie existante en cliquant sur le bouton Picker <a href="#id7"><span class="problematic" id="id8">|PickFeatureButton|</span></a>.</p>
 </div>
-<div class="section" id="hohenprofil-und-sichtbarkeit">
-<h2>Profil d&#8217;altitude et visibilité<a class="headerlink" href="#hohenprofil-und-sichtbarkeit" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="height-profile-and-line-of-sight">
+<h2>Profil d&#8217;altitude et visibilité<a class="headerlink" href="#height-profile-and-line-of-sight" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La fonction vue du profil <a href="#id9"><span class="problematic" id="id10">|ProfileSight|</span></a> permet d&#8217;établir des profils d&#8217;altitude et de réaliser des analyses de visibilité. Pour utiliser cette fonction, il faut définir un modèle d&#8217;altitude dans le projet (cf. chapitre ref:<cite>project_heightmap</cite>.)</p>
 <p>Pour établir un profil d&#8217;altitude, l&#8217;utilisateur peut dessiner une géométrie linéaire le long de laquelle le profil peut être mesuré. Le résultat s&#8217;affiche dans une fenêtre de dialogue séparée. À l&#8217;aide du boutton Picker, il est également possible de mesurer le long d&#8217;une géométrie linéaire existante.</p>
 <p>Si la géométrie linéaire ne comprend qu&#8217;un seul segment, il est possible de réaliser une anayse de visibilité le long de cette ligne. Pour cela, la case visibilité doit être cochée dans la fenêtre de dialogue du profil d&#8217;altitude. Les possibilités de configuration de l&#8217;analyse de visibilité sont la hauteur observateur et la hauteur du signal ; on peut également décider si ces hauteurs doivent être interprétées en fonction du terrain ou du niveau de la mer.</p>
 <p>Dans les paramètres de l&#8217;onglet Ribbon, on peut choisir entre le mètre et le pied pour l&#8217;unité de mesure.</p>
 <p>Le graphique de profil d&#8217;altitude peut également être copié dans l&#8217;archive provisoire ou être inséré dans la carte comme image.</p>
 </div>
-<div class="section" id="neigung-und-schummerung">
-<h2>Pente et estompage<a class="headerlink" href="#neigung-und-schummerung" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="slope-and-hillshade">
+<h2>Pente et estompage<a class="headerlink" href="#slope-and-hillshade" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La fonction pente permet de représenter le profil de pente du terrain à l&#8217;aide d&#8217;un schéma à code couleurs. La fonction estompage calcule l&#8217;ombrage du terrain, qui est superposé sur la carte en mi-transparence.</p>
 <p>Pour utiliser ces fonctions d&#8217;analyse du terrain, il faut définir un modèle d&#8217;altitude dans le projet (cf. chapitre ref:<cite>project_heightmap</cite>.)</p>
 <p>Ces deux analyses sont effectuées dans une portion rectangulaire de la carte. L&#8217;estompage nécessite également de saisir l&#8217;angle horizontal et vertical de la source de lumière.</p>
-<p>Le résultat est ajouté à la carte au niveau du schéma. Si vous sauvegardez le projet, ce niveau sera classé dans le dossier &lt;nomduprojet&gt;_files.</p>
+<p>Après calcul, le résultat est ajouté à la carte sous forme de couche raster. Si vous sauvegardez le projet, cette couche sera classée dans le dossier &lt;nomduprojet&gt;_files.</p>
 </div>
-<div class="section" id="einsehbarkeit">
-<h2>Visibilité<a class="headerlink" href="#einsehbarkeit" title="Lien permanent vers ce titre">¶</a></h2>
-<p>L&#8217;analyse de visibilité calcule les segments de terrain visibles et non visibles en se basant sur la position de l&#8217;obervateur.</p>
+<div class="section" id="viewshed">
+<h2>Visibilité<a class="headerlink" href="#viewshed" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L&#8217;analyse de visibilité calcule les segments de terrain visibles et non visibles en se basant sur la position de l&#8217;observateur.</p>
 <p>Pour utiliser ces fonctions d&#8217;analyse du terrain, il faut définir un modèle d&#8217;altitude dans le projet (cf. chapitre ref:<cite>project_heightmap</cite>.)</p>
 <p>L&#8217;analyse de visibilité est calculée au sein d&#8217;une portion de cercle ou d&#8217;un cercle complet. Le premier clic sur la carte permet de définir la position de l&#8217;observateur, le deuxième clic le rayon et le troisième l&#8217;angle d&#8217;ouverture du secteur. Si la saisie numérique est activée, ces paramètres peuvent également être saisis numériquement. Une fois que la surface à analyser a été saisie, les paramètres de calcul peuvent être modifiés, autrement dit l&#8217;altitude de l&#8217;observateur, la hauteur du signal,l&#8217;interprétation (ou non) de l&#8217;altitude en fonction du terrain ou du niveau de la mer et l&#8217;affichage (ou non) des portions de terrain visibles ou invisibles.</p>
-<p>Le résultat est ajouté à la carte au niveau du schéma. Si vous sauvegardez le projet, ce niveau sera classé dans le dossier &lt;nomduprojet&gt;_files.</p>
+<p>Après calcul, le résultat est ajouté à la carte sous forme de couche raster. Si vous sauvegardez le projet, cette couche sera classée dans le dossier &lt;nomduprojet&gt;_files.</p>
 </div>
 </div>
 
@@ -262,7 +260,7 @@
           <a href="draw.html" title="Dessiner"
              >suivant</a></li>
         <li class="right" >
-          <a href="view.html" title="Ansicht"
+          <a href="view.html" title="Vue"
              >précédent</a> |</li>
         <li><a href="../index.html"></a> &raquo;</li> 
       </ul>

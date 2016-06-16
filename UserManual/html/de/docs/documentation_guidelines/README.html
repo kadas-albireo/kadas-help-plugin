@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Dokumentationsrichtlinien</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../index.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../user_manual/index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="English">English</option>
+  <option value="de" title="German">Deutsch</option>
+  <option value="fr" title="French">Français</option>
+  <option value="it" title="Italian">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/documentation_guidelines/README.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../site/about/index.html">Discover QGIS</a></li>
+            <li><a href="../../site/forusers/index.html">For Users</a></li>
+            <li><a href="../../site/getinvolved/index.html">Get Involved</a></li>
+            <li><a href="../index.html">Documentation</a></li>-->
+            <li><a href="../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Suche" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../user_manual/index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../user_manual/index.html">Inhalt</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/preamble/conventions.html">Gebrauch der Dokumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/introduction/qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/my_maps.html">Meine Karten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/analysis.html">Analyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/draw.html">Zeichnen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/appendices/appendices.html">Anhang</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <div class="section" id="documentation-guidelines">
+<h1>Dokumentationsrichtlinien<a class="headerlink" href="#documentation-guidelines" title="Permalink zu dieser Überschrift">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Einführung<a class="headerlink" href="#introduction" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>These are guidelines about general use of rst in QGIS documentation. The documentation will
+be build automatically on the server 0, 8am, 4pm PDT (Pacific Daylight Time). The current
+status is available at <a class="reference external" href="http://docs.qgis.org">http://docs.qgis.org</a>.</p>
+<p>Siehe auch: <a class="reference external" href="http://sphinx.pocoo.org/markup/inline.html">http://sphinx.pocoo.org/markup/inline.html</a> oder convention.rst Datei</p>
+<p>In general, when creating rst documentation for the QGIS project, please follow
+the <a class="reference external" href="http://docs.python.org/devguide/documenting.html">Python documentation style guide lines</a>.</p>
+</div>
+<div class="section" id="using-headlines">
+<h2>Überschriften benutzen<a class="headerlink" href="#using-headlines" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>Adding new haedlines, you should use following styles for chapter, section,
+subsection and minisec.</p>
+<p>Überschriften</p>
+<div class="highlight-python"><pre>********
+Chapter
+********
+
+Section
+=======
+
+Subsection
+----------
+
+Minisec
+.......</pre>
+</div>
+</div>
+<div class="section" id="inline-tags">
+<h2>Inline tags<a class="headerlink" href="#inline-tags" title="Permalink zu dieser Überschrift">¶</a></h2>
+<ul>
+<li><p class="first">Tastatur-Shortcut:</p>
+<div class="highlight-python"><pre>:kbd:`ctrl B`</pre>
+</div>
+<p>will show <tt class="kbd docutils literal"><span class="pre">Ctrl</span> <span class="pre">B</span></tt></p>
+</li>
+<li><p class="first">Menü gui</p>
+<div class="highlight-python"><pre>:menuselection:`menu --&gt; submenu`</pre>
+</div>
+</li>
+<li><p class="first">Dateiname</p>
+<div class="highlight-python"><pre>:file:`README.rst`</pre>
+</div>
+</li>
+<li><p class="first">Icon mit Popup-Text gehört zu Icon</p>
+<div class="highlight-python"><pre>|icon| :sup:`popup_text`</pre>
+</div>
+<p>(see <a class="reference internal" href="#image">image</a> below).</p>
+</li>
+<li><p class="first">Dialog und Tab-Titel</p>
+<div class="highlight-python"><pre>:guilabel:`title`</pre>
+</div>
+</li>
+<li><p class="first">Benutzertext</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="sb">``</span><span class="n">label</span><span class="sb">``</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="footnotes">
+<h2>Fußnoten<a class="headerlink" href="#footnotes" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>Please note: Footnotes are not recognized by any translation software and it is also
+not converted to pdf format properly. So, if don&#8217;t use footnotes within any documentation.</p>
+<p>Dies ist zum Erstellen einer Fußnote</p>
+<div class="highlight-python"><pre>blabla [1]_</pre>
+</div>
+<p>Which will point to:</p>
+<blockquote>
+<div><table class="docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><p class="first last">Updates von Kern-Plugins</p>
+</td></tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="label-reference">
+<span id="my-anchor"></span><h2>Label/reference<a class="headerlink" href="#label-reference" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>This is used to create a reference somewhere</p>
+<div class="highlight-python"><pre>.. _my_anchor:
+
+Label/reference
+===============</pre>
+</div>
+<p>This will call the reference in the <strong>same page</strong></p>
+<div class="highlight-python"><pre>see my_anchor_ for more information. Notice how it will jump to
+the following line/thing following the 'anchor'.
+Normally to declare this label you do not need to use apastroph's but
+you do need to use empty lines before and after the anchor. If you use
+:ref:`my_anchor` it will display the caption instead
+(In this case the title of this section!)</pre>
+</div>
+<p>So reference 1 (<a class="reference internal" href="#my-anchor">my_anchor</a>) and reference 2 <a class="reference internal" href="#my-anchor"><em>Label/reference</em></a></p>
+<p>Because the reference often displays a full caption, there is not really
+the need to use the word section</p>
+<div class="highlight-python"><pre>see :ref:`my_anchor`</pre>
+</div>
+</div>
+<div class="section" id="figure-and-image">
+<span id="image"></span><h2>Abbildung und Bild<a class="headerlink" href="#figure-and-image" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>Abbildung</p>
+<div class="highlight-python"><pre>.. _figure_readme_1:
+
+.. only:: html
+
+   **Figure Readme 1:**
+
+.. figure:: /static/common/qgislogo.png
+   :width: 20 em
+   :align: center
+
+   A caption: A logo I like</pre>
+</div>
+<p>Das Ergebnis sieht so aus:</p>
+<p id="figure-readme-1"><strong>Figure Readme 1:</strong></p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/qgislogo.png"><img alt="../../_images/qgislogo.png" src="../../_images/qgislogo.png" style="width: 20em;" /></a>
+<p class="caption">A caption: A logo I like</p>
+</div>
+<p>Use <tt class="docutils literal"><span class="pre">..</span> <span class="pre">only::</span> <span class="pre">html</span></tt> to make the number to the figure (<strong>Figure Readme 1</strong>)
+visible only in the html files.
+The scripts will insert an automatical generated number before the caption of
+the figure in pdf.</p>
+<p>To use a caption (see My caption) just insert indented text after a blank line
+in the figure block.</p>
+<p>Referencing to the figure can be done in two ways first using the reference
+label like this</p>
+<div class="highlight-python"><pre>(see Figure_Readme_1_).</pre>
+</div>
+<p>It will show the anchor <a class="reference internal" href="#figure-readme-1">Figure_Readme_1</a>. You can use uppercase if you want.
+It can be used in the same <tt class="file docutils literal"><span class="pre">.rst</span></tt> document but not in other .rst
+documents.</p>
+<p>You can not use the reference like this anymore, because in html the reference
+to the caption is lost (it now refers to the place before <strong>Figure Readme 1:</strong></p>
+<div class="highlight-python"><pre>see :ref:`figure_readme_1`, does not work due to the lost reference to
+the caption of the figure, this is not a 'bug' but a choice we made!</pre>
+</div>
+<div class="section" id="tables">
+<h3>Tabellen<a class="headerlink" href="#tables" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>eine einfache Tabelle</p>
+<div class="highlight-python"><pre>=======  =======  =======
+x        y        z
+=======  =======  =======
+1        2        3
+2        4
+=======  =======  =======</pre>
+</div>
+<p>Use a <tt class="docutils literal"><span class="pre">\</span></tt> followed by an empty space &#8216; &#8216; to leave an empty space.</p>
+<p>You can also use more complicated tables by drawing them using refences and all</p>
+<div class="highlight-python"><pre>.. _my_drawn_table_1:
+
++---------------+--------------------+
+| Windows       | Mac OSX            |
++---------------+--------------------+
+| |win|         | |osx|              |
++---------------+--------------------+
+| and of course not to forget |nix|  |
++------------------------------------+
+
+My drawn table, mind you this is unfortunately not regarded a caption
+
+You can reference to it like this my_drawn_table_1_.</pre>
+</div>
+<p>Ergebnis:</p>
+<table border="1" class="docutils" id="my-drawn-table-1">
+<colgroup>
+<col width="43%" />
+<col width="57%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Windows</td>
+<td>Mac OSX</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/win.png"><img alt="win" src="../../_images/win.png" style="width: 1em;" /></a></td>
+<td><a class="reference internal" href="../../_images/osx.png"><img alt="osx" src="../../_images/osx.png" style="width: 1em;" /></a></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p class="first last">und natürlich nicht zu vergessen <a class="reference internal" href="../../_images/nix.png"><img alt="nix" src="../../_images/nix.png" style="width: 1em;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>My drawn table, mind you this is unfortunately not regarded a caption</p>
+<p>You can reference to it like this <a class="reference internal" href="#my-drawn-table-1">my_drawn_table_1</a>.</p>
+</div>
+<div class="section" id="pictures">
+<h3>Bilder<a class="headerlink" href="#pictures" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Bild</p>
+<div class="highlight-python"><pre>.. image:: /static/common/qgislogo.png
+   :width: 10 em</pre>
+</div>
+</div>
+<div class="section" id="replacement">
+<h3>Ersatz<a class="headerlink" href="#replacement" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>You can put an image inside text or add an alias to use everywhere. To use an image
+inside a paragraph, just create an alias somewhere</p>
+<div class="highlight-python"><pre>.. |nice_logo| image:: /static/common/qgislogo.png
+               :width: 2 em</pre>
+</div>
+<p>and call it in your paragraph</p>
+<div class="highlight-python"><pre>my paragraph begins here with a nice logo |nice_logo|.</pre>
+</div>
+<p>Here is how this example become:</p>
+<p>my paragraph begins here with a nice logo <a class="reference internal" href="../../_images/qgislogo.png"><img alt="nice_logo" src="../../_images/qgislogo.png" style="width: 2em;" /></a>.</p>
+</div>
+</div>
+<div class="section" id="index">
+<h2>Index<a class="headerlink" href="#index" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>Several index tag exists in RST. To be able to translate the index, it is necessary to
+integrate it into the normal text. In this case use this syntax:</p>
+<div class="highlight-python"><pre>QGIS allows to load several :index:`Vector formats` supported by GDAL/OGR ...</pre>
+</div>
+<p>If the term does not have to be translated, please use this syntax:</p>
+<div class="highlight-python"><pre>.. index:: WMS, WFS, WCS, CAT, SFS, GML, ...</pre>
+</div>
+</div>
+<div class="section" id="add-new-screenshots">
+<h2>Neuen Screenshot hinzufügen<a class="headerlink" href="#add-new-screenshots" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>Here are some hints to create new, nice looking screenshots. For the user guide they go into <tt class="file docutils literal"><span class="pre">./resources/en/user_manual/</span></tt></p>
+<ul class="simple">
+<li>same environment for all the screen caps (same OS, same decoration, same font size)</li>
+<li>reduce the window to the minimal space needed to show the feature (taking the all screen for a small modal window &gt; overkill)</li>
+<li>the less clutter, the better (no need to activate all the toolbars)</li>
+<li>don&#8217;t resize them in an image editor, the size will be set into the rst files if necessary (downscaling the dimensions without properly upping the resolution &gt; ugly)</li>
+<li>cut the background</li>
+<li>Set print size resolution to 135 dpi (this way, if no size is set in the rst files, images will be at original size in html and at a good print resolution in the PDF)</li>
+<li>save them in png (no jpeg artifacts)</li>
+<li>the screenshot should show the content according to what is described in the text</li>
+<li>you can find some prepared KADAS -projects that were used before to create screenshots in <tt class="file docutils literal"><span class="pre">./qgis-projects</span></tt>.
+This makes it easier to reproduce screenshots for the next version of KADAS.
+These projects use the KADAS sample dataset which should be placed in the same folder as the QGIS-Documentation Repository.</li>
+<li>Use the following command to remove the global menu function in Ubuntu to create smaller application screens with menu&#8217;s.</li>
+</ul>
+<div class="highlight-python"><pre>sudo apt-get autoremove appmenu-gtk appmenu-gtk3 appmenu-qt</pre>
+</div>
+</div>
+<div class="section" id="translate-screenshots">
+<h2>Translate Screenshots<a class="headerlink" href="#translate-screenshots" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>Here are some hints to create screenshots for your translated user guide. They will go into <tt class="file docutils literal"><span class="pre">./resources/&lt;your</span> <span class="pre">language&gt;/user_manual/</span></tt></p>
+<ul class="simple">
+<li>same environment for all the screen caps (same OS, same decoration, same font size)</li>
+<li>use the KADAS -projects included in QGIS-Documentation repository (in <tt class="file docutils literal"><span class="pre">./qgis_projects</span></tt> ).
+These were used to produce the &#8216;original&#8217; screenshots in the manual.
+The KADAS Sample dataset should be placed in the same folder as the QGIS-Documentation Repository.</li>
+<li>same size as the english &#8216;original&#8217; screenshots, otherwise they will be stretched and look ugly. If you need to have a different size due to longuer ui strings, don&#8217;t forget to change the dimension in the rst code of your language.</li>
+<li>reduce the window to the minimal space needed to show the feature (taking the all screen for a small modal window &gt; overkill)</li>
+<li>the less clutter, the better (no need to activate all the toolbars)</li>
+<li>don&#8217;t resize them in an image editor, the size will be set into the rst files (downscaling the dimensions without properly upping the resolution &gt; ugly)</li>
+<li>cut the background</li>
+<li>save them in png (no jpeg artifacts)</li>
+<li>the screenshot should show the content according to what is described in the text</li>
+</ul>
+</div>
+<div class="section" id="documenting-processing-algorithms">
+<h2>Documenting Processing algorithms<a class="headerlink" href="#documenting-processing-algorithms" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>If you want to write documentation for Processing algorithms consider this guidelines:</p>
+<ul class="simple">
+<li>don&#8217;t overwrite existing help files by files from other sources (e.g. QGIS
+source tree or Processing-Help repository), this files have different formats</li>
+<li>Processing algorithm help files are part of QGIS User Guide, so use same
+formatting as User Guide and other documentation</li>
+<li>avoid use &#8220;This algoritm does this and that...&#8221; as first sentence in algorithm
+description. Try to use more general words like in TauDEM or GRASS algoritms
+help</li>
+<li>add images if needed. Use PNG format and follow general guidelines for documentation.</li>
+<li>if necessary&nbsp;add links to additional information (e.g. publications or web-pages)
+to the &#8220;See also&#8221; section</li>
+<li>give clear explanation for algorithm parameters and outputs (again GRASS and
+TauDEM are good examples).</li>
+<li>don&#8217;t edit parameter or output names. If you found typo or wrong spelling &#8212;
+report this in bugracker, so developers can fix this in Processing code too</li>
+<li>don&#8217;t list available options in algorithm description, options already listed
+in parameter description.</li>
+<li>don&#8217;t add information vector geometry type in algorithm or parameter description
+without compelling reason as this information already available in parameter
+description</li>
+</ul>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../user_manual/index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

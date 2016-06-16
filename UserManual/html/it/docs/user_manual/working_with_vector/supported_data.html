@@ -174,18 +174,16 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Indice</a></h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Convenzioni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Premessa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">GUI KADAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Le mie mappe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Vista</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analisi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Disegno</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Impostazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Aiuto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendice</a></li>
 </ul>
 
@@ -200,7 +198,7 @@
 <p>KADAS usa la libreria OGR per leggere e creare vettori, inclusi i formati ESRI shapefile, MapInfo e MicroStation, AutoCAD DXF, PostGIS, SpatiaLite, database Oracle Spatial e MSSQL, e molti altri ancora. Il supporto ai vettori GRASS e a PostgreSQL è fornito da plugin nativi. I vettori possono anche essere caricati in modalità lettura da archivi zip e gzip. Attualmente la libreria OGR supporta 69 formati di vettori (vedi OGR-SOFTWARE-SUITE in <em class="xref std std-ref">literature_and_web</em>). La lista completa è diponibile all&#8217;indirizzo <a class="reference external" href="http://www.gdal.org/ogr/ogr_formats.html">http://www.gdal.org/ogr/ogr_formats.html</a>.</p>
 <div class="section" id="esri-shapefiles">
 <span id="vector-shapefiles"></span><span id="index-0"></span><h2>Shapefile ESRI<a class="headerlink" href="#esri-shapefiles" title="link permanente per questa intestazione">¶</a></h2>
-<p>Il formato di file predefinito in KADAS è ESRI shapefile. Il supporto al formato è fornito dalla libreria <span class="target" id="index-7"></span>OGR Simple Feature Library (<a class="reference external" href="http://www.gdal.org/ogr/">http://www.gdal.org/ogr/</a>).</p>
+<p>Il formato di file predefinito in KADAS è ESRI shapefile. Il supporto al formato è fornito dalla libreria <span class="target" id="index-5"></span>OGR Simple Feature Library (<a class="reference external" href="http://www.gdal.org/ogr/">http://www.gdal.org/ogr/</a>).</p>
 <p>Uno shapefile è costituito da di un minimo di tre file:</p>
 <ol class="arabic simple">
 <li><p class="first"><tt class="file docutils literal"><span class="pre">.shp</span></tt> contente le geometrie</p>
@@ -213,8 +211,7 @@
 <p>Uno shapefile può anche includere un file con suffisso <tt class="file docutils literal"><span class="pre">.prj</span></tt> che contiene le informazioni sulla proiezione. Anche se non è obbligatorio, è molto utile avere informazioni sulla proiezione del file. Un insieme di dati shapefile può contenere anche altri tipi di file. Per ulteriori informazioni, vedi le specifiche tecniche di ESRI all&#8217;indirizzo <a class="reference external" href="http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf">http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf</a>.</p>
 <div class="section" id="loading-a-shapefile">
 <span id="vector-load-shapefile"></span><h3>Caricare uno shapefile<a class="headerlink" href="#loading-a-shapefile" title="link permanente per questa intestazione">¶</a></h3>
-<p>TODO: wird anders geladen</p>
-<p>Per <span class="target" id="index-8"></span>caricare uno shapefile, avvia KADAS e clicca sul pulsante <a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> <sup>Aggiungi vettore</sup> o semplicemente premi <tt class="kbd docutils literal"><span class="pre">Ctrl+Shift+V</span></tt>. Si aprirà cosi una nuova finestra (vedi <a class="reference internal" href="#figure-vector-1">figure_vector_1</a>).</p>
+<p>When loading a vector layer, the following dialog opens:</p>
 <p id="figure-vector-1"><strong>Figure Vector 1:</strong></p>
 <div class="figure align-center">
 <img alt="../../../_images/addvectorlayerdialog.png" src="../../../_images/addvectorlayerdialog.png" />
@@ -227,12 +224,7 @@
 <img alt="../../../_images/shapefileopendialog.png" src="../../../_images/shapefileopendialog.png" />
 <p class="caption">Finestra di dialogo apri vettore OGR <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
 </div>
-<p>Per caricare un vettore in KADAS, seleziona uno shapefile dalla lista e clicca su <strong>[Apri]</strong>. La figura  <a class="reference internal" href="#figure-vector-3">Figure_vector_3</a> mostra come appare l’interfaccia di KADAS dopo aver caricato il file <tt class="file docutils literal"><span class="pre">alaska.shp</span></tt>.</p>
-<p id="figure-vector-3"><strong>Figure Vector 3:</strong></p>
-<div class="figure align-center">
-<img alt="../../../_images/shapefileloaded.png" src="../../../_images/shapefileloaded.png" />
-<p class="caption">KADAS con i dati campione Alaska caricati <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
-</div>
+<p>Selecting a shapefile from the list and clicking <strong>[Open]</strong> loads it into KADAS.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Suggerimento</p>
 <p><strong>Colori dei vettori</strong></p>
@@ -241,11 +233,6 @@ una sola volta, ciascuno avrà un colore diverso.</p>
 </div>
 <p>Una volta caricato lo shapefile, puoi interagire con la mappa usando gli strumenti di navigazione. Per
 cambiare lo stile di un vettore, apri la finestra di dialogo <em class="guilabel">Proprietà layer</em> facendo doppio click sul nome del vettore oppure cliccando con il tasto destro sul nome del vettore e scegliendo <em class="menuselection">Proprietà</em>. Vedi la sezione <a class="reference internal" href="vector_properties.html#vector-style-menu"><em>Menu Stile</em></a> per ulteriori informazioni su come impostare la simbologia dei vettori.</p>
-<div class="admonition tip" id="tip-load-from-external-drive-osx">
-<p class="first admonition-title">Suggerimento</p>
-<p><strong>Caricare vettori e progetti da periferiche esterne in OS X</strong></p>
-<p class="last">In OS X le periferiche esterne montate accanto al disco fisso principale non sono visibili nel menu <em class="menuselection">File ‣ Apri progetto</em>. Stiamo lavorando per cercare di risolvere questo problema con OS X; come soluzione temporanea digita <tt class="docutils literal"><span class="pre">/Volume</span></tt> nella casella <em class="guilabel">Nome file</em> e clicca <tt class="kbd docutils literal"><span class="pre">invio</span></tt>. In questo modo potrai utilizzare le periferiche esterne.</p>
-</div>
 </div>
 <div class="section" id="improving-performance-for-shapefiles">
 <h3>Ottimizzare le prestazioni per gli shapefile<a class="headerlink" href="#improving-performance-for-shapefiles" title="link permanente per questa intestazione">¶</a></h3>
@@ -267,16 +254,19 @@ cambiare lo stile di un vettore, apri la finestra di dialogo <em class="guilabel
 </div>
 </div>
 <div class="section" id="loading-a-mapinfo-layer">
-<span id="vector-loading-mapinfo"></span><span id="index-3"></span><h2>Caricare un vettore MapInfo<a class="headerlink" href="#loading-a-mapinfo-layer" title="link permanente per questa intestazione">¶</a></h2>
-<p><a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> To load a MapInfo layer, click on the <a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a>
-<sup>Add Vector Layer</sup> toolbar button; or type <tt class="kbd docutils literal"><span class="pre">Ctrl+Shift+V</span></tt>, change the
+<span id="vector-loading-mapinfo"></span><span id="index-2"></span><h2>Caricare un vettore MapInfo<a class="headerlink" href="#loading-a-mapinfo-layer" title="link permanente per questa intestazione">¶</a></h2>
+<p><a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> To load a MapInfo layer, change the
 file type filter <em class="guilabel">Files of type</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>: to
 &#8216;Mapinfo File [OGR] (*.mif *.tab *.MIF *.TAB)&#8217; and select the MapInfo layer you
 want to load.</p>
 </div>
 <div class="section" id="loading-an-arcinfo-binary-coverage">
-<span id="vector-loading-arcinfo-coverage"></span><span id="index-4"></span><h2>Caricare una coverage binaria ArcInfo<a class="headerlink" href="#loading-an-arcinfo-binary-coverage" title="link permanente per questa intestazione">¶</a></h2>
-<p>Per caricare una ArcInfo Binary Coverage clicca sul pulsante <a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> <sup>Aggiungi vettore</sup> o premi <tt class="kbd docutils literal"><span class="pre">Ctrl+Shift+V</span></tt> per aprire la finestra di dialogo <em class="guilabel">Aggiungi vettore</em>. Seleziona <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Cartella</em> come <em class="guilabel">Tipo sorgente</em> e cambia il filtro del <em class="guilabel">Tipo</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> con <em class="guilabel">Coverage binaria Arc/Info</em>.</p>
+<span id="vector-loading-arcinfo-coverage"></span><span id="index-3"></span><h2>Caricare una coverage binaria ArcInfo<a class="headerlink" href="#loading-an-arcinfo-binary-coverage" title="link permanente per questa intestazione">¶</a></h2>
+<p><a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> To load an ArcInfo Binary Coverage, select
+<img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Directory</em> as <em class="guilabel">Source type</em>. Change the
+file type filter <em class="guilabel">Files of type</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> to
+&#8216;Arc/Info Binary Coverage&#8217;. Navigate to the directory that contains the
+coverage file, and select it.</p>
 <p>In modo simile puoi caricare vettori nel formato di trasferimento UK National Transfer Format oppure anche nel formato TIGER del US Census Bureau.</p>
 </div>
 </div>

@@ -1,0 +1,622 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Allgemeine Werkzeuge</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="English">English</option>
+  <option value="de" title="German">Deutsch</option>
+  <option value="fr" title="French">Français</option>
+  <option value="it" title="Italian">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/introduction/general_tools.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Discover QGIS</a></li>
+            <li><a href="../../../site/forusers/index.html">For Users</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Get Involved</a></li>
+            <li><a href="../../index.html">Documentation</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Suche" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Inhalt</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Gebrauch der Dokumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Meine Karten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Zeichnen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Anhang</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="general-tools">
+<span id="id1"></span><h1>Allgemeine Werkzeuge<a class="headerlink" href="#general-tools" title="Permalink zu dieser Überschrift">¶</a></h1>
+<div class="section" id="keyboard-shortcuts">
+<span id="shortcuts"></span><h2>Tastenkürzel<a class="headerlink" href="#keyboard-shortcuts" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p id="index-0">KADAS bietet Standard Tastenkürzel für zahlreiche Funktionen. Sie können im Kapitel <em class="xref std std-ref">label_menubar</em> nachgelesen werden. Zusätzlich ist es aber auch möglich, eigene Tastenkürzel zu definieren und bestehende zu ändern. Öffnen Sie dazu das Menü <em class="menuselection">Einstellungen ‣ Tastenkürzel festlegen ...</em>.</p>
+<p id="figure-shortcuts"><strong>Figure Shortcuts 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/shortcuts.png" src="../../../_images/shortcuts.png" />
+<p class="caption">Tastenkürzel festlegen <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> (Gnome)</p>
+</div>
+<p>Die Konfiguration ist sehr einfach. Wählen Sie einfach eine Aktion aus und drücken dann auf <strong>[Ändern]</strong>, <strong>[Keins setzen]</strong> oder <strong>[Voreinstellung]</strong>. Wenn Sie ihre Einstellung gefunden haben, kann diese als XML-Datei abgespeichert und somit auch für eine andere KADAS Installation genutzt werden.</p>
+</div>
+<div class="section" id="context-help">
+<span id="id2"></span><h2>Hilfe<a class="headerlink" href="#context-help" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p id="index-1">Wenn Sie Hilfe zu bestimmten Themen brauchen erreichen Sie die Kontext-Hilfe über den <strong>[Hilfe]</strong> Knopf der Ihnen in den meisten Dialogen zur Verfügung steht. Bitte beachten Sie daß Erweiterungen von Drittanbietern zu dementsprechend gewidmeten Internetseiten verweisen.</p>
+</div>
+<div class="section" id="rendering">
+<span id="redraw-events"></span><h2>Layeranzeige kontrollieren<a class="headerlink" href="#rendering" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p id="index-2">KADAS rendert standardmäßig alle sichtbaren Layer wenn das Kartenfenster aktualisiert werden muss. Die Abläufe, die eine ‘Erneuerung’ der Wiedergabe verursachen sind:</p>
+<ul class="simple">
+<li><p class="first">Einen Layer hinzufügen</p>
+</li>
+<li><p class="first">Karten verschieben, hinein- oder herauszoomen</p>
+</li>
+<li><p class="first">Die Größe des KADAS Fensters ändern</p>
+</li>
+<li><p class="first">Layer ein- oder ausblenden</p>
+</li>
+</ul>
+<p>KADAS ermöglicht Ihnen den Darstellungsprozess in einer Reihe von Möglichkeiten zu steuern.</p>
+<div class="section" id="scale-dependent-rendering">
+<h3>Maßstabsabhängige Layeranzeige<a class="headerlink" href="#scale-dependent-rendering" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p id="index-3">Die maßstabsabhängige Wiedergabe erlaubt es, einen mini- und maximalen Maßstab, in dessen Rahmen ein Layer angezeigt wird, anzugeben. Um die maßstabsabhängige Wiedergabe einzustellen öffnen Sie den <em class="guilabel">Eigenschaften</em> Dialog eines Layers, indem Sie diesen in der Legende doppelt anklicken, im Menü <em class="guilabel">Allgemein</em> die entsprechenden Einstellungen vornehmen und das Kontrollkästchen <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Maßstabsabhängige Sichtbarkeit</em> aktivieren.</p>
+<p>Sie können die Maßstabswerte bestimmen indem Sie erst auf den Level den Sie benutzen wollen zoomen und den Maßstabswert in der KADAS Statusleiste notieren.</p>
+</div>
+<div class="section" id="controlling-map-rendering">
+<span id="label-controlmap"></span><span id="index-4"></span><h3>Layeranzeige kontrollieren<a class="headerlink" href="#controlling-map-rendering" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Die Kartendarstellung kann wie unten beschrieben auf verschiedene Art und Weise gesteuert werden.</p>
+<div class="section" id="suspending-rendering">
+<span id="label-suspendrender"></span><h4>Wiedergabe unterdrücken<a class="headerlink" href="#suspending-rendering" title="Permalink zu dieser Überschrift">¶</a></h4>
+<p>Um die Wiedergabe einer Karte zu unterdrücken, klicken Sie auf das Kontrollkästchen <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Zeichnen</em> auf der rechten Seite der Statusleiste. Wenn das Kontrollkästchen nicht aktiv ist, führt KADAS keine Erneuerung der Wiedergabe des Kartenfensters durch wie in Abschnitt <a class="reference internal" href="#redraw-events"><em>Layeranzeige kontrollieren</em></a> beschrieben. Beispiele, bei denen das Unterdrücken der Wiedergabe angewendet wird, sind:</p>
+<ul class="simple">
+<li><p class="first">Viele Layer hinzufügen und ihre Symbologie vor der Visualisierung einstellen</p>
+</li>
+<li><p class="first">Einen oder mehrere große Layer hinzufügen und erst die maßstabsabhängige Wiedergabe einstellen</p>
+</li>
+<li><p class="first">Einen oder mehrere große Layer hinzufügen und erst in ein bestimmtes Gebiet hineinzoomen</p>
+</li>
+<li><p class="first">Eine Kombination aus den oben genannten Punkten</p>
+</li>
+</ul>
+<p>Wenn Sie die <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Zeichnen</em> aktivieren, findet automatisch eine Erneuerung der Wiedergabe des Kartenfensters statt.</p>
+</div>
+<div class="section" id="setting-layer-add-option">
+<span id="label-settinglayer"></span><h4>Option für Layer hinzufügen<a class="headerlink" href="#setting-layer-add-option" title="Permalink zu dieser Überschrift">¶</a></h4>
+<p>Sie können für das Hinzuladen neuer Layer eine Einstellung vornehmen, die bewirkt, dass diese beim Laden erst einmal nicht angezeigt werden. Um diese Option zu nutzen deaktivieren Sie in der Menüleiste unter <em class="menuselection">Einstellungen ‣ Optionen</em> im Menü <em class="guilabel">Darstellung</em> das Kontrollkästchen <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Normalerweise werden alle neuen Layer im Kartenfenster angezeigt</em>. Dadurch werden alle neu geladenen Layer erstmal nicht angezeigt.</p>
+</div>
+<div class="section" id="stopping-rendering">
+<h4>Zeichnen stoppen<a class="headerlink" href="#stopping-rendering" title="Permalink zu dieser Überschrift">¶</a></h4>
+<p id="label-stoprender"><span id="index-5"></span>Um die Wiedergabe einer Karte zu stoppen drücken Sie die <tt class="kbd docutils literal"><span class="pre">ESC</span></tt> Taste. Dies stoppt die Erneuerung der Wiedergabe und die Karte wird nur zum Teil angezeigt. Es kann sein dass etwas Zeit zwischen dem Drücken der <tt class="kbd docutils literal"><span class="pre">Esc</span></tt> Taste und dem Stoppen der Kartenwiedergabe vergeht.</p>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Es ist derzeit nicht möglich das Zeichnen zu stoppen - diese Funktion wurde mit der Version qt4 ausgeschaltet da es zu Problemen und Abstürzen der Benutzeroberfläche kam.</p>
+</div>
+</div>
+<div class="section" id="updating-the-map-display-during-rendering">
+<span id="label-updatemap"></span><h4>Anpassen des Kartenfensters bei der Wiedergabe<a class="headerlink" href="#updating-the-map-display-during-rendering" title="Permalink zu dieser Überschrift">¶</a></h4>
+<p id="index-6">Normalerweise werden in QGIS Inhalte von Layern erst visualisiert wenn sämtliche Daten geladen sind. Um zu bewirken, dass die Inhalte von Layern direkt beim Lesen angezeigt werden, verändern Sie in der Menüleiste unter <em class="menuselection">Einstellungen ‣Optionen</em> im Menü <em class="guilabel">Darstellung</em> die <em class="guilabel">Anzahl von Objekten, nach deren Zeichnung die Anzeige aktualisiert werden soll</em>. Der Wert 0 (Standard) verhindert die Aktualisierung während des Zeichnens. Bei zu niedrigem Wert leidet die Leistung, das ständig ein Update der Wiedergabe stattfindet. Zu Beginn ist oftmals ein Wert von 500 sinnvoll.</p>
+</div>
+<div class="section" id="influence-rendering-quality">
+<span id="label-renderquality"></span><h4>Die Qualität der Wiedergabe beeinflussen<a class="headerlink" href="#influence-rendering-quality" title="Permalink zu dieser Überschrift">¶</a></h4>
+<p id="index-7">Um die Wiedergabequalität der Layer zu beeinflussen gibt es zwei Möglichkeiten. Öffnen Sie das Menü <em class="guilabel">Darstellung</em> im Menü <em class="menuselection">Einstellungen ‣ Optionen</em> und aktivieren bzw. deaktivieren Sie folgende Kontrollkästchen.</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Linien auf Kosten der Zeichengeschwindigkeit weniger gezackt zeichnen</em></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Problem mit falsch gefüllten Polygonen beheben</em></p>
+</li>
+</ul>
+</div>
+<div class="section" id="speed-up-rendering">
+<h4>Darstellung beschleunigen<a class="headerlink" href="#speed-up-rendering" title="Permalink zu dieser Überschrift">¶</a></h4>
+<p>Es gibt zwei Einstellungen die es Ihnen ermöglichen die Darstellungsgeschwindigkeit zu erhöhen. Öffnen Sie den KADAS <em class="guilabel">Optionen</em> Dialog indem Sie <em class="menuselection">Einstellungen ‣ Optionen</em> benutzen, gehen Sie zum <em class="guilabel">Darstellung</em> Menü und aktivieren oder deaktivieren Sie die folgenden Kontrollkästchen:</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Hintergrundpuffer aktivieren</em>. Dies sorgt für eine bessere Grafikleistung wobei dann das Darstellen dann nicht mehr gestoppt und Objekte nicht mehr stufenweise dargestellt werden können. Wenn es deaktiviert ist können Sie die <em class="guilabel">Anzahl von Objekten nach deren Zeichnung die Anzeige aktualisiert werden soll</em> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a> festlegen, sonst ist diese Option nicht aktiv.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Wo möglich den Darstellungscache benutzen, um das Neuzeichnen zu beschleunigen</em></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="measuring">
+<h2>Messen<a class="headerlink" href="#measuring" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p id="index-8">Das Messen funktioniert mit Projektionen (z.B. UTM) und auch mit nicht projizierten Daten. Wenn die geladene Karte als Geografisches Koordinatensystem abgebildet wird (z.B. Latitude/Longitude) sind die Messergebnisse falsch. Sie müssen dann ein passendes KBS mit einer Projektion verwenden (siehe Abschnitt <a class="reference internal" href="../working_with_projections/working_with_projections.html#label-projections"><em>Arbeiten mit Projektionen</em></a>). Alle Meßwerkzeuge verwenden auch die eingestellte Fangtoleranz der Digitalisierung. Dies ist zum Beispiel dann sinnvoll, wenn Sie entlang von Linien oder Polygongrenzen geladener Vektorlayer messen wollen.</p>
+<p>Um ein Meßwerkzeug auszuwählen klicken Sie auf <a class="reference internal" href="../../../_images/mActionMeasure.png"><img alt="mActionMeasure" src="../../../_images/mActionMeasure.png" style="width: 1.5em;" /></a> und suchen das Werkzeug das Sie benutzen wollen aus.</p>
+<div class="section" id="measure-length-areas-and-angles">
+<h3>Strecken, Flächen und Winkel messen<a class="headerlink" href="#measure-length-areas-and-angles" title="Permalink zu dieser Überschrift">¶</a></h3>
+<span class="target" id="index-9"></span><span class="target" id="index-10"></span><p id="index-11"><a class="reference internal" href="../../../_images/mActionMeasure.png"><img alt="mActionMeasure" src="../../../_images/mActionMeasure.png" style="width: 1.5em;" /></a> <sup>Measure Line</sup>: KADAS is able to measure real distances
+between given points according to a defined ellipsoid. To configure this,
+choose menu option <em class="menuselection">Settings ‣ Options</em>, click on the
+<em class="guilabel">Map tools</em> tab and select the appropriate ellipsoid. There, you can
+also define a rubberband color and your preferred measurement units (meters or
+feet) and angle units (degrees, radians and gon). The tool then allows you to
+click points on the map. Each segment length, as well as the total, shows up in
+the measure window. To stop measuring, click your right mouse button.
+Note that you can interactively change the measurement units in the measurement
+dialog. It overrides the <em class="guilabel">Preferred measurement units</em> in the options.
+There is an info section in the dialog that shows which CRS settings are being used
+during measurement calculations.</p>
+<p id="figure-measure-length"><strong>Figure Measure 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/measure_line.png" src="../../../_images/measure_line.png" />
+<p class="caption">Entfernungen messen <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> (Gnome)</p>
+</div>
+<p><a class="reference internal" href="../../../_images/mActionMeasureArea.png"><img alt="mActionMeasureArea" src="../../../_images/mActionMeasureArea.png" style="width: 1.5em;" /></a> <sup>Fläche messen</sup>: Auch Flächengrößen können gemessen werden. Das Popup zeigt dabei die akkumulierte Flächengröße. Zusätzlich schnappt das Meßwerkzeug auf den gerade ausgewählten Layer wenn für den entsprechenden Layer ein Fangmodus eingestellt wurde (siehe Abschnitt <em class="xref std std-ref">snapping_tolerance</em>). Wenn Sie also exakt entlang einer Linie oder Polygonumrandung messen möchten, setzen Sie erst eine Fangtoleranz und selektieren dann den Layer. Wenn Sie jetzt das Meßwerkzeug benutzen schnappt man mit jedem Mausklick (innerhalb der eingestellten Toleranz) auf den Layer.</p>
+<p id="figure-measure-area"><strong>Figure Measure 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/measure_area.png" src="../../../_images/measure_area.png" />
+<p class="caption">Flächen messen <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> (Gnome)</p>
+</div>
+<p><a class="reference internal" href="../../../_images/mActionMeasureAngle.png"><img alt="mActionMeasureAngle" src="../../../_images/mActionMeasureAngle.png" style="width: 1.5em;" /></a> <sup>Winkel messen</sup>: Auch Winkel können mit dem Winkel messen- Werkzeug gemessen werden. Der Mauszeiger wird zum Kreuz. Drücken Sie die linke Maustaste und zeichnen Sie das erste Segment des Winkels, klicken nochmals auf die linke Maustaste und messen sie den Winkel, der im Dialogfenster angezeigt wird.</p>
+<p id="figure-measure-angle"><strong>Figure Measure 3:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/measure_angle.png" src="../../../_images/measure_angle.png" />
+<p class="caption">Winkel messen <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> (Gnome)</p>
+</div>
+</div>
+<div class="section" id="select-and-deselect-features">
+<span id="sec-selection"></span><h3>Objekte auswählen und Auswahl aufheben<a class="headerlink" href="#select-and-deselect-features" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Die Werkzeugleiste bietet mehrere Werkzeuge, um Objekte im Kartenfenster auszuwählen. Um ein oder mehrere Objekte auszuwählen, klicken Sie auf <a class="reference internal" href="../../../_images/mActionSelect.png"><img alt="mActionSelect" src="../../../_images/mActionSelect.png" style="width: 1.5em;" /></a> und wählen Sie dann das entsprechende Werkzeug:</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionSelect.png"><img alt="mActionSelect" src="../../../_images/mActionSelect.png" style="width: 1.5em;" /></a> <sup>Einzelnes Objekt wählen</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionSelectRectangle.png"><img alt="mActionSelectRectangle" src="../../../_images/mActionSelectRectangle.png" style="width: 1.5em;" /></a> <sup>Objekte durch Rechteck wählen</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionSelectPolygon.png"><img alt="mActionSelectPolygon" src="../../../_images/mActionSelectPolygon.png" style="width: 1.5em;" /></a> <sup>Objekte durch Polygon wählen</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionSelectFreehand.png"><img alt="mActionSelectFreehand" src="../../../_images/mActionSelectFreehand.png" style="width: 1.5em;" /></a> <sup>Objekte freihändig wählen</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionSelectRadius.png"><img alt="mActionSelectRadius" src="../../../_images/mActionSelectRadius.png" style="width: 1.5em;" /></a> <sup>Objekte durch Radius wählen</sup></p>
+</li>
+</ul>
+<p>Um die Auswahl von Objekten wieder aufzuheben, klicken Sie auf den Knopf <a class="reference internal" href="../../../_images/mActionDeselectAll.png"><img alt="mActionDeselectAll" src="../../../_images/mActionDeselectAll.png" style="width: 1.5em;" /></a>.</p>
+<p><a class="reference internal" href="../../../_images/mIconExpressionSelect.png"><img alt="mIconExpressionSelect" src="../../../_images/mIconExpressionSelect.png" style="width: 1.5em;" /></a> <sup>Objekte mit einem Ausdruck wählen</sup> ermöglicht es dem Anwender ein Objekt anhand eines Ausdruckdialoges auszuwählen. Siehe auch die Beispiele in Kapitel <a class="reference internal" href="../working_with_vector/expression.html#vector-expressions"><em>Ausdrücke</em></a> .</p>
+<p>Anwender können eine Objektauswahl in <strong>Neuer Memory-Vektorlayer</strong> oder <strong>Neuer Vektorlayer</strong> anhand von <em class="menuselection">Bearbeiten ‣ Objekte einfügen als ‣</em> speichern indem Sie den gewünschten Modus auswählen.</p>
+</div>
+</div>
+<div class="section" id="identify">
+<span id="identify-features"></span><h2>Objekte abfragen<a class="headerlink" href="#identify" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p id="index-12">Das Objekte abfragen Werkzeug ermöglicht es Ihnen mit dem Kartenfenster zu interagieren und Informationen über Objekte über eine Pop-Up Fenster abzurufen. Um ein Objekt abzufragen verwenden Sie <em class="menuselection">Ansicht ‣ Objekte abfragen</em>, drücken Sie <tt class="kbd docutils literal"><span class="pre">Strg</span> <span class="pre">+</span> <span class="pre">Umschalt</span> <span class="pre">+</span> <span class="pre">I</span></tt> oder klicken Sie auf das <a class="reference internal" href="../../../_images/mActionIdentify.png"><img alt="mActionIdentify" src="../../../_images/mActionIdentify.png" style="width: 1.5em;" /></a> <sup>Objekte abfragen</sup> Icon in der Werkzeugleiste.</p>
+<p>If you click on several features, the <em class="guilabel">Identify results</em> dialog will
+list information about all the selected features. The first item is the number of the
+layer in the list of results, followed by the layer name. Then, its first child will
+be the name of a field with its value. The first field is the one selected in
+<em class="menuselection">Properties ‣ Display</em>. Finally, all information about the feature
+is displayed.</p>
+<p>Dieses Fenster kann angepasst werden um benutzerdefinierte Felder anzuzeigen, standardmäßig gibt es drei Arten von Informationen wieder:</p>
+<ul class="simple">
+<li><p class="first">Aktionen: Aktionen können zum Objekte abfragen Fenster hinzugefügt werden. Wenn Sie dann auf das Aktionen-Icon klicken wird eine Aktion ausgeführt. Standardmäßig wird nur eine Aktion hinzugefügt um das Objektformular zum Bearbeiten darzustellen.</p>
+</li>
+<li><p class="first">Abgeleitet: Diese Information wird von anderen Informationen berechnet oder abgeleitet. Sie können hier durch einen Klick X- und Y-Koordinate, Fläche in Karteneinheiten und Umfang in Karteneinheiten von Polygonen, Längen in Karteneinheiten von Linien und Objekt IDs herausfinden.</p>
+</li>
+<li><p class="first">Datenattribute: Dies ist die Liste von Attributfeldern aus den Daten.</p>
+</li>
+</ul>
+<p id="figure-identify"><strong>Figure Identify 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/identify_features.png" src="../../../_images/identify_features.png" />
+<p class="caption">Objekte abfragen Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> (Gnome)</p>
+</div>
+<p>At the top of the window, you have five icons:</p>
+<ul class="simple">
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionExpandTree.png"><img alt="mActionIdentifyExpand" src="../../../_images/mActionExpandTree.png" style="width: 1.5em;" /></a> <sup>Baum ausklappen</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionCollapseTree.png"><img alt="mActionIdentifyCollapse" src="../../../_images/mActionCollapseTree.png" style="width: 1.5em;" /></a> <sup>Baum einklappen</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionExpandNewTree.png"><img alt="mActionIdentifyDefaultExpand" src="../../../_images/mActionExpandNewTree.png" style="width: 1.5em;" /></a> <sup>Neue Ergebnisse erscheinen automatisch ausgeklappt.</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionEditCopy.png"><img alt="mActionIdentifyCopyAttributes" src="../../../_images/mActionEditCopy.png" style="width: 1.5em;" /></a> <sup>Gewählte Objekte in Zwischenablage kopieren.</sup></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../_images/mActionFilePrint.png"><img alt="mActionIdentifyPrint" src="../../../_images/mActionFilePrint.png" style="width: 1.5em;" /></a> <sup>Gewählte HTML-Antwort drucken</sup></p>
+</li>
+</ul>
+<p>At the bottom of the window, you have the <em class="guilabel">Mode</em> and <em class="guilabel">View</em>
+comboboxes.
+With the <em class="guilabel">Mode</em> combobox you can define the identify mode: &#8216;Current layer&#8217;,
+&#8216;Top down, stop at first&#8217;, &#8216;Top down&#8217; and &#8216;Layer selection&#8217;.
+The <em class="guilabel">View</em> can be set as &#8216;Tree&#8217;, &#8216;Table&#8217; and &#8216;Graph&#8217;.</p>
+<p>The identify tool allows you to auto open a form. In this mode you can change the
+feautures attributes.</p>
+<p>Andere Funktionen können im Kontextmenü des abgefrageten Objekts gefunden werden. Im Kontextmenü können Sie z.B.:</p>
+<ul class="simple">
+<li><p class="first">Das Objektformular anzeigen</p>
+</li>
+<li><p class="first">Zum Objekt zoomen</p>
+</li>
+<li><p class="first">Objekt kopieren: Kopieren Sie alle Objektgeometrien und -attribute</p>
+</li>
+<li><p class="first">Auswahl des Objekts umkehren: fügt das ausgewählte Objekt der Auswahl hinzu</p>
+</li>
+<li><p class="first">Attributwert kopieren: Kopieren Sie nur den Wert des Attributes auf das Sie klicken</p>
+</li>
+<li><p class="first">Objektattribute kopieren: Kopieren Sie nur die Attribute</p>
+</li>
+<li><p class="first">Ergebnisse löschen: Löschen Sie Ergebnisse im Fenster</p>
+</li>
+<li><p class="first">Hervorhebungen löschen: Entfernen Sie in der Karte hervorgehobene Objekte</p>
+</li>
+<li><p class="first">Alle hervorheben</p>
+</li>
+<li><p class="first">Layer hervorheben</p>
+</li>
+<li><p class="first">Layer aktivieren: Wählen Sie einen Layer der aktiviert werden soll</p>
+</li>
+<li><p class="first">Layereigenschaften ... : Öffnen Sie das Layereigenschaften Fenster</p>
+</li>
+<li><p class="first">Alles ausklappen</p>
+</li>
+<li><p class="first">Alles zusammenfalten</p>
+</li>
+</ul>
+</div>
+<div class="section" id="decorations">
+<span id="id3"></span><h2>Dekorationen<a class="headerlink" href="#decorations" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>Die Dekorationen von KADAS umfassen das Gitter, den Urheberrechtshinweis, den Nordpfeil und die Maßstabsleiste. Sie werden zum Dekorieren der Karte durch Hinzufügen von kartografischen Elementen benutzt.</p>
+<div class="section" id="grid">
+<h3>Gitter<a class="headerlink" href="#grid" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p><a class="reference internal" href="../../../_images/transformed.png"><img alt="transformed" src="../../../_images/transformed.png" style="width: 1.5em;" /></a> <sup>Gitter</sup> ermöglicht es Ihnen ein Koordinatengitter und Koordinatenbeschriftungen der Karte hinzuzufügen.</p>
+<p id="figure-decorations-1"><strong>Figure Decorations 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/grid_dialog.png" src="../../../_images/grid_dialog.png" />
+<p class="caption">Der Gitter Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ol class="arabic simple">
+<li><p class="first">Wählen Sie das Menü <em class="menuselection">Ansicht‣ Dekorationen ‣ Gitter</em>. Der Dialog öffnet sich (siehe <a class="reference internal" href="#figure-decorations-1">figure_decorations_1</a>).</p>
+</li>
+<li><p class="first">Aktivieren Sie das Kontrollkästchen <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Aktiviere Gitter</em> und machen Sie Definitionen gemäß den Layern die Sie ins Kartenfenster geladen haben.</p>
+</li>
+<li><p class="first">Aktivieren Sie das Kontrollkästchen <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Beschriftungen zeichnen</em> und machen Sie Beschriftungsdefinitionen gemäß den im Kartenfenster geladenen Layern.</p>
+</li>
+<li><p class="first">Klicken Sie <strong>[Anwenden]</strong> um sicherzugehen dass es so aussieht wie sie es erwarten.</p>
+</li>
+<li><p class="first">Klicken Sie <strong>[OK]</strong> um den Dialog zu schließen.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="copyright-label">
+<h3>Urheberrechtshinweis<a class="headerlink" href="#copyright-label" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p><a class="reference internal" href="../../../_images/copyright_label.png"><img alt="copyright_label" src="../../../_images/copyright_label.png" style="width: 1.5em;" /></a> <sup>Urheberrechtshinweis</sup> fügt einen Urheberrechtshinweis mit dem Text Ihrer Wahl in Ihr Kartenfenster ein.</p>
+<p id="figure-decorations-2"><strong>Figure Decorations 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/copyright.png" src="../../../_images/copyright.png" />
+<p class="caption">Der Urheberrechtshinweis-Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<ol class="arabic simple">
+<li><p class="first">Wählen Sie <em class="menuselection">Ansicht ‣ Dekorationen ‣ Urheberrechtshinweis</em>. Der Dialog öffnet sich (siehe <a class="reference internal" href="#figure-decorations-2">figure_decorations_2</a>)</p>
+</li>
+<li><p class="first">Geben Sie den Text den Sie auf der Karte platzieren wollen ein. Sie können wie im Beispiel gezeigt HTML benutzen.</p>
+</li>
+<li><p class="first">Wählen Sie die Platzierung der Beschriftung in der <em class="guilabel">Platzierung</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> Kombobox aus.</p>
+</li>
+<li><p class="first">Versichern Sie sich dass das <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Urheberrechtshinweis aktivieren</em> Kontrollkästchen aktiviert ist.</p>
+</li>
+<li><p class="first">Klicken Sie <strong>[OK]</strong>.</p>
+</li>
+</ol>
+<p>Im oben genannten Beispiel, das den Standard darstellt, platziert KADAS einen Urheberrechtshinweissymbol gefolgt vom Datum in der rechten unteren Ecke des Kartenfensters.</p>
+</div>
+<div class="section" id="north-arrow">
+<h3>Nordpfeil<a class="headerlink" href="#north-arrow" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p><a class="reference internal" href="../../../_images/north_arrow.png"><img alt="north_arrow" src="../../../_images/north_arrow.png" style="width: 1.5em;" /></a> <sup>Nordpfeil</sup> platziert einen einfachen Nordpfeil im Kartenfenster. Bislang steht hierfür lediglich eine Pfeilform zur Verfügung. Sie können die Richtung des Nordpfeiles entweder selbst anpassen oder dies automatisch von KADAS bewerkstellingen lassen. Wenn Sie es KADAS überlassen die Richtung zu bestimmen, entscheided das Programm, in welche Richtung der Nordpfeil idealerweise zeigen sollte. Zum Platzieren des Pfeils haben Sie vier Möglichkeiten entsprechend den vier Ecken des Kartenfensters.</p>
+<p id="figure-decorations-3"><strong>Figure Decorations 3:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/north_arrow_dialog.png" src="../../../_images/north_arrow_dialog.png" />
+<p class="caption">Der Nordpfeil Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+</div>
+<div class="section" id="scale-bar">
+<h3>Maßstab<a class="headerlink" href="#scale-bar" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p><a class="reference internal" href="../../../_images/scale_bar.png"><img alt="scale_bar" src="../../../_images/scale_bar.png" style="width: 2.5em;" /></a> <sup>Maßstab</sup> fügt einen einfachen Maßstab in das Kartenfenster ein. Sie können Maßstabstil und Platzierung so wie die Beschriftung des Balkens steuern.</p>
+<p id="figure-decorations-4"><strong>Figure Decorations 4:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/scale_bar_dialog.png" src="../../../_images/scale_bar_dialog.png" />
+<p class="caption">Der Maßstab Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>KADAS unterstützt hierbei jedoch lediglich die Darstellung des Balkens in denjenigen Einheiten, die auch in Ihren entsprechenden Karten verwendet werden. Dies bedeutet, dass Sie einer Karte deren Layer der Einheit Meter entsprechen, keinen Maßstabsbalken in den Einheiten Fuß oder Zoll hinzufügen können.</p>
+<p>Das Hinzufügen eines Maßstabbalkens geht folgendermaßen:</p>
+<ol class="arabic simple">
+<li><p class="first">Klicken Sie auf <em class="menuselection">Ansicht ‣ Dekorationen ‣ Maßstab</em>. Der Dialog startet (siehe <a class="reference internal" href="#figure-decorations-4">figure_decorations_4</a>).</p>
+</li>
+<li><p class="first">Wählen Sie die Platzierung aus der <em class="guilabel">Platzierung</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> Kombobox aus.</p>
+</li>
+<li><p class="first">Wählen Sie den Stil aus der <em class="guilabel">Maßstabsstil</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> Kombobox aus.</p>
+</li>
+<li><p class="first">Wählen Sie die Farbe für den Balken unter <em class="guilabel">Balkenfarbe</em> <img alt="selectcolor" src="../../../_images/selectcolor.png" /> oder benutzen Sie die standardmäßig eingestellte schwarze Farbe.</p>
+</li>
+<li><p class="first">Legen Sie die Größe des Balkens und seine Beschriftung unter <em class="guilabel">Größe des Maßstabs</em> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectnumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a> fest.</p>
+</li>
+<li><p class="first">Versichern Sie sich dass das <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Aktiviere Maßstab</em> Kontrollkästchen aktiviert ist.</p>
+</li>
+<li><p class="first">Gegebenenfalls können Sie <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Bei Größenänderungen automatisch runde Zahlen einstellen</em> aktivieren.</p>
+</li>
+<li><p class="first">Klicken Sie <strong>[OK]</strong>.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="first admonition-title">Tipp</p>
+<p><strong>Einstellungen von Dekorationen</strong></p>
+<p class="last">Wenn Sie ein <tt class="file docutils literal"><span class="pre">.qgs</span></tt> -Projekt speichern werden alle bezüglich Nordpfeil, Maßstab und Urheberrechtshinweis gemachten Änderungen im Projekt gespeichert und das nächste Mal wenn das Projekt geladen wird wiederhergestellt</p>
+</div>
+<span class="target" id="sec-annotations"></span></div>
+</div>
+<div class="section" id="annotation-tools">
+<span id="index-13"></span><h2>Beschriftungstools<a class="headerlink" href="#annotation-tools" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>Das <a class="reference internal" href="../../../_images/mActionTextAnnotation.png"><img alt="mActionTextAnnotation" src="../../../_images/mActionTextAnnotation.png" style="width: 1.5em;" /></a> <sup>Beschriftungstext</sup>-Werkzeug in der Atrribut-Werkzeugleiste bietet die Möglichkeit formatierten Text in einer Sprechblase im KADAS Kartenfenster zu platzieren. Aktivieren Sie dazu einfach das Beschriftungstext-Werkzeug und klicken Sie in das Kartenfenster.</p>
+<p id="annotation"><strong>Figure annotation 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/annotation.png" src="../../../_images/annotation.png" />
+<p class="caption">Anmerkungstext Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>Ein Doppelklick auf das Element öffnet den Dialog mit verschiedenen Optionen. Im Texteditor können Sie den formatierten Text eingeben und einige Einstellungen vornehmen. Z.B. kann das Objekt an einer bestimmten Stelle positioniert werden, was dann durch ein Markersymbol angezeigt wird. Oder das es unabhängig von dem Objekt im Kartenfenster angezeigt wird. Der Text kann entweder durch Verschieben der Markierung oder der Sprechblase im Kartenfenster verschoben werden.</p>
+<p>Das <a class="reference internal" href="../../../_images/mActionAnnotation.png"><img alt="mActionAnnotation" src="../../../_images/mActionAnnotation.png" style="width: 1.5em;" /></a> <sup>Beschriftung verschieben</sup> Werkzeug ermöglicht es Ihnen die Beschriftung auf den Kartenfenster zu verschieben.</p>
+<div class="section" id="html-annotations">
+<h3>HTML-Beschriftung<a class="headerlink" href="#html-annotations" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Die <a class="reference internal" href="../../../_images/mActionFormAnnotation.png"><img alt="mActionFormAnnotation" src="../../../_images/mActionFormAnnotation.png" style="width: 1.5em;" /></a> <sup>HTML-Beschriftung</sup> Werkzeuge in der Attribut-Werkzeugleiste ermöglichen es den Inhalt einer HTML-Datei in einer Sprechblase auf dem KADAS-Kartenfenster zu platzieren. Benutzen Sie das <em class="guilabel">HTML-Beschriftung</em> Werkzeug indem Sie ins Kartenfenster klicken und den Pfad zur HTML-Datei in den Dialog einfügen.</p>
+</div>
+<div class="section" id="svg-annotations">
+<h3>SVG-Anmerkung<a class="headerlink" href="#svg-annotations" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Das <a class="reference internal" href="../../../_images/mActionSaveAsSVG.png"><img alt="mActionSaveAsSVG" src="../../../_images/mActionSaveAsSVG.png" style="width: 1.5em;" /></a> <sup>SVG-Anmerkung</sup> Werkzeug in der Attribut-Werkzeugleiste ermöglicht es ein SVG-Symbol in einer Sprechblase auf dem KADAS-Kartenfenster zu platzieren. Um das <em class="guilabel">SVG-Anmerkung</em> Werkzeug zu benutzen klicken Sie in das Kartenfenster und fügen Sie den Pfad zur SVG-Datei in den Dialog ein.</p>
+</div>
+<div class="section" id="form-annotations">
+<h3>Beschriftungsformular<a class="headerlink" href="#form-annotations" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Zusätzlich können Sie eigene Beschriftungsformulare erstellen. Das <a class="reference internal" href="../../../_images/mActionFormAnnotation.png"><img alt="mActionFormAnnotation" src="../../../_images/mActionFormAnnotation.png" style="width: 1.5em;" /></a> <sup>Beschriftungsformular</sup> Werkzeug ist nützlich um Attribute eines Vektorlayers in einem maßgeschneiderten QT-Designer Beschriftungsformular anzuzeigen (siehe figure_custom_annotation). Es ist ähnlich wie die Designer-Formulare für das Identifizierungswerkzeug, wird aber als Beschriftungstext angezeigt. Siehe auch das Video <a class="reference external" href="https://www.youtube.com/watch?v=0pDBuSbQ02o">https://www.youtube.com/watch?v=0pDBuSbQ02o</a> von Tim Sutton  für weitere Informationen.</p>
+<p id="figure-custom-annotation"><strong>Figure annotation 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/custom_annotation.png" src="../../../_images/custom_annotation.png" />
+<p class="caption">Benutzerfreundliches QT Designer Beschriftungsformular <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Wenn Sie das Tastenkürzel <tt class="kbd docutils literal"><span class="pre">Ctrl+T</span></tt> drücken während ein Beschriftungswerkzeug aktiv ist ändert sich deren Anzeigestatus zwischen an und aus.</p>
+</div>
+</div>
+</div>
+<div class="section" id="spatial-bookmarks">
+<span id="sec-bookmarks"></span><h2>Räumliche Lesezeichen<a class="headerlink" href="#spatial-bookmarks" title="Permalink zu dieser Überschrift">¶</a></h2>
+<span class="target" id="index-14"></span><p id="index-15">Räumliche Lesezeichen ermöglichen es, geografische Orte zu markieren und als Lesezeichen abzuspeichern, um dorthin später zurückzufinden.</p>
+<div class="section" id="creating-a-bookmark">
+<h3>Ein Lesezeichen erstellen<a class="headerlink" href="#creating-a-bookmark" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Um ein Lesezeichen zu erstellen:</p>
+<ol class="arabic simple">
+<li><p class="first">Zoomen oder verschieben Sie das Kartenfenster in einen Ausschnitt Ihrer Wahl.</p>
+</li>
+<li><p class="first">Wählen Sie in der Menüleiste <em class="menuselection">Ansicht ‣ Neues Lesezeichen</em> oder drücken Sie kbd:<cite>Ctrl-B</cite>.</p>
+</li>
+<li><p class="first">Geben Sie eine Beschreibung für das Lesezeichen ein (bis zu 255 Zeichen).</p>
+</li>
+<li><p class="first">Klicken Sie auf <tt class="kbd docutils literal"><span class="pre">Enter</span></tt> um das Lesezeichen hinzuzufügen oder auf <strong>[Löschen]</strong> um das Lesezeichen zu entfernen.</p>
+</li>
+</ol>
+<p>Sie können mehrere Lesezeichen mit demselben Namen erstellen.</p>
+</div>
+<div class="section" id="working-with-bookmarks">
+<h3>Arbeiten mit Lesezeichen<a class="headerlink" href="#working-with-bookmarks" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Um räumliche Lesezeichen zu verwenden oder zu verwalten wählen Sie die Menüoption <em class="menuselection">Ansicht ‣ Lesezeichen anzeigen</em> . Mit dem <em class="guilabel">Räumliches Lesezeichen</em> Dialog können Sie zu einem räumlichen Lesezeichen zoomen oder ein Lesezeichen löschen. Sie können hier den Namen und die Koordinaten des Lesezeichens bearbeiten.</p>
+</div>
+<div class="section" id="zooming-to-a-bookmark">
+<h3>Auf ein Lesezeichen zoomen<a class="headerlink" href="#zooming-to-a-bookmark" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Im Dialogfenster <em class="guilabel">Räumliches Lesezeichen</em> klicken Sie auf das gewünschte Lesezeichen und wählen dann den Knopf <strong>[Zoomen auf]</strong>. Sie
+können auch auf ein Lesezeichen zoomen, indem Sie es mit einem Doppelklick auswählen.</p>
+</div>
+<div class="section" id="deleting-a-bookmark">
+<h3>Ein Lesezeichen löschen<a class="headerlink" href="#deleting-a-bookmark" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Um ein Lesezeichen aus dem <em class="guilabel">Räumliches Lesezeichen</em> Dialog zu löschen klicken Sie es an und klicken Sie dann <strong>[Löschen]</strong>. Bestätigen Sie Ihre Wahl indem Sie <strong>[OK]</strong> klicken oder brechen Sie das Löschen mit <strong>[Abbrechen]</strong> ab.</p>
+</div>
+<div class="section" id="import-or-export-a-bookmark">
+<h3>Import or export a bookmark<a class="headerlink" href="#import-or-export-a-bookmark" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>To share or transfer your bookmarks between computers you can use the <em class="guilabel">Share</em>
+pull down menu in the <em class="guilabel">Geospatial Bookmarks</em> dialog.</p>
+</div>
+</div>
+<div class="section" id="nesting-projects">
+<span id="id4"></span><h2>Layer/Gruppen einbinden<a class="headerlink" href="#nesting-projects" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p id="index-16">Wenn Sie Inhalte von anderen Projekten in Ihr Projekt einbinden wollen wählen Sie <em class="menuselection">Layer ‣ Eingebettete Layer und Gruppen ...</em>.</p>
+<div class="section" id="embedding-layers">
+<h3>Layer einbetten<a class="headerlink" href="#embedding-layers" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Mit dem folgenden Dialog können Sie Layer von anderen Projekten einbetten. Hier ein kleines Beispiel:</p>
+<ol class="arabic simple">
+<li><p class="first">Drückekn Sie <a class="reference internal" href="../../../_images/browsebutton.png"><img alt="browsebutton" src="../../../_images/browsebutton.png" style="width: 2.3em;" /></a> um nach einem anderen Projekt des Alaskadatensatzes zu suchen.</p>
+</li>
+<li><p class="first">Wählen Sie die Projektdatei <tt class="file docutils literal"><span class="pre">grassland</span></tt>. Sie können hier den Inhalt des Projektes einsehen (siehe <a class="reference internal" href="#figure-embed-dialog">figure_embed_dialog</a>).</p>
+</li>
+<li><p class="first">Klicken Sie <tt class="kbd docutils literal"><span class="pre">Strg</span></tt> und klicken Sie auf die Layer <tt class="file docutils literal"><span class="pre">grassland</span></tt> und <tt class="file docutils literal"><span class="pre">regions</span></tt>. Klicken Sie <strong>[OK]</strong>. Die ausgewählten Layer sind jetzt in Legende und Kartenfenster eingebettet.</p>
+</li>
+</ol>
+<p id="figure-embed-dialog"><strong>Figure Nesting 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/embed_dialog.png" src="../../../_images/embed_dialog.png" />
+<p class="caption">Einzubettende Layer und Gruppen wählen <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>Währenddessen die Layer editierbar sind können Sie Ihre Eigenschaften wie Darstellung und Beschriftung nicht ändern.</p>
+</div>
+<div class="section" id="removing-embedded-layers">
+<h3>Eingebettete Layer entfernen<a class="headerlink" href="#removing-embedded-layers" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Machen Sie einen Rechtsklick auf den eingebetteten Layer und wählen Sie <a class="reference internal" href="../../../_images/mActionRemoveLayer.png"><img alt="mActionRemoveLayer" src="../../../_images/mActionRemoveLayer.png" style="width: 1.5em;" /></a> <sup>Entfernen</sup>.</p>
+</div>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

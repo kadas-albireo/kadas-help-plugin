@@ -174,18 +174,16 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Table Des Matières</a></h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Préambule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Avant-propos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">Interface de KADAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Mes cartes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Vue</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analyse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Dessiner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Réglages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Aide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Annexe</a></li>
 </ul>
 
@@ -241,7 +239,13 @@
 </div>
 <div class="section" id="function-editor-tab">
 <h2>Onglet Editeur de fonction<a class="headerlink" href="#function-editor-tab" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Avec l’Éditeur de fonction vous êtes en mesure de définir vos propres fonctions Python de manière confortable. L&#8217;éditeur de fonction créera les nouveaux fichiers Python dans <tt class="file docutils literal"><span class="pre">qgis2pythonexpressions</span></tt>  et chargera automatiquement toutes les fonctions définies au démarrage de QGIS. Soyez conscients que les nouvelles fonctions sont seulement sauvegardées dans le dossier file:<cite>expressions</cite> et non dans le fichier du projet. Si vous avez un projet qui utilise une de vos fonctions personnalisées vous aurez besoin de partager le fichier .py dans le dossier expressions.</p>
+<p>With the Function Editor you are able to define your own Python custom functions in a
+comfortable way.
+The function editor will create new Python files in <tt class="file docutils literal"><span class="pre">qgis2pythonexpressions</span></tt> and
+will auto load all functions defined when starting QGIS. Be aware that new functions are
+only saved in the <tt class="file docutils literal"><span class="pre">expressions</span></tt> folder and not in the project file.
+If you have a project that uses one of your custom functions you will need to also share
+the .py file in the expressions folder.</p>
 <p>Here&#8217;s a short example on how to create your own functions:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="nd">@qgsfunction</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="s">&quot;auto&quot;</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s">&#39;Custom&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">myfunc</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span> <span class="n">value2</span> <span class="n">feature</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>

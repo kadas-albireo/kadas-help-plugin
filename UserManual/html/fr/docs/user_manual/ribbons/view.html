@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ansicht</title>
+    <title>Vue</title>
     
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -186,21 +186,22 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Table Des Matières</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Préambule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Avant-propos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">Interface de KADAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_maps.html">Mes cartes</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Ansicht</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Ansicht</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Vue</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#previous-next-extent">Extrait précédent/suivant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-map-window">Nouvelle fenêtre de carte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#d">3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grid">Grille</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">Analyse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="draw.html">Dessiner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mss.html">MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="settings.html">Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Réglages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Aide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Annexe</a></li>
 </ul>
 
@@ -210,37 +211,66 @@
                     
                         
                             <p>.</p>
-<div class="section" id="ansicht">
-<h1>Ansicht<a class="headerlink" href="#ansicht" title="Lien permanent vers ce titre">¶</a></h1>
-<div class="section" id="id1">
-<h2>Ansicht<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h2>
-<p>The Decorations of KADAS include the Grid, the Copyright Label, the North Arrow and
-the Scale Bar. They are used to &#8216;decorate&#8217; the map by adding cartographic
-elements.</p>
+<div class="section" id="view">
+<span id="chapter-view"></span><h1>Vue<a class="headerlink" href="#view" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="previous-next-extent">
+<h2>Extrait précédent/suivant<a class="headerlink" href="#previous-next-extent" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En se déplaçant dans la carte, on peut retourner à l&#8217;extrait de carte affiché auparavant par la fonction <em class="guilabel">Extrait précédent</em>. On peut ensuite aller sur l&#8217;extrait de carte choisi postérieurement par le <em class="guilabel">Extrait suivant</em>.</p>
+</div>
+<div class="section" id="new-map-window">
+<h2>Nouvelle fenêtre de carte<a class="headerlink" href="#new-map-window" title="Lien permanent vers ce titre">¶</a></h2>
+<p>D&#8217;autres fenêtres de carte peuvent être ouvertes par la fonction <em class="guilabel">Nouvelle fenêtre de carte</em>. Celles-ci sont automatiquement classées, mais peuvent aussi être déplacées à un autre endroit à l&#8217;intérieur ou à l&#8217;extérieur de la fenêtre de programme au moyen de la souris.</p>
+<p>Les niveaux affichés peuvent être choisis indépendamment de la fenêtre principale dans le menu <em class="guilabel">Fenêtre</em>. En activant le symbole de serrure, l&#8217;extrait de carte affiché sera toujours repris de la fenêtre principale. Si le couplage n&#8217;est pas activé, l&#8217;extrait peut être choisi indépendamment au moyen de la souris dans une autre fenêtre de carte.</p>
+</div>
 <div class="section" id="d">
-<h3>3D<a class="headerlink" href="#d" title="Lien permanent vers ce titre">¶</a></h3>
-<p>TODO: fill in</p>
+<h2>3D<a class="headerlink" href="#d" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La fonction <em class="guilabel">3D</em> ouvre une autre fenêtre avec une vue du globe. Cette fenêtre est disposée automatiquement, mais peut aussi être déplacée à un autre endroit à l&#8217;intérieur ou à l&#8217;extérieur de la fenêtre de programme au moyen de la souris.</p>
+<div class="section" id="settings">
+<h3>Réglages<a class="headerlink" href="#settings" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les niveaux affichés peuvent être choisis indépendamment de la fenêtre principale dans le menu <em class="guilabel">Fenêtre</em>.</p>
+<ul class="simple">
+<li><p class="first"><strong>Synchroniser l&#8217;extrait</strong>: Le symbole <cite>synchroniser l&#8217;extrait</cite> permet de naviguer sur le globe vers l&#8217;extrait de carte de la fenêtre principale.</p>
+</li>
+<li><p class="first"><strong>Recharger la scène</strong>: Le symbole <cite>Recharger la scène</cite> recharge le niveau sur le globe.</p>
+</li>
+<li><p class="first"><strong>Réglages du globe</strong>: Le symbole <cite>Réglages globe</cite> ouvre un dialogue avec d&#8217;autres possibilités de réglages.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="navigation">
+<h3>Navigation<a class="headerlink" href="#navigation" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><p class="first"><strong>Navigation de l&#8217;angle de vue</strong>: La molette de navigation supérieure tourne la caméra à gauche ou à droite par les flèches gauche/droite . Les flèches haut/bas changent l&#8217;angle de vue vertical de la caméra.</p>
+</li>
+<li><p class="first"><strong>Navigation sur le globe</strong>: La molette de navigation inférieure tourne le globe à gauche, à droite, vers le haut ou vers le bas au moyen des flèches correspondantes.</p>
+</li>
+<li><p class="first"><strong>+</strong>: la caméra se rapproche du globe, c&#8217;est-à-dire que l&#8217;altitude de la caméra diminue.</p>
+</li>
+<li><p class="first"><strong>-</strong>: La caméra s&#8217;éloigne du globe, c&#8217;est-à-dire que l&#8217;altitude de la caméra augmente.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="section" id="grid">
-<h3>Grid<a class="headerlink" href="#grid" title="Lien permanent vers ce titre">¶</a></h3>
-<p><a class="reference internal" href="../../../_images/transformed.png"><img alt="transformed" src="../../../_images/transformed.png" style="width: 1.5em;" /></a> <sup>Grid</sup> allows you to add a coordinate grid and coordinate
-annotations to the map canvas.</p>
+<h2>Grille<a class="headerlink" href="#grid" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="../../../_images/transformed.png"><img alt="transformed" src="../../../_images/transformed.png" style="width: 1.5em;" /></a> <sup>grille</sup> vous permet d&#8217;ajouter une grille et des annotations de grille à la carte.</p>
 <p id="figure-decorations-1"><strong>Figure Decorations 1:</strong></p>
 <div class="figure align-center">
 <img alt="../../../_images/grid_dialog.png" src="../../../_images/grid_dialog.png" />
-<p class="caption">The Grid Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+<p class="caption">Le dialogue de grille <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
 </div>
 <ol class="arabic simple">
-<li>Select from menu <em class="menuselection">View ‣ Decorations ‣ Grid</em>.
-The dialog starts (see <a class="reference internal" href="#figure-decorations-1">figure_decorations_1</a>).</li>
-<li>Activate the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Enable grid</em> checkbox and set grid
-definitions according to the layers loaded in the map canvas.</li>
-<li>Activate the <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Draw annotations</em> checkbox and set
-annotation definitions according to the layers loaded in the map canvas.</li>
-<li>Click <strong>[Apply]</strong> to verify that it looks as expected.</li>
-<li>Click <strong>[OK]</strong> to close the dialog.</li>
+<li><p class="first">Sélectionnez dans le menu <em class="menuselection">Vue ‣ Décorations ‣ Grille</em>. Le dialogue commence (cf. <a class="reference internal" href="#figure-decorations-1">figure_décorations_1</a>).</p>
+</li>
+<li><p class="first">Activez la case à cocher <a href="#id1"><span class="problematic" id="id2">|case à cocher|</span></a> <em class="guilabel">Autoriser grille</em> et fixer les définitions de la grille selon les couches chargées dans la carte.</p>
+</li>
+<li><p class="first">Activez la case à cocher <a href="#id3"><span class="problematic" id="id4">|case à cocher|</span></a> guilabel:<cite>Dessiner annotations</cite> et fixer les définitions des annotations selon les couches chargées dans la carte.</p>
+</li>
+<li><p class="first">Cliquez <strong>[Appliquer]</strong> pour vérifier que l&#8217;aspect est celui que vous attendiez.</p>
+</li>
+<li><p class="first">Cliquez <strong>[OK]</strong> pour fermer le dialogue.</p>
+</li>
 </ol>
-</div>
 </div>
 </div>
 

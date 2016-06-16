@@ -186,24 +186,22 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Indice</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Convenzioni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Premessa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">GUI KADAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_maps.html">Le mie mappe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view.html">Vista</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">Analisi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="draw.html">Disegno</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">GPS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#gps-aktivieren">Attivazione GPS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mit-gps-bewegen">Movimento con GPS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#wegpunkte-und-routen-zeichnen">Disegno di waypoint e percorsi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enabling-gps">Attivazione GPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#moving-with-gps">Movimento con GPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#drawing-waypoints-and-routes">Disegno di waypoint e percorsi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gpx-export-und-import">Esportazione e importazione GPX</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mss.html">MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="settings.html">Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Impostazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Aiuto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendice</a></li>
 </ul>
 
@@ -214,12 +212,12 @@
                         
                             <p>.</p>
 <div class="section" id="gps">
-<h1>GPS<a class="headerlink" href="#gps" title="link permanente per questa intestazione">¶</a></h1>
-<p>Nella linguetta GPS si trovano le funzionalità per l&#8217;interazione con un apparecchio GPS collegato e gli strumenti per disegnare, importare ed esportare waypoint e percorsi GPX (GPS Exchange Format).</p>
-<div class="section" id="gps-aktivieren">
-<h2>Attivazione GPS<a class="headerlink" href="#gps-aktivieren" title="link permanente per questa intestazione">¶</a></h2>
+<span id="chapter-gps"></span><h1>GPS<a class="headerlink" href="#gps" title="link permanente per questa intestazione">¶</a></h1>
+<p>Nella scheda GPS si trovano le funzionalitĂ&nbsp; per l&#8217;interazione con un apparecchio GPS collegato e gli strumenti per disegnare, importare ed esportare waypoint e percorsi GPX (GPS Exchange Format).</p>
+<div class="section" id="enabling-gps">
+<span id="gps-status"></span><h2>Attivazione GPS<a class="headerlink" href="#enabling-gps" title="link permanente per questa intestazione">¶</a></h2>
 <p>Per poter usare un GPS con KADAS, sul sistema deve essere installata l&#8217;applicazione GpsGate Splitter. Per la configurazione GPS vedere <a class="reference internal" href="../working_with_gps/gpsgate.html#gpsgate"><em>GpsGate</em></a>.</p>
-<p>Lo stato del collegamento GPS viene visualizzato nella riga di stato nell&#8217;area di programma inferiore. Questo pulsante di stato GPS può essere attivato ovvero disattivato per poter realizzare o interrompere la connessione. Il colore di riempimento del pulsante di stato cambia in base allo stato di connessione attuale:</p>
+<p>Lo stato del collegamento GPS viene visualizzato nella riga di stato nell&#8217;area di programma inferiore. Questo pulsante di stato del GPS puĂ˛ essere attivato o disattivato per realizzare o interrompere la connessione. Il colore di riempimento del pulsante di stato cambia in base allo stato di connessione attuale:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p class="first">Nero: GPS non attivato</p>
@@ -236,19 +234,18 @@
 </li>
 </ul>
 </div></blockquote>
-<p>Sobald KADAS vom GPS Positionsdaten empfängt, wir auf der Karte ein
-entsprechender Positionsmarker gezeichnet.</p>
+<p>Non appena KADAS riceve dei dati sulla posizione dal GPS, sulla mappa viene disegnato un marcatore di posizione corrispondente.</p>
 </div>
-<div class="section" id="mit-gps-bewegen">
-<h2>Movimento con GPS<a class="headerlink" href="#mit-gps-bewegen" title="link permanente per questa intestazione">¶</a></h2>
+<div class="section" id="moving-with-gps">
+<h2>Movimento con GPS<a class="headerlink" href="#moving-with-gps" title="link permanente per questa intestazione">¶</a></h2>
 <p>Questa funzione attiva lo spostamento automatico della sezione di mappa visibile, centrata sulla posizione GPS attuale.</p>
 </div>
-<div class="section" id="wegpunkte-und-routen-zeichnen">
-<h2>Disegno di waypoint e percorsi<a class="headerlink" href="#wegpunkte-und-routen-zeichnen" title="link permanente per questa intestazione">¶</a></h2>
+<div class="section" id="drawing-waypoints-and-routes">
+<h2>Disegno di waypoint e percorsi<a class="headerlink" href="#drawing-waypoints-and-routes" title="link permanente per questa intestazione">¶</a></h2>
 <p>Con queste funzioni vengono disegnati waypoint e percorsi che potranno essere successivamente salvati in formato GPX, ad esempio per il caricamento su un apparecchio GPS.</p>
 <p>I waypoint sono punti semplici sulla mappa che possono essere inoltre dotati di un nome.</p>
 <p>I percorsi sono polilinee che possono essere dotate di nome e numero.</p>
-<p>Waypoint e percorsi sono salvati nell&#8217;albero dei livelli in un proprio livello &#8220;Percorsi GPS&#8221;, analogo al livello Redlining.</p>
+<p>Waypoint e percorsi vengono salvati nell&#8217;albero dei livelli in un proprio livello &#8220;Percorsi GPS&#8221;, analogo al livello Redlining.</p>
 </div>
 <div class="section" id="gpx-export-und-import">
 <h2>Esportazione e importazione GPX<a class="headerlink" href="#gpx-export-und-import" title="link permanente per questa intestazione">¶</a></h2>

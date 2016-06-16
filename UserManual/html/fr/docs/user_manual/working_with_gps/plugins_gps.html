@@ -174,18 +174,16 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Table Des Matières</a></h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Préambule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Avant-propos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">Interface de KADAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Mes cartes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Vue</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analyse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Dessiner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Réglages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Aide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Annexe</a></li>
 </ul>
 
@@ -277,7 +275,10 @@
 <h3>Garmin GPSMAP 60cs<a class="headerlink" href="#garmin-gpsmap-60cs" title="Lien permanent vers ce titre">¶</a></h3>
 <p><strong>MS Windows</strong></p>
 <p>Installez les drivers USB Garmin depuis <a class="reference external" href="http://www8.garmin.com/support/download_details.jsp?id=591">http://www8.garmin.com/support/download_details.jsp?id=591</a></p>
-<p>Connectez le périphérique. Ouvrez les Outils GPS et utilisez <tt class="docutils literal"><span class="pre">Périphérique</span> <span class="pre">GPS=Garmin</span> <span class="pre">serial</span></tt> et <tt class="docutils literal"><span class="pre">Port=usb:</span></tt> Remplissez les champs  <em class="guilabel">Nom de la couche</em> and <em class="guilabel">Fichier en sortie</em>. Quelquefois il semble y avoir des problèmes avec certains répertoire, cela fonctionne en général en utilisant un répertoire du style <tt class="docutils literal"><span class="pre">c:\temp</span></tt>.</p>
+<p>Connect the unit. Open GPS Tools and use <tt class="docutils literal"><span class="pre">type=garmin</span> <span class="pre">serial</span></tt> and <tt class="docutils literal"><span class="pre">port=usb:</span></tt>
+Fill the fields <em class="guilabel">Layer name</em> and <em class="guilabel">Output file</em>. Sometimes
+it seems to have problems saving in a certain folder, using something like
+<tt class="docutils literal"><span class="pre">c:\temp</span></tt> usually works.</p>
 <p><strong>Ubuntu/Mint GNU/Linux</strong></p>
 <p>Il est d&#8217;abord nécessaire de régler un problème concernant les permissions du périphérique, comme cela est expliqué à cette adresse : <a class="reference external" href="https://wiki.openstreetmap.org/wiki/USB_Garmin_on_GNU/Linux">https://wiki.openstreetmap.org/wiki/USB_Garmin_on_GNU/Linux</a>. Vous pouvez essayer de créer un fichier <tt class="file docutils literal"><span class="pre">/etc/udev/rules.d/51-garmin.rules</span></tt> contenant cette règle</p>
 <div class="highlight-python"><pre>ATTRS{idVendor}=="091e", ATTRS{idProduct}=="0003", MODE="666"</pre>

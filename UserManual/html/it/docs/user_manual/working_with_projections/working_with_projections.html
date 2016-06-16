@@ -174,18 +174,16 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Indice</a></h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Convenzioni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Premessa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">GUI KADAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Le mie mappe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Vista</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analisi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Disegno</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Impostazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Aiuto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendice</a></li>
 </ul>
 
@@ -202,57 +200,9 @@
 <span id="index-1"></span><h2>Panoramica sul supporto alle proiezioni<a class="headerlink" href="#overview-of-projection-support" title="link permanente per questa intestazione">¶</a></h2>
 <p>KADAS supporta all’incirca 2.700 SR. Le definizioni di ognuno di questi SR sono memorizzate in un database SQLite che viene installato insieme a KADAS. Normalmente non è necessario manipolare il database direttamente, infatti potresti causare il malfunzionamento del supporto alla proiezione. I SR personalizzati invece, sono salvati in un database utente. Vedi la sezione <em class="xref std std-ref">sec_custom_projections</em> per informazioni sulla gestione dei SR personalizzati.</p>
 <p>I SR disponibili in KADAS sono basati su quelli definiti dall’European Petroleum Survey Group - EPSG - e dall’Institut Geographique National francese (IGN) e sono ricavati essenzialmente dalle tabelle di riferimento spaziale usate da GDAL. I codici EPSG sono presenti nel database e li puoi usare per idetificare e specificare i SR in KADAS.</p>
-<p>Per usare la riproiezione al volo (OTF), i dati devono contenere informazioni sul proprio sistema di riferimento, altrimenti devi definire un SR per il layer, a livello di progetto o a livello globale. Per i layer PostGIS, KADAS usa l’identificatore del riferimento spaziale specificato al momento della creazione del layer. Per i dati supportati da OGR, KADAS fa affidamento sulla presenza di un &#8220;mezzo&#8221; specifico per ciascun formato, che definisce il SR. Nel caso degli shapefile, ad esempio, si stratta di un file contenente l’indicazione del SR in formato Well Known Text (<span class="target" id="index-7"></span>WKT). Il file della proiezione ha lo stesso nome dello shapefile, ma ha estensione <tt class="file docutils literal"><span class="pre">.prj</span></tt>. Per esempio lo shapefile chiamato <tt class="file docutils literal"><span class="pre">alaska.shp</span></tt>. avrà un corrispondente file di proiezione chiamato <tt class="file docutils literal"><span class="pre">alaska.prj</span></tt>.</p>
-<p>Ogni volta che selezioni un nuovo SR le unità dei layer vengono automaticamente cambiate nella scheda <em class="guilabel">Generale</em> della finestra di dialogo <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="mActionOptions" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <em class="guilabel">Proprietà progetto</em> del menu <em class="guilabel">Progetto</em> (Gnome, OS X) o <em class="guilabel">Impostazioni</em> (KDE, Windows).</p>
-</div>
-<div class="section" id="global-projection-specification">
-<span id="index-3"></span><h2>Specifiche globali delle proiezioni<a class="headerlink" href="#global-projection-specification" title="link permanente per questa intestazione">¶</a></h2>
-<p>KADAS imposta il SR di ogni nuovo progetto su quello definito a livello globale: il SR globale predefinito è EPSG:4326 - WGS 84 (<tt class="docutils literal"><span class="pre">proj=longlat</span> <span class="pre">+ellps=WGS84</span> <span class="pre">+datum=WGS84</span> <span class="pre">+no_defs</span></tt>). Puoi modificare il SR predefinito tramite il pulsante <strong>[Scegli...]</strong>  presente nella parte superiore della scheda SR, come mostrato in figura <a class="reference internal" href="#figure-projection-1">figure_projection_1</a>.  Questa impostazione verrà salvata e sarà valida per tutte le successive sessioni di KADAS.</p>
-<p id="figure-projection-1"><strong>Figure Projection 1:</strong></p>
-<div class="figure align-center">
-<img alt="../../../_images/crsdialog.png" src="../../../_images/crsdialog.png" />
-<p class="caption">Scheda SR nella finestra di dialogo Opzioni <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
-</div>
-<p>Quando usi layer che non hanno un SR, devi specificare come KADAS deve interpretare questi layer. La scelta può essere globale oppure solamente per il progetto corrente: le impostazioni sono disponibili nella scheda <em class="guilabel">SR</em> del menu <em class="menuselection">Impostazioni ‣</em> <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="mActionOptions" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <em class="guilabel">Opzioni</em>.</p>
-<p>Le opzioni mostrate in figura <a class="reference internal" href="#figure-projection-1">figure_projection_1</a> sono:</p>
-<ul class="simple">
-<li><p class="first"><img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Richiedi SR</em></p>
-</li>
-<li><p class="first"><img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Usa il SR del progetto</em></p>
-</li>
-<li><p class="first"><img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Utilizza come predefinito SR visualizzato sotto</em></p>
-</li>
-</ul>
-<p>Se vuoi specificare il SR di un determinato layer che non ha queste informazioni, puoi farlo anche attraverso la scheda <em class="guilabel">Generale</em> delle proprietà dei raster (vedi <a class="reference internal" href="../working_with_raster/raster_properties.html#label-generaltab"><em>Menu Generale</em></a>) e dei vettori (vedi <a class="reference internal" href="../working_with_vector/vector_properties.html#vectorgeneralmenu"><em>Menu Generale</em></a>). Se il layer ha già le informazioni sul SR, saranno visualizzate come in figura <a class="reference internal" href="../working_with_vector/vector_properties.html#figure-vector-properties-1"><em>Finestra di dialogo delle proprietà del vettore </em></a>.</p>
-<div class="admonition tip">
-<p class="first admonition-title">Suggerimento</p>
-<p><strong>SR NELLA LEGENDA</strong></p>
-<p class="last">Facendo click con il tasto destro su di un layer in legenda (sezione <a class="reference internal" href="../introduction/qgis_gui.html#label-legend"><em>Legenda</em></a>) hai a disposizione due scorciatoie per l’impostazione del SR. <em class="guilabel">Imposta il SR del layer</em> apre direttamente la finestra per la scelta del sistema di riferimento (figura <a class="reference internal" href="#figure-projection-2">figure_projection_2</a>), mentre <em class="guilabel">Imposta il SR del progetto dal layer</em> imposterà il SR del progetto sulla base di quello del layer</p>
-</div>
-</div>
-<div class="section" id="define-on-the-fly-otf-reprojection">
-<h2>Definire la riproiezione al volo (OTF)<a class="headerlink" href="#define-on-the-fly-otf-reprojection" title="link permanente per questa intestazione">¶</a></h2>
-<p>TODO: abändern da einzeln</p>
-<p>KADAS supporta la riproiezione al volo (OTF) sia per i raster che per i vettori, ma l’opzione non è abilitata in modo predefinito. Per usare la riproiezione OTF, devi spuntare la casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Abilita la riproiezione al volo</em> nella scheda <em class="guilabel">SR</em> della finestra di dialogo <a class="reference internal" href="../../../_images/mActionProjectProperties.png"><img alt="mActionProjectProperties" src="../../../_images/mActionProjectProperties.png" style="width: 1.5em;" /></a> <em class="menuselection">Proprietà progetto</em>.</p>
-<p><strong>Hai tre modi diversi per farlo:</strong></p>
+<p>Per usare la riproiezione al volo (OTF), i dati devono contenere informazioni sul proprio sistema di riferimento, altrimenti devi definire un SR per il layer, a livello di progetto o a livello globale. Per i layer PostGIS, KADAS usa l’identificatore del riferimento spaziale specificato al momento della creazione del layer. Per i dati supportati da OGR, KADAS fa affidamento sulla presenza di un &#8220;mezzo&#8221; specifico per ciascun formato, che definisce il SR. Nel caso degli shapefile, ad esempio, si stratta di un file contenente l’indicazione del SR in formato Well Known Text (<span class="target" id="index-5"></span>WKT). Il file della proiezione ha lo stesso nome dello shapefile, ma ha estensione <tt class="file docutils literal"><span class="pre">.prj</span></tt>. Per esempio lo shapefile chiamato <tt class="file docutils literal"><span class="pre">alaska.shp</span></tt>. avrà un corrispondente file di proiezione chiamato <tt class="file docutils literal"><span class="pre">alaska.prj</span></tt>.</p>
+<p>The <em class="guilabel">CRS</em> tab contains the following important components:</p>
 <ol class="arabic simple">
-<li><p class="first">Seleziona <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="mActionOptions" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <em class="menuselection">Proprietà progetto</em> dal menu <em class="menuselection">Progetto</em> (Gnome, OSX) oppure <em class="menuselection">Impostazioni</em> (KDE, Windows).</p>
-</li>
-<li><p class="first">Cliccare sull&#8217;icona <img alt="geographic" src="../../../_images/geographic.png" /> <sup>Stato SR</sup> nell’angolo in basso a destra della barra di stato.</p>
-</li>
-<li><p class="first">Abilita la riproiezione al volo in modalità predefinita spuntando la casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Effettua sempre la riproiezione al volo</em> nella scheda <em class="guilabel">SR</em> della finestra di dialogo <em class="guilabel">Opzioni</em> oppure spunta <em class="guilabel">Abilita automaticamente la riproiezione al volo se i layer hanno SR differente</em>.</p>
-</li>
-</ol>
-<p>Se hai già caricato un layer e vuoi abilitare la riproiezione al volo, la scelta migliore è: aprire la scheda <em class="guilabel">Sistema di riferimento (SR)</em> della finestra di dialogo <em class="guilabel">Proprietà progetto</em>, selezionare nell’elenco il SR attualmente impostato, quindi attivare la casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Abilita la riproiezione al volo</em>. Ogni layer caricato successivamente sarà riproiettato al volo nel SR mostrato vicino all&#8217;icona <img alt="geographic" src="../../../_images/geographic.png" /> <sup>Stato SR</sup> e quest&#8217;icona diventerà attiva a tutti gli effetti.</p>
-<p id="index-4"><strong>Figure Projection 2:</strong></p>
-<div class="figure align-center" id="figure-projection-2">
-<img alt="../../../_images/projectionDialog.png" src="../../../_images/projectionDialog.png" />
-<p class="caption">Finestra di dialogo delle proprietà delle proiezioni <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
-</div>
-<p>La scheda <em class="guilabel">SR</em> della finestra di dialogo <em class="guilabel">Proprietà progetto</em> contiene cinque importanti componenti, come puoi vedere nella figura <a class="reference internal" href="#figure-projection-2">Figure_projection_2</a>:</p>
-<ol class="arabic simple">
-<li><p class="first"><strong>Abilita la riproiezione al volo</strong> &#8212; puoi utilizzare questa casella di controllo per abilitare o disabilitare la riproiezione al volo. Quando è disabilitata, ogni layer verrà visualizzato in funzione del proprio sistema di riferimento e le componenti descritte sotto non saranno attive. Quando è abilitata, ogni layer verrà visualizzato nel sistema di riferimento specificato.</p>
-</li>
 <li><p class="first"><strong>Filtro</strong> &#8212; se conosci il codice EPSG, l’identificatore o il nome del SR che vuoi impostare, puoi utilizzare questa area di ricerca per trovarlo nell’elenco. Inserisci il codice EPSG, l&#8217;identificatore o il nome.</p>
 </li>
 <li><p class="first"><strong>Sistemi di riferimento usati di recente</strong> &#8212; se ci sono dei SR che usi frequentemente, questi verranno visualizzati in questa sezione della finestra di dialogo.  Clicca su una voce per impostare il SR associato.</p>
@@ -262,23 +212,10 @@
 <li><p class="first"><strong>Testo PROJ.4</strong> - è la stringa SR usata dal motore di proiezione Proj4. È un testo di sola lettura, a solo scopo informativo.</p>
 </li>
 </ol>
-<div class="admonition tip">
-<p class="first admonition-title">Suggerimento</p>
-<p><strong>Finestra di dialogo Proprietà del progetto</strong></p>
-<p>Se apri la finestra di dialogo <em class="guilabel">Proprietà progetto</em> dal menu <em class="menuselection">Progetto</em>, per poter visualizzare le impostazioni del SR devi cliccare sulla scheda <em class="guilabel">SR</em>.</p>
-<p class="last">Se clicchi sull&#8217;icona <img alt="geographic" src="../../../_images/geographic.png" /> <sup>Stato SR</sup> si aprirà automaticamente la scheda <em class="guilabel">SR</em>.</p>
-</div>
 </div>
 <div class="section" id="default-datum-transformations">
 <h2>Trasformazioni datum predefinite<a class="headerlink" href="#default-datum-transformations" title="link permanente per questa intestazione">¶</a></h2>
-<p id="index-5">La riproiezione al volo dipende dalla capacità di trasformare i dati in un &#8216;SR predefinito&#8217; che in KADAS è WGS84. Per alcuni SR sono disponibili molti tipi di trasformazione. KADAS ti permette di definire la trasformazione da usare, altrimenti verrà usata la trasformazione predefinita.</p>
-<p>Dalla scheda <em class="guilabel">SR</em> del menu <em class="menuselection">Impostazioni ‣</em> <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="mActionOptions" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <em class="guilabel">Opzioni</em> puoi:</p>
-<ul class="simple">
-<li><p class="first">impostare se KADAS deve chiedere quando deve definire una trasformazione tramite il pulsante <em class="guilabel">Chiedi la trasformazione del datum quando non è definito un valore di riferimento</em>.</p>
-</li>
-<li><p class="first">modificare la lista di trasformazioni specificate dall&#8217;utente.</p>
-</li>
-</ul>
+<p id="index-3">La riproiezione al volo dipende dalla capacità di trasformare i dati in un &#8216;SR predefinito&#8217; che in KADAS è WGS84. Per alcuni SR sono disponibili molti tipi di trasformazione. KADAS ti permette di definire la trasformazione da usare, altrimenti verrà usata la trasformazione predefinita.</p>
 <p>In una finestra di dialogo, KADAS chiede quale trasformazione deve usare visualizzando il informazioni di PROJ.4 che descrivono la trasformazione di partenza e quella di destinazione. Puoi ottenere altre informazioni fermando il cursore del mouse sopra una trasformazione. Puoi salvare le impostazioni selezionando il pulsante <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Ricorda la selezione</em>.</p>
 </div>
 </div>

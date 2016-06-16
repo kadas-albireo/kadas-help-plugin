@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
     <link rel="top" title="" href="../../../index.html" />
-    <link rel="next" title="Ansicht" href="view.html" />
+    <link rel="next" title="Vue" href="view.html" />
     <link rel="prev" title="Interface de KADAS" href="../introduction/qgis_gui.html" />
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -159,7 +159,7 @@
       
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="view.html" title="Ansicht"
+          <a href="view.html" title="Vue"
              accesskey="N">suivant</a></li>
         <li class="right" >
           <a href="../introduction/qgis_gui.html" title="Interface de KADAS"
@@ -186,23 +186,21 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Table Des Matières</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Préambule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Avant-propos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">Interface de KADAS</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Mes cartes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#karten-anlegen-und-speichern">Créer et sauvegarder des cartes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#drucken">Imprimer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-and-saving-maps">Créer et sauvegarder des cartes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#printing">Imprimer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#output">Output</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view.html">Vue</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">Analyse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="draw.html">Dessiner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mss.html">MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="settings.html">Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Réglages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Aide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Annexe</a></li>
 </ul>
 
@@ -212,10 +210,10 @@
                     
                         
                             <p>.</p>
-<div class="section" id="meine-karten">
-<h1>Mes cartes<a class="headerlink" href="#meine-karten" title="Lien permanent vers ce titre">¶</a></h1>
-<div class="section" id="karten-anlegen-und-speichern">
-<h2>Créer et sauvegarder des cartes<a class="headerlink" href="#karten-anlegen-und-speichern" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="my-maps">
+<span id="chapter-my-maps"></span><h1>Mes cartes<a class="headerlink" href="#my-maps" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="creating-and-saving-maps">
+<h2>Créer et sauvegarder des cartes<a class="headerlink" href="#creating-and-saving-maps" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La  fonction <em class="guilabel">Nouveau</em>  permet de créer de nouvelles cartes en se basant sur des modèles existants. Les cartes sauvegardées (<a class="reference internal" href="#sec-projects"><em>Projets</em></a>) peuvent être chargées avec la fonction <em class="guilabel">Ouvrir</em>. La carte actuelle peut être sauvegardée avec la fonction <em class="guilabel">Enregistrer</em>&#8220;ou <em class="guilabel">Enregistrer sous</em>.</p>
 <div class="section" id="projects">
 <span id="sec-projects"></span><h3>Projets<a class="headerlink" href="#projects" title="Lien permanent vers ce titre">¶</a></h3>
@@ -256,8 +254,8 @@
 <p>Le fichier projet est enregistré au format XML, il est donc possible d&#8217;éditer le fichier en dehors de lqgl si vous vous y connaissez. Chaque fois que vous enregistrez un projet dans lqgl, une sauvegarde du fichier projet est effectuée avec l&#8217;extension ~.</p>
 </div>
 </div>
-<div class="section" id="drucken">
-<h2>Imprimer<a class="headerlink" href="#drucken" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="printing">
+<h2>Imprimer<a class="headerlink" href="#printing" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La carte actuelle peut être imprimée avec la fonction <em class="guilabel">Imprimer</em> ou sauvegardée dans un fichier. Dans la boîte de dialogue d&#8217;impression, les paramètres suivants peuvent être choisis pour l&#8217;impression :</p>
 <ul>
 <li><p class="first"><strong>Layout</strong>: Choix du modèle d&#8217;impression.Un aperçu de l&#8217;impression s&#8217;affiche.</p>
@@ -280,9 +278,9 @@
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first"><strong>Map cartouche</strong>:activation/désactivation de la cartouche</p>
+<li><p class="first"><strong>Map cartouche</strong>:activation/désactivation du cartouche</p>
 </li>
-<li><p class="first"><strong>[Edit map cartouche]</strong>: configuration de la cartouche</p>
+<li><p class="first"><strong>[Edit map cartouche]</strong>: configuration du cartouche</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <strong>Scalebar</strong>:activation/désactivation de l&#8217;indication de l&#8217;échelle</p>
 </li>
@@ -293,10 +291,10 @@
 </ul>
 <div class="section" id="map-cartouche">
 <h3>Cartouche de la carte<a class="headerlink" href="#map-cartouche" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Cette boîte de dialogue montre le contenu de la cartouche. Dans les champs de saisie, la fonction du texte est enregistrée. Si la case <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <strong>Exercise</strong> est cochée, les données de test de la cartouche s&#8217;affichent.</p>
+<p>Cette boîte de dialogue montre le contenu du cartouche. Dans les champs de saisie, la fonction du texte est enregistrée. Si la case <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <strong>Exercise</strong> est cochée, les données de test du cartouche s&#8217;affichent.</p>
 </div>
-<div class="section" id="druckausgabe">
-<h3>Document imprimé<a class="headerlink" href="#druckausgabe" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="print-output">
+<h3>Document imprimé<a class="headerlink" href="#print-output" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
 <li><p class="first"><strong>[Export]</strong>: un fichier est créé au format choisi.</p>
 </li>
@@ -337,7 +335,7 @@
       
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="view.html" title="Ansicht"
+          <a href="view.html" title="Vue"
              >suivant</a></li>
         <li class="right" >
           <a href="../introduction/qgis_gui.html" title="Interface de KADAS"

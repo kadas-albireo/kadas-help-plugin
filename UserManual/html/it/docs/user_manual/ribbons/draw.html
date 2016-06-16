@@ -186,24 +186,22 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Indice</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Convenzioni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Premessa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">GUI KADAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_maps.html">Le mie mappe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view.html">Vista</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">Analisi</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Disegno</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#redlining-objekte-zeichnen">Disegno di oggetti di redlining</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#stecknadeln">Puntine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#kamerabilder">Immagini della fotocamera</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#objekte-loschen">Cancellazione di oggetti</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#drawing-redlining-objects">Disegno di oggetti di redlining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pins">Puntine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#camera-pictures">Immagini della fotocamera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deleting-objects">Cancellazione di oggetti</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mss.html">MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="settings.html">Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Impostazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Aiuto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendice</a></li>
 </ul>
 
@@ -213,28 +211,28 @@
                     
                         
                             <p>.</p>
-<div class="section" id="zeichnen">
-<h1>Disegno<a class="headerlink" href="#zeichnen" title="link permanente per questa intestazione">¶</a></h1>
-<p>Nella linguetta Disegno vengono offerte le funzioni per la realizzazione degli oggetti di redlining e per il piazzamento di puntine e di immagini georeferenziate.</p>
-<div class="section" id="redlining-objekte-zeichnen">
-<h2>Disegno di oggetti di redlining<a class="headerlink" href="#redlining-objekte-zeichnen" title="link permanente per questa intestazione">¶</a></h2>
-<p>Gli oggetti di redlining sono punti, linee, rettangoli, poligoni, cerchi e diciture testuali che possono essere aggiunti alla mappa. Le dimensioni, il modello di riempimento e di contorno e i colori degli oggetti possono essere adeguati in base al tipo di oggetto.</p>
+<div class="section" id="drawing">
+<span id="chapter-draw"></span><h1>Disegno<a class="headerlink" href="#drawing" title="link permanente per questa intestazione">¶</a></h1>
+<p>Nella scheda Disegno vengono riportate le funzioni per la realizzazione degli oggetti di redlining e per il piazzamento di puntine e di immagini georeferenziate.</p>
+<div class="section" id="drawing-redlining-objects">
+<h2>Disegno di oggetti di redlining<a class="headerlink" href="#drawing-redlining-objects" title="link permanente per questa intestazione">¶</a></h2>
+<p>Gli oggetti di redlining sono punti, linee, rettangoli, poligoni, cerchi e scritte che possono essere aggiunti alla mappa. Le dimensioni, il modello di riempimento e di contorno e i colori degli oggetti possono essere adeguati in base al tipo di oggetto.</p>
 <p>Gli oggetti di redlining vengono salvati in un livello denominato &#8220;Redlining&#8221; nell&#8217;albero dei livelli. Nel menù contestuale della voce dell&#8217;albero dei livelli è possibile impostare tra l&#8217;altro la trasparenza globale del livello e cancellare l&#8217;intero livello.</p>
 </div>
-<div class="section" id="stecknadeln">
-<h2>Puntine<a class="headerlink" href="#stecknadeln" title="link permanente per questa intestazione">¶</a></h2>
-<p>Le puntine sono marcatori della posizione georeferenziati che possono essere inoltre dotati di un nome e di altre annotazioni. Tramite il doppio clic su una puntina collocata è possibile modificare detti attributi. Nel tooltip delle puntine sono visualizzati la posizione marcata, l&#8217;altezza in questo punto (se nel progetto è stato definito un modello altimetrico) e gli attributi.</p>
+<div class="section" id="pins">
+<h2>Puntine<a class="headerlink" href="#pins" title="link permanente per questa intestazione">¶</a></h2>
+<p>Le puntine sono marcatori della posizione georeferenziati che possono essere inoltre dotati di un nome e di altre annotazioni. Facendo doppio clic su una puntina già collocata è possibile modificare i suddetti attributi. Nel tooltip delle puntine sono visualizzati la posizione marcata, l&#8217;altezza in questo punto (se nel progetto è stato definito un modello altimetrico) e gli attributi.</p>
 <p>Le puntine possono essere ricercate per nome e per annotazioni nella ricerca globale.</p>
 </div>
-<div class="section" id="kamerabilder">
-<h2>Immagini della fotocamera<a class="headerlink" href="#kamerabilder" title="link permanente per questa intestazione">¶</a></h2>
-<p>Le immagini della fotocamera georeferenziate possono essere aggiunte alla mappa. La georeferenziazione è letta dai tag GPS EXIF. Un doppio clic su un&#8217;immagine della fotocamera aggiunta alla mappa apre l&#8217;immagine nel programma di rappresentazione delle immagini standard del sistema.</p>
+<div class="section" id="camera-pictures">
+<h2>Immagini della fotocamera<a class="headerlink" href="#camera-pictures" title="link permanente per questa intestazione">¶</a></h2>
+<p>Le immagini della fotocamera georeferenziate possono essere aggiunte alla mappa. La georeferenziazione viene letta dai tag GPS EXIF. Facendo doppio clic su un&#8217;immagine della fotocamera aggiunta alla mappa si apre l&#8217;immagine nel programma di rappresentazione delle immagini standard del sistema.</p>
 </div>
-<div class="section" id="objekte-loschen">
-<h2>Cancellazione di oggetti<a class="headerlink" href="#objekte-loschen" title="link permanente per questa intestazione">¶</a></h2>
-<p>È possibile cancellare i singoli oggetti tramite il menù contestuale o il tasto DEL.</p>
+<div class="section" id="deleting-objects">
+<h2>Cancellazione di oggetti<a class="headerlink" href="#deleting-objects" title="link permanente per questa intestazione">¶</a></h2>
+<p>È possibile cancellare i singoli oggetti tramite il menu contestuale o il tasto DEL.</p>
 <p>Lo strumento Cancella oggetti permette di cancellare più oggetti in una volta. Dopo la tracciatura di un rettangolo su un&#8217;area della mappa vengono elencati gli oggetti che si trovano completamente in quest&#8217;area, ove l&#8217;utente può scegliere quali tipi di oggetti debbano essere cancellati.</p>
-<p>Questa funzionalità è richiamabile anche direttamente in modalità pan tramite CTRL+Apri rettangolo.</p>
+<p>Questa funzionalità è richiamabile anche direttamente in modalità di spostamento tramite CTRL+Apri rettangolo.</p>
 </div>
 </div>
 

@@ -186,24 +186,22 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Table Des Matières</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Préambule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Avant-propos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">Interface de KADAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_maps.html">Mes cartes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view.html">Vue</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">Analyse</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Dessiner</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#redlining-objekte-zeichnen">Dessiner des objets Redlining</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#stecknadeln">Punaises</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#kamerabilder">Images sur écran</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#objekte-loschen">Supprimer des objets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#drawing-redlining-objects">Dessiner des objets Redlining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pins">Punaises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#camera-pictures">Images sur écran</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deleting-objects">Supprimer des objets</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mss.html">MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="settings.html">Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Réglages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Aide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Annexe</a></li>
 </ul>
 
@@ -213,25 +211,25 @@
                     
                         
                             <p>.</p>
-<div class="section" id="zeichnen">
-<h1>Dessiner<a class="headerlink" href="#zeichnen" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="drawing">
+<span id="chapter-draw"></span><h1>Dessiner<a class="headerlink" href="#drawing" title="Lien permanent vers ce titre">¶</a></h1>
 <p>L&#8217;onglet Dessiner propose différentes fonctions pour créer des objets Redlining, placer des punaises ou des images géoréférencées.</p>
-<div class="section" id="redlining-objekte-zeichnen">
-<h2>Dessiner des objets Redlining<a class="headerlink" href="#redlining-objekte-zeichnen" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="drawing-redlining-objects">
+<h2>Dessiner des objets Redlining<a class="headerlink" href="#drawing-redlining-objects" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les objets Redlining sont des points, des lignes, des rectangles, des polygones, des cercles ou des textes qui peuvent être ajoutés à la carte. La taille, le remplissage et les contours du modèle et les couleurs de l&#8217;objet peuvent être adaptés quel que soit le type d&#8217;objet.</p>
-<p>Les objets Redlining ont leur propre niveau dans l&#8217;arborescence, nommé &#8220;Redlining&#8221;. Dans le menu contextuel de la saisie de l&#8217;arborescence, on peut notamment paramétrer la transparence globale du niveau ou supprimer tout le niveau.</p>
+<p>Les objets Redlining sont contenus dans un couche nommée &#8220;Redlining&#8221; visible dans l&#8217;arborescence de couches. On peut régler la transparence de cette couche dans le menu contextuel du layer dans l&#8217;arborescence.</p>
 </div>
-<div class="section" id="stecknadeln">
-<h2>Punaises<a class="headerlink" href="#stecknadeln" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les punaises sont des marqueurs de positions géoréférencés qui peuvent également être nommés ou dotés de commentaires. On peut éditer ces attributs en double-cliquant sur l&#8217;une des punaises. La position marquée, l&#8217;altitude (tant qu&#8217;un modèle d&#8217;altitude est défini dans le projet) et les attributs s&#8217;affichent dans le Tooltop des punaises.</p>
+<div class="section" id="pins">
+<h2>Punaises<a class="headerlink" href="#pins" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les punaises sont des marqueurs de positions géoréférencés qui peuvent également être nommés ou dotés de commentaires. On peut éditer ces attributs en double-cliquant sur l&#8217;une des punaises. La position marquée, l&#8217;altitude (tant qu&#8217;un modèle d&#8217;altitude est défini dans le projet) et les attributs s&#8217;affichent dans le Tooltip des punaises.</p>
 <p>On peut rechercher des punaises par nom ou par commentaire dans la recherche standard.</p>
 </div>
-<div class="section" id="kamerabilder">
-<h2>Images sur écran<a class="headerlink" href="#kamerabilder" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Des photos géoréférencées peuvent être ajoutées à la carte. Le géoréférencement est lu à partir des GPS EXIF Tags. Quand on double-clique sur la photo ajoutée à la carte, elle s&#8217;ouvre dans le programme d&#8217;affichage d&#8217;images standard du système.</p>
+<div class="section" id="camera-pictures">
+<h2>Images sur écran<a class="headerlink" href="#camera-pictures" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Des photos géoréférencées peuvent être ajoutées à la carte. Le géoréférencement est lu à partir des &#8220;GPS EXIF Tags&#8221;. Quand on double-clique sur la photo ajoutée à la carte, elle s&#8217;ouvre dans le programme d&#8217;affichage d&#8217;images standard du système.</p>
 </div>
-<div class="section" id="objekte-loschen">
-<h2>Supprimer des objets<a class="headerlink" href="#objekte-loschen" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="deleting-objects">
+<h2>Supprimer des objets<a class="headerlink" href="#deleting-objects" title="Lien permanent vers ce titre">¶</a></h2>
 <p>On peut supprimer des objets individuels via le menu contextuel ou la touche &#8220;Delete&#8221;.</p>
 <p>L&#8217;outil &#8220;supprimer des images&#8221; permet de supprimer plusieurs objets à la fois. Une fois qu&#8217;un rectangle a été tiré sur la portion de carte, tous les objets qui se trouvent entièrement dans cette portion sont listés, ce qui permet à l&#8217;utilisateur de choisir quels types d&#8217;objets il veut supprimer.</p>
 <p>Cette fonctionnalité peut également être activée en mode panoramique en utilisant CTRL + tirer un rectangle.</p>

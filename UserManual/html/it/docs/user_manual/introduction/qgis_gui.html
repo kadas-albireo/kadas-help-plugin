@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>KADAS GUI</title>
+    <title>GUI KADAS</title>
     
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -33,7 +33,7 @@
     <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
     <link rel="top" title="" href="../../../index.html" />
     <link rel="next" title="Le mie mappe" href="../ribbons/my_maps.html" />
-    <link rel="prev" title="Premessa" href="../preamble/foreword.html" />
+    <link rel="prev" title="Convenzioni" href="../preamble/conventions.html" />
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -162,14 +162,14 @@
           <a href="../ribbons/my_maps.html" title="Le mie mappe"
              accesskey="N">successivo</a></li>
         <li class="right" >
-          <a href="../preamble/foreword.html" title="Premessa"
+          <a href="../preamble/conventions.html" title="Convenzioni"
              accesskey="P">precedente</a> |</li>
         <li><a href="../index.html"></a> &raquo;</li> 
       </ul>
     </div>
     <div style="display:none;" class="container" id="nextprev" >
     
-    <a accesskey="p" href="../preamble/foreword.html">&lt;&lt; prev</a>
+    <a accesskey="p" href="../preamble/conventions.html">&lt;&lt; prev</a>
     
     
     <a accesskey="n" href="../ribbons/my_maps.html">next &gt;&gt;</a>
@@ -186,24 +186,23 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Indice</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Convenzioni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Premessa</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">KADAS GUI</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#menu-bar">Barra dei Menu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#map-legend">Legenda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#map-view">Mappa</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#status-bar">Barra di Stato</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">GUI KADAS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#functionality-menu">Functionality menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#favorites-and-search">Favorites and search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#map-view">Visualizzazione mappa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#layers-and-geodata-catalog">Layers and geodata catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#status-bar">Status bar</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Le mie mappe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Vista</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analisi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Disegno</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Impostazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Aiuto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendice</a></li>
 </ul>
 
@@ -214,199 +213,123 @@
                         
                             <p>.</p>
 <div class="section" id="qg-gui">
-<span id="label-qgismainwindow"></span><h1>KADAS GUI<a class="headerlink" href="#qg-gui" title="link permanente per questa intestazione">¶</a></h1>
-<p id="index-0">All&#8217;avvio di KADAS l&#8217;interfaccia grafica si presenta come mostrato in figura (i numeri da 1 a 5 cerchiati di giallo fanno riferimento alle 5 aree principali dell&#8217;interfaccia grafica come verrà in seguito discusso):</p>
-<p id="fig-startup"><strong>Figure QGIS GUI 1:</strong></p>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../../../_images/startup.png"><img alt="../../../_images/startup.png" src="../../../_images/startup.png" style="width: 35em;" /></a>
-<p class="caption">KADAS GUI con i dati campione Alaska <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Nota</p>
-<p class="last">L’aspetto delle finestre (barra del titolo, ecc.) potrà apparire diverso a seconda del sistema operativo e dell&#8217;ambiente desktop.</p>
-</div>
-<p>L’interfaccia di KADAS è divisa in cinque aree:</p>
+<span id="label-qgismainwindow"></span><h1>GUI KADAS<a class="headerlink" href="#qg-gui" title="link permanente per questa intestazione">¶</a></h1>
+<p id="index-0">L’interfaccia grafica KADAS è divisa in cinque aree:</p>
 <ol class="arabic simple">
-<li><p class="first">Barra dei Menu</p>
+<li>Functionality menu</li>
+<li>Favorites and search</li>
+<li><p class="first">Visualizzazione mappa</p>
 </li>
-<li><p class="first">Barra degli Strumenti</p>
-</li>
-<li><p class="first">Legenda</p>
-</li>
-<li><p class="first">Mappa</p>
-</li>
-<li><p class="first">Barra di Stato</p>
-</li>
+<li>Layers and geodata catalog</li>
+<li>Status bar</li>
 </ol>
-<p>I cinque componenti dell’interfaccia di KADAS sono descritti con maggior dettaglio nelle sezioni seguenti. Due ulteriori sezioni illustreranno le scorciatoie da tastiera e la guida contestuale.</p>
-<div class="section" id="menu-bar">
-<span id="label-menubar"></span><h2>Barra dei Menu<a class="headerlink" href="#menu-bar" title="link permanente per questa intestazione">¶</a></h2>
-<p id="index-1">La barra dei menu fornisce accesso alle varie caratteristiche di KADAS utilizzando un menu gerarchico standard. I menu al livello superiore e una sintesi di alcune opzioni del menu sono elencate di seguito, insieme alle icone corrispondenti così come appaiono nella barra degli strumenti ed alle scorciatoie da tastiera. Le scorciatoie da tastiera possono essere configurate manualmente (quelle presentate in questa sezione sono quelle predefinite),
-usando l&#8217;opzione <em class="guilabel">Configura le scorciatoie...</em> del menu <em class="menuselection">Impostazioni</em>.</p>
-<p>Anche se la maggior parte dei menu ha uno strumento corrispondente (e viceversa), i menu non sono organizzati come le barre degli strumenti. Gli strumenti contenuti in queste ultime infatti sono identificate con una casella di controllo nel menu corrispondente. Alcuni strumenti sono visibili solamente se il plugin corrispondente è attivo. Per maggiori informazioni sugli strumenti e sulle barre degli strumenti, vedi la sezione <em class="xref std std-ref">label_toolbars</em>.</p>
-</div>
-<div class="section" id="map-legend">
-<span id="label-legend"></span><h2>Legenda<a class="headerlink" href="#map-legend" title="link permanente per questa intestazione">¶</a></h2>
-<p id="index-2">L&#8217;area della legenda elenca tutti i layer del progetto. La casella di controllo in ogni layer può essere utilizzata per mostrarlo o nasconderlo. La barra degli strumenti della legenda ti consente  <strong>Aggiungi gruppo</strong>, <strong>Gestisci la visibilità del layer</strong> di tutti i layer o di una combinazione preselezionata, <strong>Filtra leggenda in base al contenuto della mappa</strong>, <strong>Espandi tutti</strong> o <strong>Comprimi tutti</strong> e <strong>Rimuovi layer/gruppo</strong>.</p>
-<p id="figure-layer-toolbar"><strong>Figure Layer tools Bar:</strong></p>
-<div class="figure align-center">
-<img alt="../../../_images/layer_toobar.png" src="../../../_images/layer_toobar.png" />
-<p class="caption">Layer Tool Bar in Map Legend <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
-</div>
-<p>Il pulsante <a class="reference internal" href="../../../_images/mActionShowPresets.png"><img alt="mActionShowPresets" src="../../../_images/mActionShowPresets.png" style="width: 2.5em;" /></a> ti consente di aggiungere  vista <strong>Predefinita</strong> nella leggenda. Ciò significa che puoi scegliere di visualizzare alcuni layer con categorizzazione specifica e aggiungere questa vista alla lista <strong>Predefinita</strong> lista. Per aggiungere una vista preimpostata basta che fai click su <a href="#id1"><span class="problematic" id="id2">|mActionShowPresets |, scegli * Aggiungi vista ...** dal menu a tendina e dai un nome alla vista predefinita. Dopo di che vedrai un elenco con tutte le viste che si possono richiamare premendo sul pulsante |mActionShowPresets|</span></a>.</p>
-<p>Tutte le viste predefinite aggiunte sono presenti anche nel compositore di stampe in modo di permetterti  di creare stampe impostate sulle suddette viste (vedi: ref: <cite>composer_main_properties</cite>).</p>
-<p id="index-3">Puoi selezionare un layer e trascinarlo in modo da modificarne la visibilità (Z-ordering). Z-ordering significa che i layer in cima alla legenda coprono nella mappa quelli sottostanti.</p>
-<div class="admonition note">
-<p class="first admonition-title">Nota</p>
-<p class="last">Puoi disabilitare questo comportamento dal pannello &#8216;Ordine dei layer&#8217;.</p>
-</div>
-<p>Puoi organizzare in gruppi i layer presenti nella legenda. Ci sono due modi per farlo:</p>
-<ol class="arabic simple">
-<li><p class="first">Premi l&#8217;icona <a class="reference internal" href="../../../_images/mActionFolder.png"><img alt="mActionFolder" src="../../../_images/mActionFolder.png" style="width: 1.5em;" /></a> per aggiungere un nuovo gruppo. Digita un nome per il gruppo e premi <tt class="kbd docutils literal"><span class="pre">Enter</span></tt>. Ora clicca su un layer esistente e trascinalo nel gruppo.</p>
-</li>
-<li><p class="first">Seleziona alcuni layer, clicca con il tasto destro e scegli <em class="guilabel">Gruppo selezionato</em>. I layer selezionati saranno automaticamente spostati nel nuovo gruppo.</p>
-</li>
-</ol>
-<p>Per rimuovere un layer da un gruppo puoi selezionare e trascinare il layer al di fuori dello stesso o in alternativa puoi cliccare con il tasto destro del mouse sul layer e selezionare <em class="guilabel">Muovi fuori dal gruppo  &#8211;&gt;</em>. I gruppi possono essere nidificati all’interno di altri gruppi.</p>
-<p>Puoi usare la casella di controllo di un gruppo per mostrare/nascondere tutti i layer del gruppo con un singolo click.</p>
-<p>Le voci del menu contestuale (click con il tasto destro sul layer) sono diverse a seconda se il file è un raster un vettore. Per i vettori di GRASS la voce di menu <a class="reference internal" href="../../../_images/mActionToggleEditing.png"><img alt="mActionToggleEditing" src="../../../_images/mActionToggleEditing.png" style="width: 1.5em;" /></a> <sup>Modifica</sup> non è abilitata. Vedi la sezione <em class="xref std std-ref">grass_digitizing</em> per informazioni su come modificare i vettori di GRASS.</p>
-<p><strong>Menu contestuale per i raster</strong></p>
+<p>Questi cinque componenti dell&#8217;interfaccia KADAS sono descritti più nel dettaglio nelle sezioni sottostanti.</p>
+<div class="section" id="functionality-menu">
+<h2>Functionality menu<a class="headerlink" href="#functionality-menu" title="link permanente per questa intestazione">¶</a></h2>
+<p>Functionalities are grouped by topic in tabs, which can be activated from the menu bar. The tabs contain buttons for the various functionalities.
+The functionalities of each tab are documented in the respective chapters:</p>
 <ul class="simple">
-<li><p class="first"><em class="menuselection">Zoom al Layer</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Aggiungi alla panoramica ‣</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Zoom alla scala migliore (100%)</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Rimuovi ‣</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Duplica</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Imposta la scala di visibilità del layer</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Imposta il SR del layer ‣</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Imposta SR progetto dal layer</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Stili ‣</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Salva come ...</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Salva come Layer Definition File...</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Proprietà</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Rinomina ‣</em></p>
-</li>
+<li><a class="reference internal" href="../ribbons/my_maps.html#chapter-my-maps"><em>Le mie mappe</em></a></li>
+<li><a class="reference internal" href="../ribbons/view.html#chapter-view"><em>Vista</em></a></li>
+<li><em class="xref std std-ref">chapter_analysis</em></li>
+<li><a class="reference internal" href="../ribbons/draw.html#chapter-draw"><em>Disegno</em></a></li>
+<li><a class="reference internal" href="../ribbons/gps.html#chapter-gps"><em>GPS</em></a></li>
+<li><a class="reference internal" href="../ribbons/mss.html#chapter-mss"><em>MSS</em></a></li>
+<li><a class="reference internal" href="../ribbons/settings.html#chapter-settings"><em>Impostazioni</em></a></li>
+<li><a class="reference internal" href="../ribbons/help.html#chapter-help"><em>Aiuto</em></a></li>
 </ul>
-<p>Inoltre, a seconda della posizione e della selezione del layer</p>
-<ul class="simple">
-<li><p class="first">:menuselection:` Muovi al livello più alto`</p>
-</li>
-<li><p class="first"><em class="menuselection">Gruppo selezionato</em></p>
-</li>
-</ul>
-<p><strong>Menu contestuale per i vettori</strong></p>
-<ul class="simple">
-<li><p class="first"><em class="menuselection">Zoom al Layer</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Aggiungi alla panoramica ‣</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Rimuovi ‣</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Duplica</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Imposta la scala di visibilità del layer</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Imposta il SR del layer ‣</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Imposta SR progetto dal layer</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Stili ‣</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Apri tabella attributi</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Modifica</em> (non disponibile per i layer GRASS)</p>
-</li>
-<li><p class="first"><em class="menuselection">Salva come ...</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Salva come file di definizione del layer</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Filtro</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Mostra totale elementi</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Proprietà</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Rinomina ‣</em></p>
-</li>
-</ul>
-<p>Inoltre, a seconda della posizione e della selezione del layer</p>
-<ul class="simple">
-<li><p class="first">:menuselection:` Muovi al livello più alto`</p>
-</li>
-<li><p class="first"><em class="menuselection">Gruppo selezionato</em></p>
-</li>
-</ul>
-<p><strong>Menu contestuale per i gruppi di layer</strong></p>
-<ul class="simple">
-<li><p class="first"><em class="menuselection">Zoom al gruppo</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Rimuovi ‣</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Imposta il SR del gruppo</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Rinomina ‣</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Aggiungi gruppo</em></p>
-</li>
-</ul>
-<p>Puoi selezionare più di un layer o di un gruppo allo stesso tempo tenendo premuto il tasto <tt class="kbd docutils literal"><span class="pre">Ctrl</span></tt> e cliccando il tasto sinistro del mouse sui vari layer. Potrai cosi spostare contemporaneamente tutti i layer selezionati in un nuovo gruppo.</p>
-<p>Puoi anche rimuovere più layer o gruppi contemporaneamente selezionando i diversi layer tenendo premuto il tasto <tt class="kbd docutils literal"><span class="pre">Ctrl</span></tt> e premendo poi <tt class="kbd docutils literal"><span class="pre">Ctrl+D</span></tt>. In questo modo tutto ciò che hai selezionato verrà rimosso dalla lista dei layer.</p>
-<div class="section" id="working-with-the-legend-independent-layer-order">
-<h3>Lavorare con la legenda indipendentemente dall&#8217;ordine dei layer<a class="headerlink" href="#working-with-the-legend-independent-layer-order" title="link permanente per questa intestazione">¶</a></h3>
-<p>Hai anche la possibilità di usare un pannello per impostare una legenda indipendentemente dall&#8217;ordine di visualizzazione. Puoi attivare questa opzione dal menu <em class="menuselection">Visualizza ‣ Pannelli ‣ Ordine dei layer</em> e determinare così l&#8217;ordine di visualizzazione dei layer nella mappa. Cosi facendo puoi ordinare i layer in base ad un determinato criterio, pur mantenendo l&#8217;ordine di visualizzazione iniziale corretto (vedi <a class="reference internal" href="#figure-layer-order">figure_layer_order</a>). Spuntando la casella di controllo <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Controllo ordine di visualizzazione</em> collocata sotto l&#8217;elenco dei layer, puoi ritornare al comportamento iniziale predefinito.</p>
-<p id="figure-layer-order"><strong>Figure Layer Order:</strong></p>
-<div class="figure align-center">
-<img alt="../../../_images/layer_order.png" src="../../../_images/layer_order.png" />
-<p class="caption">Lavora con una legenda indipendente dall&#8217;ordine dei layer <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
 </div>
-</div>
+<div class="section" id="favorites-and-search">
+<h2>Favorites and search<a class="headerlink" href="#favorites-and-search" title="link permanente per questa intestazione">¶</a></h2>
+<p>Favorite functionalities can be dragged from the respective tab to one of the four placeholders. They can be removed again via context menu on the favorite button. The favorites are stored in the personal user settings.</p>
+<p>The search bar below the favorites allows searching for places, addresses, coordinates and features [CHANGE].
+As soon as three or more characters are entered, the search is automatically started. Results are listed in a popup menu below the search bar, and can be selected with the mouse or via keyboard arrows. When a result is selected, a pin marker is placed at the result position, and the map extent is changed appropriately. If the search input is interpreted as a coordinate pair (i.e. 2600500,1200500 or 8.1,47.2), corresponding these will be offered as results.</p>
+<p>The filter button right of the search bar allows to define a spatial filter to apply to the search. Upon selection of a filter type, the user can draw the desired filter geometry on the map. This filter will be applied to feature searches.</p>
 </div>
 <div class="section" id="map-view">
-<span id="label-mapview"></span><h2>Mappa<a class="headerlink" href="#map-view" title="link permanente per questa intestazione">¶</a></h2>
-<p>Questa è l’area in cui le mappe vengono visualizzate. La mappa visualizzata in questa finestra è il risultato dei vettori e/o raster che hai scelto di caricare (vedi le sezioni che seguono per ulteriori informazioni su come caricare i layer). Puoi modificare la zona di visualizzazione della mappa (spostando la messa a fuoco dell’esposizione della mappa ad un’altra regione) puoi effettuare operazioni di zoom in ed out. Varie altre operazioni sono descritte nella sezione relativa alla barra dei menu. La vista nell’area di mappa e la legenda sono strettamente legate l’una all’altra: le mappe che vengono visualizzate riflettono i cambiamenti fatti nella area della legenda.</p>
-<div class="admonition tip" id="index-4">
+<h2>Visualizzazione mappa<a class="headerlink" href="#map-view" title="link permanente per questa intestazione">¶</a></h2>
+<p>Questa è la &#8220;parte commerciale&#8221; di KADAS: è in quest’area che vengono visualizzate le mappe! La mappa visualizzata in questa finestra è il risultato dei vettori e/o raster che si è scelto di caricare (vedi le sezioni che seguono per ulteriori informazioni su come caricare i layer). È possibile modificare la zona di visualizzazione della mappa (spostando la messa a fuoco dell’esposizione della mappa ad un’altra regione) e aumentare o dimunire lo zoom. Le altre operazioni che possono essere eseguite sulla mappa sono descritte nella sezione sopra, relativa alla barra degli strumenti. La visualizzazione della mappa e la legenda sono strettamente legate l’una all’altra: le mappe visualizzate riflettono i cambiamenti apportati nell&#8217;area della legenda.</p>
+<div class="admonition tip" id="index-1">
 <p class="first admonition-title">Suggerimento</p>
-<p><strong>ZOOM IN E ZOOM OUT CON LA ROTELLA DEL MOUSE</strong></p>
-<p class="last">Per le operazioni di zoom puoi anche utilizzare la rotella del mouse. Posizionando il puntatore del mouse nell’area di visualizzazione delle mappe aumenterai lo zoom girando la rotella verso lo schermo, lo ridurrai girandola nel verso contrario. La posizione del puntatore costituisce il centro per l’ingrandimento. Puoi regolare il comportamento della funzione di zoom con la rotella del mouse nella scheda <em class="menuselection">Strumenti mappa</em> del menu <em class="menuselection">Impostazioni ‣ Opzioni</em> .</p>
+<p><strong>Aumentare o diminuire lo zoom con la rotella del mouse</strong></p>
+<p class="last">Per le operazioni di zoom è anche possibile utilizzare la rotella del mouse. Posizionando il puntatore del mouse nell’area di visualizzazione delle mappe, si aumenterà lo zoom girando la rotella verso lo schermo (lontano dall&#8217;utente) e lo si ridurrà girandola nel verso contrario (verso l&#8217;utente). La posizione del puntatore costituisce il centro dell’ingrandimento. È inoltre possibile personalizzare il comportamento della funzione di zoom con la rotella del mouse nella scheda <em class="menuselection">Strumenti mappa</em> del menu <em class="menuselection">Impostazioni ‣ Opzioni</em>.</p>
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">Suggerimento</p>
-<p><strong>MUOVERE LA MAPPA CON I TASTI FRECCIA E LA BARRA SPAZIATRICE</strong></p>
-<p class="last" id="index-5">Puoi spostare la mappa anche con le frecce della tastiera. Posiziona il mouse sulla mappa e clicca la freccia destra per spostarti verso est, la freccia sinistra per spostarti verso ovest, la freccia in su per spostarti verso nord e la freccia in giù per spostarti verso sud. Puoi anche spostare la mappa con la barra spaziatrice oppure premendo la rotellina del mouse: nel primo caso tieni premuta la barra spaziatrice e muovi il mouse, mentre nel secondo caso tieni premuto il tasto della rotellina mentre muovi il mouse.</p>
+<p><strong>Spostare la mappa con i tasti freccia e la barra spaziatrice</strong></p>
+<p class="last" id="index-2">È possibile spostare la mappa anche con i tasti direzionali. Posizionare il cursore del mouse sulla mappa e premere la freccia destra per spostarsi verso est, la freccia sinistra per spostarsi verso ovest, la freccia su per spostarsi verso nord e la freccia giù per spostarsi verso sud. È anche possibile spostare la mappa con la barra spaziatrice oppure premendo la rotella del mouse: nel primo caso si terrà premuta la barra spaziatrice e si muoverà il mouse, mentre nel secondo caso si terrà premuto il tasto della rotella mentre si muove il mouse.</p>
+</div>
+</div>
+<div class="section" id="layers-and-geodata-catalog">
+<h2>Layers and geodata catalog<a class="headerlink" href="#layers-and-geodata-catalog" title="link permanente per questa intestazione">¶</a></h2>
+<p>The functions to manage the map layers are contained in the collapsible area anchored at the left border of the application window.
+The upper part contains the table of contents of the map, the lower part contains the geodata catalog.</p>
+<div class="section" id="map-legend">
+<span id="label-legend"></span><h3>Legenda mappa<a class="headerlink" href="#map-legend" title="link permanente per questa intestazione">¶</a></h3>
+<p id="index-3">Nell&#8217;area della legenda sono elencati tutti i livelli del progetto. La casella di controllo situata accanto ad ogni voce della legenda serve a mostrare o a nascondere il relativo livello.</p>
+<p id="index-4">È possibile selezionare un livello e trascinarlo in modo da modificarne la visibilità (Z-ordering). In base allo Z-ordering, i livelli che compaiono più in alto nella legenda sono sovrapposti a quelli sottostanti.</p>
+<p>I livelli nella finestra della legenda possono essere organizzati in gruppi.</p>
+<p>Per rimuovere un livello da un gruppo, può essere selezionato e trascinato al di fuori del gruppo o, in alternativa, è possibile fare clic con il tasto destro del mouse sul livello e selezionare <em class="guilabel">Elemento di primo livello</em>. I gruppi possono anche essere nidificati all’interno di altri gruppi.</p>
+<p>È possibile utilizzare la casella di controllo di un gruppo per mostrare/nascondere tutti i livelli del gruppo con un singolo clic.</p>
+<p>Il contenuto del menu contestuale varia a seconda che l&#8217;elemento selezionato con il tasto destro del mouse sia un raster o un livello vettoriale.</p>
+<p><strong>Menu contestuale per i raster</strong></p>
+<ul class="simple">
+<li><p class="first"><em class="menuselection">Zoom al livello</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Rimuovi</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Duplica</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Proprietà</em></p>
+</li>
+</ul>
+<p>Vedere anche <a class="reference internal" href="../working_with_raster/raster_properties.html#label-raster-properties"><em>Proprietà raster</em></a></p>
+<p><strong>Menu contestuale per i vettori</strong></p>
+<ul class="simple">
+<li><p class="first"><em class="menuselection">Zoom al livello</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Rimuovi</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Duplica</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Proprietà</em></p>
+</li>
+</ul>
+<p>Vedere anche <a class="reference internal" href="../working_with_vector/vector_properties.html#vector-properties-dialog"><em>Proprietà dei vettori</em></a></p>
+<p><strong>Menu contestuale per i gruppi di livelli</strong></p>
+<ul class="simple">
+<li><p class="first"><em class="menuselection">Rimuovi</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Rinomina</em></p>
+</li>
+</ul>
+<p>È possibile selezionare più livelli o gruppi alla volta tenendo premuto il tasto <tt class="kbd docutils literal"><span class="pre">Ctrl</span></tt> e facendo clic con il tasto sinistro del mouse sui vari livelli. In questo modo si potranno spostare contemporaneamente tutti i livelli selezionati in un nuovo gruppo.</p>
+</div>
+<div class="section" id="geodata-catalog">
+<h3>Geodata catalog<a class="headerlink" href="#geodata-catalog" title="link permanente per questa intestazione">¶</a></h3>
+<p>The geodata catalog allows the user to add additional layers to the map. The catalog is empty if no network connection to the catalog service could be established. The contents of the catalog can by filtered by entering an appropriate text in the input field above the catalog. A layer in the catalog can be added to the map by drag and drop or double click[CHANGE].</p>
+<p>The toolbar above the catalog contains the following functionalities:</p>
+<ul class="simple">
+<li><em class="menuselection">Add local dataset</em>: Local vector (<a class="reference internal" href="../working_with_vector/supported_data.html#vector-data-formats"><em>Formati supportati</em></a>) or raster (<a class="reference internal" href="../working_with_raster/supported_data.html#working-with-raster"><em>Lavorare con i dati raster</em></a>) can be added to the map.</li>
+<li><em class="menuselection">Reload catalog</em>: Reloads the catalog from the catalog service.</li>
+<li><em class="menuselection">SAML authentication</em>: A window for performing a web-based login will be shown. Upon successful authentication, the geodata catalog will be refreshed and additional layers will be listed, according to the privileges of the authenticated user.</li>
+</ul>
 </div>
 </div>
 <div class="section" id="status-bar">
-<span id="label-statusbar"></span><span id="label-mapoverview"></span><h2>Barra di Stato<a class="headerlink" href="#status-bar" title="link permanente per questa intestazione">¶</a></h2>
-<p>La barra di stato mostra le coordinate di mappa (es. metri o gradi decimali) della posizione del mouse. Nella barra di stato a sinistra delle coordinate è presente un piccolo pulsante che ti consente di passare dalla visualizzazione delle coordinate del movimento del mouse alla visualizzazione delle coordinate dell’estensione della mappa.</p>
-<p>Accanto alla finestra delle coordinate c&#8217;è la finestra della scala. Questa mostra la scala della mappa attuale. Sia ingrandendo che rimpicciolendo la scala, KADAS mostrerà la scala corrente. Un menu a tendina ti permette di scegliere fra alcune scale predefinite da 1:500 a 1:1000000.</p>
-<p>Alla destra della scala è possibile definire la rotazione in gradi (in senso orario) della mappa.</p>
-<p>La barra di avanzamento nella barra di stato mostra il progredire della visualizzazione di ogni layer nella mappa. In alcuni casi, come quando vengono raccolte informazioni statistiche su raster, questa barra è usata per mostrare lo stato di avanzamento di questi processi, in genere molto lunghi.</p>
-<p>Se è disponibile un nuovo plugin o un aggiornamento di un plugin installato, apparirà un avviso nella barra di stato. Nella parte destra della barra di stato è presente una casella di controllo che, se attivata, può essere usata per impedire temporaneamente la visualizzazione dei layer. L’icona <a class="reference internal" href="../../../_images/mIconStopRendering.png"><img alt="mIconStopRendering" src="../../../_images/mIconStopRendering.png" style="width: 1.5em;" /></a> disattiva temporaneamente la visualizzazione dei layer nella mappa (vedi sezione <a class="reference internal" href="general_tools.html#redraw-events"><em>Visualizzazione</em></a>).</p>
-<p>All’estrema destra della barra di stato è visibile il codice EPSG del SR del progetto corrente; cliccando sull’icona a forma di proiettore subito a destra del codice EPSG è possibile accedere alle proprietà del SR.</p>
-<div class="admonition tip">
-<p class="first admonition-title">Suggerimento</p>
-<p><strong>Calcolare la scala corretta della mappa</strong></p>
-<p class="last" id="index-6">Quando si avvia KADAS le unità predefinite sono i gradi e quindi KADAS interpreterà ogni coordinata del tuo layer in gradi. Per avere la scala corretta è necessario impostare manualmente l&#8217;unità di misura in metri  nella scheda <em class="guilabel">Generale</em> sotto <em class="menuselection">Settings ‣ Propertietà del Progetto</em>, oppure è possibile selezionare un SR del progetto cliccando sull&#8217;icona <a class="reference internal" href="../../../_images/mIconProjectionDisabled.png"><img alt="mIconProjectionDisabled" src="../../../_images/mIconProjectionDisabled.png" style="width: 1.5em;" /></a> <sup>SR Corrente:</sup> nell&#8217;angolo in basso a destra della barra di stato. In quest&#8217;ultimo caso le unità sono impostate come specificato nella proiezione del progetto (e.g., &#8216;+units=m&#8217;).</p>
-</div>
+<span id="label-statusbar"></span><h2>Status bar<a class="headerlink" href="#status-bar" title="link permanente per questa intestazione">¶</a></h2>
+<p>The status bar contains following labels and control widgets:</p>
 <ul class="simple">
-<li>see <a class="reference internal" href="../working_with_vector/supported_data.html#vector-data-formats"><em>Formati supportati</em></a></li>
-<li>see <a class="reference internal" href="../working_with_vector/vector_properties.html#vector-properties-dialog"><em>Proprietà dei vettori</em></a></li>
-<li>see <a class="reference internal" href="../working_with_raster/supported_data.html#load-raster"><em>Caricare dati raster in KADAS</em></a></li>
-<li>see <a class="reference internal" href="../working_with_raster/raster_properties.html#label-raster-properties"><em>Proprietà raster</em></a></li>
-<li>see <a class="reference internal" href="../working_with_projections/working_with_projections.html#label-projections"><em>Lavorare con le proiezioni</em></a></li>
+<li><em class="menuselection">GPS</em></li>
+<li><em class="menuselection">Mouse position</em></li>
+<li><em class="menuselection">Scale</em></li>
+<li><em class="menuselection">Coordinate reference system</em></li>
 </ul>
+<p>Usage of the GPS button is described in <a class="reference internal" href="../ribbons/gps.html#gps-status"><em>Attivazione GPS</em></a>.</p>
+<p>The current mouse position on the map can be displayed with respect to multiple reference systems. The desired format can be selected from the menu left of the display label.</p>
+<p>Accanto alla visualizzazione delle coordinate si trova la finestra della scala, che indica la scala della mappa attuale. Sia ingrandendo che rimpicciolendo la scala, KADAS mostrerà la scala corrente. L&#8217;apposito selettore consente di selezionare alcune scale predefinite da 1:500 a 1:1000000.</p>
+<p>The <em class="menuselection">coordinate reference system</em> selection button allows the user to choose which projection to use for the map. This selection may differ from the native projection of the datasets, in which case the data is reprojected.
+See also <a class="reference internal" href="../working_with_projections/working_with_projections.html#label-projections"><em>Lavorare con le proiezioni</em></a></p>
 </div>
 </div>
 
@@ -427,7 +350,7 @@ usando l&#8217;opzione <em class="guilabel">Configura le scorciatoie...</em> del
           <a href="../ribbons/my_maps.html" title="Le mie mappe"
              >successivo</a></li>
         <li class="right" >
-          <a href="../preamble/foreword.html" title="Premessa"
+          <a href="../preamble/conventions.html" title="Convenzioni"
              >precedente</a> |</li>
         <li><a href="../index.html"></a> &raquo;</li> 
       </ul>

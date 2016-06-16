@@ -174,18 +174,16 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Indice</a></h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Convenzioni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Premessa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">GUI KADAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Le mie mappe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Vista</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analisi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Disegno</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Impostazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Aiuto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Appendice</a></li>
 </ul>
 
@@ -196,57 +194,19 @@
                         
                             <p>.</p>
 <span class="target" id="index-0"></span><span class="target" id="index-1"></span><div class="section" id="working-with-raster-data">
-<span id="index-2"></span><h1>Lavorare con i dati raster<a class="headerlink" href="#working-with-raster-data" title="link permanente per questa intestazione">¶</a></h1>
-<p>Questa sezione descrive come visualizzare ed impostare le proprietà dei dati raster. KADAS usa la libreria <span class="target" id="index-8"></span>GDAL per l’accesso alla lettura/scrittura a formati raster, tipo ArcInfo Binary Grid, ArcInfo ASCII Grid, GeoTIFF, ERDAS IMAGINE e molti altri. Il supporto ai raster GRASS è garantito da un plugin nativo di KADAS. Puoi caricare i dati raster in KADAS anche in sola lettura da archivi zip e gzip.</p>
+<span id="working-with-raster"></span><span id="index-2"></span><h1>Lavorare con i dati raster<a class="headerlink" href="#working-with-raster-data" title="link permanente per questa intestazione">¶</a></h1>
+<p>Questa sezione descrive come visualizzare ed impostare le proprietà dei dati raster. KADAS usa la libreria <span class="target" id="index-7"></span>GDAL per l’accesso alla lettura/scrittura a formati raster, tipo ArcInfo Binary Grid, ArcInfo ASCII Grid, GeoTIFF, ERDAS IMAGINE e molti altri. Il supporto ai raster GRASS è garantito da un plugin nativo di KADAS. Puoi caricare i dati raster in KADAS anche in sola lettura da archivi zip e gzip.</p>
 <p>Attualmente, la libreria GDAL supporta più di 100 formati raster (vedi GDAL-SOFTWARE-SUITE <em class="xref std std-ref">literature_and_web</em>). La lista completa è
 disponibile alla pagina web <a class="reference external" href="http://www.gdal.org/formats_list.html">http://www.gdal.org/formats_list.html</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
 <p class="last">Per diverse ragioni, non tutti i formati elencati potrebbero funzionare in KADAS. Per esempio, alcuni formati richiedono la presenza di librerie commerciali di terze parti oppure l’installazione di GDAL potrebbe essere avvenuta senza il supporto al formato che intendi usare. Quando carichi un raster in KADAS, solo i formati ben testati appariranno nell’elenco dei tipi di file; altri formati non testati possono essere caricati selezionando l&#8217;opzione <tt class="docutils literal"><span class="pre">[GDAL]</span> <span class="pre">Tutti</span> <span class="pre">i</span> <span class="pre">file</span> <span class="pre">(*)</span></tt>.</p>
 </div>
-<p>Per caricare e lavorare con dati raster di GRASS, fai riferimento alla sezione <em class="xref std std-ref">sec_grass</em>.</p>
 <div class="section" id="what-is-raster-data">
 <h2>Cosa sono i dati raster?<a class="headerlink" href="#what-is-raster-data" title="link permanente per questa intestazione">¶</a></h2>
 <p>I dati raster sono matrici di celle discrete che rappresentano elementi della superficie terrestre o dell’ambiente al di sopra o al di sotto di essa. Ogni cella nella matrice ha la stessa dimensione e le celle sono solitamente rettangolari (in KADAS sono sempre rettangolari). Esempi tipici di dati raster sono quelli provenienti dal telerilevamento come le fotografie aeree, le immagini da satellite e dati modellati come le matrici dell’elevazione.</p>
 <p>Diversamente dai vettori, i dati raster di solito non hanno associato un database contenente i dati descrittivi di ogni cella e sono geocodificati in base alla risoluzione del pixel e alle coordinate x/y di un angolo del raster. Questo permette a KADAS di posizionare correttamente il dato sulla mappa.</p>
-<p>Per posizionare e visualizzare correttamente un raster, KADAS legge le informazioni di georeferenziazione incorporate direttamente nel file raster (ad es.  <span class="target" id="index-9"></span>GeoTiff) o gestite da un apposito file (world file).</p>
-</div>
-<div class="section" id="loading-raster-data-in-qg">
-<span id="load-raster"></span><span id="index-5"></span><h2>Caricare dati raster in KADAS<a class="headerlink" href="#loading-raster-data-in-qg" title="link permanente per questa intestazione">¶</a></h2>
-<p>Puoi caricare i raster cliccando sull&#8217;icona <a class="reference internal" href="../../../_images/mActionAddRasterLayer.png"><img alt="mActionAddRasterLayer" src="../../../_images/mActionAddRasterLayer.png" style="width: 1.5em;" /></a> <sup>Aggiungi raster</sup> oppure selezionando l&#8217;opzione <em class="menuselection">Layer ‣</em> <a class="reference internal" href="../../../_images/mActionAddRasterLayer.png"><img alt="mActionAddRasterLayer" src="../../../_images/mActionAddRasterLayer.png" style="width: 1.5em;" /></a> <em class="guilabel">Aggiungi raster</em>. Puoi caricare più raster contemporaneamente tenendo premuto il tasto <tt class="kbd docutils literal"><span class="pre">Ctrl</span></tt> o <tt class="kbd docutils literal"><span class="pre">Shift</span></tt> e cliccando su più elementi presenti nella finestra di dialogo <em class="guilabel">Apri una formato raster supportato da GDAL</em>.</p>
-<p>Una volta caricato il raster puoi cliccare sul suo nome nella legenda con il tasto destro del mouse per selezionare ed attivare opzioni specifiche, o per aprire la finestra per l’impostazione delle proprietà.</p>
-<p><strong>Menu contestuale per layer raster</strong></p>
-<ul class="simple">
-<li><p class="first"><em class="menuselection">Zoom all&#8217;estensione del layer</em></p>
-</li>
-<li><em class="menuselection">Zoom to Best Scale (100%)</em></li>
-<li><p class="first"><em class="menuselection">Stira usando l&#8217;estensione attuale</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Aggiungi alla panoramica</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Rimuovi</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Duplica</em></p>
-</li>
-<li><em class="menuselection">Set Layer CRS</em></li>
-<li><p class="first"><em class="menuselection">Imposta il SR del progetto dal layer</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Salva come ...</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Proprietà</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Rinomina</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Copia lo stile</em></p>
-</li>
-<li><em class="menuselection">Add New Group</em></li>
-<li><p class="first"><em class="menuselection">Espandi tutto</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Comprimi tutto</em></p>
-</li>
-<li><p class="first"><em class="menuselection">Aggiorna l&#8217;ordine del disegno</em></p>
-</li>
-</ul>
+<p>Per posizionare e visualizzare correttamente un raster, KADAS legge le informazioni di georeferenziazione incorporate direttamente nel file raster (ad es.  <span class="target" id="index-8"></span>GeoTiff) o gestite da un apposito file (world file).</p>
 </div>
 </div>
 

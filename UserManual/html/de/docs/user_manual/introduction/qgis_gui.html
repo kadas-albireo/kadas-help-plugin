@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>KADAS GUI</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <link rel="next" title="Meine Karten" href="../ribbons/my_maps.html" />
+    <link rel="prev" title="Gebrauch der Dokumentation" href="../preamble/conventions.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="English">English</option>
+  <option value="de" title="German">Deutsch</option>
+  <option value="fr" title="French">Français</option>
+  <option value="it" title="Italian">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/introduction/qgis_gui.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Discover QGIS</a></li>
+            <li><a href="../../../site/forusers/index.html">For Users</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Get Involved</a></li>
+            <li><a href="../../index.html">Documentation</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Suche" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../ribbons/my_maps.html" title="Meine Karten"
+             accesskey="N">weiter</a></li>
+        <li class="right" >
+          <a href="../preamble/conventions.html" title="Gebrauch der Dokumentation"
+             accesskey="P">zurück</a> |</li>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    <a accesskey="p" href="../preamble/conventions.html">&lt;&lt; prev</a>
+    
+    
+    <a accesskey="n" href="../ribbons/my_maps.html">next &gt;&gt;</a>
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Inhalt</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Gebrauch der Dokumentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">KADAS GUI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#functionality-menu">Funktionsmenu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#favorites-and-search">Favoriten und Suche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#map-view">Kartenfenster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#layers-and-geodata-catalog">Ebenen und Geodatenkatalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#status-bar">Status Bar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Meine Karten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Zeichnen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Anhang</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="qg-gui">
+<span id="label-qgismainwindow"></span><h1>KADAS GUI<a class="headerlink" href="#qg-gui" title="Permalink zu dieser Überschrift">¶</a></h1>
+<p id="index-0">Die KADAS GUI ist in fünf Bereiche unterteilt:</p>
+<ol class="arabic simple">
+<li><p class="first">Funktionsmenu</p>
+</li>
+<li><p class="first">Favoriten und Suche</p>
+</li>
+<li><p class="first">Kartenfenster</p>
+</li>
+<li><p class="first">Ebenen und Geodatenkatalog</p>
+</li>
+<li><p class="first">Status Bar</p>
+</li>
+</ol>
+<p>These five components of the KADAS interface are described in more detail in
+the following sections.</p>
+<div class="section" id="functionality-menu">
+<h2>Funktionsmenu<a class="headerlink" href="#functionality-menu" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>Im Funkionsmenu kann über eine Menüleiste zwischen verschiedenen Symbolleisten umgeschaltet werden. Die Symbolleisten enthalten Knöpfe für die verschiedenen Funktionen. Die Funktionen der Symbolleisten sind in separaten Kapiteln dokumentiert:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../ribbons/my_maps.html#chapter-my-maps"><em>Meine Karten</em></a></li>
+<li><a class="reference internal" href="../ribbons/view.html#chapter-view"><em>Ansicht</em></a></li>
+<li><em class="xref std std-ref">chapter_analysis</em></li>
+<li><a class="reference internal" href="../ribbons/draw.html#chapter-draw"><em>Zeichnen</em></a></li>
+<li><a class="reference internal" href="../ribbons/gps.html#chapter-gps"><em>GPS</em></a></li>
+<li><a class="reference internal" href="../ribbons/mss.html#chapter-mss"><em>MSS</em></a></li>
+<li><a class="reference internal" href="../ribbons/settings.html#chapter-settings"><em>Einstellungen</em></a></li>
+<li><a class="reference internal" href="../ribbons/help.html#chapter-help"><em>Hilfe</em></a></li>
+</ul>
+</div>
+<div class="section" id="favorites-and-search">
+<h2>Favoriten und Suche<a class="headerlink" href="#favorites-and-search" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>Auf den vier Platzhaltern können favorisierte Funktionen aus dem Funktionsmenu platziert werden. Dies geschieht durch Ziehen der Maus bei gedrückter Maustaste. Der Favorit kann durch Drücken der rechten Mausstaste wieder entfernt werden. Die Favoriten werden als Benutzereinstellungen gespeichert.</p>
+<p>Unter den Favoriten befindet sich eine Suchfunktion, mit denen Orte, Adressen oder Koordinaten gesucht werden können. Nach der Eingabe von mindestens drei Buchstaben startet die Suche und es werden erste Resultate angezeigt. Wird eines der Resultate mit der Maus oder den Pfeiltasten ausgewählt, wird ein Marker auf der Zielstelle platziert und ein entsprechender Kartenausschnitt ausgewählt. Wenn die Sucheingabe als Koordinatenpaar erkannt wird (z.B. 2600500,1200500 oder 8.1,47.2), werden passende Koordinaten als Resultat vorgeschlagen.</p>
+<p>Rechts vom Suchfeld befindet sich ein Knopf zur Auswahl von räumlichen Filtern für die Suche. Nach der Auswahl einer Filterform befindet man sich im Zeichnungsmodus und kann eine entsprechende Geometrie zeichnen. Die Resultate der nachfolgenden Suchen werden auf die gezeichnetetn Geometrien eingeschränkt.</p>
+</div>
+<div class="section" id="map-view">
+<h2>Kartenfenster<a class="headerlink" href="#map-view" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>Dies ist der Ergebnisbereich von QGIS - hier werden die Daten visualisiert. Die Karten, die hier angezeigt werden, hängen davon ab, welche Raster- und Vektorlayer Sie ausgewählt haben (vgl. folgende Abschnitte). Innerhalb des Kartenfensters können Sie ‘zoomen’, verschieben (‘pan’) und eine Vielzahl weiterer Funktionen aus der Werkzeugleiste anwenden. Das Kartenfenster und die Legende sind miteinander verknüpft. Layer im Kartenfenster spiegeln Veränderungen in der Legende wider.</p>
+<div class="admonition tip" id="index-1">
+<p class="first admonition-title">Tipp</p>
+<p><strong>Mit dem Mausrad in der Karte zoomen</strong></p>
+<p class="last">Sie können das Mausrad benutzen, um im Kartenfenster in Layer hinein- bzw. hinauszuzoomen. Platzieren Sie dazu den Mauszeiger im Kartenfenster und drehen Sie das Mausrad nach vorne (Hinauszoomen) oder nach hinten zum Hineinzoomen. Der Mauszeiger bildet dabei das Zentrum. Sie können das Verhalten des Mausrades in der Menüleiste <em class="menuselection">Einstellungen ‣Optionen</em> unter dem Menü <em class="guilabel">Kartenwerkzeuge</em> einstellen.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tipp</p>
+<p><strong>Den Kartenausschnitt mit den Pfeiltasten und der Leertaste verschieben</strong></p>
+<p class="last" id="index-2">Sie können die Pfeiltasten verwenden, um den Layer zu verschieben. Platzieren Sie dazu den Mauszeiger im Kartenfenster und drücken Sie auf die rechte Pfeiltaste um nach Osten zu verschieben, die linke Pfeiltasten für Westen, die Hoch-Pfeiltasten für Norden und die Unten-Pfeiltasten für Süden. Sie können einen Layer auch mit der Space-Taste verschieben. Bewegen Sie dazu einfach die Maus während Sie die Space-Taste gedrückt halten.</p>
+</div>
+</div>
+<div class="section" id="layers-and-geodata-catalog">
+<h2>Ebenen und Geodatenkatalog<a class="headerlink" href="#layers-and-geodata-catalog" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>Am linken Rand des Programmfensters befindet sich ein aufklappbarer Bereich, welche Verwaltungsfunktionen für Kartenebenen enthält. Im oberen Teil ist die Kartenlegende und im unteren Teil der Geodatenkatalog angeordnet.</p>
+<div class="section" id="map-legend">
+<span id="label-legend"></span><h3>Legende<a class="headerlink" href="#map-legend" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p id="index-3">The map legend area lists all the layers in the project. The checkbox in each
+legend entry can be used to show or hide the layer.</p>
+<p id="index-4">Die Z-Anordnung der Kartenlayer kann mit der ‘drag and drop’ Funktion der Maus festgelegt werden. Z-Anordnung bedeutet, dass ein weiter oben in der Legende angeordneter Layer über einem weiter unten angeordneten Layer im Kartenfenster angezeigt wird.</p>
+<p>Layers in the legend window can be organised into groups.</p>
+<p>Um einen Layer aus einer Gruppe zu bringen, können Sie ihn herausschieben oder einen Rechtsklick darauf machen und <em class="guilabel">In oberste Ebene bringen</em> wählen. Gruppen können auch in andere Gruppen verschachtelt werden.</p>
+<p>Das Kontrollkästchen für eine Gruppe zeigt oder verbirgt alle Layer einer Gruppe mit einem Klick.</p>
+<p>The content of the right mouse button context menu depends on whether the
+selected legend item is a raster or a vector layer.</p>
+<p><strong>Rechte-Maustaste-Menü für Rasterlayer</strong></p>
+<ul class="simple">
+<li><em class="menuselection">Zoom to Layer</em></li>
+<li><p class="first"><em class="menuselection">Entfernen</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Kopieren</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Eigenschaften ...</em></p>
+</li>
+</ul>
+<p>See also <a class="reference internal" href="../working_with_raster/raster_properties.html#label-raster-properties"><em>Dialogfenster Rasterlayereigenschaften</em></a></p>
+<p><strong>Rechte-Maustaste-Menü für Vektorlayer</strong></p>
+<ul class="simple">
+<li><em class="menuselection">Zoom to Layer</em></li>
+<li><p class="first"><em class="menuselection">Entfernen</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Kopieren</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Eigenschaften ...</em></p>
+</li>
+</ul>
+<p>See also <a class="reference internal" href="../working_with_vector/vector_properties.html#vector-properties-dialog"><em>Vektorlayereigenschaften</em></a></p>
+<p><strong>Rechte Maustaste-Menü für Layergruppen</strong></p>
+<ul class="simple">
+<li><p class="first"><em class="menuselection">Entfernen</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Umbenennen</em></p>
+</li>
+</ul>
+<p>Es ist möglich mehr als einen Layer oder Gruppe zur gleichen Zeit auszuwählen indem man die <tt class="kbd docutils literal"><span class="pre">Strg</span></tt> Taste gedrückt hält und die Layer mit der linken Maustaste auswählt. Sie können dann alle ausgewählten Layer gleichzeitig zu einer neuen Gruppe verschieben.</p>
+</div>
+<div class="section" id="geodata-catalog">
+<h3>Geodatenkatalog<a class="headerlink" href="#geodata-catalog" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Im Geodatenkatalog können weitere Kartenebenen zur Karte hinzugefügt werden. Ist die Liste leer, besteht keine Netzwerkverbindung zum Katalogdienst. Durch Eingabe von Suchbegriffen im Textfeld werden die verfügbaren Ebenen entsprechend eingeschränkt. Eine Ebene kann mittels Kontextmenu (rechte Maustaste auf dem Ebeneneintrag) oder via &#8220;Drag and Drop&#8221; der Karte hinzugefügt werden.</p>
+<p>Oberhalb der Katalogliste stehen folgende Funktionen zur Verfügung:</p>
+<ul class="simple">
+<li><p class="first"><em class="menuselection">Lokaler Datensatz hinzufügen</em>: Es können Vektordaten (<a class="reference internal" href="../working_with_vector/supported_data.html#vector-data-formats"><em>Unterstützte Datenformate</em></a>) oder Rasterdaten (<a class="reference internal" href="../working_with_raster/supported_data.html#working-with-raster"><em>Arbeiten mit Rasterdaten</em></a>) zur Karte hinzugefügt werden.</p>
+</li>
+<li><p class="first"><em class="menuselection">Katalog neu laden</em>: Lädt die Liste der verfügbaren Kartenebenen neu.</p>
+</li>
+<li><p class="first"><em class="menuselection">SAML Authentifizierung</em>: Es wird ein Fenster geöffnet, in dem ein webbasiertes Login auf dem Server durchgeführt werden kann. Nach erfolgreichem Login wird der Geodatenkatalog neu geladen und es stehen entsprechend den Berechtigungen zusätzliche Kartenebenen zur Verfügung.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="status-bar">
+<span id="label-statusbar"></span><h2>Status Bar<a class="headerlink" href="#status-bar" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>In der Statuszeile sind folgende Anzeigen und Bedienelemente angeordnet:</p>
+<ul class="simple">
+<li><em class="menuselection">GPS</em></li>
+<li><p class="first"><em class="menuselection">Mausposition</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Massstab</em></p>
+</li>
+<li><p class="first"><em class="menuselection">Koordinatensystem</em></p>
+</li>
+</ul>
+<p>Die Funktion des GPS-Knopfes ist unter <a class="reference internal" href="../ribbons/gps.html#gps-status"><em>GPS aktivieren</em></a> beschrieben.</p>
+<p>Die aktuelle Mausposition kann in verschiedenen Koordinatensystemen angezeigt werden. Das gewünschte Anzeigesystem kann über den Knopf rechts der Positionsanzeige ausgewählt werden.</p>
+<p>Neben der Koordinatenanzeige finden Sie die Maßstabsanzeige. Es zeigt den Maßstab des Kartenfensters. Wenn Sie herein- oder hinauszoomen zeigt QGIS ihnen den aktuellen Maßstab. Seit QGIS 1.8 gibt es eine Maßstabsauswahl mit der Sie zwischen vordefinierten Maßstäben von 1:500 bis 1:1000000 wählen können.</p>
+<p>Im Auswahlfeld <em class="menuselection">Koordinatensystem</em> kann das Referenzsystem ausgewählt werden, in dem die aktuelle Karte dargestellt werden soll. Das angzeigte Referensystem kann vom Referenzsystem, in dem die Daten vorliegen, abweichen. In diesem Fall werden die Daten zur Darstellung umprojiziert. See also <a class="reference internal" href="../working_with_projections/working_with_projections.html#label-projections"><em>Arbeiten mit Projektionen</em></a></p>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../ribbons/my_maps.html" title="Meine Karten"
+             >weiter</a></li>
+        <li class="right" >
+          <a href="../preamble/conventions.html" title="Gebrauch der Dokumentation"
+             >zurück</a> |</li>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>

@@ -174,18 +174,16 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Table Des Matières</a></h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Préambule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Avant-propos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">Interface de KADAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Mes cartes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Vue</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analyse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Dessiner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Réglages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Aide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Annexe</a></li>
 </ul>
 
@@ -206,7 +204,10 @@
 </div>
 <div class="section" id="style-menu">
 <span id="vector-style-menu"></span><h2>Onglet Style<a class="headerlink" href="#style-menu" title="Lien permanent vers ce titre">¶</a></h2>
-<p>L&#8217;onglet Style fournit un outil complet pour le rendu et la gestion de la sémiologie des couches vectorielles. Il permet de gérer le <em class="menuselection">Rendu de couche ‣</em>, avec un ensemble d&#8217;outils communs à tous les types de couche vecteur ainsi que des outils de symbologie spécifiques à chaque type.</p>
+<p>The Style menu provides you with a comprehensive tool for rendering and symbolizing your
+vector data. You can use <em class="menuselection">Layer rendering ‣</em> tools that are common to
+all vector data, as well as special symbolizing tools that were designed for the different kinds
+of vector data.</p>
 <div class="section" id="renderers">
 <h3>Modes de rendu<a class="headerlink" href="#renderers" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le moteur de rendu est chargé de dessiner une entité avec son symbole correct. Il existe quatre types de moteurs de rendu : symbole unique, catégorisé, gradué et basé sur des règles. Il n&#8217;y a pas de rendu de couleur continue, car il s&#8217;agit en fait d&#8217;un cas particulier du rendu gradué. Les moteurs de rendu classés et gradués peuvent être créés en spécifiant un symbole et une rampe de couleur - ils définissent les couleurs pour les symboles de manière appropriée. Pour les couches de points, il y a un moteur de rendu par déplacement de point disponible. Pour chaque type de données (points, lignes et polygones), des types de couches de symboles vectoriels sont disponibles. Selon le moteur de rendu choisi, l&#8217;onglet <em class="guilabel">Style</em> fournit différentes sections supplémentaires. Dans la fenêtre de symbologie, il y a un bouton <strong>[Ouvrir la bibliothèque]</strong> qui donne accès au Gestionnaire de Symboles (voir <em class="xref std std-ref">vector_style_manager</em>). Le Gestionnaire de Symboles vous permet de modifier et de supprimer des symboles existants et d&#8217;en ajouter de nouveaux.</p>
@@ -346,7 +347,12 @@ is the background for the symbol in the tree.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Astuce</p>
 <p><strong>Exporter le style d&#8217;une couche vecteur</strong></p>
-<p class="last">Vous avez la possibilité d&#8217;exporter la symbologie d&#8217;une couche vecteur de KADAS vers les fichiers *.kml de Google, *.dxf et *.tab de MapInfo. Il suffit d&#8217;un clic droit sur la couche, puis de cliquer sur <em class="menuselection">Enregistrer sous ‣</em> pour spécifier le nom du fichier de sortie et son format. Dans la boîte de dialogue, utilisez l&#8217;option <em class="guilabel">Exporter la symbologie</em> pour enregistrer la symbologie comme <em class="menuselection">Symbologie de l&#8217;entité ‣</em> ou comme <em class="menuselection">Symbologie de la couche de symboles ‣</em>. Si vous avez utilisé des couches de symboles, il est recommandé d&#8217;utiliser le deuxième paramètre.</p>
+<p class="last">You have the option to export vector symbology from KADAS into Google *.kml, *.dxf
+and MapInfo *.tab files. Just open the right mouse menu of the layer and click on <em class="menuselection">Save selection
+as ‣</em> to specify the name of the output file and its format.
+In the dialog, use the <em class="guilabel">Symbology export</em> menu to save the symbology either as
+<em class="menuselection">Feature symbology ‣</em> or as <em class="menuselection">Symbol layer symbology ‣</em>.
+If you have used symbol layers, it is recommended to use the second setting.</p>
 </div>
 <p id="index-7"><strong>Polygones inversés</strong></p>
 <p>Le rendu en polygones inversés permet de définir un symbole à appliquer à l&#8217;extérieur des polygones de la couche. Vous pouvez alors choisir parmi des sous-mode de rendu. Il s&#8217;agit des mêmes que les principaux modes.</p>
@@ -735,7 +741,13 @@ These may include slivers between polygons and inaccurate rendering when using o
 <p>Quelques exemples d&#8217;actions sont fournis. Vous pouvez les charger en cliquant sur <strong>[Ajouter les actions par défaut]</strong>. Un des exemples effectue une recherche basée sur la valeur d&#8217;un attribut. C&#8217;est ce qui est développé par la suite.</p>
 <p id="index-11"><strong>Définir des actions</strong></p>
 <p>Les actions sur les attributs sont définies depuis la fenêtre <em class="guilabel">Propriétés de la couche</em> vecteur. Pour <span class="target" id="index-22"></span>définir une action, ouvrez la fenêtre <em class="guilabel">Propriétés de la couche</em> vecteur et cliquez sur le menu <em class="guilabel">Actions</em>. Allez à <em class="guilabel">Propriétés de l&#8217;action</em>. Sélectionnez le type &#8216;Générique&#8217; et fournissez un nom d&#8217;identification à l&#8217;action. Le texte de l&#8217;action doit lui-même contenir le nom de l&#8217;application qui sera exécutée lorsque l&#8217;action est invoquée. Vous pouvez ajouter un ou plusieurs champs en arguments pour l&#8217;application. Lorsque l&#8217;action est invoquée, tout jeu de caractères commençant par <tt class="docutils literal"><span class="pre">%</span></tt> suivi d&#8217;un champ sera remplacé par la valeur de ce champ. Les caractères spéciaux <span class="target" id="index-23"></span>%% sont remplacés par la valeur du champ sélectionné dans la fenêtre <em class="guilabel">Identifier les résultats</em> ou dans la <em class="guilabel">Table attributaire</em> ( voir <a class="reference internal" href="#using-actions">using_actions</a> ci-après). Les guillemets double peuvent être utilisés pour regrouper le texte dans un argument unique pour l&#8217;application, le script ou le programme. Ils sont ignorés lorsque précédés d&#8217;un antislash.</p>
-<p>Si vous avez des noms de champs qui sont contenus dans d&#8217;autres noms de champs (par exemple, <tt class="docutils literal"><span class="pre">col1</span></tt> et <tt class="docutils literal"><span class="pre">col10</span></tt>), vous devez l&#8217;indiquer en entourant le nom de champ (le caractère %) par des crochets (par exemple <tt class="docutils literal"><span class="pre">[%col10]</span></tt>). Ceci évitera de prendre le nom de champ <tt class="docutils literal"><span class="pre">%col10</span></tt> pour <tt class="docutils literal"><span class="pre">%col1</span></tt> avec un <tt class="docutils literal"><span class="pre">0</span></tt> à la fin. Les crochets seront retirés quand QGIS substituera le nom par la valeur du champ. Si vous voulez que le champ à substituer soit entouré de crochets, utilisez un deuxième jeu de crochets comme ceci : <tt class="docutils literal"><span class="pre">[[%col10]]</span></tt>.</p>
+<p>If you have field names that are substrings of other field names (e.g.,
+<tt class="docutils literal"><span class="pre">col1</span></tt> and <tt class="docutils literal"><span class="pre">col10</span></tt>), you should indicate that by surrounding the field name
+(and the % character) with square brackets (e.g., <tt class="docutils literal"><span class="pre">[%col10]</span></tt>). This will
+prevent the <tt class="docutils literal"><span class="pre">%col10</span></tt> field name from being mistaken for the <tt class="docutils literal"><span class="pre">%col1</span></tt> field name
+with a <tt class="docutils literal"><span class="pre">0</span></tt> on the end. The brackets will be removed by KADAS when it
+substitutes in the value of the field. If you want the substituted field to be
+surrounded by square brackets, use a second set like this: <tt class="docutils literal"><span class="pre">[[%col10]]</span></tt>.</p>
 <p>En utilisant l&#8217;outil <em class="guilabel">Identifier les entités</em>, vous ouvrez la fenêtre <em class="guilabel">Identifier les résultats</em>. Elle inclut une entrée <em>(Dérivé)</em> qui contient des informations pertinentes selon le type de couche. Les valeurs de cette entrée sont accessibles de la même manière que les autres champs en ajoutant <tt class="docutils literal"><span class="pre">(Derived).</span></tt> avant le nom du champ. Par exemple, une couche de points a un champ <tt class="docutils literal"><span class="pre">X</span></tt> et <tt class="docutils literal"><span class="pre">Y</span></tt> et leurs valeurs peuvent être utilisées dans l&#8217;action avec <tt class="docutils literal"><span class="pre">%(Derived).X</span></tt> et <tt class="docutils literal"><span class="pre">%(Derived).Y</span></tt>. Les attributs dérivés sont disponibles uniquement depuis la fenêtre <em class="guilabel">Identifier les résultats</em> mais pas par la <em class="guilabel">Table d&#8217;attributs</em>.</p>
 <p>Deux <span class="target" id="index-24"></span>exemples d&#8217;action sont proposés ci-dessous :</p>
 <ul class="simple">
@@ -743,7 +755,9 @@ These may include slivers between polygons and inaccurate rendering when using o
 <li><tt class="docutils literal"><span class="pre">konqueror</span> <span class="pre">http://www.google.com/search?q=%%</span></tt></li>
 </ul>
 <p>Dans le premier exemple, le navigateur internet konqueror est lancé avec une URL. L&#8217;URL effectue une recherche Google sur la valeur du champ <tt class="docutils literal"><span class="pre">nam</span></tt> de la couche vecteur. Notez que l&#8217;application ou le script appelé par l&#8217;action doit être dans le path sinon vous devez fournir le chemin complet vers l&#8217;application. Pour être certain, nous pouvons réécrire le premier exemple de cette manière : <tt class="docutils literal"><span class="pre">/opt/kde3/bin/konqueror</span> <span class="pre">http://www.google.com/search?q=%nam</span></tt>. Ceci assurera que l&#8217;application konqueror sera exécutée quand l&#8217;action sera invoquée.</p>
-<p>Le deuxième exemple utilise la notation %% dont la valeur ne dépend pas d&#8217;un champ en particulier. Quand l&#8217;action est invoquée, %% sera remplacé par la valeur du champ sélectionné dans les résultats de l&#8217;identification ou dans la table d&#8217;attributs.</p>
+<p>The second example uses the %% notation, which does not rely on a particular
+field for its value. When the action is invoked, the %% will be replaced by
+the value of the selected field in the identify results or attribute table.</p>
 <p id="using-actions"><strong>Utiliser les actions</strong></p>
 <p>Les actions se lancent depuis la fenêtre <em class="guilabel">Identifier les résultats</em>, depuis la <em class="guilabel">Table d&#8217;attributs</em> ou depuis  <em class="guilabel">Exécuter l&#8217;action de l&#8217;entité</em> (rappelez-vous que ces fenêtres s&#8217;ouvrent en cliquant sur <a class="reference internal" href="../../../_images/mActionIdentify.png"><img alt="mActionIdentify" src="../../../_images/mActionIdentify.png" style="width: 1.5em;" /></a> <sup>Identifier les entités</sup>, <a class="reference internal" href="../../../_images/mActionOpenTable.png"><img alt="mActionOpenTable" src="../../../_images/mActionOpenTable.png" style="width: 1.5em;" /></a> <sup>Ouvrir la table d&#8217;attributs</sup> ou <a class="reference internal" href="../../../_images/mAction.png"><img alt="mAction" src="../../../_images/mAction.png" style="width: 1.5em;" /></a> <sup>Exécuter l&#8217;action de l&#8217;entité</sup>). Pour lancer une action, faites un clic droit sur un enregistrement et choisissez l&#8217;action depuis le menu qui apparaît. Les actions sont listées dans le menu par le nom que vous leur avez donné en les définissant. Cliquez ensuite sur l&#8217;action que vous souhaitez lancer.</p>
 <p>Si vous faites appel à une action qui utilise la notation <tt class="docutils literal"><span class="pre">%%</span></tt>, faites un clic droit sur la valeur du champ que vous souhaitez passer à l&#8217;application ou au script, dans la fenêtre <em class="guilabel">Identifier les résultats</em> ou dans la <em class="guilabel">Table attributaire</em>.</p>

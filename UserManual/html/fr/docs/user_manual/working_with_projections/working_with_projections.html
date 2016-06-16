@@ -174,18 +174,16 @@
         <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
 <h3><a href="../index.html">Table Des Matières</a></h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">Préambule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">Avant-propos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">Interface de KADAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Mes cartes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Vue</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analyse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Dessiner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Réglages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Aide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Annexe</a></li>
 </ul>
 
@@ -202,57 +200,9 @@
 <span id="index-1"></span><h2>Aperçu de la gestion des projections<a class="headerlink" href="#overview-of-projection-support" title="Lien permanent vers ce titre">¶</a></h2>
 <p>KADAS gère approximativement 2 700 SCR connus. Leur définition est stockée dans une base de données SQLite qui est installée avec KADAS. Normalement vous n&#8217;avez pas besoin de manipuler cette  base de données directement. En fait, cela peut poser des problèmes de gestion de projections. Les SCR personnalisés y sont stockés dans une base de données utilisateur. Reportez-vous à la section <em class="xref std std-ref">sec_custom_projections</em> pour avoir des informations sur la gestion de vos systèmes de coordonnées de référence personnalisées.</p>
 <p>Les SCR disponibles dans KADAS sont basés sur ceux définis par l&#8217;EPSG (European Petroleum Search Group) et l&#8217;Institut National Géographique (IGNF) et sont en grande partie extraits des  tables spatiales de référence de GDAL. Les identifiants EPSG sont présents dans la base de données et peuvent être utilisés pour définir un SCR dans KADAS.</p>
-<p>Pour utiliser la projection à la volée, soit vos données contiennent des informations sur leur système de coordonnées de référence soit vous avez défini un SCR global, par projet, ou bien par couche. Pour les couches PostGIS, KADAS utilise l&#8217;identifiant de référence spatiale qui a été défini quand la couche a été créée. Pour les données gérées par OGR, KADAS utilise un moyen spécifique au format pour définir le SCR. Dans le cas du shapefile, il s&#8217;agit d&#8217;un fichier contenant une spécification well-known text (WKT) (<span class="target" id="index-7"></span>WKT) de la projection. Le fichier de projection a le même nom que le fichier shape et une extension <tt class="file docutils literal"><span class="pre">.prj</span></tt>. Par exemple, un shapefile nommé <tt class="file docutils literal"><span class="pre">alaska.shp</span></tt> aura un fichier de projection correspondant nommé <tt class="file docutils literal"><span class="pre">alaska.prj</span></tt>.</p>
-<p>Lorsque vous sélectionnez un nouveau SCR, les unités des couches seront automatiquement changées dans l&#8217;onglet <em class="guilabel">Général</em> de la fenêtre des <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="mActionOptions" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <em class="guilabel">Propriétés du projet</em> du menu <em class="guilabel">Projet</em> (Gnome, OS X, Windows) ou <em class="guilabel">Préférences</em> (KDE).</p>
-</div>
-<div class="section" id="global-projection-specification">
-<span id="index-3"></span><h2>Spécification globale d&#8217;une projection<a class="headerlink" href="#global-projection-specification" title="Lien permanent vers ce titre">¶</a></h2>
-<p>KADAS assigne à chaque nouveau projet la projection globale définie par défaut. Par défaut il s&#8217;agit du EPSG:4326 - WGS 84 (<tt class="docutils literal"><span class="pre">proj=longlat</span> <span class="pre">+ellps=WGS84</span> <span class="pre">+datum=WGS84</span> <span class="pre">+no_defs</span></tt>). Ce SCR par défaut peut être modifié via le bouton <strong>[Sélection...]</strong> dans la première partie de l&#8217;onglet qui permet de définir le système de coordonnées de référence par défaut pour les nouveaux projets, voir <a class="reference internal" href="#figure-projection-1">figure_projection_1</a>. Ce choix est sauvegardé pour toutes les sessions KADAS suivantes.</p>
-<p id="figure-projection-1"><strong>Figure Projection 1:</strong></p>
-<div class="figure align-center">
-<img alt="../../../_images/crsdialog.png" src="../../../_images/crsdialog.png" />
-<p class="caption">Onglet SCR de la fenêtre d&#8217;Options de KADAS <a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a></p>
-</div>
-<p>Lorsque vous utilisez des couches qui sont dépourvues de SCR, vous devez contrôler et définir le choix de la projection pour ces couches. Cela peut être réalisé globalement ou par projet dans l&#8217;onglet <em class="guilabel">SCR</em> dans le menu <em class="menuselection">Éditer ‣</em> <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="mActionOptions" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <em class="guilabel">Options</em> (Gnome, OSX) ou <em class="menuselection">Préférences ‣</em> <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="mActionOptions" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <em class="guilabel">Options</em> (KDE, Windows).</p>
-<p>Les options montrées sur <a class="reference internal" href="#figure-projection-1">figure_projection_1</a> sont :</p>
-<ul class="simple">
-<li><p class="first"><img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Demander le SCR</em></p>
-</li>
-<li><p class="first"><img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Utiliser le SCR du projet</em></p>
-</li>
-<li><p class="first"><img alt="radiobuttonoff" src="../../../_images/radiobuttonoff.png" /> <em class="guilabel">Utiliser le SCR par défaut affiché ci-dessous</em></p>
-</li>
-</ul>
-<p>Si vous voulez définir le système de coordonnées de référence pour certaines couches sans information de projection, vous pouvez également faire cela dans l&#8217;onglet <em class="guilabel">Général</em> de la fenêtre de propriétés des couches raster et vecteur (voir <a class="reference internal" href="../working_with_raster/raster_properties.html#label-generaltab"><em>Onglet Général</em></a> pour les rasters et <a class="reference internal" href="../working_with_vector/vector_properties.html#vectorgeneralmenu"><em>Onglet Général</em></a> pour les vecteurs). Si votre couche a déjà une projection définie, elle sera affichée comme indiqué dans la figure <a class="reference internal" href="../working_with_vector/vector_properties.html#figure-vector-properties-1"><em>Fenêtre de Propriétés d&#8217;une couche vecteur </em></a>.</p>
-<div class="admonition tip">
-<p class="first admonition-title">Astuce</p>
-<p><strong>SCR depuis la légende de la carte</strong></p>
-<p class="last">Un clic-droit sur une couche dans la légende (section <a class="reference internal" href="../introduction/qgis_gui.html#label-legend"><em>Légende de la carte</em></a>) propose deux raccourcis concernant les SCR.  <em class="guilabel">Définir le SCR de la couche</em> ouvre directement la fenêtre de sélection de SCR (voir <a class="reference internal" href="#figure-projection-2">figure_projection_2</a>). <em class="guilabel">Définir le SCR du projet depuis cette couche</em> applique le SCR de la couche au projet.</p>
-</div>
-</div>
-<div class="section" id="define-on-the-fly-otf-reprojection">
-<h2>Définir la projection à la volée<a class="headerlink" href="#define-on-the-fly-otf-reprojection" title="Lien permanent vers ce titre">¶</a></h2>
-<p>TODO: abändern da einzeln</p>
-<p>KADAS gère la projection à la volée pour les rasters et les vecteurs. Par contre elle n&#8217;est pas activée par défaut. Pour utiliser la projection à la volée, vous devez cocher la case <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Activer la projection &#8216;à la volée&#8217;</em> dans l&#8217;onglet <em class="guilabel">SCR</em> de la fenêtre de  <a class="reference internal" href="../../../_images/mActionProjectProperties.png"><img alt="mActionProjectProperties" src="../../../_images/mActionProjectProperties.png" style="width: 1.5em;" /></a> <em class="menuselection">Propriétés du projet</em>.</p>
-<p><strong>Il y a trois manières de le faire :</strong></p>
+<p>Pour utiliser la projection à la volée, soit vos données contiennent des informations sur leur système de coordonnées de référence soit vous avez défini un SCR global, par projet, ou bien par couche. Pour les couches PostGIS, KADAS utilise l&#8217;identifiant de référence spatiale qui a été défini quand la couche a été créée. Pour les données gérées par OGR, KADAS utilise un moyen spécifique au format pour définir le SCR. Dans le cas du shapefile, il s&#8217;agit d&#8217;un fichier contenant une spécification well-known text (WKT) (<span class="target" id="index-5"></span>WKT) de la projection. Le fichier de projection a le même nom que le fichier shape et une extension <tt class="file docutils literal"><span class="pre">.prj</span></tt>. Par exemple, un shapefile nommé <tt class="file docutils literal"><span class="pre">alaska.shp</span></tt> aura un fichier de projection correspondant nommé <tt class="file docutils literal"><span class="pre">alaska.prj</span></tt>.</p>
+<p>The <em class="guilabel">CRS</em> tab contains the following important components:</p>
 <ol class="arabic simple">
-<li><p class="first">Sélectionner <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="mActionOptions" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <em class="menuselection">Propriétés du projet</em> depuis le menu <em class="menuselection">Projet</em> (Gnome, OSX, Windows) ou <em class="menuselection">Préférences</em> (KDE).</p>
-</li>
-<li><p class="first">Cliquer sur l&#8217;icône <img alt="geographic" src="../../../_images/geographic.png" /> <sup>Statut de la projection</sup> depuis le coin inférieur droit de la barre d&#8217;état.</p>
-</li>
-<li><p class="first">Choisir d&#8217;activer la projection à la volée par défaut en cochant la case <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Activer la reprojection &#8216;à la volée&#8217; par défaut</em> dans l&#8217;onglet <em class="guilabel">SCR</em> de la fenêtre des <em class="guilabel">Options</em> ou <em class="guilabel">Activer automatiquement la projection à la volée si les couches ont des SCR différents</em>.</p>
-</li>
-</ol>
-<p>Si vous avez déjà chargé une couche, et désirez activer la projection à la volée, la meilleure façon de faire est d&#8217;ouvrir l&#8217;onglet <em class="guilabel">SCR</em> de la fenêtre des  <em class="guilabel">Propriétés du projet</em>, de sélectionner le SCR de la couche chargée, et de cocher la case <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Activer la projection &#8216;à la volée&#8217;</em>. L&#8217;icône <img alt="geographic" src="../../../_images/geographic.png" /> <sup>Statut de la projection</sup> ne sera plus grisé et toutes les couches chargées plus tard seront projetées à la volée dans le SCR défini qui apparait à gauche de l&#8217;icône.</p>
-<p id="index-4"><strong>Figure Projection 2:</strong></p>
-<div class="figure align-center" id="figure-projection-2">
-<img alt="../../../_images/projectionDialog.png" src="../../../_images/projectionDialog.png" />
-<p class="caption">Fenêtre de Propriétés du Projet <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
-</div>
-<p>L&#8217;onglet <em class="guilabel">SCR</em> de la fenêtre de <em class="guilabel">Propriétés du projet</em> contient cinq composants importants, comme indiqué sur la figure <a class="reference internal" href="#figure-projection-2">Figure_projection_2</a> et décrit ci-dessous :</p>
-<ol class="arabic simple">
-<li><p class="first"><strong>Activer la projection &#8216;à la volée&#8217;</strong> &#8212; Cette case à cocher est utilisée pour activer ou désactiver la projection à la volée. Lorsqu&#8217;elle est décochée, chaque couche est dessinée en utilisant les coordonnées lues dans la source de données et les composants décrits ci-dessous sont inactifs. Lorsqu&#8217;elle est activée, les coordonnées de chaque couche sont projetées dans le système de coordonnées de référence défini pour la carte.</p>
-</li>
 <li><p class="first"><strong>Rechercher</strong> &#8212; Si vous connaissez le code EPSG, l&#8217;identifiant ou le nom d&#8217;un système de coordonnées de référence, vous pouvez utiliser la fonction rechercher pour le retrouver. Entrez le code EPSG, l&#8217;identifiant ou le nom à chercher.</p>
 </li>
 <li><p class="first"><strong>système de coordonnées de référence récemment uilisés</strong> &#8212; Si vous utilisez certains SCR fréquemment dans vos travaux quotidiens, ils seront affichés dans cette liste. Cliquez sur l&#8217;un d&#8217;entre eux pour sélectionner le SCR du projet.</p>
@@ -262,23 +212,10 @@
 <li><p class="first"><strong>Texte PROJ.4</strong> &#8212; C&#8217;est la liste des paramètres décrivant le SCR telle qu&#8217;elle est utilisée par le moteur de projection Proj4. Ce texte est en lecture seule et est fourni à titre informatif.</p>
 </li>
 </ol>
-<div class="admonition tip">
-<p class="first admonition-title">Astuce</p>
-<p><strong>Fenêtre Propriétés du projet</strong></p>
-<p>Si vous ouvrez la fenêtre  <em class="guilabel">Propriétés du projet</em> à partir du menu <em class="menuselection">Projet</em>, vous devez cliquer sur l&#8217;onglet <em class="guilabel">SCR</em> pour voir les définitions des SCR.</p>
-<p class="last">Ouvrir la fenêtre à partir de l&#8217;icône <img alt="geographic" src="../../../_images/geographic.png" /> <em class="guilabel">Statut de la projection</em> vous amènera directement dans l&#8217;onglet  <em class="guilabel">Système de Coordonnées de Référence</em>.</p>
-</div>
 </div>
 <div class="section" id="default-datum-transformations">
 <h2>Transformations géodésiques par défaut<a class="headerlink" href="#default-datum-transformations" title="Lien permanent vers ce titre">¶</a></h2>
-<p id="index-5">La projection à la volée dépend de la capacité à transformer les données dans un &#8216;SCR par défaut&#8217; et KADAS utilise ici le WGS84. Pour certains SCR, plusieurs méthodes de transformation sont disponibles. KADAS vous permet de choisir laquelle utiliser, sinon une transformation par défaut sera utilisée.</p>
-<p>Dans l&#8217;onglet <em class="guilabel">SCR</em> dans le menu <em class="menuselection">Préférences ‣</em> <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="mActionOptions" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <em class="guilabel">Options...</em> vous pouvez :</p>
-<ul class="simple">
-<li><p class="first">faire en sorte que KADAS vous demande lorsqu&#8217;il faut définir une transformation en cochant la case <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <em class="guilabel">Demander un datum pour la conversion de coordonnées lorsqu&#8217;aucun n&#8217;est défini par défaut</em>,</p>
-</li>
-<li><p class="first">éditer une liste de transformations par défaut de l&#8217;utilisateur.</p>
-</li>
-</ul>
+<p id="index-3">La projection à la volée dépend de la capacité à transformer les données dans un &#8216;SCR par défaut&#8217; et KADAS utilise ici le WGS84. Pour certains SCR, plusieurs méthodes de transformation sont disponibles. KADAS vous permet de choisir laquelle utiliser, sinon une transformation par défaut sera utilisée.</p>
 <p>KADAS demande quelle transformation utiliser en ouvrant une fenêtre qui affiche au format texte PROJ.4 les transformations de la source et de la cible. De plus amples informations s&#8217;affichent au passage de la souris sur une transformation. Les transformations à utiliser par défaut sont sauvegardées en cochant <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Se souvenir de la sélection</em>.</p>
 </div>
 </div>

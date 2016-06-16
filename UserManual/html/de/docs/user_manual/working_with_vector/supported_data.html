@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Unterstützte Datenformate</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/qgis-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="../../../_static/qgis-site.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/images/favicon.ico?1322140996"/>
+    <link rel="top" title="" href="../../../index.html" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+
+
+    
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">QGIS Documentation Project</a>
+        <span class="navbar-text pull-left"></span>
+        
+          <select id="languages">
+  <!-- note on the options here: the 'title' string is to be translated in your
+  language, but the element text is supposed to stay in native lang/txt -->
+  <option value="en" title="English">English</option>
+  <option value="de" title="German">Deutsch</option>
+  <option value="fr" title="French">Français</option>
+  <option value="it" title="Italian">Italiano</option>
+</select>
+
+<script>
+    var currentPage = 'docs/user_manual/working_with_vector/supported_data.html'; // coming from sphinx, always without starting '/'
+    var currentLang = 'en';
+    // split index.html if currentUrl is ended by '/'
+    var currentUrl = window.location.href;
+    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
+      var pages = currentPage.split('/');
+      pages.pop();
+      currentPage = pages.join('/') + '/';
+    }
+    $(document).ready(function(){
+        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+        var langPlusPage = window.location.href.match(search);
+        // it's possible this is the index.html page called without 'index.html', try without the currentPage
+        if (langPlusPage==undefined){
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // it's possible this is an index.html page called without 'index.html', try removing index.html
+        if (langPlusPage==undefined){
+            currentPage = currentPage.replace('index.html','')
+            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
+            langPlusPage = window.location.href.match(search);
+        }
+        // still no langPlugPage: stop, because the language swicher will misbehave
+        if (langPlusPage == undefined || langPlusPage.length != 1){
+            alert('This is an documentation error, please report back to QGIS devs.');
+            return;
+        }
+        langPlusPage = langPlusPage[0];
+        currentLang = langPlusPage.replace(currentPage, '');
+
+        // TODO: links should come from conf.py
+        // TODO: all template pages have the actual translation in sphinc.conf
+        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
+        // code in scripts/create_transifex_resources.sh !!
+        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
+        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
+            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
+        if ('/en/' != currentLang) {
+            $('#fix_translation_link').attr('href', fix_translation_link);
+        }
+        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
+            currentPage.replace(/.html/g, ".rst")
+        // TODO: only on rst pages, here a list of pages which are actual templates?
+        if (true){
+            $('#fix_text_link').attr('href', fix_text_link);
+        }
+
+        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
+
+        $("#languages").change(function() {
+            gotoLang($(this).val());
+        });
+
+    });
+
+    // load current page in a different language
+    function gotoLang(lang){
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
+        window.location.href = newUrl;
+    }
+</script>
+        
+        <div class="nav-collapse collapse">
+          <ul class="unstyled nav main-menu">
+            <!--<li><a href="../../../site/about/index.html">Discover QGIS</a></li>
+            <li><a href="../../../site/forusers/index.html">For Users</a></li>
+            <li><a href="../../../site/getinvolved/index.html">Get Involved</a></li>
+            <li><a href="../../index.html">Documentation</a></li>-->
+            <li><a href="../../index.html">User Guide</a></li>
+            <li>
+          
+<form class="navbar-search" action="../../../search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Suche" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div style="display:none;" class="container" id="nextprev" >
+    
+    
+    </div>
+
+
+
+
+    
+        <div class="container">
+            <div class="row">
+      <div class="span4">
+        <div id="sidebar" class="bs-sidenav well" data-spy="scroll">
+<h3><a href="../index.html">Inhalt</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">Gebrauch der Dokumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">KADAS GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/my_maps.html">Meine Karten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/view.html">Ansicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/analysis.html">Analyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/draw.html">Zeichnen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/gps.html">GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/mss.html">MSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/settings.html">Einstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ribbons/help.html">Hilfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/appendices.html">Anhang</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="span8">
+                    
+                        
+                            <p>.</p>
+<div class="section" id="supported-data-formats">
+<span id="vector-data-formats"></span><h1>Unterstützte Datenformate<a class="headerlink" href="#supported-data-formats" title="Permalink zu dieser Überschrift">¶</a></h1>
+<p>KADAS verwendet die OGR-bibliothek um Vektordatenformate zu lesen und zu schreiben, einschließlich ESRI Shapedateien, MapInfo und MicroStation Dateiformate, AutoCAD DXF, PostGIS, SpatiaLite, Oracle Spatial und MSSQL Spatial Datenbanken und viele mehr. GRASS Vektor und PostgreSQL Support wird duch native Datenprovider Plugins bereitgestellt. Die Vektordaten können auch im Lesemodus aus zip- und gzip-Archiven ins KADAS geladen werden.  Zum Zeitpunkt der Erstellung dieses Dokumentes werden 69 Vektorformate von der OGR-Bibliothek unterstützt (siehe OGR-SOFTWARE-SUITE in <em class="xref std std-ref">literature_and_web</em>). Die vollständige Liste ist auf <a class="reference external" href="http://www.gdal.org/ogr/ogr_formats.html">http://www.gdal.org/ogr/ogr_formats.html</a> zu finden.</p>
+<div class="section" id="esri-shapefiles">
+<span id="vector-shapefiles"></span><span id="index-0"></span><h2>ESRI Shapes<a class="headerlink" href="#esri-shapefiles" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>Die ESRI Shapedatei ist das Standard Vektorformat in QGIS und wird durch die <span class="target" id="index-5"></span>OGR Simple Feature Library (<a class="reference external" href="http://www.gdal.org/ogr/">http://www.gdal.org/ogr/</a> ) bereitgestellt.</p>
+<p>Ein Shape besteht derzeit aus mehreren Dateien. Die folgenden drei sind erforderlich:</p>
+<ol class="arabic simple">
+<li><p class="first"><tt class="file docutils literal"><span class="pre">shp</span></tt> Datei (enthält die Geometrien)</p>
+</li>
+<li><p class="first"><tt class="file docutils literal"><span class="pre">.dbf</span></tt> Datei (enthält die Attribute im dBase-Format)</p>
+</li>
+<li><p class="first"><tt class="file docutils literal"><span class="pre">.shx</span></tt> Indexdatei</p>
+</li>
+</ol>
+<p>Darüber hinaus kann eine Datei mit .prj Endung existieren. Diese enthält die Projektionsinformationen des Shapes. Während es sehr nützlich ist eine Projektionsdatei zu verwenden ist dies nicht zwingend erforderlich. Ein Shape-Datensatz kann zusätzliche Dateien enthalten. Details dazu finden sich in der technischen Spezifikation von ESRI unter <a class="reference external" href="http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf">http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf</a>.</p>
+<div class="section" id="loading-a-shapefile">
+<span id="vector-load-shapefile"></span><h3>Shape Layer laden<a class="headerlink" href="#loading-a-shapefile" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>When loading a vector layer, the following dialog opens:</p>
+<p id="figure-vector-1"><strong>Figure Vector 1:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/addvectorlayerdialog.png" src="../../../_images/addvectorlayerdialog.png" />
+<p class="caption">Vektorlayer hinzufügen Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>Wählen Sie aus den möglichen Quelltypen <img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Datei</em> und klicken Sie auf den Knopf <strong>[Durchsuchen]</strong>. Dadurch erscheint ein weiterer Dialog zum Öffnen (siehe <a class="reference internal" href="#figure-vector-2">figure_vector_2</a>) mit dem Sie im Dateisystem navigieren können und Sie ein Shape oder eine andere unterstützte Datenquelle laden können. Die Auswahlbox <em class="guilabel">Filter</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> ermöglicht es Ihnen einige OGR-untersützte Dateiformate vorzuwählen.</p>
+<p>Außerdem kann auch der Kodierungstyp für die Shapedatei eingestellt werden, falls dies notwendig ist.</p>
+<p id="figure-vector-2"><strong>Figure Vector 2:</strong></p>
+<div class="figure align-center">
+<img alt="../../../_images/shapefileopendialog.png" src="../../../_images/shapefileopendialog.png" />
+<p class="caption">Öffnen eines OGR-Vektorlayers Dialog <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a></p>
+</div>
+<p>Selecting a shapefile from the list and clicking <strong>[Open]</strong> loads it into KADAS.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tipp</p>
+<p><strong>Farben von Vektorlayern</strong></p>
+<p class="last">Wenn Sie einen neuen Vektorlayer in QGIS laden, werden Farben zufällig zugewiesen. Wenn Sie mehrere neue Vektorlayer laden, werden jeweils unterschiedliche Farben zugewiesen.</p>
+</div>
+<p>Nach dem Laden können Sie mit den Navigationstools aus der Werkzeugleiste beliebig zoomen. Um den Stil eines Layers zu verändern öffnen Sie den <em class="guilabel">Layereigenschaften</em> Dialog in dem Sie auf den Layernamen doppelklicken oder indem Sie einen Rechtsklick auf den Namen in der Legende machen und <em class="menuselection">Eigenschaften</em> im Popupmenu wählen. Vergleichen Sie Abschnitt <em class="xref std std-ref">vector_style_tab</em> für weitere Informationen zum Editieren der Eigenschaften von Vektorlayern.</p>
+</div>
+<div class="section" id="improving-performance-for-shapefiles">
+<h3>Die Darstellungsgeschwindigkeit von Shapdedateien verbessern<a class="headerlink" href="#improving-performance-for-shapefiles" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Um die Darstellungsgeschwindigkeit zu optimieren, kann ein räumlicher Index erstellt werden. Ein räumlicher Index erhöht die Geschwindigkeit beim Zoomen und Verschieben. Räumliche Indizes haben in KADAS die Endung <tt class="file docutils literal"><span class="pre">.qix</span></tt>.</p>
+<p>Benutzen Sie folgende Schritte zum Erstellen eines räumlichen Index:</p>
+<ul class="simple">
+<li><p class="first">Um eine Shapedatei zu laden klicken Sie auf den <a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> <sup>Vektorlayer hinzufügen</sup> Knopf in der Werkzeugleiste oder drücken einfach <tt class="kbd docutils literal"><span class="pre">Strg+Umschalt+V</span></tt>.</p>
+</li>
+<li><p class="first">Öffnen Sie den <em class="guilabel">Eigenschaften</em>-Dialog des Vektorlayers, indem Sie auf den Namen des Layers in der Legende doppelklicken oder mit der rechten Maustaste <em class="menuselection">Eigenschaften</em> auswählen.</p>
+</li>
+<li><p class="first">Im Menü <em class="guilabel">Allgemein</em> klicken Sie auf den <strong>[Räumlichen Index erzeugen]</strong> Knopf.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="problem-loading-a-shape-prj-file">
+<h3>Problem beim Laden eines Shapes mit .prj Datei<a class="headerlink" href="#problem-loading-a-shape-prj-file" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Wenn Sie eine Shapedatei mit <tt class="file docutils literal"><span class="pre">.prj</span></tt>-Datei laden und KADAS ist nicht in der Lage, die Projektionsinformationen korrekt auszulesen, ist es notwendig das Koordinatenbezugsystem (KBS) manuell im <em class="guilabel">Allgemein</em> Menü des <em class="guilabel">Layereigenschaften</em> Dialog anhand des <strong>[Festlegen ...]</strong> Knopfs anzugeben. Hintergrund ist, dass <tt class="file docutils literal"><span class="pre">.prj</span></tt> Dateien oftmals nicht die vollständigen Projektionsparameter enthalten, so wie KADAS sie benötigt und auch im <em class="guilabel">KBS</em> Dialog anzeigt.</p>
+<p>Aus diesem Grund, wenn Sie ein neues Shapefile mit KADAS erstellen, werden derzeit zwei unterschiedliche Projektionsdateien angelegt. Eine <tt class="file docutils literal"><span class="pre">.prj</span></tt> Datei, mit den unvollständigen Projektionsparametern, wie sie z.B. von ESRI Software gelesen und erstellt wird, und eine <tt class="file docutils literal"><span class="pre">.qpj</span></tt> Datei, in der die vollständigen Projektionsparameter anthalten sind. Wenn Sie dann ein Shape in KADAS laden, und QGIS findet eine <tt class="file docutils literal"><span class="pre">.qpj</span></tt> Datei, dann wird diese anstelle der <tt class="file docutils literal"><span class="pre">.prj</span></tt> Datei benutzt.</p>
+</div>
+</div>
+<div class="section" id="loading-a-mapinfo-layer">
+<span id="vector-loading-mapinfo"></span><span id="index-2"></span><h2>MapInfo Layer laden<a class="headerlink" href="#loading-a-mapinfo-layer" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p><a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> To load a MapInfo layer, change the
+file type filter <em class="guilabel">Files of type</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a>: to
+&#8216;Mapinfo File [OGR] (*.mif *.tab *.MIF *.TAB)&#8217; and select the MapInfo layer you
+want to load.</p>
+</div>
+<div class="section" id="loading-an-arcinfo-binary-coverage">
+<span id="vector-loading-arcinfo-coverage"></span><span id="index-3"></span><h2>ArcInfo Binary Coverage laden<a class="headerlink" href="#loading-an-arcinfo-binary-coverage" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p><a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="mActionAddOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> To load an ArcInfo Binary Coverage, select
+<img alt="radiobuttonon" src="../../../_images/radiobuttonon.png" /> <em class="guilabel">Directory</em> as <em class="guilabel">Source type</em>. Change the
+file type filter <em class="guilabel">Files of type</em> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectstring" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> to
+&#8216;Arc/Info Binary Coverage&#8217;. Navigate to the directory that contains the
+coverage file, and select it.</p>
+<p>Auf die gleiche Art und Weise können auch andere Verzeichnis-basierte Vektorlayer geladen werden, wie etwa das U.K. National Transfer Format oder das raw TIGER Format des U.S. Census Bureau.</p>
+</div>
+</div>
+
+                        
+                    
+                </div>
+                  
+            </div>
+        </div>
+    
+
+    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
+    <div class="related">
+       
+      
+      <ul>
+        <li><a href="../index.html"></a> &raquo;</li> 
+      </ul>
+    </div>
+  </body>
+</html>
