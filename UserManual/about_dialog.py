@@ -62,13 +62,13 @@ class AboutDialog(QDialog):
         dataContactLink.setOpenExternalLinks(True)
         l.addWidget(dataContactLink, l.rowCount(), 0, 1, 1)
 
-        disclamierLinkMap = {"en" : "https://www.admin.ch/gov/en/start/terms-and-conditions.html",
+        disclamerLinkMap = {"en" : "https://www.admin.ch/gov/en/start/terms-and-conditions.html",
                              "de" : "https://www.admin.ch/gov/de/start/rechtliches.html",
                              "it" : "https://www.admin.ch/gov/it/pagina-iniziale/basi-legali.html",
                              "fr" : "https://www.admin.ch/gov/fr/accueil/conditions-utilisation.html"}
-        disclamierLink = QLabel("<a href=\"%s\">%s<a>" % (disclamierLinkMap[locale], self.tr("Data usage liability disclamier")))
-        disclamierLink.setOpenExternalLinks(True)
-        l.addWidget(disclamierLink, l.rowCount(), 0, 1, 1)
+        disclamerLink = QLabel("<a href=\"%s\">%s<a>" % (disclamerLinkMap[locale], self.tr("Data usage liability disclamer")))
+        disclamerLink.setOpenExternalLinks(True)
+        l.addWidget(disclamerLink, l.rowCount(), 0, 1, 1)
 
         bbox = QDialogButtonBox(QDialogButtonBox.Close)
         bbox.accepted.connect(self.accept)
