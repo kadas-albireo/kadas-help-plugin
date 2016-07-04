@@ -21,7 +21,7 @@ class AboutDialog(QDialog):
     def __init__(self, locale, parent):
         QDialog.__init__(self, parent)
 
-        self.setWindowTitle(self.tr("About KADAS Albireo"))
+        self.setWindowTitle(self.tr("About %s") % (QGis.QGIS_FULL_RELEASE_NAME))
         l = QGridLayout()
         self.setLayout(l)
 
