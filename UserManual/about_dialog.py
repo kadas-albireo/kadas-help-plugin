@@ -34,6 +34,9 @@ class AboutDialog(QDialog):
         licenseLabel = QLabel(self.tr("This software is released under the <a href=\"http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\">GNU Public License (GPL) Version 2</a>"))
         licenseLabel.setOpenExternalLinks(True)
         l.addWidget(licenseLabel, l.rowCount(), 0, 1, 1)
+        mssLabel = QLabel(self.tr("The MSS/MilX components are property of <a href=\"http://www.gs-soft.com/\">gs-soft AG</a>"))
+        mssLabel.setOpenExternalLinks(True)
+        l.addWidget(mssLabel, l.rowCount(), 0, 1, 1)
 
         hline = QFrame()
         hline.setFrameShape(QFrame.HLine)
