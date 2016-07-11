@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de">
+<TS version="2.1" language="de">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../about_dialog.py" line="34"/>
         <source>This software is released under the &lt;a href=&quot;http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html&quot;&gt;GNU Public License (GPL) Version 2&lt;/a&gt;</source>
-        <translation>Diese Software ist unter der &lt;a href=&quot;http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html&quot;&gt;GNU Public License (GPL) Version 2&lt;/a&gt; freigegeben</translation>
+        <translation>Diese Software steht unter der &lt;a href=&quot;http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html&quot;&gt;GNU Public License (GPL) Version 2&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../about_dialog.py" line="54"/>
