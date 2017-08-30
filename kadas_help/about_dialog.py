@@ -30,7 +30,7 @@ class AboutDialog(QDialog):
         splashLabel.setPixmap(QPixmap(":/plugins/UserManual/splash.png"))
         l.addWidget(splashLabel, l.rowCount(), 0, 1, 2)
 
-        versionLabel = QLabel(self.tr("<b>Version</b>: %s") % (QGis.QGIS_BUILD_DATE))
+        versionLabel = QLabel(self.tr("<b>Version</b>: %s (%s)") % (QGis.QGIS_RELEASE_VERSION, QGis.QGIS_BUILD_DATE))
         versionLabel.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         l.addWidget(versionLabel, l.rowCount(), 0, 1, 1)
 
