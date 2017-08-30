@@ -2,7 +2,6 @@
     <qresource prefix="/plugins/UserManual" >
         <file>icon.png</file>
         <file>splash.png</file>
-        <file>help-about.png</file>
         <file>adminch.png</file>
     </qresource>
 </RCC>
