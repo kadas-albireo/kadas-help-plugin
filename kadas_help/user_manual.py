@@ -21,8 +21,12 @@
  ***************************************************************************/
 """
 from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication, Qt, QUrl
-from PyQt4.QtGui import QAction, QIcon
-from PyQt4.QtWebKit import QWebView
+from PyQt4.QtGui import QAction, QIcon, QDesktopServices
+try:
+  from PyQt4.QtWebKit import QWebView
+  HAVE_WEBKIT = True
+except:
+  HAVE_WEBKIT = False
 # Initialize Qt resources from file resources.py
 import resources
 import os.path
@@ -113,24 +117,26 @@ class UserManual:
 
     def showHelp(self):
         """Run method that loads and starts the plugin"""
-        if self.helpWidget is None:
-            # Create the widget (after translation) and keep reference
-            self.helpWidget = QWebView()
-            self.helpWidget.setWindowTitle(self.tr('User Manual'))
-            self.helpWidget.resize(500, 600)
+        docdir = os.path.join(self.plugin_dir, "html")
+        if os.path.isdir(os.path.join(docdir, self.locale)):
+            lang = self.locale
+        else:
+            lang = 'en'
+        url = QUrl("file:///{dir}/{lang}/docs/user_manual/index.html".format(
+                  dir=docdir, lang=lang))
 
-            docdir = os.path.join(self.plugin_dir, "html")
-            if os.path.isdir(os.path.join(docdir, self.locale)):
-                lang = self.locale
-            else:
-                lang = 'en'
+        if not HAVE_WEBKIT:
+          QDesktopServices.openUrl(url)
+        else:
+          if self.helpWidget is None:
+              # Create the widget (after translation) and keep reference
+              self.helpWidget = QWebView()
+              self.helpWidget.setWindowTitle(self.tr('User Manual'))
+              self.helpWidget.resize(500, 600)
+              self.helpWidget.load(url)
 
-            url = QUrl("file:///{dir}/{lang}/docs/user_manual/index.html".format(
-                dir=docdir, lang=lang))
-            self.helpWidget.load(url)
-
-        self.helpWidget.show()
-        self.helpWidget.raise_()
+          self.helpWidget.show()
+          self.helpWidget.raise_()
 
     def showAbout(self):
         """Run method that loads and starts the plugin"""
