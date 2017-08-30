@@ -1,0 +1,25 @@
+[general]
+name=KADAS Help
+qgisMinimumVersion=2.0
+qgisMaximumVersion=2.99
+description=KADAS online help
+about=KADAS online help.
+version=0.6.0
+author=Sourcepole
+email=pka@sourcepole.ch
+
+
+changelog=
+ Rev 0.6.0 (30.08.2017)
+  - Qt5 compatibility
+  - Plugin renamed to KADAS Help
+
+# Tags are comma separated with spaces allowed
+tags=help,about
+
+homepage=https://gitlab.sourcepole.ch/sourcepole/kadas-help-plugin
+tracker=https://gitlab.sourcepole.ch/sourcepole/kadas-help-plugin
+repository=https://gitlab.sourcepole.ch/sourcepole/kadas-help-plugin
+icon=icon.png
+experimental=False
+deprecated=False

@@ -40,7 +40,7 @@ SOURCES = \
 	__init__.py \
 	user_manual.py
 
-PLUGINNAME = UserManual
+PLUGINNAME = kadas_help
 
 PY_FILES = \
 	__init__.py \
