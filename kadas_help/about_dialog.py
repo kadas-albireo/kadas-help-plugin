@@ -67,7 +67,7 @@ class AboutDialog(QDialog):
             lang = locale
         else:
             lang = 'de'
-        print(pdfpath % locale)
+
         swisstopoDataTermsLink = QLabel(
             "<a href=\"file:///%s\">%s</a>" % (
                 pdfpath % lang, self.tr("Terms of use for swisstopo geodata")))
@@ -75,20 +75,24 @@ class AboutDialog(QDialog):
         swisstopoDataTermsLink.setOpenExternalLinks(True)
         l.addWidget(swisstopoDataTermsLink, l.rowCount(), 0, 1, 1)
 
-        swissGDIdataTermsLink = QLabel("<a href=\"http://www.toposhop.admin.ch/%s/shop/terms/use/geodata_business\">%s</a>" % (locale, self.tr("Terms of use for Swiss GDI geodata")))
+        gdiTermsLinkMap = {"en": "https://www.geo.admin.ch/en/about-swiss-geoportal/responsabilities-and-contacts.html",
+                           "de": "https://www.geo.admin.ch/de/ueber-geo-admin/impressum.html",
+                           "it": "https://www.geo.admin.ch/it/geo-admin-ch/colophon.html",
+                           "fr": "https://www.geo.admin.ch/fr/geo-admin-ch/impressum.html"}
+        swissGDIdataTermsLink = QLabel("<a href=\"%s\">%s</a>" % (gdiTermsLinkMap[locale], self.tr("Terms of use for Swiss GDI geodata")))
         swissGDIdataTermsLink.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         swissGDIdataTermsLink.setOpenExternalLinks(True)
         l.addWidget(swissGDIdataTermsLink, l.rowCount(), 0, 1, 1)
 
-        dataContactLink = QLabel("<a href=\"http://www.geo.admin.ch/internet/geoportal/%s/home/geoadmin/contact.htm\">%s<a>" % (locale, self.tr("Data management and controller contacts")))
+        dataContactLink = QLabel("<a href=\"mailto:GeoSupport.OP@vtg.admin.ch\">%s<a>" % (self.tr("Data management and controller contact")))
         dataContactLink.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         dataContactLink.setOpenExternalLinks(True)
         l.addWidget(dataContactLink, l.rowCount(), 0, 1, 1)
 
-        disclaimerLinkMap = {"en" : "https://www.admin.ch/gov/en/start/terms-and-conditions.html",
-                             "de" : "https://www.admin.ch/gov/de/start/rechtliches.html",
-                             "it" : "https://www.admin.ch/gov/it/pagina-iniziale/basi-legali.html",
-                             "fr" : "https://www.admin.ch/gov/fr/accueil/conditions-utilisation.html"}
+        disclaimerLinkMap = {"en": "https://www.admin.ch/gov/en/start/terms-and-conditions.html",
+                             "de": "https://www.admin.ch/gov/de/start/rechtliches.html",
+                             "it": "https://www.admin.ch/gov/it/pagina-iniziale/basi-legali.html",
+                             "fr": "https://www.admin.ch/gov/fr/accueil/conditions-utilisation.html"}
         disclaimerLink = QLabel("<a href=\"%s\">%s<a>" % (disclaimerLinkMap[locale], self.tr("Data usage liability disclaimer")))
         disclaimerLink.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         disclaimerLink.setOpenExternalLinks(True)
