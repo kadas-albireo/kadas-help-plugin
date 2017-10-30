@@ -23,10 +23,14 @@
 from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication, Qt, QUrl
 from PyQt4.QtGui import QAction, QIcon, QDesktopServices
 try:
-  from PyQt4.QtWebKit import QWebView
+  from PyQt4.QtWebKitWidgets import QWebView
   HAVE_WEBKIT = True
 except:
-  HAVE_WEBKIT = False
+  try:
+    from PyQt4.QtWebKit import QWebView
+    HAVE_WEBKIT = True
+  except:
+    HAVE_WEBKIT = False
 # Initialize Qt resources from file resources.py
 import resources
 import os.path
