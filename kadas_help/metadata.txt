@@ -4,12 +4,15 @@ qgisMinimumVersion=2.0
 qgisMaximumVersion=2.99
 description=KADAS online help
 about=KADAS online help.
-version=0.6.2
+version=0.6.3
 author=Sourcepole
 email=pka@sourcepole.ch
 
 
 changelog=
+ Rev 0 6.3 (07.11.2017)
+  - Translation updates
+
  Rev 0.6.2 (30.10.2017)
   - Also attempt to import QWebView from QtWebkitWidgets
 
