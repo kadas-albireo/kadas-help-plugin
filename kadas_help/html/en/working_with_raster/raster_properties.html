@@ -1,0 +1,581 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Raster Properties Dialog · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../appendices/appendices.html" />
+    
+    
+    <link rel="prev" href="supported_data.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../qgis_gui.html">
+            
+                <a href="../qgis_gui.html">
+            
+                    
+                    Application interface and project management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../search.html">
+            
+                <a href="../search.html">
+            
+                    
+                    Search and pins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../analysis.html">
+            
+                <a href="../analysis.html">
+            
+                    
+                    Measuring and terrain analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../draw.html">
+            
+                <a href="../draw.html">
+            
+                    
+                    Drawing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../gps.html">
+            
+                <a href="../gps.html">
+            
+                    
+                    GPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../mss.html">
+            
+                <a href="../mss.html">
+            
+                    
+                    Situation report/MSS symbols
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../print.html">
+            
+                <a href="../print.html">
+            
+                    
+                    Print and export functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../3d.html">
+            
+                <a href="../3d.html">
+            
+                    
+                    Multiple map windows and 3D view
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    Reference for advanced functionalities
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../working_with_projections/working_with_projections.html">
+            
+                <a href="../working_with_projections/working_with_projections.html">
+            
+                    
+                    Working with Projections
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../print_composer/print_composer.html">
+            
+                <a href="../print_composer/print_composer.html">
+            
+                    
+                    Print Composer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../working_with_vector/supported_data.html">
+            
+                <a href="../working_with_vector/supported_data.html">
+            
+                    
+                    Working with Vector Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../working_with_vector/vector_properties.html">
+            
+                <a href="../working_with_vector/vector_properties.html">
+            
+                    
+                    The Vector Properties Dialog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../working_with_vector/expression.html">
+            
+                <a href="../working_with_vector/expression.html">
+            
+                    
+                    Expressions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../working_with_vector/field_calculator.html">
+            
+                <a href="../working_with_vector/field_calculator.html">
+            
+                    
+                    Field Calculator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="supported_data.html">
+            
+                <a href="supported_data.html">
+            
+                    
+                    Working with Raster Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10.8" data-path="raster_properties.html">
+            
+                <a href="raster_properties.html">
+            
+                    
+                    Raster Properties Dialog
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../appendices/appendices.html">
+            
+                <a href="../appendices/appendices.html">
+            
+                    
+                    Appendix
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Raster Properties Dialog</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="raster-properties-dialog">Raster Properties Dialog </h1>
+<p>To view and set the properties for a raster layer, double click on the layer name in the map legend, or right click on the layer name and choose <em>Properties</em> from the context menu. This will open the <em>Raster Layer Properties</em> dialog (see <a href="#figure-raster-1" class="reference internal">figure_raster_1</a>).</p>
+<p>There are several menus in the dialog:</p>
+<ul>
+<li><em>General</em></li>
+<li><em>Style</em></li>
+<li><em>Transparency</em></li>
+<li><em>Pyramids</em></li>
+<li><em>Histogram</em></li>
+<li><em>Metadata</em></li>
+</ul>
+<p><strong>Figure Raster 1:</strong></p>
+<p><img src="../../images/rasterPropertiesDialog.png" alt="">
+Raster Layers Properties Dialog </p>
+<h2 id="general-menu">General Menu </h2>
+<h3 id="layer-info">Layer Info </h3>
+<p>The <em>General</em> menu displays basic information about the selected raster, including the layer source path, the display name in the legend (which can be modified), and the number of columns, rows and no-data values of the raster.</p>
+<h3 id="coordinate-reference-system">Coordinate reference system </h3>
+<p>Here, you find the coordinate reference system (CRS) information printed as a PROJ.4 string. If this setting is not correct, it can be modified by clicking the <strong>[Specify]</strong> button.</p>
+<h3 id="scale-dependent-visibility">Scale Dependent visibility </h3>
+<p>Additionally scale-dependent visibility can be set in this tab. You will need to check the checkbox and set an appropriate scale where your data will be displayed in the map canvas.</p>
+<p>At the bottom, you can see a thumbnail of the layer, its legend symbol, and the palette.</p>
+<h2 id="style-menu">Style Menu </h2>
+<h3 id="band-rendering">Band rendering </h3>
+<p>KADAS offers four different <em>Render types</em>. The renderer chosen is dependent on the data type.</p>
+<ol>
+<li>Multiband color - if the file comes as a multiband with several bands (e.g., used with a satellite image with several bands)</li>
+<li>Paletted - if a single band file comes with an indexed palette (e.g., used with a digital topographic map)</li>
+<li>Singleband gray - (one band of) the image will be rendered as gray; KADAS will choose this renderer if the file has neither multibands nor an indexed palette nor a continous palette (e.g., used with a shaded relief map)</li>
+<li>Singleband pseudocolor - this renderer is possible for files with a continuous palette, or color map (e.g., used with an elevation map)</li>
+</ol>
+<p><strong>Multiband color</strong></p>
+<p>With the multiband color renderer, three selected bands from the image will be rendered, each band representing the red, green or blue component that will be used to create a color image. You can choose several <em>Contrast enhancement</em> methods: &#x2018;No enhancement&#x2019;, &#x2018;Stretch to MinMax&#x2019;, &#x2018;Stretch and clip to MinMax&#x2019; and &#x2018;Clip to min max&#x2019;.</p>
+<p><strong>Figure Raster 2:</strong></p>
+<p><img src="../../images/rasterMultibandColor.png" alt="">
+Raster Renderer - Multiband color </p>
+<p>This selection offers you a wide range of options to modify the appearance of your raster layer. First of all, you have to get the data range from your image. This can be done by choosing the <em>Extent</em> and pressing <strong>[Load]</strong>. KADAS can <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Estimate (faster)</em> the <em>Min</em> and <em>Max</em> values of the bands or use the <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Actual (slower)</em> <em>Accuracy</em>.</p>
+<p>Now you can scale the colors with the help of the <em>Load min/max values</em> section. A lot of images have a few very low and high data. These outliers can be eliminated using the <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Cumulative count cut</em> setting. The standard data range is set from 2% to 98% of the data values and can be adapted manually. With this setting, the gray character of the image can disappear. With the scaling option <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Min/max</em>, KADAS creates a color table with all of the data included in the original image (e.g., KADAS creates a color table with 256 values, given the fact that you have 8 bit bands). You can also calculate your color table using the <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Mean +/- standard deviation x</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a>. Then, only the values within the standard deviation or within multiple standard deviations are considered for the color table. This is useful when you have one or two cells with abnormally high values in a raster grid that are having a negative impact on the rendering of the raster.</p>
+<p>All calculations can also be made for the <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Current</em> extent.</p>
+<p>Tip</p>
+<p><strong>Viewing a Single Band of a Multiband Raster</strong></p>
+<p>If you want to view a single band of a multiband image (for example, Red), you might think you would set the Green and Blue bands to &#x201C;Not Set&#x201D;. But this is not the correct way. To display the Red band, set the image type to &#x2018;Singleband gray&#x2019;, then select Red as the band to use for Gray.</p>
+<p><strong>Paletted</strong></p>
+<p>This is the standard render option for singleband files that already include a color table, where each pixel value is assigned to a certain color. In that case, the palette is rendered automatically. If you want to change colors assigned to certain values, just double-click on the color and the <em>Select color</em> dialog appears. Also, in KADAS 2.2. it&#x2019;s now possible to assign a label to the color values. The label appears in the legend of the raster layer then.</p>
+<p><strong>Figure Raster 3:</strong></p>
+<p><img src="../../images/rasterPaletted.png" alt="">
+Raster Renderer - Paletted </p>
+<p><strong>Contrast enhancement</strong></p>
+<p>Note</p>
+<p>When adding GRASS rasters, the option <em>Contrast enhancement</em> will always be set automatically to <em>stretch to min max</em>, regardless of if this is set to another value in the KADAS general options.</p>
+<p><strong>Singleband gray</strong></p>
+<p>This renderer allows you to render a single band layer with a <em>Color gradient</em>: &#x2018;Black to white&#x2019; or &#x2018;White to black&#x2019;. You can define a <em>Min</em> and a <em>Max</em> value by choosing the <em>Extent</em> first and then pressing <strong>[Load]</strong>. KADAS can <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Estimate (faster)</em> the <em>Min</em> and <em>Max</em> values of the bands or use the <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Actual (slower)</em> <em>Accuracy</em>.</p>
+<p><strong>Figure Raster 4:</strong></p>
+<p><img src="../../images/rasterSingleBandGray.png" alt="">
+Raster Renderer - Singleband gray </p>
+<p>With the <em>Load min/max values</em> section, scaling of the color table is possible. Outliers can be eliminated using the <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Cumulative count cut</em> setting. The standard data range is set from 2% to 98% of the data values and can be adapted manually. With this setting, the gray character of the image can disappear. Further settings can be made with <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Min/max</em> and <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Mean +/- standard deviation x</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a>. While the first one creates a color table with all of the data included in the original image, the second creates a color table that only considers values within the standard deviation or within multiple standard deviations. This is useful when you have one or two cells with abnormally high values in a raster grid that are having a negative impact on the rendering of the raster.</p>
+<p><strong>Singleband pseudocolor</strong></p>
+<p>This is a render option for single-band files, including a continous palette. You can also create individual color maps for the single bands here.</p>
+<p><strong>Figure Raster 5:</strong></p>
+<p><img src="../../images/rasterSingleBandPseudocolor.png" alt="">
+Raster Renderer - Singleband pseudocolor </p>
+<p>Three types of color interpolation are available:</p>
+<ol>
+<li>Discrete</li>
+<li>Linear</li>
+<li>Exact</li>
+</ol>
+<p>In the left block, the button <a href="../../images/mActionSignPlus.png" class="reference internal"><img src="../../images/mActionSignPlus.png" alt="mActionSignPlus"></a> <sup>Add\ values\ manually</sup> adds a value to the individual color table. The button <a href="../../images/mActionSignMinus.png" class="reference internal"><img src="../../images/mActionSignMinus.png" alt="mActionSignMinus"></a> <sup>Remove\ selected\ row</sup> deletes a value from the individual color table, and the <a href="../../images/mActionArrowDown.png" class="reference internal"><img src="../../images/mActionArrowDown.png" alt="mActionArrowDown"></a> <sup>Sort\ colormap\ items</sup> button sorts the color table according to the pixel values in the value column. Double clicking on the value column lets you insert a specific value. Double clicking on the color column opens the dialog <em>Change color</em>, where you can select a color to apply on that value. Further, you can also add labels for each color, but this value won&#x2019;t be displayed when you use the identify feature tool. You can also click on the button <a href="../../images/mActionDraw.png" class="reference internal"><img src="../../images/mActionDraw.png" alt="mActionDraw"></a> <sup>Load\ color\ map\ from\ band</sup>, which tries to load the table from the band (if it has any). And you can use the buttons <a href="../../images/mActionFileOpen.png" class="reference internal"><img src="../../images/mActionFileOpen.png" alt="mActionFileOpen"></a> <sup>Load\ color\ map\ from\ file</sup> or <a href="../../images/mActionFileSaveAs.png" class="reference internal"><img src="../../images/mActionFileSaveAs.png" alt="mActionFileSaveAs"></a> <sup>Export\ color\ map\ to\ file</sup> to load an existing color table or to save the defined color table for other sessions.</p>
+<p>In the right block, <em>Generate new color map</em> allows you to create newly categorized color maps. For the <em>Classification mode</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a> &#x2018;Equal interval&#x2019;, you only need to select the <em>number of classes</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a> and press the button <em>Classify</em>. You can invert the colors of the color map by clicking the <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Invert</em> checkbox. In the case of the <em>Mode</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a> &#x2018;Continous&#x2019;, KADAS creates classes automatically depending on the <em>Min</em> and <em>Max</em>. Defining <em>Min/Max</em> values can be done with the help of the <em>Load min/max values</em> section. A lot of images have a few very low and high data. These outliers can be eliminated using the <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Cumulative count cut</em> setting. The standard data range is set from 2% to 98% of the data values and can be adapted manually. With this setting, the gray character of the image can disappear. With the scaling option <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Min/max</em>, KADAS creates a color table with all of the data included in the original image (e.g., KADAS creates a color table with 256 values, given the fact that you have 8 bit bands). You can also calculate your color table using the <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Mean +/- standard deviation x</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a>. Then, only the values within the standard deviation or within multiple standard deviations are considered for the color table.</p>
+<h3 id="color-rendering">Color rendering </h3>
+<p>For every <em>Band rendering</em>, a <em>Color rendering</em> is possible.</p>
+<p>You can also achieve special rendering effects for your raster file(s) using one of the blending modes (see <a href="../working_with_vector/vector_properties.html#vector-properties-dialog" class="reference internal"><em>The Vector Properties Dialog</em></a>).</p>
+<p>Further settings can be made in modifiying the <em>Brightness</em>, the <em>Saturation</em> and the <em>Contrast</em>. You can also use a <em>Grayscale</em> option, where you can choose between &#x2018;By lightness&#x2019;, &#x2018;By luminosity&#x2019; and &#x2018;By average&#x2019;. For one hue in the color table, you can modify the &#x2018;Strength&#x2019;.</p>
+<h3 id="resampling">Resampling </h3>
+<p>The <em>Resampling</em> option makes its appearance when you zoom in and out of an image. Resampling modes can optimize the appearance of the map. They calculate a new gray value matrix through a geometric transformation.</p>
+<p><strong>Figure Raster 6:</strong></p>
+<p><img src="../../images/rasterRenderAndRessampling.png" alt="">
+Raster Rendering - Resampling </p>
+<p>When applying the &#x2018;Nearest neighbour&#x2019; method, the map can have a pixelated structure when zooming in. This appearance can be improved by using the &#x2018;Bilinear&#x2019; or &#x2018;Cubic&#x2019; method, which cause sharp features to be blurred. The effect is a smoother image. This method can be applied, for instance, to digital topographic raster maps.</p>
+<h2 id="transparency-menu">Transparency Menu </h2>
+<p>KADAS has the ability to display each raster layer at a different transparency level. Use the transparency slider <img src="../../images/slider.png" alt="slider"> to indicate to what extent the underlying layers (if any) should be visible though the current raster layer. This is very useful if you like to overlay more than one raster layer (e.g., a shaded relief map overlayed by a classified raster map). This will make the look of the map more three dimensional.</p>
+<p>Additionally, you can enter a raster value that should be treated as <em>NODATA</em> in the <em>Additional no data value</em> menu.</p>
+<p>An even more flexible way to customize the transparency can be done in the <em>Custom transparency options</em> section. The transparency of every pixel can be set here.</p>
+<p>As an example, we want to set the water of our example raster file <code>landcover.tif</code> to a transparency of 20%. The following steps are neccessary:</p>
+<ol>
+<li>Load the raster file <code>landcover.tif</code>.</li>
+<li>Open the <em>Properties</em> dialog by double-clicking on the raster name in the legend, or by right-clicking and choosing <em>Properties</em> from the pop-up menu.</li>
+<li>Select the <em>Transparency</em> menu.</li>
+<li>From the <em>Transparency band</em> menu, choose &#x2018;None&#x2019;.</li>
+<li>Click the <a href="../../images/mActionSignPlus.png" class="reference internal"><img src="../../images/mActionSignPlus.png" alt="mActionSignPlus"></a> <sup>Add\ values\ manually</sup> button. A new row will appear in the pixel list.</li>
+<li>Enter the raster value in the &#x2018;From&#x2019; and &#x2018;To&#x2019; column (we use 0 here), and adjust the transparency to 20%.</li>
+<li>Press the <strong>[Apply]</strong> button and have a look at the map.</li>
+</ol>
+<p>You can repeat steps 5 and 6 to adjust more values with custom transparency.</p>
+<p>As you can see, it is quite easy to set custom transparency, but it can be quite a lot of work. Therefore, you can use the button <a href="../../images/mActionFileSave.png" class="reference internal"><img src="../../images/mActionFileSave.png" alt="mActionFileSave"></a> <sup>Export\ to\ file</sup> to save your transparency list to a file. The button <a href="../../images/mActionFileOpen.png" class="reference internal"><img src="../../images/mActionFileOpen.png" alt="mActionFileOpen"></a> <sup>Import\ from\ file</sup> loads your transparency settings and applies them to the current raster layer.</p>
+<h2 id="metadata-menu">Metadata Menu </h2>
+<p>The <em>Metadata</em> menu displays a wealth of information about the raster layer, including statistics about each band in the current raster layer. From this menu, entries may be made for the <em>Description</em>, <em>Attribution</em>, <em>MetadataUrl</em> and <em>Properties</em>. In <em>Properties</em>, statistics are gathered on a &#x2018;need to know&#x2019; basis, so it may well be that a given layer&#x2019;s statistics have not yet been collected.</p>
+<p><strong>Figure Raster 9:</strong></p>
+<p><img src="../../images/rasterMetadata.png" alt="">
+Raster Metadata </p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="supported_data.html" class="navigation navigation-prev " aria-label="Previous page: Working with Raster Data">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../appendices/appendices.html" class="navigation navigation-next " aria-label="Next page: Appendix">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Raster Properties Dialog","level":"1.10.8","depth":2,"next":{"title":"Appendix","level":"1.11","depth":1,"path":"appendices/appendices.md","ref":"appendices/appendices.md","articles":[]},"previous":{"title":"Working with Raster Data","level":"1.10.7","depth":2,"path":"working_with_raster/supported_data.md","ref":"working_with_raster/supported_data.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-element","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"offline":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"working_with_raster/raster_properties.md","mtime":"2017-11-13T12:09:31.107Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-14T18:15:20.331Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-offline/service-worker-registration.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

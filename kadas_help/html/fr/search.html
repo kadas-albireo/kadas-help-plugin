@@ -1,213 +1,504 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE HTML>
+<html lang="fr" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Recherche et punaises · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Rechercher</title>
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
     
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="_static/qgis-style.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2.8',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="_static/searchtools.js"></script>
-    <script type="text/javascript" src="_static/qgis-site.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
-    <link rel="shortcut icon" href="_static/images/favicon.ico?1322140996"/>
-    <link rel="top" title="" href="index.html" />
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
-
-
-  </head>
-  <body>
-
-
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+    <link rel="next" href="analysis.html" />
+    
+    
+    <link rel="prev" href="qgis_gui.html" />
+    
 
-        <a class="brand" href="docs/user_manual/index.html">QGIS Documentation Project</a>
-        <span class="navbar-text pull-left"></span>
+    </head>
+    <body>
         
-          <select id="languages">
-  <!-- note on the options here: the 'title' string is to be translated in your
-  language, but the element text is supposed to stay in native lang/txt -->
-  <option value="en" title="Anglais">English</option>
-  <option value="de" title="Allemand">Deutsch</option>
-  <option value="fr" title="Français">Français</option>
-  <option value="it" title="Italien">Italiano</option>
-</select>
-
-<script>
-    var currentPage = 'search.html'; // coming from sphinx, always without starting '/'
-    var currentLang = 'en';
-    // split index.html if currentUrl is ended by '/'
-    var currentUrl = window.location.href;
-    if (currentUrl.slice(-1) == '/' && currentPage.slice(-1) != '/'){
-      var pages = currentPage.split('/');
-      pages.pop();
-      currentPage = pages.join('/') + '/';
-    }
-    $(document).ready(function(){
-        var search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
-        var langPlusPage = window.location.href.match(search);
-        // it's possible this is the index.html page called without 'index.html', try without the currentPage
-        if (langPlusPage==undefined){
-            search = new RegExp('\/[a-zA-Z_]{2,8}\/$', 'gi');
-            langPlusPage = window.location.href.match(search);
-        }
-        // it's possible this is an index.html page called without 'index.html', try removing index.html
-        if (langPlusPage==undefined){
-            currentPage = currentPage.replace('index.html','')
-            search = new RegExp('\/[a-zA-Z_]{2,8}\/'+ currentPage, 'gi');
-            langPlusPage = window.location.href.match(search);
-        }
-        // still no langPlugPage: stop, because the language swicher will misbehave
-        if (langPlusPage == undefined || langPlusPage.length != 1){
-            alert('This is an documentation error, please report back to QGIS devs.');
-            return;
-        }
-        langPlusPage = langPlusPage[0];
-        currentLang = langPlusPage.replace(currentPage, '');
-
-        // TODO: links should come from conf.py
-        // TODO: all template pages have the actual translation in sphinc.conf
-        // IMPORTANT: space, -, _ etc replacing below must be 100% inline with
-        // code in scripts/create_transifex_resources.sh !!
-        // https://github.com/qgis/QGIS-Website/blob/master/scripts/create_transifex_resources.sh
-        fix_translation_link = 'https://www.transifex.com/projects/p/qgis-documentation/translate/#' + 
-            currentLang.slice(1) + currentPage.replace(/_/g, "-").replace(/ /g, "-").replace(/\//g, "_").replace(/\.html/g, "").replace(/\./g, "-")
-        if ('/en/' != currentLang) {
-            $('#fix_translation_link').attr('href', fix_translation_link);
-        }
-        fix_text_link = 'https://github.com/qgis/QGIS-Documentation/edit/master/source/' +
-            currentPage.replace(/.html/g, ".rst")
-        // TODO: only on rst pages, here a list of pages which are actual templates?
-        if (true){
-            $('#fix_text_link').attr('href', fix_text_link);
-        }
-
-        $("#languages").val(currentLang.replace(/\//g,'')); // currentLang is something like '/nl/'
-
-        $("#languages").change(function() {
-            gotoLang($(this).val());
-        });
-
-    });
-
-    // load current page in a different language
-    function gotoLang(lang){
-        var currentUrl = window.location.href;
-        var newUrl = currentUrl.replace(currentLang, '/'+lang+'/');
-        window.location.href = newUrl;
-    }
-</script>
+<div class="book">
+    <div class="book-summary">
         
-        <div class="nav-collapse collapse">
-          <ul class="unstyled nav main-menu">
-            <!--<li><a href="site/about/index.html">Découvrir</a></li>
-            <li><a href="site/forusers/index.html">Pour les utilisateurs</a></li>
-            <li><a href="site/getinvolved/index.html">Contribuer</a></li>
-            <li><a href="docs/index.html">Documentation</a></li>-->
-            <li><a href="docs/index.html">User Guide</a></li>
-            <li>
-          
-        </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Tapez pour rechercher" />
+</div>
 
-    
-    <div class="related">
-       
-      
-      <ul>
-        <li><a href="docs/user_manual/index.html"></a> &raquo;</li> 
-      </ul>
-    </div>
-    <div style="display:none;" class="container" id="nextprev" >
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
     
     
-    </div>
-
-
-
 
     
-        <div class="container">
-            <div class="row">
-                <div class="span12">
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
                     
-  <h1 id="search-documentation">Rechercher</h1>
-  <div id="fallback" class="admonition warning">
-  <script type="text/javascript">$('#fallback').hide();</script>
-  <p>
-    Veuillez activer Javascript pour utiliser la fonctionnalité  de recherche.
-  </p>
-  </div>
-  <p>
-    D'ici, vous pouvez effectuer une recherche au sein des documents. Saisissez les termes de votre recherche dans le champ ci-dessous et cliquez sur "rechercher". Notez que la fonctionnalité de recherche va automatiquement rechercher l'ensemble des mots. Les pages contenant moins de mots n'apparaîtront pas dans la liste des résultats. 
-  </p>
+                    Introduction
+            
+                </a>
+            
 
-  <form class="form-search" action="" method="get">
-    <input type="text" name="q" class="input-medium search-query">
-    <button type="submit" class="btn">recherche</button>
-    <span id="search-progress" style="padding-left: 10px"></span>
-  </form>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="qgis_gui.html">
+            
+                <a href="qgis_gui.html">
+            
+                    
+                    Interface de programme et gestion de projet
+            
+                </a>
+            
 
-  
-  <div id="search-results">
-  
-  </div>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="search.html">
+            
+                <a href="search.html">
+            
+                    
+                    Recherche et punaises
+            
+                </a>
+            
 
-                </div>
-                  
-            </div>
-        </div>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="analysis.html">
+            
+                <a href="analysis.html">
+            
+                    
+                    Mesures et analyse de terrain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="draw.html">
+            
+                <a href="draw.html">
+            
+                    
+                    Dessiner
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="gps.html">
+            
+                <a href="gps.html">
+            
+                    
+                    GPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="mss.html">
+            
+                <a href="mss.html">
+            
+                    
+                    Représentation de la situation / symboles MSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="print.html">
+            
+                <a href="print.html">
+            
+                    
+                    Fonctions Imprimer et Exporter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="3d.html">
+            
+                <a href="3d.html">
+            
+                    
+                    Plusieurs fenêtres de carte et vue 3D
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    Référence pour les fonctionnalités avancées
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="working_with_projections/working_with_projections.html">
+            
+                <a href="working_with_projections/working_with_projections.html">
+            
+                    
+                    Utiliser les projections
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="print_composer/print_composer.html">
+            
+                <a href="print_composer/print_composer.html">
+            
+                    
+                    Composeur d’Impression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="working_with_vector/supported_data.html">
+            
+                <a href="working_with_vector/supported_data.html">
+            
+                    
+                    Les données vectorielles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="working_with_vector/vector_properties.html">
+            
+                <a href="working_with_vector/vector_properties.html">
+            
+                    
+                    Fenêtre Propriétés d’une couche vecteur
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="working_with_vector/expression.html">
+            
+                <a href="working_with_vector/expression.html">
+            
+                    
+                    Expressions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="working_with_vector/field_calculator.html">
+            
+                <a href="working_with_vector/field_calculator.html">
+            
+                    
+                    Calculatrice de champ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="working_with_raster/supported_data.html">
+            
+                <a href="working_with_raster/supported_data.html">
+            
+                    
+                    Les données raster
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="working_with_raster/raster_properties.html">
+            
+                <a href="working_with_raster/raster_properties.html">
+            
+                    
+                    Fenêtre Propriétés de la couche raster
+            
+                </a>
+            
+
+            
+        </li>
     
 
-    <!--<a href="https://github.com/qgis/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>-->
-    <div class="related">
-       
-      
-      <ul>
-        <li><a href="docs/user_manual/index.html"></a> &raquo;</li> 
-      </ul>
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="appendices/appendices.html">
+            
+                <a href="appendices/appendices.html">
+            
+                    
+                    Annexe
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Publié avec GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
     </div>
-  </body>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Recherche et punaises</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="recherche-et-punaises">Recherche et punaises</h1>
+<h2 id="recherche">Recherche</h2>
+<p>Le champ de recherche offre une interface commune pour les diff&#xE9;rents services de recherche:</p>
+<ul>
+<li><p>Coordonn&#xE9;es (LV03, LV95, DD, DM, DMS, UTM, MGRS)</p>
+</li>
+<li><p>Localit&#xE9;s et adresses dans toute la Suisse</p>
+</li>
+<li><p>Localit&#xE9;s au niveau international</p>
+</li>
+<li><p>Attributs des donn&#xE9;es locales</p>
+</li>
+<li><p>Attributs des donn&#xE9;es &#xE0; distance (services web)</p>
+</li>
+<li><p>Attributs des punaises</p>
+</li>
+</ul>
+<p>Apr&#xE8;s avoir entr&#xE9; au moins trois lettres, la recherche commence et les premiers r&#xE9;sultats sont affich&#xE9;s.</p>
+<p>Les r&#xE9;sultats sont list&#xE9;s dans des cat&#xE9;gories indiqu&#xE9;es en cons&#xE9;quence. La liste des r&#xE9;sultats peut &#xEA;tre parcourue via la souris ou le clavier. Quand on s&#xE9;lectionne un r&#xE9;sultat avec les fl&#xE8;ches, une punaise bleue est plac&#xE9;e au lieu correspondant. Si on active un r&#xE9;sultat avec la souris, l&#x2019;extrait de carte est centr&#xE9; sur le lieu correspondant.</p>
+<p><img src="../media/image2.png"></p>
+<p>&#xC0; droite du champ de recherche, il est possible de d&#xE9;finir un filtre pour la recherche de donn&#xE9;es locales ou &#xE0; distance. Ce filtre ne s&#x2019;applique pas aux recherches de coordonn&#xE9;es, de localit&#xE9;s ou de punaises.</p>
+<h2 id="punaises">Punaises</h2>
+<p>L&#x2019;outil de placement de punaises se trouve dans l&#x2019;onglet <em>Dessiner</em>. L&#x2019;infobulle d&#x2019;une punaise plac&#xE9;e indique la position et l&#x2019;altitude. Un double clic sur la punaise ouvre sa bo&#xEE;te de dialogue. Les liens web peuvent &#xEA;tre copi&#xE9;s dans la zone de texte depuis un navigateur Internet. Un clic droit sur la punaise permet de copier sa position dans le presse-papier.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="qgis_gui.html" class="navigation navigation-prev " aria-label="Previous page: Interface de programme et gestion de projet">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="analysis.html" class="navigation navigation-next " aria-label="Next page: Mesures et analyse de terrain">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Recherche et punaises","level":"1.3","depth":1,"next":{"title":"Mesures et analyse de terrain","level":"1.4","depth":1,"path":"analysis.md","ref":"analysis.md","articles":[]},"previous":{"title":"Interface de programme et gestion de projet","level":"1.2","depth":1,"path":"qgis_gui.md","ref":"qgis_gui.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-element","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"offline":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"search.md","mtime":"2017-11-14T18:03:50.271Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-14T18:15:20.331Z"},"basePath":".","book":{"language":"fr"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-offline/service-worker-registration.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
 </html>
+

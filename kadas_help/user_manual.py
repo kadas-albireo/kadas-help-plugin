@@ -126,7 +126,7 @@ class UserManual:
             lang = self.locale
         else:
             lang = 'en'
-        url = QUrl("file:///{dir}/{lang}/docs/user_manual/index.html".format(
+        url = QUrl("file:///{dir}/{lang}/index.html".format(
                   dir=docdir, lang=lang))
 
         if not HAVE_WEBKIT:

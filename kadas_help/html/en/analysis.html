@@ -1,0 +1,495 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Measuring and terrain analysis · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="draw.html" />
+    
+    
+    <link rel="prev" href="search.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="qgis_gui.html">
+            
+                <a href="qgis_gui.html">
+            
+                    
+                    Application interface and project management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="search.html">
+            
+                <a href="search.html">
+            
+                    
+                    Search and pins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="analysis.html">
+            
+                <a href="analysis.html">
+            
+                    
+                    Measuring and terrain analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="draw.html">
+            
+                <a href="draw.html">
+            
+                    
+                    Drawing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="gps.html">
+            
+                <a href="gps.html">
+            
+                    
+                    GPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="mss.html">
+            
+                <a href="mss.html">
+            
+                    
+                    Situation report/MSS symbols
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="print.html">
+            
+                <a href="print.html">
+            
+                    
+                    Print and export functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="3d.html">
+            
+                <a href="3d.html">
+            
+                    
+                    Multiple map windows and 3D view
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    Reference for advanced functionalities
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="working_with_projections/working_with_projections.html">
+            
+                <a href="working_with_projections/working_with_projections.html">
+            
+                    
+                    Working with Projections
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="print_composer/print_composer.html">
+            
+                <a href="print_composer/print_composer.html">
+            
+                    
+                    Print Composer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="working_with_vector/supported_data.html">
+            
+                <a href="working_with_vector/supported_data.html">
+            
+                    
+                    Working with Vector Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="working_with_vector/vector_properties.html">
+            
+                <a href="working_with_vector/vector_properties.html">
+            
+                    
+                    The Vector Properties Dialog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="working_with_vector/expression.html">
+            
+                <a href="working_with_vector/expression.html">
+            
+                    
+                    Expressions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="working_with_vector/field_calculator.html">
+            
+                <a href="working_with_vector/field_calculator.html">
+            
+                    
+                    Field Calculator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="working_with_raster/supported_data.html">
+            
+                <a href="working_with_raster/supported_data.html">
+            
+                    
+                    Working with Raster Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="working_with_raster/raster_properties.html">
+            
+                <a href="working_with_raster/raster_properties.html">
+            
+                    
+                    Raster Properties Dialog
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="appendices/appendices.html">
+            
+                <a href="appendices/appendices.html">
+            
+                    
+                    Appendix
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Measuring and terrain analysis</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="measuring-and-terrain-analysis">Measuring and terrain analysis</h1>
+<p>The <em>Analysis</em> tab contains tools for measuring distances, areas, circles, and angles, as well as various terrain analysis functions.</p>
+<p>When drawing measurement geometries, the coordinate can be entered numerically if the <em>Display numeric input fields while drawing</em> setting is active in the <em>Settings</em> tab.</p>
+<h2 id="measurement-functions">Measurement functions</h2>
+<p>The measuring functions work on a WGS84 ellipsoid. During measurement, relevant measurement values &#x200B;&#x200B;are displayed directly next to the measurement geometry. For distance, surfaces and circles, several measurement geometries can be drawn one after the other. The measurement total is displayed at the bottom of the map window, where the measuring unit can also be changed. Furthermore, an existing geometry can be measured by means of the picker button.</p>
+<p><img src="../media/image3.png"></p>
+<h2 id="terrain-analysis-functions">Terrain analysis functions</h2>
+<p>To use the terrain analysis functions, a height model must be defined in the current project. A raster layer can be selected as height model in its context menu in the map layer tree.</p>
+<p>The <em>Profile / View</em> tool allows the measurement of height profiles. If the measurement line consists of a single segment, a line of sight can be performed along it. Visible or invisible areas are then drawn accordingly green or red. If you move the mouse along the measurement line, the corresponding position in the height profile is displayed with a blue dot. The visibility analysis takes into account the curvature of the earth.</p>
+<p><img src="../media/image4.png"></p>
+<p>The <em>Slope</em> and <em>Hillshade</em> tools calculate slope and shading profile of the terrain in a selected rectangular cutout.</p>
+<p>The visibility tool calculates the visible or invisible terrain area in a circular sector, starting from the center of the circle - the observer location. The visibility analysis takes into account the curvature of the earth.</p>
+<p>The results of the slope, hillshade, and visibility analyzes are added to the map as raster layers, and appear accordingly in the map layer tree. When saving the project, these datasets are stored in the <em><project name="">_files</project></em> folder.</p>
+<p><img src="../media/image5.png"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="search.html" class="navigation navigation-prev " aria-label="Previous page: Search and pins">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="draw.html" class="navigation navigation-next " aria-label="Next page: Drawing">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Measuring and terrain analysis","level":"1.4","depth":1,"next":{"title":"Drawing","level":"1.5","depth":1,"path":"draw.md","ref":"draw.md","articles":[]},"previous":{"title":"Search and pins","level":"1.3","depth":1,"path":"search.md","ref":"search.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-element","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"offline":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"analysis.md","mtime":"2017-11-14T17:09:23.736Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-14T18:15:20.331Z"},"basePath":".","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-offline/service-worker-registration.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
