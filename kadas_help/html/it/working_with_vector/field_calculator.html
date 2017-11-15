@@ -387,9 +387,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="field-calculator">Calcolatore di campi </h1>
+                                <h1 id="field-calculator">Field Calculator </h1>
 <p>The <a href="../../images/mActionCalculateField.png" class="reference internal"><img src="../../images/mActionCalculateField.png" alt="mActionCalculateField"></a> <sup>Field\ Calculator</sup> button in the attribute table allows you to perform calculations on the basis of existing attribute values or defined functions, for instance, to calculate length or area of geometry features. The results can be written to a new attribute field, a virtual field, or they can be used to update values in an existing field.</p>
-<p>Suggerimento</p>
+<p>Tip</p>
 <p><strong>Virtual Fields</strong></p>
 <ul>
 <li>Virtual fields are not permanent and are not saved.</li>
@@ -402,24 +402,17 @@
 <p>In the field calculator dialog, you first must select whether you want to only update selected features, create a new attribute field where the results of the calculation will be added or update an existing field.</p>
 <p><strong>Figure Attributes 3:</strong></p>
 <p><img src="../../images/fieldcalculator.png" alt="">
-Calcolatore di campi </p>
-<p>Per aggiungere un nuovo campo devi creare il nome, il tipo di campo (intero, decimale, testo) e la lunghezza del campo. Per il tipo Numero decimale puoi anche definire la precisione, ovvero il numero di cifre dopo la virgola: ad esempio un campo con larghezza 10 e precisione 3 avr&#xE0; 6 cifre prima della virgola, la virgola stessa &#xE8; un campo ed infine 3 cifre decimali (vedi <a href="#figure-attributes-3" class="reference internal">figure_attributes_3</a>).</p>
+Field Calculator </p>
+<p>If you choose to add a new field, you need to enter a field name, a field type (integer, real or string), the total field width, and the field precision (see <a href="#figure-attributes-3" class="reference internal">figure_attributes_3</a>). For example, if you choose a field width of 10 and a field precision of 3, it means you have 6 digits before the dot, then the dot and another 3 digits for the precision.</p>
 <p>A short example illustrates how field calculator works when using the <em>Expression</em> tab. We want to calculate the length in km of the <code>railroads</code> layer from the KADAS sample dataset:</p>
 <ol>
-<li><p>Carica lo shapefile <code>railroads.shp</code> e clicca su <a href="../../images/mActionOpenTable.png" class="reference internal"><img src="../../images/mActionOpenTable.png" alt="mActionOpenTable"></a> <sup>Apri\ tabella\ attributi</sup>.</p>
-</li>
-<li><p>Attiva la modalit&#xE0; <a href="../../images/mActionToggleEditing.png" class="reference internal"><img src="../../images/mActionToggleEditing.png" alt="mActionToggleEditing"></a> <sup>Modifica</sup> e apri il <a href="../../images/mActionCalculateField.png" class="reference internal"><img src="../../images/mActionCalculateField.png" alt="mActionCalculateField"></a> <sup>Calcolatore\ di\ campi</sup>.</p>
-</li>
-<li><p>Spunta la casella di controllo <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Crea un nuovo campo</em> per attivare la creazione di un nuovo campo.</p>
-</li>
-<li><p>Chiama il campo <code>length</code>, imposta <code>Numero decimale (real)</code> come tipo, 10 come larghezza e 3 come precisione.</p>
-</li>
-<li><p>Ora fai doppio click sulla funzione <code>$length</code> presente nel gruppo <em>Geometria</em> per aggiungerla nella sezione <strong>Espressione</strong>.</p>
-</li>
-<li><p>Completa l&#x2019;espressione digitando &#x2018;&#x2019;/ 1000&#x2019;&#x2019; nel campo Espressione e clicca <strong>[OK]</strong>.</p>
-</li>
-<li><p>You can now find a new field <code>length</code> in the attribute table.</p>
-</li>
+<li>Load the shapefile <code>railroads.shp</code> in KADAS and press <a href="../../images/mActionOpenTable.png" class="reference internal"><img src="../../images/mActionOpenTable.png" alt="mActionOpenTable"></a> <sup>Open\ Attribute\ Table</sup>.</li>
+<li>Click on <a href="../../images/mActionToggleEditing.png" class="reference internal"><img src="../../images/mActionToggleEditing.png" alt="mActionToggleEditing"></a> <sup>Toggle\ editing\ mode</sup> and open the <a href="../../images/mActionCalculateField.png" class="reference internal"><img src="../../images/mActionCalculateField.png" alt="mActionCalculateField"></a> <sup>Field\ Calculator</sup> dialog.</li>
+<li>Select the <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Create a new field</em> checkbox to save the calculations into a new field.</li>
+<li>Add <code>length</code> as Output field name and <code>real</code> as Output field type, and define Output field width to be 10 and Precision, 3.</li>
+<li>Now double click on function <code>$length</code> in the <em>Geometry</em> group to add it into the Field calculator expression box.</li>
+<li>Complete the expression by typing &#x2018;&#x2019;/ 1000&#x2019;&#x2019; in the Field calculator expression box and click <strong>[Ok]</strong>.</li>
+<li>You can now find a new field <code>length</code> in the attribute table.</li>
 </ol>
 <p>The available functions are listed in <a href="expression.html#vector-expressions" class="reference internal"><em>Expressions</em></a> chapter.</p>
 <h2 id="function-editor-tab">Function Editor tab </h2>
@@ -477,7 +470,7 @@ def myfunc(value1, value2 feature, parent):
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Calcolatore dei campi","level":"1.10.6","depth":2,"next":{"title":"Lavorare con i dati raster","level":"1.10.7","depth":2,"path":"working_with_raster/supported_data.md","ref":"working_with_raster/supported_data.md","articles":[]},"previous":{"title":"Espressioni","level":"1.10.5","depth":2,"path":"working_with_vector/expression.md","ref":"working_with_vector/expression.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-element","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"offline":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"it","gitbook":"*"},"file":{"path":"working_with_vector/field_calculator.md","mtime":"2017-11-13T12:09:31.180Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-14T18:15:20.331Z"},"basePath":"..","book":{"language":"it"}});
+            gitbook.page.hasChanged({"page":{"title":"Calcolatore dei campi","level":"1.10.6","depth":2,"next":{"title":"Lavorare con i dati raster","level":"1.10.7","depth":2,"path":"working_with_raster/supported_data.md","ref":"working_with_raster/supported_data.md","articles":[]},"previous":{"title":"Espressioni","level":"1.10.5","depth":2,"path":"working_with_vector/expression.md","ref":"working_with_vector/expression.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-element","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"offline":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"it","gitbook":"*"},"file":{"path":"working_with_vector/field_calculator.md","mtime":"2017-11-13T12:09:31.107Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-15T14:01:38.795Z"},"basePath":"..","book":{"language":"it"}});
         });
     </script>
 </div>

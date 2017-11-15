@@ -387,14 +387,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="expressions">Ausdr&#xFC;cke </h1>
+                                <h1 id="expressions">Expressions </h1>
 <p>The <strong>Expressions</strong> feature are available through the field calculator or the add a new column button in the attribut table or the Field tab in the Layer properties ; through the graduaded, categorized and rule-based rendering in the Style tab of the Layer properties ; through the expression-based labeling <a href="../../images/browsebutton.png" class="reference internal"><img src="../../images/browsebutton.png" alt="browsebutton"></a> in the <a href="../../images/mActionLabeling.png" class="reference internal"><img src="../../images/mActionLabeling.png" alt="mActionLabeling"></a> <sup>Labeling</sup> core application ; through the feature selection and through the diagram tab of the Layer properties as well as the <em>Main properties</em> of the label item and the <em>Atlas generation</em> tab in the Print Composer.</p>
 <p>They are a powerful way to manipulate attribute value in order to dynamically change the final value in order to change the geometry style, the content of the label, the value for diagram, select some feature or create virtual column.</p>
-<h2 id="functions-list">Funktionsliste </h2>
-<p>Die <strong>Funktionsliste</strong> enth&#xE4;lt Funktionen genauso wie Felder und Werte. Sehen Sie sich die Hilfefunktionen im <strong>Hilfe zu gew&#xE4;hlten Funktionen</strong> Bereich an. In <strong>Ausdruck</strong> sehen Sie die Berechnungsausdr&#xFC;cke, die Sie mit der <strong>Funktionsliste</strong> erstellt haben. F&#xFC;r die gebr&#xE4;uchlichsten Operatoren siehe <strong>Operatoren</strong>.</p>
-<p>Klicken Sie in der <strong>Funktionsliste</strong> auf <em>Felder und Werte</em> um alle durchsuchbaren Attribute der Attributtabelle anschauen zu k&#xF6;nnen. Um ein Attribut dem Feldrechner <strong>Ausdruck</strong> Feld hinzuzuf&#xFC;gen doppelklicken Sie seinen Namen in der <em>Felder und Werte</em> Liste. Im Allgmeinen k&#xF6;nnen Sie die diversen Felder, Werte und Funktionen benutzen um den Berechnungsausdruck aufzubauen, oder Sie geben in einfach direkt ins Fenster ein. Um die Werte eines Feldes darzustellen m&#xFC;ssen Sie einfach einen Rechtsklick auf das entsprechende Feld machen. Sie k&#xF6;nnen zwischen <em>10 Stichproben</em> und <em>Alle eindeutigen</em> w&#xE4;hlen. Auf der rechten Seite &#xF6;ffnet sich die <strong>Feldwerte</strong> Liste mit den eindeutigen Werten. Um dem Feldrechner <strong>Ausdruck</strong> Fenster einen Wert hinzuzuf&#xFC;gen, machen Sie einen Doppelklick auf den Namen in der <strong>Feldwerte</strong> Liste.</p>
-<p>Die Gruppen <em>Operatoren</em>, <em>Mathematik</em>, <em>Umwandlungen</em>, <em>Zeichenketten</em>, <em>Geometrie</em> und <em>Datensatz</em> stellen zahlreiche Funktionen zur Verf&#xFC;gung. In <em>Operatoren</em> finden Sie mathematische Operatoren. Suchen Sie in <em>Mathematik</em> nach mathematischen Funktionen. Die <em>Umwandlungen</em> Gruppe enth&#xE4;lt Funktionen die einen Datentyp in einen anderen konvertieren. Die <em>Zeichenkette</em> Gruppe stellt Funktionen f&#xFC;r Datenketten zur Verf&#xFC;gung. In der <em>Geometrie</em> Gruppe finden Sie Funktionen f&#xFC;r Geometrieobjekte. Mit den Funktionen der <em>Datensatz</em> Gruppe k&#xF6;nnen Sie Ihren Datensatz mit einer Nummerierung versehen. Um eine Funktion in die <strong>Ausdruck</strong> Box des Feldrechners hinzuzuf&#xFC;gen klicken Sie auf &gt; und doppelklicken Sie dann die Funktion.</p>
-<h3 id="operators">Operatoren </h3>
+<h2 id="functions-list">Functions List </h2>
+<p>The <strong>Function List</strong> contains functions as well as fields and values. View the help function in the <strong>Selected Function Help</strong>. In <strong>Expression</strong> you see the calculation expressions you create with the <strong>Function List</strong>. For the most commonly used operators, see <strong>Operators</strong>.</p>
+<p>In the <strong>Function List</strong>, click on <em>Fields and Values</em> to view all attributes of the attribute table to be searched. To add an attribute to the Field calculator <strong>Expression</strong> field, double click its name in the <em>Fields and Values</em> list. Generally, you can use the various fields, values and functions to construct the calculation expression, or you can just type it into the box. To display the values of a field, you just right click on the appropriate field. You can choose between <em>Load top 10 unique values</em> and <em>Load all unique values</em>. On the right side, the <strong>Field Values</strong> list opens with the unique values. To add a value to the Field calculator <strong>Expression</strong> box, double click its name in the <strong>Field Values</strong> list.</p>
+<p>The <em>Operators</em>, <em>Math</em>, <em>Conversions</em>, <em>String</em>, <em>Geometry</em> and <em>Record</em> groups provide several functions. In <em>Operators</em>, you find mathematical operators. Look in <em>Math</em> for mathematical functions. The <em>Conversions</em> group contains functions that convert one data type to another. The <em>String</em> group provides functions for data strings. In the <em>Geometry</em> group, you find functions for geometry objects. With <em>Record</em> group functions, you can add a numeration to your data set. To add a function to the Field calculator <strong>Expression</strong> box, click on the &gt; and then double click the function.</p>
+<h3 id="operators">Operators </h3>
 <p>This group contains operators (e.g., +, -, *).</p>
 <pre><code>a + b      a plus b
 a - b      a minus b
@@ -434,15 +434,15 @@ a IN (value[,value])          a is below the values listed
 a NOT IN (value[,value])      a is not below the values listed
 </code></pre><p><strong>Some examples:</strong></p>
 <ul>
-<li><p>Verbindet eine Zeichenkette und einen Wert von einem Spaltennamen:</p>
+<li><p>Joins a string and a value from a column name:</p>
 <pre><code>&apos;My feature&apos;s id is: &apos; || &quot;gid&quot;
 </code></pre></li>
 <li><p>Test if the &#x201C;description&#x201D; attribute field starts with the &#x2018;Hello&#x2019; string in the value (note the position of the % character):</p>
 <pre><code>&quot;description&quot; LIKE &apos;Hello%&apos;
 </code></pre></li>
 </ul>
-<h3 id="conditionals">Bedingungen </h3>
-<p>Diese Gruppe enth&#xE4;lt Funktionen um bedingte Pr&#xFC;fungen in Ausdr&#xFC;cken zu handhaben.</p>
+<h3 id="conditionals">Conditionals </h3>
+<p>This group contains functions to handle conditional checks in expressions.</p>
 <pre><code>CASE                          evaluates multiple expressions and returns a
                               result
 CASE ELSE                     evaluates multiple expressions and returns a
@@ -451,14 +451,14 @@ coalesce                      returns the first non-NULL value from the
                               expression list
 regexp_match                  returns true if any part of a string matches
                               the supplied regular expression
-</code></pre><p><strong>Einige Beispiele:</strong></p>
+</code></pre><p><strong>Some example:</strong></p>
 <ul>
-<li><p>Sende einen Wert zur&#xFC;ck wenn die erste Bedingung wahr ist, sonst einen anderen Wert:</p>
+<li><p>Send back a value if the first condition is true, else another value:</p>
 <pre><code>CASE WHEN &quot;software&quot; LIKE &apos;%QGIS%&apos; THEN &apos;QGIS&apos; ELSE &apos;Other&apos;
 </code></pre></li>
 </ul>
-<h3 id="mathematical-functions">Mathematische Funktionen </h3>
-<p>Diese Gruppe enth&#xE4;lt mathematische Funktionen (z.B. sqrt, sin und cos).</p>
+<h3 id="mathematical-functions">Mathematical Functions </h3>
+<p>This group contains math functions (e.g., square root, sin and cos).</p>
 <pre><code>sqrt(a)                       square root of a
 abs                           returns the absolute value of a number
 sin(a)                        sine of a
@@ -497,8 +497,8 @@ scale_exp                     transforms a given value from an input
 floor                         rounds a number downwards
 ceil                          rounds a number upwards
 $pi                           pi as value for calculations
-</code></pre><h3 id="conversions">Umwandlungen </h3>
-<p>Diese Gruppe enth&#xE4;lt Funktionen, um einen Datentypen in einen anderen umzuwandeln (z.B. Zeichenketten zu Ganzzahlen oder umgekehrt).</p>
+</code></pre><h3 id="conversions">Conversions </h3>
+<p>This group contains functions to convert one data type to another (e.g., string to integer, integer to string).</p>
 <pre><code>toint                        converts a string to integer number
 toreal                       converts a string to real number
 tostring                     converts number to string
@@ -508,8 +508,8 @@ totime                       converts a string into Qt time type
 tointerval                   converts a string to an interval type (can be
                              used to take days, hours, months, etc. off a
                              date)
-</code></pre><h3 id="date-and-time-functions">Datum und Zeit Funktionen </h3>
-<p>Diese Gruppe enth&#xE4;lt Funktionen die auf Datums- und Zeitdaten angewendet werden k&#xF6;nnen.</p>
+</code></pre><h3 id="date-and-time-functions">Date and Time Functions </h3>
+<p>This group contains functions for handling date and time data.</p>
 <pre><code>$now       current date and time
 age        difference between two dates
 year       extract the year part from a date, or the number of years from
@@ -526,14 +526,14 @@ minute     extract the minute from a datetime or time, or the number
            of minutes from an interval
 second     extract the second from a datetime or time, or the number
            of minutes from an interval
-</code></pre><p><strong>Einige Beispiele:</strong></p>
+</code></pre><p><strong>Some example:</strong></p>
 <ul>
-<li><p>Lassen Sie sich den Monat und das Jahr von heute im Format &#x201C;10/2014&#x201D; herausgeben:</p>
+<li><p>Get the month and the year of today in the format &#x201C;10/2014&#x201D;</p>
 <pre><code>month($now) || &apos;/&apos; || year($now)
 </code></pre></li>
 </ul>
-<h3 id="string-functions">Zeichenkettenfunktionen </h3>
-<p>Diese Gruppe enth&#xE4;lt Funktionen f&#xFC;r Zeichenketten (z.B. Ersetzen und in Gro&#xDF;buchstaben umwandeln).</p>
+<h3 id="string-functions">String Functions </h3>
+<p>This group contains functions that operate on strings (e.g., that replace, convert to upper case).</p>
 <pre><code>lower                        convert string a to lower case
 upper                        convert string a to upper case
 title                        converts all words of a string to title
@@ -568,8 +568,8 @@ format_number                returns a number formatted with the locale
                              number to the number of supplied places)
 format_date                  formats a date type or string into a custom
                              string format
-</code></pre><h3 id="color-functions">Farbfunktionen </h3>
-<p>Diese Gruppe enth&#xE4;lt Funktionen zur Farbmanipulation.</p>
+</code></pre><h3 id="color-functions">Color Functions </h3>
+<p>This group contains functions for manipulating colors.</p>
 <pre><code>color_rgb       returns a string representation of a color based on its
                 red, green, and blue components
 color_rgba      returns a string representation of a color based on its
@@ -589,8 +589,8 @@ color_cmyk      returns a string representation of a color based on its
 color_cmyka     returns a string representation of a color based on its
                 cyan, magenta, yellow, black and alpha (transparency)
                 components
-</code></pre><h3 id="geometry-functions">Geometriefunktionen </h3>
-<p>Dies Gruppe enth&#xE4;lt Funktionen f&#xFC;r das Arbeiten mit Geometrieobjekten (z.B. L&#xE4;nge und Fl&#xE4;cheninhalt).</p>
+</code></pre><h3 id="geometry-functions">Geometry Functions </h3>
+<p>This group contains functions that operate on geometry objects (e.g., length, area).</p>
 <pre><code>$geometry        returns the geometry of the current feature (can be used
                  for processing with other functions)
 $area            returns the area size of the current feature
@@ -665,8 +665,8 @@ geomToWKT        returns the well-known text (WKT) representation of the
 geometry         returns the feature&apos;s geometry
 transform        returns the geometry transformed from the source CRS to
                  the dest CRS
-</code></pre><h3 id="record-functions">Datensatzfunktionen </h3>
-<p>Diese Gruppe enth&#xE4;lt Funktionen die sich auf datensatzbezeichner beziehen.</p>
+</code></pre><h3 id="record-functions">Record Functions </h3>
+<p>This group contains functions that operate on record identifiers.</p>
 <pre><code>$rownum                  returns the number of the current row
 $id                      returns the feature id of the current row
 $currentfeature          returns the current feature being evaluated.
@@ -684,10 +684,10 @@ $map                     returns the id of the current map item if the map
                          is being drawn in a composition, or &quot;canvas&quot; if
                          the map is being drawn within the main QGIS
                          window.
-</code></pre><h3 id="fields-and-values">Felder und Werte </h3>
-<p>Enth&#xE4;lt eine Liste von Feldern vom Layer. Auf Beispielwerte kann &#xFC;ber einen Rechtsklick zugegriffen werden.</p>
-<p>W&#xE4;hlen Sie einen Feldnamen aus der Liste, machen Sie dann einen Rechtsklick, um auf ein Kontextmen&#xFC; mit Optionen zum Laden von Beispielwerten aus dem gew&#xE4;hlten Feld zuzugreifen.</p>
-<p>Feldnamen sollten in doppelte Anf&#xFC;hrungsstriche gesetzt werden. Werte oder Zeichenketten sollten in einfache Anf&#xFC;hrungsstriche gesetzt werden.</p>
+</code></pre><h3 id="fields-and-values">Fields and Values </h3>
+<p>Contains a list of fields from the layer. Sample values can also be accessed via right-click.</p>
+<p>Select the field name from the list, then right-click to access a context menu with options to load sample values from the selected field.</p>
+<p>Fields name should be double-quoted. Values or string should be simple-quoted.</p>
 
                                 
                                 </section>
@@ -731,7 +731,7 @@ $map                     returns the id of the current map item if the map
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Ausdrücke","level":"1.10.5","depth":2,"next":{"title":"Feldrechner","level":"1.10.6","depth":2,"path":"working_with_vector/field_calculator.md","ref":"working_with_vector/field_calculator.md","articles":[]},"previous":{"title":"Vektorlayereigenschaften","level":"1.10.4","depth":2,"path":"working_with_vector/vector_properties.md","ref":"working_with_vector/vector_properties.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-element","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"offline":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"de","gitbook":"*"},"file":{"path":"working_with_vector/expression.md","mtime":"2017-11-13T12:09:31.104Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-14T18:15:20.331Z"},"basePath":"..","book":{"language":"de"}});
+            gitbook.page.hasChanged({"page":{"title":"Ausdrücke","level":"1.10.5","depth":2,"next":{"title":"Feldrechner","level":"1.10.6","depth":2,"path":"working_with_vector/field_calculator.md","ref":"working_with_vector/field_calculator.md","articles":[]},"previous":{"title":"Vektorlayereigenschaften","level":"1.10.4","depth":2,"path":"working_with_vector/vector_properties.md","ref":"working_with_vector/vector_properties.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-element","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"offline":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"de","gitbook":"*"},"file":{"path":"working_with_vector/expression.md","mtime":"2017-11-13T12:09:31.107Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-15T14:01:38.795Z"},"basePath":"..","book":{"language":"de"}});
         });
     </script>
 </div>

@@ -387,125 +387,106 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="raster-properties-dialog">Dialogfenster Rasterlayereigenschaften </h1>
-<p>Um die Eigenschaften eines Rasterlayers zu sehen oder einzustellen doppelklicken Sie auf den Layernamen in der Legende oder rechtsklicken Sie auf den Layernamen und w&#xE4;hlen Sie <em>Eigenschaften</em> aus dem Kontextmen&#xFC;. Dies &#xF6;ffnet den <em>Layereigenschaften</em> Dialog (siehe <a href="#figure-raster-1" class="reference internal">figure_raster_1</a>).</p>
-<p>Es gibt mehrere Men&#xFC;s in diesem Dialog:</p>
+                                <h1 id="raster-properties-dialog">Raster Properties Dialog </h1>
+<p>To view and set the properties for a raster layer, double click on the layer name in the map legend, or right click on the layer name and choose <em>Properties</em> from the context menu. This will open the <em>Raster Layer Properties</em> dialog (see <a href="#figure-raster-1" class="reference internal">figure_raster_1</a>).</p>
+<p>There are several menus in the dialog:</p>
 <ul>
-<li><p><em>Allgemein</em></p>
-</li>
-<li><p><em>Stil</em></p>
-</li>
-<li><p><em>Transparenz</em></p>
-</li>
-<li><p><em>Pyramiden</em></p>
-</li>
-<li><p><em>Histogramm</em></p>
-</li>
-<li><p><em>Metadaten</em></p>
-</li>
+<li><em>General</em></li>
+<li><em>Style</em></li>
+<li><em>Transparency</em></li>
+<li><em>Pyramids</em></li>
+<li><em>Histogram</em></li>
+<li><em>Metadata</em></li>
 </ul>
 <p><strong>Figure Raster 1:</strong></p>
 <p><img src="../../images/rasterPropertiesDialog.png" alt="">
-Dialog Rasterlayereigenschaften </p>
-<h2 id="general-menu">Men&#xFC; Allgemein </h2>
-<h3 id="layer-info">Layerinformation </h3>
-<p>Das Men&#xFC; <em>Allgemein</em> stellt grundlegende Informationen &#xFC;ber den ausgew&#xE4;hlten Rasterlayer dar, einschlie&#xDF;lich der Layerquelle, dem Anzeigenamen (der ver&#xE4;ndert werden kann) und der Anzahl von Spalten, Zeilen und LeerWerten des Rasterlayers.</p>
-<h3 id="coordinate-reference-system">Koordinatenbezugssystem </h3>
-<p>Hier k&#xF6;nnen Sie das Koordinatenbezugssystem (KBS) als PROJ.4 Text ablesen. Wenn diese Einstellung nicht richtig ist k&#xF6;nnen Sie Sie ver&#xE4;ndern indem Sie den Knopf <strong>[Angeben]</strong> klicken.</p>
-<h3 id="scale-dependent-visibility">Ma&#xDF;stabsabh&#xE4;ngige Sichtbarkeit </h3>
-<p>Zus&#xE4;tzlich kann eine skalenabh&#xE4;ngige Sichtbarkeit eingestellt werden. Dazu muss das Kontrollk&#xE4;stchen aktiviert sein und ein entsprechender Ma&#xDF;stab, indem Ihre Daten im Kartenfenster dargestellt werden, eingetragen werden.</p>
-<p>Unten k&#xF6;nnen Sie einen Thumbnail, sein Legendensymbol und die Palette sehen.</p>
-<h2 id="style-menu">Men&#xFC; Stil </h2>
-<h3 id="band-rendering">Kanaldarstellung </h3>
-<p>KADAS bietet vier verschiedene <em>Darstellungsart</em>. Die ausgew&#xE4;hlte Darstellungsart h&#xE4;ngt vom Datentyp ab.</p>
+Raster Layers Properties Dialog </p>
+<h2 id="general-menu">General Menu </h2>
+<h3 id="layer-info">Layer Info </h3>
+<p>The <em>General</em> menu displays basic information about the selected raster, including the layer source path, the display name in the legend (which can be modified), and the number of columns, rows and no-data values of the raster.</p>
+<h3 id="coordinate-reference-system">Coordinate reference system </h3>
+<p>Here, you find the coordinate reference system (CRS) information printed as a PROJ.4 string. If this setting is not correct, it can be modified by clicking the <strong>[Specify]</strong> button.</p>
+<h3 id="scale-dependent-visibility">Scale Dependent visibility </h3>
+<p>Additionally scale-dependent visibility can be set in this tab. You will need to check the checkbox and set an appropriate scale where your data will be displayed in the map canvas.</p>
+<p>At the bottom, you can see a thumbnail of the layer, its legend symbol, and the palette.</p>
+<h2 id="style-menu">Style Menu </h2>
+<h3 id="band-rendering">Band rendering </h3>
+<p>KADAS offers four different <em>Render types</em>. The renderer chosen is dependent on the data type.</p>
 <ol>
-<li><p>Multikanalfarbe - wenn die Datei ein Multiband mit mehreren Kan&#xE4;len ist (z.B. bei einem Satellitenbild mit mehreren B&#xE4;ndern)</p>
-</li>
-<li><p>Palette - wenn ein Einkanalbild eine indizierte Palette besitzt (z.B. benutzt bei digitalen Topographischen Karten)</p>
-</li>
-<li><p>Einkanalgraustufen - das Bild oder ein Kanal davon wird grau dargestellt; KADAS benutzt diese Darstellung wenn die Datei weder Multib&#xE4;nder, noch eine indizierte Palette noch eine kontinuirliche Palette (z.B. in einer Schummerungskarte benutzt) besitzt.</p>
-</li>
-<li><p>Einkanalpseudofarbe - diese Darstellung ist bei Dateien mit kontinuirlicher Palette oder Farbkarte (z.B. wie sie in H&#xF6;henkarten verwendet wird) m&#xF6;glich</p>
-</li>
+<li>Multiband color - if the file comes as a multiband with several bands (e.g., used with a satellite image with several bands)</li>
+<li>Paletted - if a single band file comes with an indexed palette (e.g., used with a digital topographic map)</li>
+<li>Singleband gray - (one band of) the image will be rendered as gray; KADAS will choose this renderer if the file has neither multibands nor an indexed palette nor a continous palette (e.g., used with a shaded relief map)</li>
+<li>Singleband pseudocolor - this renderer is possible for files with a continuous palette, or color map (e.g., used with an elevation map)</li>
 </ol>
-<p><strong>Multikanalfarbe</strong></p>
-<p>Mit der Darstellung Multikanalfarbe werden drei ausgew&#xE4;hlte Kan&#xE4;le des Bildes dargestellt, wobei jedes Band due rote, gr&#xFC;ne oder blaue Komponente zum Erstellen eines Farbbildes darstellt.</p>
+<p><strong>Multiband color</strong></p>
+<p>With the multiband color renderer, three selected bands from the image will be rendered, each band representing the red, green or blue component that will be used to create a color image. You can choose several <em>Contrast enhancement</em> methods: &#x2018;No enhancement&#x2019;, &#x2018;Stretch to MinMax&#x2019;, &#x2018;Stretch and clip to MinMax&#x2019; and &#x2018;Clip to min max&#x2019;.</p>
 <p><strong>Figure Raster 2:</strong></p>
 <p><img src="../../images/rasterMultibandColor.png" alt="">
-Rasterdarstellung - Multikanalfarbe </p>
-<p>Diese Auswahl bietet Ihnen ein breites Spektrum von Optionen zum Ver&#xE4;ndern des Erscheinungsbildes des Rasterlayers an. Zuerst m&#xFC;ssen Sie den Datenbereich Ihres Bildes abrufen. Dieser kann durch das W&#xE4;hlen von <em>Ausdehnung</em> und das Klicken von <strong>[Laden]</strong> ermittelt werden. KADAS kann die <em>Min</em> und <em>Max</em> Werte der Kan&#xE4;le <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Sch&#xE4;tzen (schneller)</em> oder die <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Genau (langsamer)</em> <em>Genauigkeit</em> verwenden.</p>
-<p>Jetzt k&#xF6;nnen Sie die Farben mit Hilfe des <em>Min/Max Werte</em> Bereichs skalieren. Viele Bilder haben ein paar sehr tiefe und hohe Daten. Diese Ausrei&#xDF;er k&#xF6;nnen anhand der <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Kommulativer Anzahlschnitt</em> Einstellung beseitigt werden. Der voreingestellte Datenbereich ist auf 2% bis 98% der Datenwerte eingestellt und kann manuell angepasst werden. Mit dieser Einstellung kann das graue Aussehen des Bildes verschwinden. Mit der Skalierungsoption <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Min/max</em> erstellt KADAS eine Farbtabelle von allen im Originalbild enthaltenen Daten (z.B. erstellt KADAS eine Farbtabelle mit 256 Werten, vorausgesetzt Sie haben 8bit-Kan&#xE4;le). Sie k&#xF6;nnen Ihre Farbtabelle auch mit der <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Mittlere +/- Standardabweichung x</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a> berechnen. Dann werden nur Werte innerhalb der Standardabweichung oder innerhalb mehrerer Standardabweichungen verwendet. Dies ist n&#xFC;tzlich wenn ein oder zwei Zellen mit anormalen hohen Werten, die einen negativen Effekt auf die Darstellung des Rasterbildes haben, in einem Grid auftauchen.</p>
-<p>Alle Berechnungen k&#xF6;nnen auch f&#xFC;r die <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Aktuell</em> Ausdehnung durchgef&#xFC;hrt werden.</p>
-<p>Tipp</p>
-<p><strong>Einen einzelnen Kanal eines Mehrkanal-Rasterlayers anzeigen</strong></p>
-<p>Wenn Sie sich nur einen einzelnen Kanal eines Multikanalfarbe Bildes (z.B. Rot) ansehen wollen kommen Sie vielleicht auf die Idee den Gr&#xFC;n- und Blaukanal auf &#x2018;&#x2019;Nicht gesetzt&#x201D; einzustellen. Dies ist nicht der korrekte Weg. Um den Rotkanal darzustellen stellen Sie den Bildtyp auf &#x2018;Einkanalgraustufen&#x2019; ein und w&#xE4;hlen Sie dann Rot als Kanal, der f&#xFC;r Grau benutzt werden soll, aus</p>
-<p><strong>Palette</strong></p>
-<p>Dies ist die voreingestellt Darstellungsart f&#xFC;r Singleband-Dateien die bereits eine Farbtabelle besitzen, wobei jedem Pixel eine bestimmte Farbe zugewiesen wird. In diesem Fall wird die Palette automatisch dargestellt. Wenn Sie die Farben, die einem bestimmten Wert zugewiesen werden, &#xE4;ndern wollen, Doppelklicken Sie auf die Farbe und der <em>Farbauswahl</em> Dialog erscheint. Seit KADAS 2.2. ist es m&#xF6;glich dem Farbwert eine Beschriftung zuzuweisen. Die Beschriftung erscheint dann in der Legende des Rasterlayers.</p>
+Raster Renderer - Multiband color </p>
+<p>This selection offers you a wide range of options to modify the appearance of your raster layer. First of all, you have to get the data range from your image. This can be done by choosing the <em>Extent</em> and pressing <strong>[Load]</strong>. KADAS can <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Estimate (faster)</em> the <em>Min</em> and <em>Max</em> values of the bands or use the <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Actual (slower)</em> <em>Accuracy</em>.</p>
+<p>Now you can scale the colors with the help of the <em>Load min/max values</em> section. A lot of images have a few very low and high data. These outliers can be eliminated using the <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Cumulative count cut</em> setting. The standard data range is set from 2% to 98% of the data values and can be adapted manually. With this setting, the gray character of the image can disappear. With the scaling option <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Min/max</em>, KADAS creates a color table with all of the data included in the original image (e.g., KADAS creates a color table with 256 values, given the fact that you have 8 bit bands). You can also calculate your color table using the <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Mean +/- standard deviation x</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a>. Then, only the values within the standard deviation or within multiple standard deviations are considered for the color table. This is useful when you have one or two cells with abnormally high values in a raster grid that are having a negative impact on the rendering of the raster.</p>
+<p>All calculations can also be made for the <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Current</em> extent.</p>
+<p>Tip</p>
+<p><strong>Viewing a Single Band of a Multiband Raster</strong></p>
+<p>If you want to view a single band of a multiband image (for example, Red), you might think you would set the Green and Blue bands to &#x201C;Not Set&#x201D;. But this is not the correct way. To display the Red band, set the image type to &#x2018;Singleband gray&#x2019;, then select Red as the band to use for Gray.</p>
+<p><strong>Paletted</strong></p>
+<p>This is the standard render option for singleband files that already include a color table, where each pixel value is assigned to a certain color. In that case, the palette is rendered automatically. If you want to change colors assigned to certain values, just double-click on the color and the <em>Select color</em> dialog appears. Also, in KADAS 2.2. it&#x2019;s now possible to assign a label to the color values. The label appears in the legend of the raster layer then.</p>
 <p><strong>Figure Raster 3:</strong></p>
 <p><img src="../../images/rasterPaletted.png" alt="">
-Rasterdarstellung - Palette </p>
-<p><strong>Kontrastverbesserung</strong></p>
-<p>Bemerkung</p>
-<p>Wenn GRASS Rasterlayer hinzugef&#xFC;gt werden wird die Option <strong>Kontrastverbesserung</strong> immer automatisch auf <strong>Strecken auf MinMax</strong> eingestellt, ungeachtet der Einstellungen in den KADAS Optionen.</p>
-<p><strong>Einkanalgraustufen</strong></p>
-<p>Mit dieser Darstellungsart k&#xF6;nnen Sie ein Einkanalbild mit einem <em>Farbverlauf</em> darstellen: &#x2018;Schwarz nach Wei&#xDF;&#x2019; oder &#x2018;Wei&#xDF; nach Schwarz&#x2019;. Sie k&#xF6;nnen einen <em>Min</em> und einen <em>Max</em> Wert festlegen indem Sie erst <em>Ausdehnung</em> ausw&#xE4;hlen und dann <strong>[Laden]</strong> dr&#xFC;cken. KADAS kann die <em>Min</em> und <em>Max</em> Werte der Kan&#xE4;le <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Sch&#xE4;tzen (schneller)</em> oder die <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Genau (langsamer)</em> <em>Genauigkeit</em> verwenden.</p>
+Raster Renderer - Paletted </p>
+<p><strong>Contrast enhancement</strong></p>
+<p>Note</p>
+<p>When adding GRASS rasters, the option <em>Contrast enhancement</em> will always be set automatically to <em>stretch to min max</em>, regardless of if this is set to another value in the KADAS general options.</p>
+<p><strong>Singleband gray</strong></p>
+<p>This renderer allows you to render a single band layer with a <em>Color gradient</em>: &#x2018;Black to white&#x2019; or &#x2018;White to black&#x2019;. You can define a <em>Min</em> and a <em>Max</em> value by choosing the <em>Extent</em> first and then pressing <strong>[Load]</strong>. KADAS can <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Estimate (faster)</em> the <em>Min</em> and <em>Max</em> values of the bands or use the <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Actual (slower)</em> <em>Accuracy</em>.</p>
 <p><strong>Figure Raster 4:</strong></p>
 <p><img src="../../images/rasterSingleBandGray.png" alt="">
-Rasterdarstellung - Einkanalgraustufen </p>
-<p>Im <em>Extremwerte laden</em> Abschnitt ist das Skalieren der Farbtabelle m&#xF6;glich. Ausrei&#xDF;er k&#xF6;nnen anhand der <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Kommulativer Anzahlschnitt</em> Einstellung beseitigt werden. Der voreingestellte Datenbereich ist von 2% bis 98% der Datenwerte eingestellt und kann manuell angepasst werden. Mit dieser Einstellung kann der graue Charakter des Bildes verschwinden. Weitere Einstellungen k&#xF6;nnen mit <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Extrema</em> und <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Mittlere +/- Standardabweichung x</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a> gemacht werden. W&#xE4;hrend die erste eine Farbtabelle mit allen Daten, die im Originalbild enthalten sind, erstellt, erstellt die zweite eine Farbtabelle die nur Werte innerhalb der Standardabweichung oder mehrerer Standardabweichungen ber&#xFC;cksichtigt. Dies ist n&#xFC;tzlich wenn Sie eine oder zwei Zellen mit anormal hohen Werten in einem Grid haben die einen negativen Einfluss auf die Darstellung des Rasterlayers haben.</p>
-<p><strong>Einkanalpseudofarbe</strong></p>
-<p>Dies ist eine Darstellungsoption f&#xFC;r Einkanaldateien die eine kontinuirliche Palette enthalten. Sie k&#xF6;nnen hier auch individuelle Karten f&#xFC;r die einzelnen Kan&#xE4;le erstellen.</p>
+Raster Renderer - Singleband gray </p>
+<p>With the <em>Load min/max values</em> section, scaling of the color table is possible. Outliers can be eliminated using the <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Cumulative count cut</em> setting. The standard data range is set from 2% to 98% of the data values and can be adapted manually. With this setting, the gray character of the image can disappear. Further settings can be made with <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Min/max</em> and <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Mean +/- standard deviation x</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a>. While the first one creates a color table with all of the data included in the original image, the second creates a color table that only considers values within the standard deviation or within multiple standard deviations. This is useful when you have one or two cells with abnormally high values in a raster grid that are having a negative impact on the rendering of the raster.</p>
+<p><strong>Singleband pseudocolor</strong></p>
+<p>This is a render option for single-band files, including a continous palette. You can also create individual color maps for the single bands here.</p>
 <p><strong>Figure Raster 5:</strong></p>
 <p><img src="../../images/rasterSingleBandPseudocolor.png" alt="">
-Rasterdarstellung - Einkanalpseudofarbe </p>
-<p>Es sind drei Typen von Farbinterpolation m&#xF6;glich:</p>
+Raster Renderer - Singleband pseudocolor </p>
+<p>Three types of color interpolation are available:</p>
 <ol>
-<li><p>Diskret</p>
-</li>
-<li><p>Linear</p>
-</li>
-<li>Genau</li>
+<li>Discrete</li>
+<li>Linear</li>
+<li>Exact</li>
 </ol>
-<p>Im linken Block f&#xFC;gt der Knopf <a href="../../images/mActionSignPlus.png" class="reference internal"><img src="../../images/mActionSignPlus.png" alt="mActionSignPlus"></a> <sup>Werte\ manuell\ hinzuf&#xFC;gen</sup> einen Wert zu der individuellen Farbtabelle hinzu. Der Knopf <a href="../../images/mActionSignMinus.png" class="reference internal"><img src="../../images/mActionSignMinus.png" alt="mActionSignMinus"></a> <sup>Gew&#xE4;hlte\ Zeile\ l&#xF6;schen</sup> l&#xF6;scht einen Wert aus der individuellen Farbtabelle und der <a href="../../images/mActionArrowDown.png" class="reference internal"><img src="../../images/mActionArrowDown.png" alt="mActionArrowDown"></a> <sup>Farbabbildungselemente</sup> Knopf sortiert die Farbtabelle gem&#xE4;&#xDF; den Pixelwerten in der Wertespalte. Ein Doppelklick auf die Wertespalte macht das Eingeben eines spezifischen Wertes m&#xF6;glich. Das Doppelklicken auf die Farbspalte &#xF6;ffnet den Dialog <em>Change color</em> in dem Sie eine Farbe die auf den Wert angewendet werden soll ausw&#xE4;hlen k&#xF6;nnen. Des weiteren k&#xF6;nnen Sie auch Beschriftungen f&#xFC;r jede Farbe hinzuf&#xFC;gen, allerdings wird dieser Wert nicht angezeigt wenn Sie das Objekte abfragen Werkzeug benutzen. Sie k&#xF6;nnen auch auf den Knopf mActionDraw| <sup>Farbabbildung\ aus\ Kanal\ laden</sup> klicken welcher versucht die Tabelle aus dem Kanal zu laden (falls dieser eine hat). Und Sie k&#xF6;nnen die Kn&#xF6;pfe <a href="../../images/mActionFileOpen.png" class="reference internal"><img src="../../images/mActionFileOpen.png" alt="mActionFileOpen"></a> <sup>Farbabbildung\ aus\ Datei\ laden</sup> oder <a href="../../images/mActionFileSaveAs.png" class="reference internal"><img src="../../images/mActionFileSaveAs.png" alt="mActionFileSaveAs"></a> <sup>Farbabbildung\ in\ Datei\ speichern</sup> verwenden um eine bestehende Farbtabelle zu laden oder eine definierte Farbtabelle f&#xFC;r andere Sitzungen zu speichern.</p>
-<p>Im rechten Block wird Ihnen durch <em>Neue Farbabbildung generieren</em> das Erstellen von neuen kategorisierten Farbkarten erm&#xF6;glicht. F&#xFC;r den <em>Modus</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a> &#x2018;Gleiches Intervall&#x2019; m&#xFC;ssen Sie nur die Anzahl der <em>Klassen</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a> ausw&#xE4;hlen und den Knopf <em>Klassifizieren</em> dr&#xFC;cken. Sie k&#xF6;nnen die Farben der Farbkarte invertieren indem Sie auf das <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Invertieren</em> Kontrollk&#xE4;stchen klicken. Im Fall des <em>Modus</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a> &#x2018;Fortlaufend&#x2019; erstellt KADAS automatisch Klassen abh&#xE4;ngig von <em>Min</em> und <em>Max</em>. Das Definieren von Extremwerten kann mit Hilfe des <em>Extremwerte laden</em> Abschnitts durchgef&#xFC;hrt werden. Viele Bilder haben einige wenige sehr tiefe und hohe Daten. Diese Ausrei&#xDF;er k&#xF6;nnen anhand der <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Kommulativer Anzahlschnitt</em> Einstellung beseitigt werden. Der voreingestellte Datenbereich ist von 2% bis 98% der Datenwerte eingestellt und kann manuell angepasst werden. Anhand dieser Einstellung kann der graue Charakter des Bildes verschwinden. Mit der Skalierungsoption <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Extrema</em> erstellt KADAS eine Farbtabelle mit allen im Originalbild enthaltenen Daten (z.B. erstellt KADAS eine Farbtabelle mit 256 Werten, vorausgesetzt Sie haben 8bit Kan&#xE4;le). Sie k&#xF6;nnen Ihre Farbtabelle auch anhand der <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Mittlere +/- Standardabweichung x</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a> berechnen. Dann werden nur Werte innerhalb der Standardabweichung oder mehrerer Standardabweichungen f&#xFC;r die Farbtabelle ber&#xFC;cksichtigt.</p>
-<h3 id="color-rendering">Farbdarstellung </h3>
-<p>F&#xFC;r jede <em>Kanaldarstellung</em> ist eine <em>Farbdarstellung</em> m&#xF6;glich.</p>
-<p>Sie k&#xF6;nnen auch spezielle Darstellungseffekte f&#xFC;r Ihre Rasterdatei(en) erreichen indem Sie Mischmodi verwenden (siehe <a href="../working_with_vector/vector_properties.html#vector-properties-dialog" class="reference internal"><em>Vektorlayereigenschaften</em></a>).</p>
-<p>Weitere Einstellungen k&#xF6;nnen durch das Ver&#xE4;ndern der <em>Helligkeit</em>, der <em>S&#xE4;ttigung</em> und des <em>Kontrast</em> gemacht werden. Sie k&#xF6;nnen auch eine <em>Graustufen</em> Option verwenden bei der Sie zwischen &#x2018;Nach Helligkeit&#x2019;, &#x2018;Nach Leuchtkraft&#x2019; und &#x2018;Nach Durchschnitt&#x2019; w&#xE4;hlen k&#xF6;nnen. F&#xFC;r einen Farbwert in der Farbtabelle k&#xF6;nnen Sie die &#x2018;St&#xE4;rke&#x2019; ver&#xE4;ndern.</p>
-<h3 id="resampling">Abtastung </h3>
-<p>Die <em>Abtastung</em> Option kommt zur Erscheinung wenn Sie in ein Bild herein- oder herauszoomen. Abtastungsmodi k&#xF6;nnen die Erscheinung der Karte optimieren. Sie berechnen eine neue Grauwertmatrix anhand einer geometrischen Transformation.</p>
+<p>In the left block, the button <a href="../../images/mActionSignPlus.png" class="reference internal"><img src="../../images/mActionSignPlus.png" alt="mActionSignPlus"></a> <sup>Add\ values\ manually</sup> adds a value to the individual color table. The button <a href="../../images/mActionSignMinus.png" class="reference internal"><img src="../../images/mActionSignMinus.png" alt="mActionSignMinus"></a> <sup>Remove\ selected\ row</sup> deletes a value from the individual color table, and the <a href="../../images/mActionArrowDown.png" class="reference internal"><img src="../../images/mActionArrowDown.png" alt="mActionArrowDown"></a> <sup>Sort\ colormap\ items</sup> button sorts the color table according to the pixel values in the value column. Double clicking on the value column lets you insert a specific value. Double clicking on the color column opens the dialog <em>Change color</em>, where you can select a color to apply on that value. Further, you can also add labels for each color, but this value won&#x2019;t be displayed when you use the identify feature tool. You can also click on the button <a href="../../images/mActionDraw.png" class="reference internal"><img src="../../images/mActionDraw.png" alt="mActionDraw"></a> <sup>Load\ color\ map\ from\ band</sup>, which tries to load the table from the band (if it has any). And you can use the buttons <a href="../../images/mActionFileOpen.png" class="reference internal"><img src="../../images/mActionFileOpen.png" alt="mActionFileOpen"></a> <sup>Load\ color\ map\ from\ file</sup> or <a href="../../images/mActionFileSaveAs.png" class="reference internal"><img src="../../images/mActionFileSaveAs.png" alt="mActionFileSaveAs"></a> <sup>Export\ color\ map\ to\ file</sup> to load an existing color table or to save the defined color table for other sessions.</p>
+<p>In the right block, <em>Generate new color map</em> allows you to create newly categorized color maps. For the <em>Classification mode</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a> &#x2018;Equal interval&#x2019;, you only need to select the <em>number of classes</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a> and press the button <em>Classify</em>. You can invert the colors of the color map by clicking the <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Invert</em> checkbox. In the case of the <em>Mode</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a> &#x2018;Continous&#x2019;, KADAS creates classes automatically depending on the <em>Min</em> and <em>Max</em>. Defining <em>Min/Max</em> values can be done with the help of the <em>Load min/max values</em> section. A lot of images have a few very low and high data. These outliers can be eliminated using the <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Cumulative count cut</em> setting. The standard data range is set from 2% to 98% of the data values and can be adapted manually. With this setting, the gray character of the image can disappear. With the scaling option <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Min/max</em>, KADAS creates a color table with all of the data included in the original image (e.g., KADAS creates a color table with 256 values, given the fact that you have 8 bit bands). You can also calculate your color table using the <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Mean +/- standard deviation x</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a>. Then, only the values within the standard deviation or within multiple standard deviations are considered for the color table.</p>
+<h3 id="color-rendering">Color rendering </h3>
+<p>For every <em>Band rendering</em>, a <em>Color rendering</em> is possible.</p>
+<p>You can also achieve special rendering effects for your raster file(s) using one of the blending modes (see <a href="../working_with_vector/vector_properties.html#vector-properties-dialog" class="reference internal"><em>The Vector Properties Dialog</em></a>).</p>
+<p>Further settings can be made in modifiying the <em>Brightness</em>, the <em>Saturation</em> and the <em>Contrast</em>. You can also use a <em>Grayscale</em> option, where you can choose between &#x2018;By lightness&#x2019;, &#x2018;By luminosity&#x2019; and &#x2018;By average&#x2019;. For one hue in the color table, you can modify the &#x2018;Strength&#x2019;.</p>
+<h3 id="resampling">Resampling </h3>
+<p>The <em>Resampling</em> option makes its appearance when you zoom in and out of an image. Resampling modes can optimize the appearance of the map. They calculate a new gray value matrix through a geometric transformation.</p>
 <p><strong>Figure Raster 6:</strong></p>
 <p><img src="../../images/rasterRenderAndRessampling.png" alt="">
-Rasterdarstellung - Abtastung </p>
-<p>Wenn Sie die &#x2018;N&#xE4;chster Nachbar&#x2019; Methode anwenden kann die Karte eine pixelige Struktur bein Hineinzoomen haben. Dieses Erscheinungsbild kann verbessert werden indem man die &#x2018;Bilinear&#x2019; oder &#x2018;Kubisch&#x2019; Methode verwendet, die scharfe Objekte verwischt. Der Effekt ist ein weicheres Bild. Diese Methode kann z.B. auf digitale Topographische Karten angewendet werden.</p>
-<h2 id="transparency-menu">Men&#xFC; Transparenz </h2>
-<p>KADAS besitzt die F&#xE4;higkeit jeden Rasterlayer auf einem unterschiedlichen Transparenzlevel darzustellen. Verwenden Sie den Transparenzschieberegler <img src="../../images/slider.png" alt="slider"> um einzugeben bis zu welchem Ausma&#xDF; die darunterliegenden Layer (falls es welche gibt) sichtbar durch den aktuellen Rasterlayer sein sollen. Dies ist sehr n&#xFC;tzlich wenn Sie mehr als einen Rasterlayer &#xFC;berlagern wollen (z.B. wenn eine Schummerungskarte von einer klassifizierten Rasterkarte &#xFC;berlagert werden soll). So wird die Karte dreidimensionaler aussehen.</p>
-<p>Zus&#xE4;tzlich k&#xF6;nnen Sie einen Rasterwert eingeben der als <strong>Leerwert</strong> im <em>Zus&#xE4;tzlicher Leerwert</em> Men&#xFC; behandelt wird.</p>
-<p>Die Transparenz kann noch flexibler &#xFC;ber die <em>Transparente Pixelliste</em> angepasst werden. Die Transparenz jedes Pixels kann hier eingestellt werden.</p>
-<p>Als Beispiel wollen wir die Wasserfl&#xE4;chen aus dem Rasterlayer <code>landcover.tif</code> auf eine Transparenz von 20% setzen. Folgende Schritte sind dazu notwendig:</p>
+Raster Rendering - Resampling </p>
+<p>When applying the &#x2018;Nearest neighbour&#x2019; method, the map can have a pixelated structure when zooming in. This appearance can be improved by using the &#x2018;Bilinear&#x2019; or &#x2018;Cubic&#x2019; method, which cause sharp features to be blurred. The effect is a smoother image. This method can be applied, for instance, to digital topographic raster maps.</p>
+<h2 id="transparency-menu">Transparency Menu </h2>
+<p>KADAS has the ability to display each raster layer at a different transparency level. Use the transparency slider <img src="../../images/slider.png" alt="slider"> to indicate to what extent the underlying layers (if any) should be visible though the current raster layer. This is very useful if you like to overlay more than one raster layer (e.g., a shaded relief map overlayed by a classified raster map). This will make the look of the map more three dimensional.</p>
+<p>Additionally, you can enter a raster value that should be treated as <em>NODATA</em> in the <em>Additional no data value</em> menu.</p>
+<p>An even more flexible way to customize the transparency can be done in the <em>Custom transparency options</em> section. The transparency of every pixel can be set here.</p>
+<p>As an example, we want to set the water of our example raster file <code>landcover.tif</code> to a transparency of 20%. The following steps are neccessary:</p>
 <ol>
-<li><p>Laden Sie die Rasterdatei <code>landcover.tif</code>.</p>
-</li>
-<li><p>&#xD6;ffnen Sie den Dialog <em>Layereigenschaften</em> indem Sie auf den Namen in der Legende doppelklicken, oder im Rechte-Maustaste Men&#xFC; <em>Eigenschaften</em> ausw&#xE4;hlen.</p>
-</li>
-<li><p>W&#xE4;hlen Sie das Men&#xFC; <em>Transparenz</em>.</p>
-</li>
-<li><p>W&#xE4;hlen Sie &#x2018;Keines&#x2019; aus dem <em>Transparenzkanal</em> Men&#xFC;.</p>
-</li>
-<li><p>Klicken Sie den <a href="../../images/mActionSignPlus.png" class="reference internal"><img src="../../images/mActionSignPlus.png" alt="mActionSignPlus"></a> <sup>Werte\ manuell\ hinzuf&#xFC;gen</sup> Knopf. Eine neue Zeile erscheint in der Pixelliste.</p>
-</li>
-<li><p>Geben Sie den Rasterwert in die &#x2018;Von&#x2019; und &#x2018;Nach&#x2019; Spalte ein (wir benutzen hier 0) und passen Sie die Transparenz auf 20% an.</p>
-</li>
-<li><p>Dr&#xFC;cken Sie den Knopf <strong>[Anwenden]</strong> und schauen Sie sich das Ergebnis an.</p>
-</li>
+<li>Load the raster file <code>landcover.tif</code>.</li>
+<li>Open the <em>Properties</em> dialog by double-clicking on the raster name in the legend, or by right-clicking and choosing <em>Properties</em> from the pop-up menu.</li>
+<li>Select the <em>Transparency</em> menu.</li>
+<li>From the <em>Transparency band</em> menu, choose &#x2018;None&#x2019;.</li>
+<li>Click the <a href="../../images/mActionSignPlus.png" class="reference internal"><img src="../../images/mActionSignPlus.png" alt="mActionSignPlus"></a> <sup>Add\ values\ manually</sup> button. A new row will appear in the pixel list.</li>
+<li>Enter the raster value in the &#x2018;From&#x2019; and &#x2018;To&#x2019; column (we use 0 here), and adjust the transparency to 20%.</li>
+<li>Press the <strong>[Apply]</strong> button and have a look at the map.</li>
 </ol>
-<p>Sie k&#xF6;nnen Schritte 5 und 6 wiederholen um mehr Werte mit benutzerdefinierter Transparenz einzustellen.</p>
-<p>Wie Sie sehen k&#xF6;nnen ist es recht einfach die benutzerdefinierte Transparenz einzustellen, aber es kann ganz sch&#xF6;n viel Arbeit sein. Deswegen k&#xF6;nnen Sie den Knopf <a href="../../images/mActionFileSave.png" class="reference internal"><img src="../../images/mActionFileSave.png" alt="mActionFileSave"></a> <sup>In\ Datei\ exportieren</sup> benutzen um Ihre Transparenzliste in eine Datei zu speichern. Der Knopf <a href="../../images/mActionFileOpen.png" class="reference internal"><img src="../../images/mActionFileOpen.png" alt="mActionFileOpen"></a> <sup>Aus\ Datei\ importieren</sup> l&#xE4;dt Ihre Transparenzeinstellungen und wendet sie auf den aktuellen Rasterlayer an.</p>
-<h2 id="metadata-menu">Men&#xFC; Metadaten </h2>
-<p>Das <em>Metadaten</em> Men&#xFC; stellt eine F&#xFC;lle von Informationen &#xFC;ber den Rasterlayer dar, einschlie&#xDF;lich Statistiken &#xFC;ber jeden Kanal im aktuellen Rasterlayer. In diesem Men&#xFC; k&#xF6;nnen Eintr&#xE4;ge f&#xFC;r <em>Beschreibung</em>, <em>Beschreibung</em>, <em>Metadaten-URL</em> und <em>Eigenschaften</em> gemacht werden. In <em>Eigenschaften</em> werden Statistiken nach dem Prinzip &#x2018;was brauche ich&#x2019; erstellt, so dass es gut sein kann dass f&#xFC;r einen Rasterlayer noch keine Statistik erstellt oder gesammelt wurde.</p>
+<p>You can repeat steps 5 and 6 to adjust more values with custom transparency.</p>
+<p>As you can see, it is quite easy to set custom transparency, but it can be quite a lot of work. Therefore, you can use the button <a href="../../images/mActionFileSave.png" class="reference internal"><img src="../../images/mActionFileSave.png" alt="mActionFileSave"></a> <sup>Export\ to\ file</sup> to save your transparency list to a file. The button <a href="../../images/mActionFileOpen.png" class="reference internal"><img src="../../images/mActionFileOpen.png" alt="mActionFileOpen"></a> <sup>Import\ from\ file</sup> loads your transparency settings and applies them to the current raster layer.</p>
+<h2 id="metadata-menu">Metadata Menu </h2>
+<p>The <em>Metadata</em> menu displays a wealth of information about the raster layer, including statistics about each band in the current raster layer. From this menu, entries may be made for the <em>Description</em>, <em>Attribution</em>, <em>MetadataUrl</em> and <em>Properties</em>. In <em>Properties</em>, statistics are gathered on a &#x2018;need to know&#x2019; basis, so it may well be that a given layer&#x2019;s statistics have not yet been collected.</p>
 <p><strong>Figure Raster 9:</strong></p>
 <p><img src="../../images/rasterMetadata.png" alt="">
-Rasterlayer Metadaten </p>
+Raster Metadata </p>
 
                                 
                                 </section>
@@ -549,7 +530,7 @@ Rasterlayer Metadaten </p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Dialogfenster Rasterlayereigenschaften","level":"1.10.8","depth":2,"next":{"title":"Anhang","level":"1.11","depth":1,"path":"appendices/appendices.md","ref":"appendices/appendices.md","articles":[]},"previous":{"title":"Arbeiten mit Rasterdaten","level":"1.10.7","depth":2,"path":"working_with_raster/supported_data.md","ref":"working_with_raster/supported_data.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-element","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"offline":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"de","gitbook":"*"},"file":{"path":"working_with_raster/raster_properties.md","mtime":"2017-11-13T12:09:31.103Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-14T18:15:20.331Z"},"basePath":"..","book":{"language":"de"}});
+            gitbook.page.hasChanged({"page":{"title":"Dialogfenster Rasterlayereigenschaften","level":"1.10.8","depth":2,"next":{"title":"Anhang","level":"1.11","depth":1,"path":"appendices/appendices.md","ref":"appendices/appendices.md","articles":[]},"previous":{"title":"Arbeiten mit Rasterdaten","level":"1.10.7","depth":2,"path":"working_with_raster/supported_data.md","ref":"working_with_raster/supported_data.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-element","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"offline":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"de","gitbook":"*"},"file":{"path":"working_with_raster/raster_properties.md","mtime":"2017-11-13T12:09:31.107Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-15T14:01:38.795Z"},"basePath":"..","book":{"language":"de"}});
         });
     </script>
 </div>

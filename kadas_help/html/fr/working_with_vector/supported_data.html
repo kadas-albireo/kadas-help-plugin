@@ -387,54 +387,48 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="supported-data-formats">Formats de donn&#xE9;es g&#xE9;r&#xE9;s </h1>
-<p>KADAS utilise la biblioth&#xE8;que OGR pour lire et &#xE9;crire des donn&#xE9;es vectorielles incluant les formats ESRI shapefiles, MapInfo et MicroStation; les bases de donn&#xE9;es AutoCAD DXF, PostGIS, SpatiaLite, Oracle Spatial et MS SQL Spatial et de nombreux autres formats. Les donn&#xE9;es vectorielles GRASS et PostgreSQL sont g&#xE9;r&#xE9;es par des extensions natives de KADAS. Les donn&#xE9;es vectorielles peuvent &#xE9;galement &#xEA;tre lues depuis des archives zip ou gzip. A ce jour, 69 formats de donn&#xE9;es vectorielles sont g&#xE9;r&#xE9;s par la biblioth&#xE8;que OGR (voir OGR-SOFTWARE-SUITE dans <em>literature_and_web</em>). La liste compl&#xE8;te est disponible sur <a href="http://www.gdal.org/ogr/ogr_formats.html" class="uri" target="_blank">http://www.gdal.org/ogr/ogr_formats.html</a>.</p>
-<h2 id="esri-shapefiles">Shapefiles ESRI </h2>
-<p>Le format de fichier vecteur standard utilis&#xE9; par QGIS est le shapefile ESRI. Il est g&#xE9;r&#xE9; &#xE0; travers la biblioth&#xE8;que <span id="index-5" class="target"></span>OGR Simple Feature Library (<a href="http://www.gdal.org/ogr/" class="uri" target="_blank">http://www.gdal.org/ogr/</a>).</p>
-<p>Un shapefile est en r&#xE9;alit&#xE9; compos&#xE9; de plusieurs fichiers. Les trois suivants sont requis :</p>
+                                <h1 id="supported-data-formats">Supported Data Formats </h1>
+<p>KADAS uses the OGR library to read and write vector data formats, including ESRI shapefiles, MapInfo and MicroStation file formats, AutoCAD DXF, PostGIS, SpatiaLite, Oracle Spatial and MSSQL Spatial databases, and many more. GRASS vector and PostgreSQL support is supplied by native KADAS data provider plugins. Vector data can also be loaded in read mode from zip and gzip archives into KADAS. As of the date of this document, 69 vector formats are supported by the OGR library (see OGR-SOFTWARE-SUITE in <em>literature_and_web</em>). The complete list is available at <a href="http://www.gdal.org/ogr/ogr_formats.html" class="uri" target="_blank">http://www.gdal.org/ogr/ogr_formats.html</a>.</p>
+<h2 id="esri-shapefiles">ESRI Shapefiles </h2>
+<p>The standard vector file format used in KADAS is the ESRI shapefile. Support is provided by the <span id="index-1" class="target"></span>OGR Simple Feature Library (<a href="http://www.gdal.org/ogr/" class="uri" target="_blank">http://www.gdal.org/ogr/</a>).</p>
+<p>A shapefile actually consists of several files. The following three are required:</p>
 <ol>
-<li><p><code>.shp</code> fichier contenant la g&#xE9;om&#xE9;trie des entit&#xE9;s.</p>
-</li>
-<li><p><code>.dbf</code> fichier contenant les attributs au format dBase.</p>
-</li>
-<li><p><code>.shx</code> fichier d&#x2019;index.</p>
-</li>
+<li><code>.shp</code> file containing the feature geometries</li>
+<li><code>.dbf</code> file containing the attributes in dBase format</li>
+<li><code>.shx</code> index file</li>
 </ol>
-<p>Un shapefile inclus &#xE9;galement un fichier ayant l&#x2019;extension <code>.prj</code> qui contient les informations sur le syst&#xE8;me de coordonn&#xE9;es. Bien que ces informations soient tr&#xE8;s utiles elles ne sont pas obligatoires. Il peut y avoir encore d&#x2019;autres fichiers associ&#xE9;s aux donn&#xE9;es shapefile. Si vous souhaitez avoir plus de d&#xE9;tails, nous vous recommandons de vous reporter aux sp&#xE9;cifications techniques du format shapefile, qui se trouve notamment sur <a href="http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf" class="uri" target="_blank">http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf</a>.</p>
-<h3 id="loading-a-shapefile">Charger un Shapefile </h3>
+<p>Shapefiles also can include a file with a <code>.prj</code> suffix, which contains the projection information. While it is very useful to have a projection file, it is not mandatory. A shapefile dataset can contain additional files. For further details, see the ESRI technical specification at <a href="http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf" class="uri" target="_blank">http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf</a>.</p>
+<h3 id="loading-a-shapefile">Loading a Shapefile </h3>
 <p>When loading a vector layer, the following dialog opens:</p>
 <p><strong>Figure Vector 1:</strong></p>
 <p><img src="../../images/addvectorlayerdialog.png" alt="">
-Fen&#xEA;tre d&#x2019;ajout d&#x2019;une couche vectorielle </p>
-<p>Cliquez sur <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Fichier</em> puis sur le bouton <strong>[Parcourir]</strong>. L&#x2019;outil ouvre alors une fen&#xEA;tre de dialogue standard (voir <a href="#figure-vector-2" class="reference internal">figure_vector_2</a>) qui vous permet de naviguer dans les r&#xE9;pertoires et les fichiers, et charger le shapefile ou tout autre format g&#xE9;r&#xE9;. La bo&#xEE;te de s&#xE9;lection <em>Fichiers de type</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a> vous permet de pr&#xE9;s&#xE9;lectionner un format de fichier g&#xE9;r&#xE9; par OGR.</p>
-<p>Si vous le souhaitez, vous pouvez &#xE9;galement s&#xE9;lectionner le type de codage du shapefile.</p>
+Add Vector Layer Dialog </p>
+<p>From the available options check <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>File</em>. Click on <strong>[Browse]</strong>. That will bring up a standard open file dialog (see <a href="#figure-vector-2" class="reference internal">figure_vector_2</a>), which allows you to navigate the file system and load a shapefile or other supported data source. The selection box <em>Filter</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a> allows you to preselect some OGR-supported file formats.</p>
+<p>You can also select the encoding for the shapefile if desired.</p>
 <p><strong>Figure Vector 2:</strong></p>
 <p><img src="../../images/shapefileopendialog.png" alt="">
-Fen&#xEA;tre d&#x2019;ouverture de donn&#xE9;es vectorielles dont le format est g&#xE9;r&#xE9; par OGR </p>
+Open an OGR Supported Vector Layer Dialog </p>
 <p>Selecting a shapefile from the list and clicking <strong>[Open]</strong> loads it into KADAS.</p>
-<p>Astuce</p>
-<p><strong>Couleur des couches</strong></p>
-<p>Quand vous ajoutez une couche sur une carte, une couleur al&#xE9;atoire lui est assign&#xE9;e. En ajoutant plusieurs couches en une fois, diff&#xE9;rentes couleurs sont assign&#xE9;es &#xE0; chacune des couches.</p>
-<p>Une fois le shapefile charg&#xE9;, vous pouvez zoomer dessus en utilisant les outils de navigation sur la carte. Pour changer la symbologie d&#x2019;une couche, ouvrez la fen&#xEA;tre <em>Propri&#xE9;t&#xE9;s de la Couche</em> en double-cliquant sur le nom de la couche ou en faisant un clic droit sur son nom dans la l&#xE9;gende et en choisissant <em>Propri&#xE9;t&#xE9;s</em> dans le menu qui apparait. Pour plus de d&#xE9;tails sur les param&#xE8;tres de la symbologie des couches vectorielles, r&#xE9;f&#xE9;rez-vous &#xE0; la section <a href="vector_properties.html#vector-style-menu" class="reference internal"><em>Onglet Style</em></a>.</p>
-<h3 id="improving-performance-for-shapefiles">Am&#xE9;liorer les performances d&#x2019;affichage des Shapefiles </h3>
-<p>Pour am&#xE9;liorer les performances de dessin d&#x2019;un shapefile, vous pouvez cr&#xE9;er un index spatial. Un index spatial am&#xE9;liorera &#xE0; la fois la vitesse d&#x2019;ex&#xE9;cution du zoom et du d&#xE9;placement panoramique. Les index spatiaux utilis&#xE9;s par QGIS ont une extension <code>.qix</code>.</p>
-<p>Voici les &#xE9;tapes de cr&#xE9;ation d&#x2019;un index spatial :</p>
+<p>Tip</p>
+<p><strong>Layer Colors</strong></p>
+<p>When you add a layer to the map, it is assigned a random color. When adding more than one layer at a time, different colors are assigned to each layer.</p>
+<p>Once a shapefile is loaded, you can zoom around it using the map navigation tools. To change the style of a layer, open the <em>Layer Properties</em> dialog by double clicking on the layer name or by right-clicking on the name in the legend and choosing <em>Properties</em> from the context menu. See section <a href="vector_properties.html#vector-style-menu" class="reference internal"><em>Style Menu</em></a> for more information on setting symbology of vector layers.</p>
+<h3 id="improving-performance-for-shapefiles">Improving Performance for Shapefiles </h3>
+<p>To improve the performance of drawing a shapefile, you can create a spatial index. A spatial index will improve the speed of both zooming and panning. Spatial indexes used by KADAS have a <code>.qix</code> extension.</p>
+<p>Use these steps to create the index:</p>
 <ul>
-<li><p>Chargez un shapefile en cliquant sur le bouton <a href="../../images/mActionAddOgrLayer.png" class="reference internal"><img src="../../images/mActionAddOgrLayer.png" alt="mActionAddOgrLayer"></a> <sup>Ajouter\ une\ couche\ vecteur</sup> de la barre d&#x2019;outils ou en pressant les touches <code>Ctrl+Shift+V</code>.</p>
-</li>
-<li><p>Ouvrez la fen&#xEA;tre <em>Propri&#xE9;t&#xE9;s de la Couche</em> en double-cliquant sur le nom de la couche dans la l&#xE9;gende ou en faisant un clic droit et en choisissant <em>Propri&#xE9;t&#xE9;s</em> dans le menu qui apparait.</p>
-</li>
-<li><p>Dans l&#x2019;onglet <em>G&#xE9;n&#xE9;ral</em>, cliquez sur le bouton <strong>[Cr&#xE9;er un index spatial]</strong>.</p>
-</li>
+<li>Load a shapefile by clicking on the <a href="../../images/mActionAddOgrLayer.png" class="reference internal"><img src="../../images/mActionAddOgrLayer.png" alt="mActionAddOgrLayer"></a> <sup>Add\ Vector\ Layer</sup> toolbar button or pressing <code>Ctrl+Shift+V</code>.</li>
+<li>Open the <em>Layer Properties</em> dialog by double-clicking on the shapefile name in the legend or by right-clicking and choosing <em>Properties</em> from the context menu.</li>
+<li>In the <em>General</em> tab, click the <strong>[Create Spatial Index]</strong> button.</li>
 </ul>
-<h3 id="problem-loading-a-shape-prj-file">Probl&#xE8;me de chargement de fichier .prj </h3>
-<p>Si vous ouvrez un shapefile disposant d&#x2019;un fichier <code>.prj</code> et que KADAS ne parvient pas &#xE0; lire le syst&#xE8;me de coordonn&#xE9;es de r&#xE9;f&#xE9;rence, vous allez devoir le d&#xE9;finir manuellement via l&#x2019;onglet <em>G&#xE9;n&#xE9;ral</em> de la fen&#xEA;tre de <em>Propri&#xE9;t&#xE9;s de la Couche</em> en cliquant sur le bouton <strong>[Specifier...]</strong>. Cela est d&#xFB; au fait que ce fichier <code>.prj</code> ne fournit pas les param&#xE8;tres complets de la projection requis par KADAS et list&#xE9;s dans la fen&#xEA;tre <em>SCR</em>.</p>
-<p>C&#x2019;est pour la m&#xEA;me raison que lorsque vous cr&#xE9;ez un nouveau shapefile avec KADAS, deux fichiers de projection diff&#xE9;rents sont cr&#xE9;&#xE9;s. Un fichier <code>.prj</code> contenant un nombre limit&#xE9; de param&#xE8;tres, compatible avec les logiciels ESRI et un fichier <code>.qpj</code>, fournissant la totalit&#xE9; des param&#xE8;tres du SCR utilis&#xE9;. Chaque fois que KADAS trouve un fichier <code>.qpj</code>, il l&#x2019;utilisera &#xE0; la place du fichier <code>.prj</code>.</p>
-<h2 id="loading-a-mapinfo-layer">Charger une couche MapInfo </h2>
+<h3 id="problem-loading-a-shape-prj-file">Problem loading a shape .prj file </h3>
+<p>If you load a shapefile with a <code>.prj</code> file and KADAS is not able to read the coordinate reference system from that file, you will need to define the proper projection manually within the <em>General</em> tab of the <em>Layer Properties</em> dialog of the layer by clicking the <strong>[Specify...]</strong> button. This is due to the fact that <code>.prj</code> files often do not provide the complete projection parameters as used in KADAS and listed in the <em>CRS</em> dialog.</p>
+<p>For the same reason, if you create a new shapefile with KADAS, two different projection files are created: a <code>.prj</code> file with limited projection parameters, compatible with ESRI software, and a <code>.qpj</code> file, providing the complete parameters of the used CRS. Whenever KADAS finds a <code>.qpj</code> file, it will be used instead of the <code>.prj</code>.</p>
+<h2 id="loading-a-mapinfo-layer">Loading a MapInfo Layer </h2>
 <p><a href="../../images/mActionAddOgrLayer.png" class="reference internal"><img src="../../images/mActionAddOgrLayer.png" alt="mActionAddOgrLayer"></a> To load a MapInfo layer, change the file type filter <em>Files of type</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a>: to &#x2018;Mapinfo File [OGR] (*.mif *.tab *.MIF *.TAB)&#x2019; and select the MapInfo layer you want to load.</p>
-<h2 id="loading-an-arcinfo-binary-coverage">Charger une couverture ArcInfo binaire </h2>
+<h2 id="loading-an-arcinfo-binary-coverage">Loading an ArcInfo Binary Coverage </h2>
 <p><a href="../../images/mActionAddOgrLayer.png" class="reference internal"><img src="../../images/mActionAddOgrLayer.png" alt="mActionAddOgrLayer"></a> To load an ArcInfo Binary Coverage, select <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Directory</em> as <em>Source type</em>. Change the file type filter <em>Files of type</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a> to &#x2018;Arc/Info Binary Coverage&#x2019;. Navigate to the directory that contains the coverage file, and select it.</p>
-<p>De mani&#xE8;re similaire vous pouvez directement charger les fichiers vecteurs au format UK National Transfer ainsi que le format TIGER brut de l&#x2019;US Census Bureau.</p>
+<p>Similarly, you can load directory-based vector files in the UK National Transfer Format, as well as the raw TIGER Format of the US Census Bureau.</p>
 
                                 
                                 </section>
@@ -478,7 +472,7 @@ Fen&#xEA;tre d&#x2019;ouverture de donn&#xE9;es vectorielles dont le format est 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Les données vectorielles","level":"1.10.3","depth":2,"next":{"title":"Fenêtre Propriétés d’une couche vecteur","level":"1.10.4","depth":2,"path":"working_with_vector/vector_properties.md","ref":"working_with_vector/vector_properties.md","articles":[]},"previous":{"title":"Composeur d’Impression","level":"1.10.2","depth":2,"path":"print_composer/print_composer.md","ref":"print_composer/print_composer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-element","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"offline":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"working_with_vector/supported_data.md","mtime":"2017-11-13T12:09:31.112Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-14T18:15:20.331Z"},"basePath":"..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Les données vectorielles","level":"1.10.3","depth":2,"next":{"title":"Fenêtre Propriétés d’une couche vecteur","level":"1.10.4","depth":2,"path":"working_with_vector/vector_properties.md","ref":"working_with_vector/vector_properties.md","articles":[]},"previous":{"title":"Composeur d’Impression","level":"1.10.2","depth":2,"path":"print_composer/print_composer.md","ref":"print_composer/print_composer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-element","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"offline":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"working_with_vector/supported_data.md","mtime":"2017-11-13T12:09:31.108Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-15T14:01:38.795Z"},"basePath":"..","book":{"language":"fr"}});
         });
     </script>
 </div>

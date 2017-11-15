@@ -387,54 +387,48 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="supported-data-formats">Unterst&#xFC;tzte Datenformate </h1>
-<p>KADAS verwendet die OGR-bibliothek um Vektordatenformate zu lesen und zu schreiben, einschlie&#xDF;lich ESRI Shapedateien, MapInfo und MicroStation Dateiformate, AutoCAD DXF, PostGIS, SpatiaLite, Oracle Spatial und MSSQL Spatial Datenbanken und viele mehr. GRASS Vektor und PostgreSQL Support wird duch native Datenprovider Plugins bereitgestellt. Die Vektordaten k&#xF6;nnen auch im Lesemodus aus zip- und gzip-Archiven ins KADAS geladen werden. Zum Zeitpunkt der Erstellung dieses Dokumentes werden 69 Vektorformate von der OGR-Bibliothek unterst&#xFC;tzt (siehe OGR-SOFTWARE-SUITE in <em>literature_and_web</em>). Die vollst&#xE4;ndige Liste ist auf <a href="http://www.gdal.org/ogr/ogr_formats.html" class="uri" target="_blank">http://www.gdal.org/ogr/ogr_formats.html</a> zu finden.</p>
-<h2 id="esri-shapefiles">ESRI Shapes </h2>
-<p>Die ESRI Shapedatei ist das Standard Vektorformat in QGIS und wird durch die <span id="index-5" class="target"></span>OGR Simple Feature Library (<a href="http://www.gdal.org/ogr/" class="uri" target="_blank">http://www.gdal.org/ogr/</a> ) bereitgestellt.</p>
-<p>Ein Shape besteht derzeit aus mehreren Dateien. Die folgenden drei sind erforderlich:</p>
+                                <h1 id="supported-data-formats">Supported Data Formats </h1>
+<p>KADAS uses the OGR library to read and write vector data formats, including ESRI shapefiles, MapInfo and MicroStation file formats, AutoCAD DXF, PostGIS, SpatiaLite, Oracle Spatial and MSSQL Spatial databases, and many more. GRASS vector and PostgreSQL support is supplied by native KADAS data provider plugins. Vector data can also be loaded in read mode from zip and gzip archives into KADAS. As of the date of this document, 69 vector formats are supported by the OGR library (see OGR-SOFTWARE-SUITE in <em>literature_and_web</em>). The complete list is available at <a href="http://www.gdal.org/ogr/ogr_formats.html" class="uri" target="_blank">http://www.gdal.org/ogr/ogr_formats.html</a>.</p>
+<h2 id="esri-shapefiles">ESRI Shapefiles </h2>
+<p>The standard vector file format used in KADAS is the ESRI shapefile. Support is provided by the <span id="index-1" class="target"></span>OGR Simple Feature Library (<a href="http://www.gdal.org/ogr/" class="uri" target="_blank">http://www.gdal.org/ogr/</a>).</p>
+<p>A shapefile actually consists of several files. The following three are required:</p>
 <ol>
-<li><p><code>shp</code> Datei (enth&#xE4;lt die Geometrien)</p>
-</li>
-<li><p><code>.dbf</code> Datei (enth&#xE4;lt die Attribute im dBase-Format)</p>
-</li>
-<li><p><code>.shx</code> Indexdatei</p>
-</li>
+<li><code>.shp</code> file containing the feature geometries</li>
+<li><code>.dbf</code> file containing the attributes in dBase format</li>
+<li><code>.shx</code> index file</li>
 </ol>
-<p>Dar&#xFC;ber hinaus kann eine Datei mit .prj Endung existieren. Diese enth&#xE4;lt die Projektionsinformationen des Shapes. W&#xE4;hrend es sehr n&#xFC;tzlich ist eine Projektionsdatei zu verwenden ist dies nicht zwingend erforderlich. Ein Shape-Datensatz kann zus&#xE4;tzliche Dateien enthalten. Details dazu finden sich in der technischen Spezifikation von ESRI unter <a href="http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf" class="uri" target="_blank">http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf</a>.</p>
-<h3 id="loading-a-shapefile">Shape Layer laden </h3>
+<p>Shapefiles also can include a file with a <code>.prj</code> suffix, which contains the projection information. While it is very useful to have a projection file, it is not mandatory. A shapefile dataset can contain additional files. For further details, see the ESRI technical specification at <a href="http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf" class="uri" target="_blank">http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf</a>.</p>
+<h3 id="loading-a-shapefile">Loading a Shapefile </h3>
 <p>When loading a vector layer, the following dialog opens:</p>
 <p><strong>Figure Vector 1:</strong></p>
 <p><img src="../../images/addvectorlayerdialog.png" alt="">
-Vektorlayer hinzuf&#xFC;gen Dialog </p>
-<p>W&#xE4;hlen Sie aus den m&#xF6;glichen Quelltypen <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Datei</em> und klicken Sie auf den Knopf <strong>[Durchsuchen]</strong>. Dadurch erscheint ein weiterer Dialog zum &#xD6;ffnen (siehe <a href="#figure-vector-2" class="reference internal">figure_vector_2</a>) mit dem Sie im Dateisystem navigieren k&#xF6;nnen und Sie ein Shape oder eine andere unterst&#xFC;tzte Datenquelle laden k&#xF6;nnen. Die Auswahlbox <em>Filter</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a> erm&#xF6;glicht es Ihnen einige OGR-unters&#xFC;tzte Dateiformate vorzuw&#xE4;hlen.</p>
-<p>Au&#xDF;erdem kann auch der Kodierungstyp f&#xFC;r die Shapedatei eingestellt werden, falls dies notwendig ist.</p>
+Add Vector Layer Dialog </p>
+<p>From the available options check <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>File</em>. Click on <strong>[Browse]</strong>. That will bring up a standard open file dialog (see <a href="#figure-vector-2" class="reference internal">figure_vector_2</a>), which allows you to navigate the file system and load a shapefile or other supported data source. The selection box <em>Filter</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a> allows you to preselect some OGR-supported file formats.</p>
+<p>You can also select the encoding for the shapefile if desired.</p>
 <p><strong>Figure Vector 2:</strong></p>
 <p><img src="../../images/shapefileopendialog.png" alt="">
-&#xD6;ffnen eines OGR-Vektorlayers Dialog </p>
+Open an OGR Supported Vector Layer Dialog </p>
 <p>Selecting a shapefile from the list and clicking <strong>[Open]</strong> loads it into KADAS.</p>
-<p>Tipp</p>
-<p><strong>Farben von Vektorlayern</strong></p>
-<p>Wenn Sie einen neuen Vektorlayer in QGIS laden, werden Farben zuf&#xE4;llig zugewiesen. Wenn Sie mehrere neue Vektorlayer laden, werden jeweils unterschiedliche Farben zugewiesen.</p>
-<p>Nach dem Laden k&#xF6;nnen Sie mit den Navigationstools aus der Werkzeugleiste beliebig zoomen. Um den Stil eines Layers zu ver&#xE4;ndern &#xF6;ffnen Sie den <em>Layereigenschaften</em> Dialog in dem Sie auf den Layernamen doppelklicken oder indem Sie einen Rechtsklick auf den Namen in der Legende machen und <em>Eigenschaften</em> im Popupmenu w&#xE4;hlen. Vergleichen Sie Abschnitt <em>vector_style_tab</em> f&#xFC;r weitere Informationen zum Editieren der Eigenschaften von Vektorlayern.</p>
-<h3 id="improving-performance-for-shapefiles">Die Darstellungsgeschwindigkeit von Shapdedateien verbessern </h3>
-<p>Um die Darstellungsgeschwindigkeit zu optimieren, kann ein r&#xE4;umlicher Index erstellt werden. Ein r&#xE4;umlicher Index erh&#xF6;ht die Geschwindigkeit beim Zoomen und Verschieben. R&#xE4;umliche Indizes haben in KADAS die Endung <code>.qix</code>.</p>
-<p>Benutzen Sie folgende Schritte zum Erstellen eines r&#xE4;umlichen Index:</p>
+<p>Tip</p>
+<p><strong>Layer Colors</strong></p>
+<p>When you add a layer to the map, it is assigned a random color. When adding more than one layer at a time, different colors are assigned to each layer.</p>
+<p>Once a shapefile is loaded, you can zoom around it using the map navigation tools. To change the style of a layer, open the <em>Layer Properties</em> dialog by double clicking on the layer name or by right-clicking on the name in the legend and choosing <em>Properties</em> from the context menu. See section <a href="vector_properties.html#vector-style-menu" class="reference internal"><em>Style Menu</em></a> for more information on setting symbology of vector layers.</p>
+<h3 id="improving-performance-for-shapefiles">Improving Performance for Shapefiles </h3>
+<p>To improve the performance of drawing a shapefile, you can create a spatial index. A spatial index will improve the speed of both zooming and panning. Spatial indexes used by KADAS have a <code>.qix</code> extension.</p>
+<p>Use these steps to create the index:</p>
 <ul>
-<li><p>Um eine Shapedatei zu laden klicken Sie auf den <a href="../../images/mActionAddOgrLayer.png" class="reference internal"><img src="../../images/mActionAddOgrLayer.png" alt="mActionAddOgrLayer"></a> <sup>Vektorlayer\ hinzuf&#xFC;gen</sup> Knopf in der Werkzeugleiste oder dr&#xFC;cken einfach <code>Strg+Umschalt+V</code>.</p>
-</li>
-<li><p>&#xD6;ffnen Sie den <em>Eigenschaften</em>-Dialog des Vektorlayers, indem Sie auf den Namen des Layers in der Legende doppelklicken oder mit der rechten Maustaste <em>Eigenschaften</em> ausw&#xE4;hlen.</p>
-</li>
-<li><p>Im Men&#xFC; <em>Allgemein</em> klicken Sie auf den <strong>[R&#xE4;umlichen Index erzeugen]</strong> Knopf.</p>
-</li>
+<li>Load a shapefile by clicking on the <a href="../../images/mActionAddOgrLayer.png" class="reference internal"><img src="../../images/mActionAddOgrLayer.png" alt="mActionAddOgrLayer"></a> <sup>Add\ Vector\ Layer</sup> toolbar button or pressing <code>Ctrl+Shift+V</code>.</li>
+<li>Open the <em>Layer Properties</em> dialog by double-clicking on the shapefile name in the legend or by right-clicking and choosing <em>Properties</em> from the context menu.</li>
+<li>In the <em>General</em> tab, click the <strong>[Create Spatial Index]</strong> button.</li>
 </ul>
-<h3 id="problem-loading-a-shape-prj-file">Problem beim Laden eines Shapes mit .prj Datei </h3>
-<p>Wenn Sie eine Shapedatei mit <code>.prj</code>-Datei laden und KADAS ist nicht in der Lage, die Projektionsinformationen korrekt auszulesen, ist es notwendig das Koordinatenbezugsystem (KBS) manuell im <em>Allgemein</em> Men&#xFC; des <em>Layereigenschaften</em> Dialog anhand des <strong>[Festlegen ...]</strong> Knopfs anzugeben. Hintergrund ist, dass <code>.prj</code> Dateien oftmals nicht die vollst&#xE4;ndigen Projektionsparameter enthalten, so wie KADAS sie ben&#xF6;tigt und auch im <em>KBS</em> Dialog anzeigt.</p>
-<p>Aus diesem Grund, wenn Sie ein neues Shapefile mit KADAS erstellen, werden derzeit zwei unterschiedliche Projektionsdateien angelegt. Eine <code>.prj</code> Datei, mit den unvollst&#xE4;ndigen Projektionsparametern, wie sie z.B. von ESRI Software gelesen und erstellt wird, und eine <code>.qpj</code> Datei, in der die vollst&#xE4;ndigen Projektionsparameter anthalten sind. Wenn Sie dann ein Shape in KADAS laden, und QGIS findet eine <code>.qpj</code> Datei, dann wird diese anstelle der <code>.prj</code> Datei benutzt.</p>
-<h2 id="loading-a-mapinfo-layer">MapInfo Layer laden </h2>
+<h3 id="problem-loading-a-shape-prj-file">Problem loading a shape .prj file </h3>
+<p>If you load a shapefile with a <code>.prj</code> file and KADAS is not able to read the coordinate reference system from that file, you will need to define the proper projection manually within the <em>General</em> tab of the <em>Layer Properties</em> dialog of the layer by clicking the <strong>[Specify...]</strong> button. This is due to the fact that <code>.prj</code> files often do not provide the complete projection parameters as used in KADAS and listed in the <em>CRS</em> dialog.</p>
+<p>For the same reason, if you create a new shapefile with KADAS, two different projection files are created: a <code>.prj</code> file with limited projection parameters, compatible with ESRI software, and a <code>.qpj</code> file, providing the complete parameters of the used CRS. Whenever KADAS finds a <code>.qpj</code> file, it will be used instead of the <code>.prj</code>.</p>
+<h2 id="loading-a-mapinfo-layer">Loading a MapInfo Layer </h2>
 <p><a href="../../images/mActionAddOgrLayer.png" class="reference internal"><img src="../../images/mActionAddOgrLayer.png" alt="mActionAddOgrLayer"></a> To load a MapInfo layer, change the file type filter <em>Files of type</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a>: to &#x2018;Mapinfo File [OGR] (*.mif *.tab *.MIF *.TAB)&#x2019; and select the MapInfo layer you want to load.</p>
-<h2 id="loading-an-arcinfo-binary-coverage">ArcInfo Binary Coverage laden </h2>
+<h2 id="loading-an-arcinfo-binary-coverage">Loading an ArcInfo Binary Coverage </h2>
 <p><a href="../../images/mActionAddOgrLayer.png" class="reference internal"><img src="../../images/mActionAddOgrLayer.png" alt="mActionAddOgrLayer"></a> To load an ArcInfo Binary Coverage, select <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Directory</em> as <em>Source type</em>. Change the file type filter <em>Files of type</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a> to &#x2018;Arc/Info Binary Coverage&#x2019;. Navigate to the directory that contains the coverage file, and select it.</p>
-<p>Auf die gleiche Art und Weise k&#xF6;nnen auch andere Verzeichnis-basierte Vektorlayer geladen werden, wie etwa das U.K. National Transfer Format oder das raw TIGER Format des U.S. Census Bureau.</p>
+<p>Similarly, you can load directory-based vector files in the UK National Transfer Format, as well as the raw TIGER Format of the US Census Bureau.</p>
 
                                 
                                 </section>
@@ -478,7 +472,7 @@ Vektorlayer hinzuf&#xFC;gen Dialog </p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Arbeiten mit Vektordaten","level":"1.10.3","depth":2,"next":{"title":"Vektorlayereigenschaften","level":"1.10.4","depth":2,"path":"working_with_vector/vector_properties.md","ref":"working_with_vector/vector_properties.md","articles":[]},"previous":{"title":"Druckzusammenstellung","level":"1.10.2","depth":2,"path":"print_composer/print_composer.md","ref":"print_composer/print_composer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-element","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"offline":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"de","gitbook":"*"},"file":{"path":"working_with_vector/supported_data.md","mtime":"2017-11-13T12:09:31.104Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-14T18:15:20.331Z"},"basePath":"..","book":{"language":"de"}});
+            gitbook.page.hasChanged({"page":{"title":"Arbeiten mit Vektordaten","level":"1.10.3","depth":2,"next":{"title":"Vektorlayereigenschaften","level":"1.10.4","depth":2,"path":"working_with_vector/vector_properties.md","ref":"working_with_vector/vector_properties.md","articles":[]},"previous":{"title":"Druckzusammenstellung","level":"1.10.2","depth":2,"path":"print_composer/print_composer.md","ref":"print_composer/print_composer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-element","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"offline":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"de","gitbook":"*"},"file":{"path":"working_with_vector/supported_data.md","mtime":"2017-11-13T12:09:31.108Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-15T14:01:38.795Z"},"basePath":"..","book":{"language":"de"}});
         });
     </script>
 </div>

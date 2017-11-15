@@ -387,297 +387,248 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="print-composer">Compositore di stampe </h1>
-<p>Con il Compositore di Stampa puoi creare mappe belle e atlanti, che possono essere stampati o salvati in formato PDF, immagine o SVG. Questo &#xE8; utile per condividere informazioni geografiche prodotte con KADAS che possono essere incluse in relazioni o pubblicate.</p>
+                                <h1 id="print-composer">Print Composer </h1>
+<p>With the Print Composer you can create nice maps and atlasses that can be printed or saved as PDF-file, an image or an SVG-file. This is a powerfull way to share geographical information produced with KADAS that can be included in reports or published.</p>
 <p>The Print Composer provides growing layout and printing capabilities. It allows you to add elements such as the KADAS map canvas, text labels, images, legends, scale bars, basic shapes, arrows, attribute tables and HTML frames. You can size, group, align, position and rotate each element and adjust the properties to create your layout. The layout can be printed or exported to image formats, PostScript, PDF or to SVG (export to SVG is not working properly with some recent Qt4 versions; you should try and check individually on your system). You can save the layout as a template and load it again in another session. Finally, generating several maps based on a template can be done through the atlas generator. See a list of tools in <a href="#table-composer-1" class="reference internal">table_composer_1</a>:</p>
-<p>Icona</p>
-<p>Azione</p>
-<p>Icona</p>
-<p>Azione</p>
+<p>Icon
+Purpose
+Icon
+Purpose</p>
 <p><a href="../../images/mActionFileSave.png" class="reference internal"><img src="../../images/mActionFileSave.png" alt="mActionFileSave"></a>
-Salva progetto</p>
-<p><a href="../../images/mActionNewComposer.png" class="reference internal"><img src="../../images/mActionNewComposer.png" alt="mActionNewComposer"></a>
-Nuova composizione</p>
-<p><a href="../../images/mActionDuplicateComposer.png" class="reference internal"><img src="../../images/mActionDuplicateComposer.png" alt="mActionDupComposer"></a>
-Duplica composizione</p>
-<p><a href="../../images/mActionComposerManager.png" class="reference internal"><img src="../../images/mActionComposerManager.png" alt="mActionComposerManager"></a>
-Gestore di stampe</p>
-<p><a href="../../images/mActionFileOpen.png" class="reference internal"><img src="../../images/mActionFileOpen.png" alt="mActionFileOpen"></a>
-Caraica da modello</p>
-<p><a href="../../images/mActionFileSaveAs.png" class="reference internal"><img src="../../images/mActionFileSaveAs.png" alt="mActionFileSaveAs"></a>
-Salva come modello</p>
-<p><a href="../../images/mActionFilePrint.png" class="reference internal"><img src="../../images/mActionFilePrint.png" alt="mActionFilePrint"></a>
-Stampa o esporta come</p>
-<p><a href="../../images/mActionSaveMapAsImage.png" class="reference internal"><img src="../../images/mActionSaveMapAsImage.png" alt="mActionSaveMapAsImage"></a>
-Esporta come immagine</p>
-<p><a href="../../images/mActionSaveAsSVG.png" class="reference internal"><img src="../../images/mActionSaveAsSVG.png" alt="mActionSaveAsSVG"></a>
-Esporta come SVG</p>
-<p><a href="../../images/mActionSaveAsPDF.png" class="reference internal"><img src="../../images/mActionSaveAsPDF.png" alt="mActionSaveAsPDF"></a>
-Esporta come PDF</p>
-<p><a href="../../images/mActionUndo.png" class="reference internal"><img src="../../images/mActionUndo.png" alt="mActionUndo"></a>
-Annulla l&#x2019;ultimo cambiamento</p>
-<p><a href="../../images/mActionRedo.png" class="reference internal"><img src="../../images/mActionRedo.png" alt="mActionRedo"></a>
-Rispristina l&#x2019;ultimo cambiamento</p>
-<p><a href="../../images/mActionZoomFullExtent.png" class="reference internal"><img src="../../images/mActionZoomFullExtent.png" alt="mActionZoomFullExtent"></a>
-Vista ad estensione massima</p>
-<p><a href="../../images/mActionZoomActual.png" class="reference internal"><img src="../../images/mActionZoomActual.png" alt="mActionZoomActual"></a>
-Zoom al 100%</p>
-<p><a href="../../images/mActionZoomIn.png" class="reference internal"><img src="../../images/mActionZoomIn.png" alt="mActionZoomIn"></a>
-Ingrandisci</p>
-<p><a href="../../images/mActionZoomIn.png" class="reference internal"><img src="../../images/mActionZoomIn.png" alt="mActionZoomIn"></a>
-Rimpicciolisci</p>
-<p><a href="../../images/mActionDraw.png" class="reference internal"><img src="../../images/mActionDraw.png" alt="mActionDraw"></a>
-Aggiorna la vista</p>
+Save Project
+<a href="../../images/mActionNewComposer.png" class="reference internal"><img src="../../images/mActionNewComposer.png" alt="mActionNewComposer"></a>
+New Composer
+<a href="../../images/mActionDuplicateComposer.png" class="reference internal"><img src="../../images/mActionDuplicateComposer.png" alt="mActionDupComposer"></a>
+Duplicate Composer
+<a href="../../images/mActionComposerManager.png" class="reference internal"><img src="../../images/mActionComposerManager.png" alt="mActionComposerManager"></a>
+Composer Manager
+<a href="../../images/mActionFileOpen.png" class="reference internal"><img src="../../images/mActionFileOpen.png" alt="mActionFileOpen"></a>
+Load from template
+<a href="../../images/mActionFileSaveAs.png" class="reference internal"><img src="../../images/mActionFileSaveAs.png" alt="mActionFileSaveAs"></a>
+Save as template
+<a href="../../images/mActionFilePrint.png" class="reference internal"><img src="../../images/mActionFilePrint.png" alt="mActionFilePrint"></a>
+Print or export as PostScript
+<a href="../../images/mActionSaveMapAsImage.png" class="reference internal"><img src="../../images/mActionSaveMapAsImage.png" alt="mActionSaveMapAsImage"></a>
+Export to an image format
+<a href="../../images/mActionSaveAsSVG.png" class="reference internal"><img src="../../images/mActionSaveAsSVG.png" alt="mActionSaveAsSVG"></a>
+Export print composition to SVG
+<a href="../../images/mActionSaveAsPDF.png" class="reference internal"><img src="../../images/mActionSaveAsPDF.png" alt="mActionSaveAsPDF"></a>
+Export as PDF
+<a href="../../images/mActionUndo.png" class="reference internal"><img src="../../images/mActionUndo.png" alt="mActionUndo"></a>
+Revert last change
+<a href="../../images/mActionRedo.png" class="reference internal"><img src="../../images/mActionRedo.png" alt="mActionRedo"></a>
+Restore last change
+<a href="../../images/mActionZoomFullExtent.png" class="reference internal"><img src="../../images/mActionZoomFullExtent.png" alt="mActionZoomFullExtent"></a>
+Zoom to full extent
+<a href="../../images/mActionZoomActual.png" class="reference internal"><img src="../../images/mActionZoomActual.png" alt="mActionZoomActual"></a>
+Zoom to 100%
+<a href="../../images/mActionZoomIn.png" class="reference internal"><img src="../../images/mActionZoomIn.png" alt="mActionZoomIn"></a>
+Zoom in
+<a href="../../images/mActionZoomIn.png" class="reference internal"><img src="../../images/mActionZoomIn.png" alt="mActionZoomIn"></a>
+Zoom out
+<a href="../../images/mActionDraw.png" class="reference internal"><img src="../../images/mActionDraw.png" alt="mActionDraw"></a>
+Refresh View</p>
 <p><a href="../../images/mActionPan.png" class="reference internal"><img src="../../images/mActionPan.png" alt="mActionPan"></a>
-Sposta</p>
-<p><a href="../../images/mActionZoomToSelected.png" class="reference internal"><img src="../../images/mActionZoomToSelected.png" alt="mActionZoomToSelected"></a>
-Zoom a una regione specifica</p>
-<p><a href="../../images/mActionSelect.png" class="reference internal"><img src="../../images/mActionSelect.png" alt="mActionSelect"></a>
-Scegli/Sposta oggetto</p>
-<p><a href="../../images/mActionMoveItemContent.png" class="reference internal"><img src="../../images/mActionMoveItemContent.png" alt="mActionMoveItemContent"></a>
-Sposta contenuto elemento</p>
-<p><a href="../../images/mActionAddMap.png" class="reference internal"><img src="../../images/mActionAddMap.png" alt="mActionAddMap"></a>
-Aggiungi una nuova immagine dalla mappa di KADAS</p>
-<p><a href="../../images/mActionAddImage.png" class="reference internal"><img src="../../images/mActionAddImage.png" alt="mActionAddImage"></a>
-Aggiungi immagine</p>
-<p><a href="../../images/mActionLabel.png" class="reference internal"><img src="../../images/mActionLabel.png" alt="mActionLabel"></a>
-Aggiungi etichetta</p>
-<p><a href="../../images/mActionAddLegend.png" class="reference internal"><img src="../../images/mActionAddLegend.png" alt="mActionAddLegend"></a>
-Aggiungi nuova legenda vettoriale</p>
-<p><a href="../../images/mActionScaleBar.png" class="reference internal"><img src="../../images/mActionScaleBar.png" alt="mActionScaleBar"></a>
-Aggiungi nuova barra di scala alla composizione di stampa</p>
-<p><a href="../../images/mActionAddBasicShape.png" class="reference internal"><img src="../../images/mActionAddBasicShape.png" alt="mActionAddBasicShape"></a>
-Aggiungi forma base</p>
-<p><a href="../../images/mActionAddArrow.png" class="reference internal"><img src="../../images/mActionAddArrow.png" alt="mActionAddArrow"></a>
-Aggiungi freccia</p>
-<p><a href="../../images/mActionOpenTable.png" class="reference internal"><img src="../../images/mActionOpenTable.png" alt="mActionOpenTable"></a>
-Aggiungi tabella attributi</p>
-<p><a href="../../images/mActionAddHtml.png" class="reference internal"><img src="../../images/mActionAddHtml.png" alt="mActionAddHtml"></a>
-Aggiungi una cornice HTML</p>
+Pan
+<a href="../../images/mActionZoomToSelected.png" class="reference internal"><img src="../../images/mActionZoomToSelected.png" alt="mActionZoomToSelected"></a>
+Zoom to specific region
+<a href="../../images/mActionSelect.png" class="reference internal"><img src="../../images/mActionSelect.png" alt="mActionSelect"></a>
+Select/Move item in print composition
+<a href="../../images/mActionMoveItemContent.png" class="reference internal"><img src="../../images/mActionMoveItemContent.png" alt="mActionMoveItemContent"></a>
+Move content within an item
+<a href="../../images/mActionAddMap.png" class="reference internal"><img src="../../images/mActionAddMap.png" alt="mActionAddMap"></a>
+Add new map from KADAS map canvas
+<a href="../../images/mActionAddImage.png" class="reference internal"><img src="../../images/mActionAddImage.png" alt="mActionAddImage"></a>
+Add image to print composition
+<a href="../../images/mActionLabel.png" class="reference internal"><img src="../../images/mActionLabel.png" alt="mActionLabel"></a>
+Add label to print composition
+<a href="../../images/mActionAddLegend.png" class="reference internal"><img src="../../images/mActionAddLegend.png" alt="mActionAddLegend"></a>
+Add new legend to print composition
+<a href="../../images/mActionScaleBar.png" class="reference internal"><img src="../../images/mActionScaleBar.png" alt="mActionScaleBar"></a>
+Add scale bar to print composition
+<a href="../../images/mActionAddBasicShape.png" class="reference internal"><img src="../../images/mActionAddBasicShape.png" alt="mActionAddBasicShape"></a>
+Add basic shape to print composition
+<a href="../../images/mActionAddArrow.png" class="reference internal"><img src="../../images/mActionAddArrow.png" alt="mActionAddArrow"></a>
+Add arrow to print composition
+<a href="../../images/mActionOpenTable.png" class="reference internal"><img src="../../images/mActionOpenTable.png" alt="mActionOpenTable"></a>
+Add attribute table to print composition
+<a href="../../images/mActionAddHtml.png" class="reference internal"><img src="../../images/mActionAddHtml.png" alt="mActionAddHtml"></a>
+Add an HTML frame</p>
 <p><a href="../../images/mActionGroupItems.png" class="reference internal"><img src="../../images/mActionGroupItems.png" alt="mActionGroupItems"></a>
-Raggruppa oggetti</p>
-<p><a href="../../images/mActionUngroupItems.png" class="reference internal"><img src="../../images/mActionUngroupItems.png" alt="mActionUnGroupItems"></a>
-Rimuovi raggruppamento</p>
-<p><a href="#id8"><span id="id9" class="problematic">|bloccato|</span></a></p>
-<p>Blocca gli oggetti selezionati</p>
-<p><a href="#id10"><span id="id11" class="problematic">|sbloccato|</span></a></p>
-<p>Sblocca tutti gli elementi</p>
-<p><a href="../../images/mActionRaiseItems.png" class="reference internal"><img src="../../images/mActionRaiseItems.png" alt="mActionRaiseItems"></a>
-Muovi in alto</p>
-<p><a href="../../images/mActionLowerItems.png" class="reference internal"><img src="../../images/mActionLowerItems.png" alt="mActionLowerItems"></a>
-Muovi in basso</p>
-<p><a href="../../images/mActionMoveItemsToTop.png" class="reference internal"><img src="../../images/mActionMoveItemsToTop.png" alt="mActionMoveItemsToTop"></a>
-Porta in cima</p>
-<p><a href="../../images/mActionMoveItemsToBottom.png" class="reference internal"><img src="../../images/mActionMoveItemsToBottom.png" alt="mActionMoveItemsToBottom"></a>
-Porta in fondo</p>
-<p><a href="../../images/mActionAlignLeft.png" class="reference internal"><img src="../../images/mActionAlignLeft.png" alt="mActionAlignLeft"></a>
-Allinea a sinistra</p>
-<p><a href="../../images/mActionAlignRight.png" class="reference internal"><img src="../../images/mActionAlignRight.png" alt="mActionAlignRight"></a>
-Allinea a destra</p>
-<p><a href="../../images/mActionAlignHCenter.png" class="reference internal"><img src="../../images/mActionAlignHCenter.png" alt="mActionAlignHCenter"></a>
-Allinea su asse verticale</p>
-<p><a href="../../images/mActionAlignVCenter.png" class="reference internal"><img src="../../images/mActionAlignVCenter.png" alt="mActionAlignVCenter"></a>
-Allinea su asse orizzontale</p>
-<p><a href="../../images/mActionAlignTop.png" class="reference internal"><img src="../../images/mActionAlignTop.png" alt="mActionAlignTop"></a>
-Allinea in alto</p>
-<p><a href="../../images/mActionAlignBottom.png" class="reference internal"><img src="../../images/mActionAlignBottom.png" alt="mActionAlignBottom"></a>
-Allinea in basso</p>
-<p><a href="../../images/mIconAtlas.png" class="reference internal"><img src="../../images/mIconAtlas.png" alt="mIconAtlas"></a>
-Anteprima atlante</p>
-<p><a href="../../images/mActionAtlasFirst.png" class="reference internal"><img src="../../images/mActionAtlasFirst.png" alt="mActionAtlasFirst"></a>
-Prima geometria</p>
-<p><a href="../../images/mActionAtlasPrev.png" class="reference internal"><img src="../../images/mActionAtlasPrev.png" alt="mActionAtlasPrev"></a>
-Geometria precedente</p>
-<p><a href="../../images/mActionAtlasNext.png" class="reference internal"><img src="../../images/mActionAtlasNext.png" alt="mActionAtlasNext"></a>
-Geometria successiva</p>
-<p><a href="../../images/mActionAtlasLast.png" class="reference internal"><img src="../../images/mActionAtlasLast.png" alt="mActionAtlasLast"></a>
-Ultima geometria</p>
-<p><a href="../../images/mActionFilePrint.png" class="reference internal"><img src="../../images/mActionFilePrint.png" alt="mActionFilePrint"></a>
-Stampa atlante</p>
-<p><a href="../../images/mActionSaveMapAsImage.png" class="reference internal"><img src="../../images/mActionSaveMapAsImage.png" alt="mActionSaveMapAsImage"></a>
-Esporta atlante come immagini</p>
-<p><a href="../../images/mActionAtlasSettings.png" class="reference internal"><img src="../../images/mActionAtlasSettings.png" alt="mActionAtlasSettings"></a>
-Impostazioni atlante</p>
-<p>Strumenti del Compositore di Stampe</p>
-<p>Tutti gli strumenti del compositore di stampe sono disponibili sia dai menu che dalle icone. Puoi disattivare la barra degli strumenti facendo click con il tasto destro del mouse sulla barra stessa.</p>
-<h2 id="overview-of-the-print-composer">Panoramica del compositore di stampe </h2>
-<p>All&#x2019;apertura il compositore di stampa presenta una mappa bianca che rappresenta la superficie del foglio da util&#xF2;izzare per la stampa. Trovi icone per aggiungere voci mappa compositore; l&#x2019;attuale KADAS mappa, testi, immagini, leggende, barre di scala, forme base, frecce, tabelle di attributi e frame HTML. Negli strumenti trovi la barra degli strumenti per navigare, lo zoom e panoramica della vista, la barra degli strumenti per selezionare un elemento della mappa compositore e per spostare il contenuto della mappa.</p>
-<p><a href="#figure-composer-overview" class="reference internal">Figure_composer_overview</a> mostra la vista iniziale del compositore di stampa prima dell&#x2019;aggiunta di elementi.</p>
+Group items of print composition
+<a href="../../images/mActionUngroupItems.png" class="reference internal"><img src="../../images/mActionUngroupItems.png" alt="mActionUnGroupItems"></a>
+Ungroup items of print composition
+<a href="../../images/locked.png" class="reference internal"><img src="../../images/locked.png" alt="locked"></a>
+Lock Selected Items
+<a href="../../images/unlocked.png" class="reference internal"><img src="../../images/unlocked.png" alt="unlocked"></a>
+Unlock All items
+<a href="../../images/mActionRaiseItems.png" class="reference internal"><img src="../../images/mActionRaiseItems.png" alt="mActionRaiseItems"></a>
+Raise selected items
+<a href="../../images/mActionLowerItems.png" class="reference internal"><img src="../../images/mActionLowerItems.png" alt="mActionLowerItems"></a>
+Lower selected items
+<a href="../../images/mActionMoveItemsToTop.png" class="reference internal"><img src="../../images/mActionMoveItemsToTop.png" alt="mActionMoveItemsToTop"></a>
+Move selected items to top
+<a href="../../images/mActionMoveItemsToBottom.png" class="reference internal"><img src="../../images/mActionMoveItemsToBottom.png" alt="mActionMoveItemsToBottom"></a>
+Move selected items to bottom
+<a href="../../images/mActionAlignLeft.png" class="reference internal"><img src="../../images/mActionAlignLeft.png" alt="mActionAlignLeft"></a>
+Align selected items left
+<a href="../../images/mActionAlignRight.png" class="reference internal"><img src="../../images/mActionAlignRight.png" alt="mActionAlignRight"></a>
+Align selected items right
+<a href="../../images/mActionAlignHCenter.png" class="reference internal"><img src="../../images/mActionAlignHCenter.png" alt="mActionAlignHCenter"></a>
+Align selected items center
+<a href="../../images/mActionAlignVCenter.png" class="reference internal"><img src="../../images/mActionAlignVCenter.png" alt="mActionAlignVCenter"></a>
+Align selected items center vertical
+<a href="../../images/mActionAlignTop.png" class="reference internal"><img src="../../images/mActionAlignTop.png" alt="mActionAlignTop"></a>
+Align selected items top
+<a href="../../images/mActionAlignBottom.png" class="reference internal"><img src="../../images/mActionAlignBottom.png" alt="mActionAlignBottom"></a>
+Align selected items bottom
+<a href="../../images/mIconAtlas.png" class="reference internal"><img src="../../images/mIconAtlas.png" alt="mIconAtlas"></a>
+Preview Atlas
+<a href="../../images/mActionAtlasFirst.png" class="reference internal"><img src="../../images/mActionAtlasFirst.png" alt="mActionAtlasFirst"></a>
+First Feature
+<a href="../../images/mActionAtlasPrev.png" class="reference internal"><img src="../../images/mActionAtlasPrev.png" alt="mActionAtlasPrev"></a>
+Previous Feature
+<a href="../../images/mActionAtlasNext.png" class="reference internal"><img src="../../images/mActionAtlasNext.png" alt="mActionAtlasNext"></a>
+Next Feature
+<a href="../../images/mActionAtlasLast.png" class="reference internal"><img src="../../images/mActionAtlasLast.png" alt="mActionAtlasLast"></a>
+Last feature
+<a href="../../images/mActionFilePrint.png" class="reference internal"><img src="../../images/mActionFilePrint.png" alt="mActionFilePrint"></a>
+Print Atlas
+<a href="../../images/mActionSaveMapAsImage.png" class="reference internal"><img src="../../images/mActionSaveMapAsImage.png" alt="mActionSaveMapAsImage"></a>
+Export Atlas as Image
+<a href="../../images/mActionAtlasSettings.png" class="reference internal"><img src="../../images/mActionAtlasSettings.png" alt="mActionAtlasSettings"></a>
+Atlas Settings
+Table Composer 1: Print Composer Tools</p>
+<p>All Print Composer tools are available in menus and as icons in a toolbar. The toolbar can be switched off and on using the right mouse button over the toolbar.</p>
+<h2 id="overview-of-the-print-composer">Overview of the Print Composer </h2>
+<p>Opening the Print Composer provides you with a blank canvas that represents the paper surface when using the print option. Initially you find buttons on the left beside the canvas to add map composer items; the current KADAS map canvas, text labels, images, legends, scale bars, basic shapes, arrows, attribute tables and HTML frames. In this toolbar you also find toolbar buttons to navigate, zoom in on an area and pan the view on the composer and toolbar buttons to select a map composer item and to move the contents of the map item.</p>
+<p><a href="#figure-composer-overview" class="reference internal">Figure_composer_overview</a> shows the initial view of the Print Composer before any elements are added.</p>
 <p><strong>Figure Composer Overview:</strong></p>
 <p><img src="../../images/print_composer_blank.png" alt="">
-Compositore di stampe </p>
-<p>A destra della mappa accanto la tela si trovano due pannelli. Il pannello superiore contiene le schede: guilabel: `` degli articoli e: guilabel: Command Storia dell&#x2019;Attore e il pannello inferiore contiene le schede: guilabel: Composizione`,: guilabel: Propriet&#xE0; oggetto,guilabel:Generazione atlante e: guilabel:Oggetti.</p>
+Print Composer </p>
+<p>On the right beside the canvas you find two panels. The upper panel holds the tabs <em>Items</em> and <em>Command History</em> and the lower panel holds the tabs <em>Composition</em>, <em>Item properties</em> and <em>Atlas generation</em>.</p>
 <ul>
-<li><p>La scheda <em>Items</em> mostra una lista di tutti gli oggetti agginti al foglio.</p>
-</li>
-<li><p>La scheda: guilabel:Storico dei comandi visualizza una cronologia di tutte le modifiche applicate al compositore. Con un clic del mouse, &#xE8; possibile annullare e ripetere le operazioni avanti e indietro.</p>
-</li>
-<li><p>La scheda :guilabel: Composizione consente di impostare il formato del foglio, l&#x2019;orientamento, lo sfondo della pagina, il numero di pagine e qualit&#xE0; di stampa per il file di output in dpi. Inoltre, puoi attivare la <a href="#id12"><span id="id13" class="problematic">|casella|</span></a> :guilabel: Stampa come raster. Ci&#xF2; significa che tutti gli articoli saranno convertiti in raster prima di stampare o salvare in PostScript o PDF. In questa scheda, puoi anche personalizzare le impostazioni per reticolo e guide.</p>
-</li>
-<li><p>La scheda <em>Propriet&#xE0; oggetto</em> mostra le propriet&#xE0; dell&#x2019;oggetto selezionato. Clic <a href="../../images/mActionSelect.png" class="reference internal"><img src="../../images/mActionSelect.png" alt="mActionSelect"></a> <sup>Seleziona/Sposta\ oggetto</sup> icona per selezionare un elemento (ad esempio, la leggenda, barra di scala o etichetta) sul foglio. Quindi fare clic sulla scheda <em>Propriet&#xE0; oggetto</em> e personalizza le impostazioni per l&#x2019;elemento selezionato.</p>
-</li>
-<li><p>La scheda <em>Generazione atlante</em> ti permette di abilitare la generazioni di un atlante per la composizione attuale avrai accesso a tutti i suoi parametri.</p>
-</li>
-<li><p>Infine, puoi salvare la composizione di stampa con il bottone <a href="../../images/mActionFileSave.png" class="reference internal"><img src="../../images/mActionFileSave.png" alt="mActionFileSave"></a>: sup: Salva progetto.</p>
-</li>
+<li>The <em>Items</em> tab provides a list of all map composer items added to the canvas.</li>
+<li>The <em>Command history</em> tab displays a history of all changes applied to the Print Composer layout. With a mouse click, it is possible to undo and redo layout steps back and forth to a certain status.</li>
+<li>The <em>Composition</em> tab allows you to set paper size, orientation, the page background, number of pages and print quality for the output file in dpi. Furthermore, you can also activate the <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Print as raster</em> checkbox. This means all items will be converted to raster before printing or saving as PostScript or PDF. In this tab, you can also customize settings for grid and smart guides.</li>
+<li>The <em>Item Properties</em> tab displays the properties for the selected item. Click the <a href="../../images/mActionSelect.png" class="reference internal"><img src="../../images/mActionSelect.png" alt="mActionSelect"></a> <sup>Select/Move\ item</sup> icon to select an item (e.g., legend, scale bar or label) on the canvas. Then click the <em>Item Properties</em> tab and customize the settings for the selected item.</li>
+<li>The <em>Atlas generation</em> tab allows you to enable the generation of an atlas for the current Composer and gives access to its parameters.</li>
+<li>Finally, you can save your print composition with the <a href="../../images/mActionFileSave.png" class="reference internal"><img src="../../images/mActionFileSave.png" alt="mActionFileSave"></a> <sup>Save\ Project</sup> button.</li>
 </ul>
-<p>Nella parte inferiore della finestra del compositore di stampe, troverai una barra di stato con la posizione del mouse, il numero attuale della pagine e un menu a tendina per selezionare il livello di zoom.</p>
-<p>Puoi aggiungere elementi multipli al compositore. Puoi anche visualizzare pi&#xF9; di una mappa o legenda o barra di scala nella vista del compositore su una o pi&#xF9; pagine. Ogni elemento ha le sue propriet&#xE0; e, nel caso della mappa, la sua estensione. Se vuoi rimuovere un qualsiasi elemento dalla vista selezionalo e premi il pulsante <code>Delete</code> o <code>Backspace</code>.</p>
-<h3 id="navigation-tools">Strumenti per l&#x2019;esplorazione del layout di stampa </h3>
-<p>Per navigare nella mappa, il compositore ti offre diversi strumenti:</p>
+<p>In the bottom part of the Print Composer window, you can find a status bar with mouse position, current page number and a combo box to set the zoom level.</p>
+<p>You can add multiple elements to the Composer. It is also possible to have more than one map view or legend or scale bar in the Print Composer canvas, on one or several pages. Each element has its own properties and, in the case of the map, its own extent. If you want to remove any elements from the Composer canvas you can do that with the <code>Delete</code> or the <code>Backspace</code> key.</p>
+<h3 id="navigation-tools">Navigation tools </h3>
+<p>To navigate in the canvas layout, the Print Composer provides some general tools:</p>
 <ul>
-<li><p><a href="../../images/mActionZoomIn.png" class="reference internal"><img src="../../images/mActionZoomIn.png" alt="mActionZoomIn"></a> <sup>Ingrandisci</sup></p>
-</li>
-<li><p><a href="../../images/mActionZoomOut.png" class="reference internal"><img src="../../images/mActionZoomOut.png" alt="mActionZoomOut"></a> <sup>Rimpicciolosci</sup></p>
-</li>
-<li><p><a href="../../images/mActionZoomFullExtent.png" class="reference internal"><img src="../../images/mActionZoomFullExtent.png" alt="mActionZoomFullExtent"></a> <sup>Zoom\ full</sup></p>
-</li>
-<li><p><a href="../../images/mActionZoomActual.png" class="reference internal"><img src="../../images/mActionZoomActual.png" alt="mActionZoomActual"></a> <sup>Zoom\ al\ 100%</sup></p>
-</li>
-<li><p><a href="../../images/mActionDraw.png" class="reference internal"><img src="../../images/mActionDraw.png" alt="mActionDraw"></a> <sup>Refresh\ view</sup> (if you find the view in an inconsistent state)</p>
-</li>
-<li><p><a href="../../images/mActionPan.png" class="reference internal"><img src="../../images/mActionPan.png" alt="mActionPan"></a> <sup>Sposta\ compositore</sup></p>
-</li>
-<li><p><a href="../../images/mActionZoomToSelected.png" class="reference internal"><img src="../../images/mActionZoomToSelected.png" alt="mActionZoomToSelected"></a> <sup>Zoom</sup> (zoom to a specific region of the Composer)</p>
-</li>
+<li><a href="../../images/mActionZoomIn.png" class="reference internal"><img src="../../images/mActionZoomIn.png" alt="mActionZoomIn"></a> <sup>Zoom\ in</sup></li>
+<li><a href="../../images/mActionZoomOut.png" class="reference internal"><img src="../../images/mActionZoomOut.png" alt="mActionZoomOut"></a> <sup>Zoom\ out</sup></li>
+<li><a href="../../images/mActionZoomFullExtent.png" class="reference internal"><img src="../../images/mActionZoomFullExtent.png" alt="mActionZoomFullExtent"></a> <sup>Zoom\ full</sup></li>
+<li><a href="../../images/mActionZoomActual.png" class="reference internal"><img src="../../images/mActionZoomActual.png" alt="mActionZoomActual"></a> <sup>Zoom\ to\ 100%</sup></li>
+<li><a href="../../images/mActionDraw.png" class="reference internal"><img src="../../images/mActionDraw.png" alt="mActionDraw"></a> <sup>Refresh\ view</sup> (if you find the view in an inconsistent state)</li>
+<li><a href="../../images/mActionPan.png" class="reference internal"><img src="../../images/mActionPan.png" alt="mActionPan"></a> <sup>Pan\ composer</sup></li>
+<li><a href="../../images/mActionZoomToSelected.png" class="reference internal"><img src="../../images/mActionZoomToSelected.png" alt="mActionZoomToSelected"></a> <sup>Zoom</sup> (zoom to a specific region of the Composer)</li>
 </ul>
 <p>You can change the zoom level also using the mouse wheel or the combo box in the status bar. If you need to switch to pan mode while working in the Composer area, you can hold the <code>Spacebar</code> or the the mouse wheel. With <code>Ctrl+Spacebar</code>, you can temporarily switch to zoom mode, and with <code>Ctrl+Shift+Spacebar</code>, to zoom out mode.</p>
-<h2 id="sample-session">Esempio </h2>
-<p>Per creare una mappa segui le seguenti istruzioni.</p>
+<h2 id="sample-session">Sample Session </h2>
+<p>To demonstrate how to create a map please follow the next instructions.</p>
 <ol>
-<li><p>Nella Barra degli strumenti Oggetti del compositore, selezionare il <a href="../../images/mActionAddMap.png" class="reference internal"><img src="../../images/mActionAddMap.png" alt="mActionAddMap"></a> <sup>Aggiungi\ nuova\ mappa</sup> e disegna un rettangolo sulla tela tenendo premuto il tasto sinistro del mouse. All&#x2019;interno del rettangolo disegnato la visualizzazione della mappa QGIS alla tela.</p>
-</li>
-<li><p>Seleziona <a href="../../images/mActionScaleBar.png" class="reference internal"><img src="../../images/mActionScaleBar.png" alt="mActionScaleBar"></a> <sup>Aggiungi\ nuova\ barra\ di\ scala</sup> e posiziona l&#x2019;oggetto con il pulsante sinistro del mouse sul foglio del compositore di stampe. Una barra di scala sar&#xE0; aggiunta.</p>
-</li>
-<li><p>Seleziona il bottone <a href="../../images/mActionAddLegend.png" class="reference internal"><img src="../../images/mActionAddLegend.png" alt="mActionAddLegend"></a> <sup>Aggiungi\ nuova\ legenda</sup> e disegna un rettangolo sul foglio tenendo premuto il pulsante sinistro del mouse. Nel rettangolo verr&#xE0; disegnata una legenda.</p>
-</li>
-<li><p>Seleziona <a href="../../images/mActionSelect.png" class="reference internal"><img src="../../images/mActionSelect.png" alt="mActionSelect"></a> <sup>Seleziona/Muovi\ oggetto</sup> per selezionare la mappa sul foglio e spostarla.</p>
-</li>
-<li><p>While the map item is still selected you can also change the size of the map item. Click while holding down the left mouse button, in a white little rectangle in one of the corners of the map item and drag it to a new location to change it&#x2019;s size.</p>
-</li>
+<li>On the left site, select the <a href="../../images/mActionAddMap.png" class="reference internal"><img src="../../images/mActionAddMap.png" alt="mActionAddMap"></a> <sup>Add\ new\ map</sup> toolbar button and draw a rectangle on the canvas holding down the left mouse button. Inside the drawn rectangle the KADAS map view to the canvas.</li>
+<li>Select the <a href="../../images/mActionScaleBar.png" class="reference internal"><img src="../../images/mActionScaleBar.png" alt="mActionScaleBar"></a> <sup>Add\ new\ scalebar</sup> toolbar button and place the map item with the left mouse button on the Print Composer canvas. A scalebar will be added to the canvas.</li>
+<li>Select the <a href="../../images/mActionAddLegend.png" class="reference internal"><img src="../../images/mActionAddLegend.png" alt="mActionAddLegend"></a> <sup>Add\ new\ legend</sup> toolbar button and draw a rectangle on the canvas holding down the left mouse button. Inside the drawn rectangle the legend will be drawn.</li>
+<li>Select the <a href="../../images/mActionSelect.png" class="reference internal"><img src="../../images/mActionSelect.png" alt="mActionSelect"></a> <sup>Select/Move\ item</sup> icon to select the map on the canvas and move it a bit.</li>
+<li>While the map item is still selected you can also change the size of the map item. Click while holding down the left mouse button, in a white little rectangle in one of the corners of the map item and drag it to a new location to change it&#x2019;s size.</li>
 <li>Click the <em>Item Properties</em> tab on the left lower panel and find the setting for the orientation. Change the value of the setting <em>Map orientation</em> to &#x2018;15.00&#xB0; &#x2018;. You should see the orientation of the map item change.</li>
-<li>Infine, puoi salvare la composizione di stampa con il bottone <a href="../../images/mActionFileSave.png" class="reference internal"><img src="../../images/mActionFileSave.png" alt="mActionFileSave"></a>: sup: Salva progetto.</li>
+<li>Finally, you can save your print composition with the <a href="../../images/mActionFileSave.png" class="reference internal"><img src="../../images/mActionFileSave.png" alt="mActionFileSave"></a> <sup>Save\ Project</sup> button.</li>
 </ol>
-<h2 id="print-composer-options">Opzioni compositore di stampe </h2>
-<p>Dal menu <em>Settings &#x2023; Opzioni compositore</em> puoi scegliere alcune opzioni che verranno usate in maniera predefinita durante il flusso di lavoro.</p>
+<h2 id="print-composer-options">Print Composer Options </h2>
+<p>From <em>Settings &#x2023; Composer Options</em> you can set some options that will be used as default during your work.</p>
 <ul>
-<li><p><em>Opzioni predefinite del compositore</em> ti permette di scegliere il carattere da usare.</p>
-</li>
-<li><p>With <em>Grid appearance</em>, you can set the grid style and its color. There are three types of grid: <strong>Dots</strong>, <strong>Solid</strong> lines and <strong>Crosses</strong>.</p>
-</li>
+<li><em>Compositions defaults</em> let you specify the default font to use.</li>
+<li>With <em>Grid appearance</em>, you can set the grid style and its color. There are three types of grid: <strong>Dots</strong>, <strong>Solid</strong> lines and <strong>Crosses</strong>.</li>
 <li><em>Grid and guide defaults</em> defines spacing, offset and tolerance of the grid.</li>
 </ul>
-<h2 id="composition-tab-general-composition-setup">Scheda Composizione &#x2014; Impostazioni generali </h2>
-<p>Nella scheda <em>Composizione</em> puoi scegliere le impostazioni generali della tua composizione di stampa.</p>
+<h2 id="composition-tab-general-composition-setup">Composition tab &#x2014; General composition setup </h2>
+<p>In the <em>Composition</em> tab, you can define the global settings of your composition.</p>
 <ul>
-<li><p>Puoi scegliere una delle opzioni <em>Preimpostazioni</em> per i tuoi fogli di carta oppure puoi inserire manualmente i valori di <em>larghezza</em> e <em>altezza</em>.</p>
-</li>
-<li><p>Puoi ora dividere la composizione in diverse pagine. Per esempio, la prima pagina mostra una mappa, la seconda mostra la tabella degli attributi di un vettore e la terza mostra una cornice HTML della tua azienda. Imposta il <em>Numero di pagine</em> con il valore che preferisci. Puoi scegliere l&#x2019;<em>Orientamento</em> e la <em>Risoluzione di esportazione</em>. Quando spuntata, la casella di controllo <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>stampa come raster</em> permette di trasformare in raster tutti gli elementi prima del salvataggio o esportazione in PostScript o PDF.</p>
-</li>
-<li><p><em>Grid and guides</em> lets you customize grid settings like <em>spacings</em>, <em>offsets</em> and <em>tolerance</em> to your need. The tolerance is the maximum distance below which an item is snapped to smart guides.</p>
-</li>
+<li>You can choose one of the <em>Presets</em> for your paper sheet, or enter your custom <em>width</em> and <em>height</em>.</li>
+<li>Composition can now be divided into several pages. For instance, a first page can show a map canvas, and a second page can show the attribute table associated with a layer, while a third one shows an HTML frame linking to your organization website. Set the <em>Number of pages</em> to the desired value. You can choose the page <em>Orientation</em> and its <em>Exported resolution</em>. When checked, <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>print as raster</em> means all elements will be rasterized before printing or saving as PostScript or PDF.</li>
+<li><em>Grid and guides</em> lets you customize grid settings like <em>spacings</em>, <em>offsets</em> and <em>tolerance</em> to your need. The tolerance is the maximum distance below which an item is snapped to smart guides.</li>
 </ul>
-<p>Puoi attivare l&#x2019;aggancio al reticolo e/o le guide intelligenti dal menu <em>Visualizza</em>. In questo menu puoi anche scegliere se mostrare o nascondere il reticolo e le guide intelligenti.</p>
-<h2 id="composer-items-common-options">Opzioni generali degli oggetti del compositore </h2>
-<p>Gli oggetti del compositore hanno propriet&#xE0; comuni che trovi nella scheda <em>Propriet&#xE0; oggetto</em>: Posizione e dimensione, Rotazione, Cornice, Sfondo, ID oggetto e visualizzazione (Vedi <a href="#figure-composer-common-1" class="reference internal">figure_composer_common_1</a>)</p>
+<p>Snap to grid and/or to smart guides can be enabled from the <em>View</em> menu. In this menu, you can also hide or show the grid and smart guides.</p>
+<h2 id="composer-items-common-options">Composer items common options </h2>
+<p>Composer items have a set of common properties you will find on the bottom of the <em>Item Properties</em> tab: Position and size, Rotation, Frame, Background, Item ID and Rendering (See <a href="#figure-composer-common-1" class="reference internal">figure_composer_common_1</a>).</p>
 <p><strong>Figure Composer Common 1:</strong></p>
 <p><img src="../../images/print_composer_common_properties.png" alt="">
-Finestra di dialogo delle propriet&#xE0; dell&#x2019;oggetto </p>
+Common Item properties Dialogs </p>
 <ul>
-<li><p>La voce <em>Posizione e dimensione</em> ti permette di scegliere la posizione della cornice che contiene l&#x2019;oggetto. Puoi anche scegliere quale deve essere il <em>Punto di riferimento</em> delle coordinate <strong>X</strong> e <strong>Y</strong>.</p>
-</li>
-<li><p>Con <em>Rotazione</em> puoi impostare la rotazione dell&#x2019;elemento (in gradi).</p>
-</li>
-<li><p>The <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Frame</em> shows or hides the frame around the label. Use the <em>Frame color</em> and <em>Thickness</em> menus to adjust those properties.</p>
-</li>
-<li>Use the <em>Background color</em> menu for setting a background color. With the dialog you can pick a color (see <a href="../working_with_vector/vector_properties.html#color-picker" class="reference internal"><em>Selettore di colore</em></a> ).</li>
-<li><p>Usa <em>ID oggetto</em> per creare una relazione con altri oggetti del compositore. Questa opzione &#xE8; usata con KADAS server e altri potenziali web client. Puoi impostare un ID di un oggetto (per esempio una mappa e un&#x2019;etichetta) e poi il web client sar&#xE0; in grado di impostare un corretto stile per i dati (esempio le etichette). Il comando GetProjectSettings elencher&#xE0; gli oggetti e quali ID sono disponibili nel layout.</p>
-</li>
-<li><p>Puoi selezionare la modalit&#xE0; <em>Visualizzazione</em> con la giusta opzione. Vedi <a href="#rendering-mode" class="reference internal">Rendering_Mode</a>.</p>
-</li>
+<li>The <em>Position and size</em> dialog lets you define size and position of the frame that contains the item. You can also choose which <em>Reference point</em> will be set at the <strong>X</strong> and <strong>Y</strong> coordinates previously defined.</li>
+<li>The <em>Rotation</em> sets the rotation of the element (in degrees).</li>
+<li>The <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Frame</em> shows or hides the frame around the label. Use the <em>Frame color</em> and <em>Thickness</em> menus to adjust those properties.</li>
+<li>Use the <em>Background color</em> menu for setting a background color. With the dialog you can pick a color (see <a href="../working_with_vector/vector_properties.html#color-picker" class="reference internal"><em>Color Picker</em></a> ).</li>
+<li>Use the <em>Item ID</em> to create a relationship to other Print Composer items. This is used with KADAS server and any potential web client. You can set an ID on an item (e.g., a map and a label), and then the web client can send data to set a property (e.g., label text) for that specific item. The GetProjectSettings command will list what items and which IDs are available in a layout.</li>
+<li><em>Rendering</em> mode can be selected in the option field. See <a href="#rendering-mode" class="reference internal">Rendering_Mode</a>.</li>
 </ul>
-<p>Nota</p>
+<p>Note</p>
 <ul>
 <li>The <a href="../../images/mIconDataDefine.png" class="reference internal"><img src="../../images/mIconDataDefine.png" alt="mIconDataDefine"></a> <sup>Data\ defined\ override</sup> icon next to a field means that you can associate the field with data in the map item or use expressions. These are particularly helpful with atlas generation (See <a href="#atlas-data-defined-overrides" class="reference internal">atlas_data_defined_overrides</a>).</li>
 </ul>
-<p>KADAS ti permette di effettuare visualizzazioni avanzate per ogni elemento del compositore proprio come per i vettori e per i raster.</p>
+<p>KADAS now allows advanced rendering for Composer items just like vector and raster layers.</p>
 <p><strong>Figure Composer common 2:</strong></p>
 <p><img src="../../images/rendering_mode.png" alt="">
-Modalit&#xE0; Visualizzazione </p>
+Rendering mode </p>
 <ul>
 <li><p><em>Transparency</em> <img src="../../images/slider.png" alt="slider">: You can make the underlying item in the Composer visible with this tool. Use the slider to adapt the visibility of your item to your needs. You can also make a precise definition of the percentage of visibility in the menu beside the slider.</p>
 </li>
 <li><p><a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Exclude item from exports</em>: You can decide to make an item not visible in all exports. After activating this checkbox, the item will not be included in PDF&#x2019;s, prints etc..</p>
 </li>
-<li><p><em>Modalit&#xE0; fusione</em>: grazie a questi strumenti usati soprattutto in ambito grafico, potrai creare effettivi visivi speciali. I pixel del vettore pi&#xF9; in alto vengono mischiati con i pixel di tutti gli elementi sottostanti. Hai molte scelte diverse.</p>
+<li><p><em>Blending mode</em>: You can achieve special rendering effects with these tools that you previously only may know from graphics programs. The pixels of your overlaying and underlaying items are mixed through the settings described below.</p>
 <blockquote>
 <ul>
-<li><p>Normale: &#xE8; la modalit&#xE0; fusione predefinita che usa il canale alpha del pixel pi&#xF9; in alto fondendolo con quello sotto. I colori non sono quindi mescolati.</p>
-</li>
-<li><p>Schiarisci: seleziona il valore massimo di ogni componente dal basso verso l&#x2019;alto. Il risultato pu&#xF2; apparire frastagliato e duro.</p>
-</li>
-<li><p>Scolorisci: i pixel chiari provenienti dal vettore sorgente vengono dipinti sopra la destinazione, mentre i pixel pi&#xF9; scuri no. Questa modalit&#xE0; &#xE8; molto utile per mescolare le trame di un vettore con un altro (per esempio un raster di ombreggiatura con un altro layer).</p>
-</li>
-<li><p>Scherma: questa modalit&#xE0; schiarir&#xE0; e saturer&#xE0; i pixel sottostanti in base a quanto sono chiari i pixel di sopra. In questo modo, i pixel pi&#xF9; chiari in cima aumenteranno la saturazione e schiariranno i pixel sottostanti. Otterrai il miglior risultato se i pixel in cima non sono troppo chiari, altrimenti l&#x2019;effetto sar&#xE0; troppo estremo.</p>
-</li>
-<li><p>Addizione: questa modalit&#xE0; addiziona semplicemente il valore dei pixel di un vettore con i valori dei layer sottostanti. Se i valori sono maggiori di uno (ovvero quando si lavora con bande RGB) verr&#xE0; mostrato il bianco. Questa modalit&#xE0; &#xE8; ottima per evidenziare dei particolari.</p>
-</li>
-<li><p>Scurisci: il pixel finale conserva il valore minore dei pixel del layer in cima e in fondo. Come la modalit&#xE0; schiarsci, il risultato tende a essere frastagliato e duro.</p>
-</li>
-<li><p>Moltiplica: qui, il valore di ogni pixel del layer in cima viene moltiplicato per il valore dei pixel corrispondenti di tutti i layer sottostanti. Il risultato tende quindi a essere piuttosto scuro.</p>
-</li>
-<li><p>Brucia: i colori pi&#xF9; scuri del layer in cima scuriranno i layer sottostanti. Questa modalit&#xE0; &#xE8; utile per aggiustare e colorare i layer sottostanti.</p>
-</li>
-<li><p>Sovrapponi: &#xE8; una combinazione delle modalit&#xE0; moltiplica e scolorisci. Le parti chiare risulteranno ancora pi&#xF9; chiare e quelle scure ancora pi&#xF9; scure.</p>
-</li>
-<li><p>Luce diffusa: molto simile alla modalit&#xE0; sovrapponi, ma invece di combinare le modalit&#xE0; moltiplica/scolorisci, combina brucia/scherma. Il risultato &#xE8; una luce chiara e luccicante su tutta l&#x2019;immagine.</p>
-</li>
-<li><p>Luce intensa: anche questa modalit&#xE0; &#xE8; simile alla modalit&#xE0; sovrapponi. Proietta una luce molto intensa su tutta l&#x2019;immagine.</p>
-</li>
-<li><p>Differenza: vengono sottratti i pixel in cima da quelli sul fondo, oppure al contrario, ma in modo da ottenere sempre valori positivi. Questa modalit&#xE0; non ha effetti con il nero, perch&#xE9; la differenza di questo colore con tutti gli altri &#xE8; sempre zero.</p>
-</li>
-<li><p>Sottrai: questa modalit&#xE0; sottrae semplicemente i valori di un pixel dagli altri pixel. Se il valore dovesse essere negativo verr&#xE0; visualizzato il nero.</p>
-</li>
+<li>Normal: This is the standard blend mode, which uses the alpha channel of the top pixel to blend with the pixel beneath it; the colors aren&#x2019;t mixed.</li>
+<li>Lighten: This selects the maximum of each component from the foreground and background pixels. Be aware that the results tend to be jagged and harsh.</li>
+<li>Screen: Light pixels from the source are painted over the destination, while dark pixels are not. This mode is most useful for mixing the texture of one layer with another layer (e.g., you can use a hillshade to texture another layer).</li>
+<li>Dodge: Dodge will brighten and saturate underlying pixels based on the lightness of the top pixel. So, brighter top pixels cause the saturation and brightness of the underlying pixels to increase. This works best if the top pixels aren&#x2019;t too bright; otherwise the effect is too extreme.</li>
+<li>Addition: This blend mode simply adds pixel values of one layer with pixel values of the other. In case of values above 1 (as in the case of RGB), white is displayed. This mode is suitable for highlighting features.</li>
+<li>Darken: This creates a resultant pixel that retains the smallest components of the foreground and background pixels. Like lighten, the results tend to be jagged and harsh.</li>
+<li>Multiply: Here, the numbers for each pixel of the top layer are multiplied with the numbers for the corresponding pixel of the bottom layer. The results are darker pictures.</li>
+<li>Burn: Darker colors in the top layer cause the underlying layers to darken. Burn can be used to tweak and colorise underlying layers.</li>
+<li>Overlay: This mode combines the multiply and screen blending modes. In the resulting picture, light parts become lighter and dark parts become darker.</li>
+<li>Soft light: This is very similar to overlay, but instead of using multiply/screen it uses color burn/dodge. This mode is supposed to emulate shining a soft light onto an image.</li>
+<li>Hard light: Hard light is very similar to the overlay mode. It&#x2019;s supposed to emulate projecting a very intense light onto an image.</li>
+<li>Difference: Difference subtracts the top pixel from the bottom pixel, or the other way around, to always get a positive value. Blending with black produces no change, as the difference with all colors is zero.</li>
+<li>Subtract: This blend mode simply subtracts pixel values of one layer with pixel values of the other. In case of negative values, black is displayed.</li>
 </ul>
-<h2 id="the-map-item">Oggetto mappa </h2>
+<h2 id="the-map-item">The Map item </h2>
 </blockquote>
 </li>
 </ul>
-<p>Clicca sul pulsante <a href="../../images/mActionAddMap.png" class="reference internal"><img src="../../images/mActionAddMap.png" alt="mActionAddMap"></a> <sup>Aggiungi\ mappa</sup> presente nella barra degli strumenti del compositore per aggiungere una mappa. Ora tieni premuto il pulsante del mouse e trascina il rettangolo corrispondente per aggiungere la mappa. Per visualizzare la mappa attuale puoi scegliere fra tre differenti modalit&#xE0; accessibili dalla scheda <em>Propriet&#xE0; oggetto</em>:</p>
+<p>Click on the <a href="../../images/mActionAddMap.png" class="reference internal"><img src="../../images/mActionAddMap.png" alt="mActionAddMap"></a> <sup>Add\ new\ map</sup> toolbar button in the Print Composer toolbar to add the KADAS map canvas. Now, drag a rectangle onto the Composer canvas with the left mouse button to add the map. To display the current map, you can choose between three different modes in the map <em>Item Properties</em> tab:</p>
 <ul>
-<li><p><strong>Rettangolo</strong> visualizza un rettangolo vuoto con la scritta &#x2018;La mappa verr&#xE0; stampata qui&#x2019;.</p>
-</li>
-<li><p><strong>Cache</strong> disegna la mappa alla risoluzione corrente dello schermo. Se ingrandisci/rimpiccolisci la finestra del compositore, la mappa non viene ridisegnata, ma l&#x2019;immagine viene scalata.</p>
-</li>
-<li><p><strong>Visualizza</strong> a differenza del metodo cache, in questo caso se ridimensioni la finestra del compositore, la mappa viene ridisegnata.</p>
-</li>
+<li><strong>Rectangle</strong> is the default setting. It only displays an empty box with a message &#x2018;Map will be printed here&#x2019;.</li>
+<li><strong>Cache</strong> renders the map in the current screen resolution. If you zoom the Composer window in or out, the map is not rendered again but the image will be scaled.</li>
+<li><strong>Render</strong> means that if you zoom the Composer window in or out, the map will be rendered again, but for space reasons, only up to a maximum resolution.</li>
 </ul>
-<p><strong>Cache</strong> &#xE8; la modalit&#xE0; predefinita per ogni nuova composizione di stampa.</p>
-<p>Puoi ridimensionare la mappa in un momento successivo cliccando sul pulsante <a href="../../images/mActionSelectPan.png" class="reference internal"><img src="../../images/mActionSelectPan.png" alt="mActionSelectPan"></a> <sup>Seleziona/Sposta\ oggetto</sup>, selezionando un elemento e trascinando uno dei quadrati agli angoli della mappa. Una volta selezionata una mappa, puoi regolarne ulteriori propriet&#xE0; nella scheda <em>Opzioni oggetto</em>.</p>
+<p><strong>Cache</strong> is the default preview mode for newly added Print Composer maps.</p>
+<p>You can resize the map element by clicking on the <a href="../../images/mActionSelect.png" class="reference internal"><img src="../../images/mActionSelect.png" alt="mActionSelect"></a> <sup>Select/Move\ item</sup> button, selecting the element, and dragging one of the blue handles in the corner of the map. With the map selected, you can now adapt more properties in the map <em>Item Properties</em> tab.</p>
 <p>To move layers within the map element, select the map element, click the <a href="../../images/mActionMoveItemContent.png" class="reference internal"><img src="../../images/mActionMoveItemContent.png" alt="mActionMoveItemContent"></a> <sup>Move\ item\ content</sup> icon and move the layers within the map item frame with the left mouse button. After you have found the right place for an item, you can lock the item position within the Print Composer canvas. Select the map item and use the toolbar <a href="../../images/locked.png" class="reference internal"><img src="../../images/locked.png" alt="locked"></a> <sup>Lock\ Selected\ Items</sup> or the <em>Items</em> tab to Lock the item. A locked item can only be selected using the <em>Items</em> tab. Once selected you can use the <em>Items</em> tab to unlock individual items. The <a href="../../images/unlocked.png" class="reference internal"><img src="../../images/unlocked.png" alt="unlocked"></a><sup>Unlock\ All\ Items</sup> icon will unlock all locked composer items.</p>
-<h3 id="main-properties">Propriet&#xE0; principali </h3>
+<h3 id="main-properties">Main properties </h3>
 <p>The <em>Main properties</em> dialog of the map <em>Item Properties</em> tab provides the following functionalities (see <a href="#figure-composer-map-1" class="reference internal">figure_composer_map_1</a>):</p>
 <p><strong>Figure Composer Map 1:</strong></p>
 <p><img src="../../images/print_composer_map1.png" alt="">
-Scheda propriet&#xE0; oggetti </p>
+Map Item properties Tab </p>
 <ul>
-<li><p>L&#x2019;area <strong>Anteprima</strong> ti permette di scegliere fra le modalit&#xE0; &#x2018;Rettangolo&#x2019;, &#x2018;Cache&#x2019; e &#x2018;Visualizza&#x2019; descritte sopra. Se cambi la vista della mappa in KADAS cambiando le propriet&#xE0; dei vettori e dei raster, puoi aggiornare la vista del compositore selezionando l&#x2019;elemento corrispondente e premendo il pulsante <strong>[Aggiorna anteprima]</strong>.</p>
-</li>
-<li><p>Il campo <em>Scala</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a> ti permette di inserire una scala manuale.</p>
-</li>
-<li><p>The field <em>Map rotation</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a> allows you to rotate the map element content clockwise in degrees. The rotation of the map view can be imitated here. Note that a correct coordinate frame can only be added with the default value 0 and that once you defined a <em>Map rotation</em> it currently cannot be changed.</p>
-</li>
-<li><p><a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Disegna elementi sulla mappa</em> ti permette di visualizzare le note testuali che hai aggiunto sulla mappa di KADAS.</p>
-</li>
-<li><p>You can choose to lock the layers shown on a map item. Check <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Lock layers for map item</em>. After this is checked, any layer that would be displayed or hidden in the main KADAS window will not appear or be hidden in the map item of the Composer. But style and labels of a locked layer are still refreshed according to the main KADAS interface. You can prevent this by using <em>Lock layer styles for map item</em>.</p>
-</li>
-<li>The <a href="../../images/mActionShowPresets.png" class="reference internal"><img src="../../images/mActionShowPresets.png" alt="mActionShowPresets"></a> button allows you to add quickly all the presets views you have prepared in QGIS. Clicking on the <a href="../../images/mActionShowPresets.png" class="reference internal"><img src="../../images/mActionShowPresets.png" alt="mActionShowPresets"></a> button you will see the list of all the preset views: just select the preset you want to display. The map canvas will automatically lock the preset layers by enabling the <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Lock layers for map item</em>: if you want to unselect the preset, just uncheck the <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> and press on the <a href="../../images/mActionDraw.png" class="reference internal"><img src="../../images/mActionDraw.png" alt="mActionDraw"></a> button. See <a href="../introduction/qgis_gui.html#label-legend" class="reference internal"><em>Legenda mappa</em></a> to find out how to create presets views.</li>
+<li>The <strong>Preview</strong> area allows you to define the preview modes &#x2018;Rectangle&#x2019;, &#x2018;Cache&#x2019; and &#x2018;Render&#x2019;, as described above. If you change the view on the KADAS map canvas by changing vector or raster properties, you can update the Print Composer view by selecting the map element in the Print Composer and clicking the <strong>[Update preview]</strong> button.</li>
+<li>The field <em>Scale</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a> sets a manual scale.</li>
+<li>The field <em>Map rotation</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a> allows you to rotate the map element content clockwise in degrees. The rotation of the map view can be imitated here. Note that a correct coordinate frame can only be added with the default value 0 and that once you defined a <em>Map rotation</em> it currently cannot be changed.</li>
+<li><a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Draw map canvas items</em> lets you show annotations that may be placed on the map canvas in the main KADAS window.</li>
+<li>You can choose to lock the layers shown on a map item. Check <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Lock layers for map item</em>. After this is checked, any layer that would be displayed or hidden in the main KADAS window will not appear or be hidden in the map item of the Composer. But style and labels of a locked layer are still refreshed according to the main KADAS interface. You can prevent this by using <em>Lock layer styles for map item</em>.</li>
+<li>The <a href="../../images/mActionShowPresets.png" class="reference internal"><img src="../../images/mActionShowPresets.png" alt="mActionShowPresets"></a> button allows you to add quickly all the presets views you have prepared in QGIS. Clicking on the <a href="../../images/mActionShowPresets.png" class="reference internal"><img src="../../images/mActionShowPresets.png" alt="mActionShowPresets"></a> button you will see the list of all the preset views: just select the preset you want to display. The map canvas will automatically lock the preset layers by enabling the <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Lock layers for map item</em>: if you want to unselect the preset, just uncheck the <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> and press on the <a href="../../images/mActionDraw.png" class="reference internal"><img src="../../images/mActionDraw.png" alt="mActionDraw"></a> button. See <a href="../introduction/qgis_gui.html#label-legend" class="reference internal"><em>Map Legend</em></a> to find out how to create presets views.</li>
 </ul>
-<h3 id="extents">Estensione mappa </h3>
+<h3 id="extents">Extents </h3>
 <p>The <em>Extents</em> dialog of the map item tab provides the following functionalities (see <a href="#figure-composer-map-2" class="reference internal">figure_composer_map_2</a>):</p>
 <p><strong>Figure Composer Map 2:</strong></p>
 <p><img src="../../images/print_composer_map2.png" alt="">
-Finestra di dialogo estensione mappa </p>
+Map Extents Dialog </p>
 <ul>
 <li>The <strong>Map extents</strong> area allows you to specify the map extent using X and Y min/max values and by clicking the <strong>[Set to map canvas extent]</strong> button. This button sets the map extent of the composer map item to the extent of the current map view in the main KADAS application. The button <strong>[View extent in map canvas]</strong> does exactly the opposite, it updates the extent of the map view in the QGIS application to the extent of the composer map item.</li>
 </ul>
@@ -688,10 +639,10 @@ Finestra di dialogo estensione mappa </p>
 <li>With the plus and minus button you can add or remove a selected grid.</li>
 <li>With the up and down button you can move a grid in the list and set the drawing priority.</li>
 </ul>
-<p>Cliccando sul reticolo aggiunto &#xE8; possibile assegnarli un altro nome.</p>
+<p>When you double click on the added grid you can give it another name.</p>
 <p><strong>Figure Composer Map 3:</strong></p>
 <p><img src="../../images/map_grids.png" alt="">
-Finestra di dialogo reticolo </p>
+Map Grids Dialog </p>
 <p>After you have added a grid, you can activate the checkbox <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Show grid</em> to overlay a grid onto the map element. Expand this option to provide a lot of configuration options, see <a href="#figure-composer-map-4" class="reference internal">Figure_composer_map_4</a>.</p>
 <p><strong>Figure Composer Map 4:</strong></p>
 <p><img src="../../images/draw_grid.png" alt="">
@@ -709,17 +660,15 @@ Grid Frame Dialog </p>
 <p><strong>Figure Composer map 6:</strong></p>
 <p><img src="../../images/grid_draw_coordinates.png" alt="">
 Grid Draw Coordinates dialog </p>
-<h3 id="overviews">Panoramiche </h3>
+<h3 id="overviews">Overviews </h3>
 <p>The <em>Overviews</em> dialog of the map <em>Item Properties</em> tab provides the following functionalities:</p>
 <p><strong>Figure Composer Map 7:</strong></p>
 <p><img src="../../images/print_composer_map4.png" alt="">
-Finestra di dialogo panoramica </p>
+Map Overviews Dialog </p>
 <p>You can choose to create an overview map, which shows the extents of the other map(s) that are available in the composer. First you need to create the map(s) you want to include in the overview map. Next you create the map you want to use as the overview map, just like a normal map.</p>
 <ul>
-<li><p>Con i pulsanti pi&#xF9; e meno &#xE8; possibile aggiungere o rimuovere una panoramica.</p>
-</li>
-<li><p>With the up and down button you can move an overview in the list and set the drawing priority.</p>
-</li>
+<li>With the plus and minus button you can add or remove an overview.</li>
+<li>With the up and down button you can move an overview in the list and set the drawing priority.</li>
 </ul>
 <p>Open <em>Overviews</em> and press the green plus icon-button to add an overview. Initially this overview is named &#x2018;Overview 1&#x2019; (see <a href="#figure-composer-map-7" class="reference internal">Figure_composer_map_7</a>). You can change the name when you double-click on the overview item in the list named &#x2018;Overview 1&#x2019; and change it to another name.</p>
 <p>When you select the overview item in the list you can customize it.</p>
@@ -732,19 +681,16 @@ Finestra di dialogo panoramica </p>
 <li>The <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Center on overview</em> puts the extent of the overview frame in the center of the overview map. You can only activate one overview item to center, when you have added several overviews.</li>
 </ul>
 <h2 id="the-label-item">The Label item </h2>
-<p>Per aggiungere un&#x2019;etichetta, clicca sull&#x2019;icona <a href="../../images/mActionLabel.png" class="reference internal"><img src="../../images/mActionLabel.png" alt="mActionLabel"></a> <sup>Aggiungi\ etichetta</sup> e scegli dove inserirla cliccando sulla mappa con il mouse. Puoi personalizzare le etichette nella scheda <em>Propriet&#xE0; oggetto</em>.</p>
+<p>To add a label, click the <a href="../../images/mActionLabel.png" class="reference internal"><img src="../../images/mActionLabel.png" alt="mActionLabel"></a> <sup>Add\ label</sup> icon, place the element with the left mouse button on the Print Composer canvas and position and customize its appearance in the label <em>Item Properties</em> tab.</p>
 <p>The <em>Item Properties</em> tab of a label item provides the following functionality for the label item (see <a href="#figure-composer-label" class="reference internal">Figure_composer_label</a>):</p>
 <p><strong>Figure Composer 8:</strong></p>
 <p><img src="../../images/print_composer_label1.png" alt="">
-Scheda propriet&#xE0; etichette </p>
-<h3 id="id1">Propriet&#xE0; principali </h3>
+Label Item properties Tab </p>
+<h3 id="id1">Main properties </h3>
 <ul>
-<li><p>La voce propriet&#xE0; principali &#xE8; il posto dove devi inserire il testo (HTML oppure normale) o l&#x2019;espressione che vuoi che compaia sull&#x2019;etichetta.</p>
-</li>
-<li><p>Puoi inserire del testo HTML per le etichette: spunta la casella di controllo <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Visualizza come HTML</em>. Ora puoi inserire un URL, un&#x2019;immagine collegata a un sito web oppure qualcosa di pi&#xF9; complesso.</p>
-</li>
-<li><p>You can also insert an expression. Click on <strong>[Insert an expression]</strong> to open a new dialog. Build an expression by clicking the functions available in the left side of the panel. Two special categories can be useful, particularly associated with the atlas functionality: geometry functions and records functions. At the bottom, a preview of the expression is shown.</p>
-</li>
+<li>The main properties dialog is where the text (HTML or not) or the expression needed to fill the label is added to the Composer canvas.</li>
+<li>Labels can be interpreted as HTML code: check <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Render as HTML</em>. You can now insert a URL, a clickable image that links to a web page or something more complex.</li>
+<li>You can also insert an expression. Click on <strong>[Insert an expression]</strong> to open a new dialog. Build an expression by clicking the functions available in the left side of the panel. Two special categories can be useful, particularly associated with the atlas functionality: geometry functions and records functions. At the bottom, a preview of the expression is shown.</li>
 </ul>
 <h3 id="appearance">Appearance </h3>
 <ul>
@@ -753,11 +699,11 @@ Scheda propriet&#xE0; etichette </p>
 <li>Using the <em>Alignment</em> is another way to position your label. Note that when e.g. using the <em>Horizontal alignment</em> in <img src="../../images/radiobuttonon.png" alt="radiobuttonon"><em>Center</em> Position the <em>Horizontal margin</em> feature is disabled.</li>
 </ul>
 <h2 id="the-image-item">The Image item </h2>
-<p>Per aggiungere un&#x2019;immagine, clicca sull&#x2019;icona <a href="../../images/mActionAddImage.png" class="reference internal"><img src="../../images/mActionAddImage.png" alt="mActionAddImage"></a> <sup>Aggiungi\ immagine</sup> e scegli dove inserirla cliccando sulla mappa con il mouse. Puoi personalizzare l&#x2019;immagine nella scheda <em>Propriet&#xE0; oggetto</em>.</p>
+<p>To add an image, click the <a href="../../images/mActionAddImage.png" class="reference internal"><img src="../../images/mActionAddImage.png" alt="mActionAddImage"></a> <sup>Add\ image</sup> icon, place the element with the left mouse button on the Print Composer canvas and position and customize its appearance in the image <em>Item Properties</em> tab.</p>
 <p>The picture <em>Item Properties</em> tab provides the following functionalities (see <a href="#figure-composer-image-1" class="reference internal">figure_composer_image_1</a>):</p>
 <p><strong>Figure Composer image 1:</strong></p>
 <p><img src="../../images/print_composer_image1.png" alt="">
-Scheda propriet&#xE0; immagine </p>
+Image Item properties Tab </p>
 <p>You first have to select the image you want to display. There are several ways to set the <em>image source</em> in the <strong>Main properties</strong> area.</p>
 <ol>
 <li>Use the browse button <a href="../../images/browsebutton.png" class="reference internal"><img src="../../images/browsebutton.png" alt="browsebutton"></a> of <em>image source</em> to select a file on your computer using the browse dialog. The browser will start in the SVG-libraries provided with KADAS. Besides <code>SVG</code>, you can also select other image formats like <code>.png</code> or <code>.jpg</code>.</li>
@@ -778,22 +724,22 @@ Scheda propriet&#xE0; immagine </p>
 <p>With <em>Placement</em> you can select the position of the image inside it&#x2019;s frame. The <strong>Search directories</strong> area allows you to add and remove directories with images in SVG format to the picture database. A preview of the pictures found in the selected directories is shown in a pane and can be used to select and set the image source.</p>
 <p>Images can be rotated with the <em>Image rotation</em> field. Activating the <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Sync with map</em> checkbox synchronizes the rotation of a picture in the KADAS map canvas (i.e., a rotated north arrow) with the appropriate Print Composer image.</p>
 <p>It is also possible to select a north arrow directly. If you first select a north arrow image from <strong>Search directories</strong> and then use the browse button <a href="../../images/browsebutton.png" class="reference internal"><img src="../../images/browsebutton.png" alt="browsebutton"></a> of the field <em>Image source</em>, you can now select one of the north arrow from the list as displayed in <a href="#figure-composer-image-2" class="reference internal">figure_composer_image_2</a>.</p>
-<p>Nota</p>
+<p>Note</p>
 <p>Many of the north arrows do not have an &#x2018;N&#x2019; added in the north arrow, this is done on purpose for languages that do not use an &#x2018;N&#x2019; for North, so they can use another letter.</p>
 <p><strong>Figure Composer Image 2:</strong></p>
 <p><img src="../../images/north_arrows.png" alt="">
 North arrows available for selection in provided SVG library</p>
 <h2 id="the-legend-item">The Legend item </h2>
-<p>Per aggiungere una legenda, clicca su <a href="../../images/mActionAddLegend.png" class="reference internal"><img src="../../images/mActionAddLegend.png" alt="mActionAddLegend"></a> <sup>Aggiungi\ legenda</sup>, e scegli dove posizionarla con il tasto sinistro del mouse. Puoi personalizzare l&#x2019;aspetto della legenda nella scheda <em>Propriet&#xE0; oggetto</em>.</p>
+<p>To add a map legend, click the <a href="../../images/mActionAddLegend.png" class="reference internal"><img src="../../images/mActionAddLegend.png" alt="mActionAddLegend"></a> <sup>Add\ new\ legend</sup> icon, place the element with the left mouse button on the Print Composer canvas and position and customize the appearance in the legend <em>Item Properties</em> tab.</p>
 <p>The <em>Item properties</em> of a legend item tab provides the following functionalities (see <a href="#figure-composer-legend-1" class="reference internal">figure_composer_legend_1</a>):</p>
 <p><strong>Figure Composer Legend 1:</strong></p>
 <p><img src="../../images/print_composer_legend1.png" alt="">
-Scheda propriet&#xE0; legenda </p>
-<h3 id="id3">Propriet&#xE0; principali </h3>
+Legend Item properties Tab </p>
+<h3 id="id3">Main properties </h3>
 <p>The <em>Main properties</em> dialog of the legend <em>Item Properties</em> tab provides the following functionalities (see <a href="#figure-composer-legend-2" class="reference internal">figure_composer_legend_2</a>):</p>
 <p><strong>Figure Composer Legend 2:</strong></p>
 <p><img src="../../images/print_composer_legend2.png" alt="">
-Finestra di dialogo propriet&#xE0; principali della legenda </p>
+Legend Main properties Dialog </p>
 <p>In Main properties you can:</p>
 <ul>
 <li>Change the title of the legend.</li>
@@ -801,11 +747,11 @@ Finestra di dialogo propriet&#xE0; principali della legenda </p>
 <li>You can choose which <em>Map</em> item the current legend will refer to in the select list.</li>
 <li>You can wrap the text of the legend title on a given character.</li>
 </ul>
-<h3 id="legend-items">Oggetti della legenda </h3>
+<h3 id="legend-items">Legend items </h3>
 <p>The <em>Legend items</em> dialog of the legend <em>Item Properties</em> tab provides the following functionalities (see <a href="#figure-composer-legend-3" class="reference internal">figure_composer_legend_3</a>):</p>
 <p><strong>Figure Composer Legend 3:</strong></p>
 <p><img src="../../images/print_composer_legend3.png" alt="">
-Finestra di dialogo oggetti legenda </p>
+Legend Legend Items Dialog </p>
 <ul>
 <li><p>The legend will be updated automatically if <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Auto-update</em> is checked. When <em>Auto-update</em> is unchecked this will give you more control over the legend items. The icons below the legend items list will be activated.</p>
 </li>
@@ -825,22 +771,16 @@ Finestra di dialogo oggetti legenda </p>
 <p>The <em>Fonts</em>, <em>Columns</em> and <em>Symbol</em> dialogs of the legend <em>Item Properties</em> tab provide the following functionalities (see <a href="#figure-composer-legend-4" class="reference internal">figure_composer_legend_4</a>):</p>
 <p><strong>Figure Composer Legend 4:</strong></p>
 <p><img src="../../images/print_composer_legend4.png" alt="">
-Finestra di dialogo caratteri, colonne, simboli e spaziatura legenda </p>
+Legend Fonts, Columns, Symbol and Spacing Dialogs </p>
 <ul>
-<li><p>Puoi cambiare il carattere del titolo, gruppo, sotto-gruppo o elemento singolo della legenda. Clicca sul pulsante corrispondente per aprire la finestra <strong>Selezione carattere</strong>.</p>
-</li>
-<li><p>You provide the labels with a <strong>Color</strong> using the advanced color picker, however the selected color will be given to all font items in the legend..</p>
-</li>
-<li><p>Legend items can be arranged over several columns. Set the number of columns in the <em>Count</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a> field.</p>
-<ul>
-<li><p>La casella di controllo <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Uguale larghezza delle colonne</em> imposta come le colonne della legenda devono essere gestite.</p>
-</li>
-<li><p>La casella di controllo <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Dividi layers</em> ti permette una divisione dei layer in base alla loro categorizzazione.</p>
-</li>
+<li>You can change the font of the legend title, group, subgroup and item (layer) in the legend item. Click on a category button to open a <strong>Select font</strong> dialog.</li>
+<li>You provide the labels with a <strong>Color</strong> using the advanced color picker, however the selected color will be given to all font items in the legend..</li>
+<li>Legend items can be arranged over several columns. Set the number of columns in the <em>Count</em> <a href="../../images/selectnumber.png" class="reference internal"><img src="../../images/selectnumber.png" alt="selectnumber"></a> field.<ul>
+<li><a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Equal column widths</em> sets how legend columns should be adjusted.</li>
+<li>The <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Split layers</em> option allows a categorized or a graduated layer legend to be divided between columns.</li>
 </ul>
 </li>
-<li><p>Puoi cambiare la larghezza e l&#x2019;altezza di un simbolo della legenda.</p>
-</li>
+<li>You can change the width and height of the legend symbol in this dialog.</li>
 </ul>
 <h3 id="wms-legendgraphic-and-spacing">WMS LegendGraphic and Spacing </h3>
 <p>The <em>WMS LegendGraphic</em> and <em>Spacing</em> dialogs of the legend <em>Item Properties</em> tab provide the following functionalities (see <a href="#figure-composer-legend-5" class="reference internal">figure_composer_legend_5</a>):</p>
@@ -851,44 +791,36 @@ WMS LegendGraphic Dialogs </p>
 <p><em>WMS LegendGraphic</em> is used to be able to adjust the <em>Legend width</em> and the <em>Legend height</em> of the WMS legend raster image.</p>
 <p>Spacing around title, group, subgroup, symbol, icon label, box space or column space can be customized through this dialog.</p>
 <h2 id="the-scale-bar-item">The Scale Bar item </h2>
-<p>Per aggiungere una barra di scala, clicca su <a href="../../images/mActionScaleBar.png" class="reference internal"><img src="../../images/mActionScaleBar.png" alt="mActionScaleBar"></a> <sup>Aggiungi\ nuova\ barra\ di\ scala</sup> , scegli dove posizionarla e clicca con il tasto sinistro del mouse. Hai pieno accesso alla personalizzazione attraverso la scheda <em>Propriet&#xE0; oggetto</em>.</p>
+<p>To add a scale bar, click the <a href="../../images/mActionScaleBar.png" class="reference internal"><img src="../../images/mActionScaleBar.png" alt="mActionScaleBar"></a> <sup>Add\ new\ scalebar</sup> icon, place the element with the left mouse button on the Print Composer canvas and position and customize the appearance in the scale bar <em>Item Properties</em> tab.</p>
 <p>The <em>Item properties</em> of a scale bar item tab provides the following functionalities (see <a href="#figure-composer-scalebar-1" class="reference internal">figure_composer_scalebar_1</a>):</p>
 <p><strong>Figure Composer Scalebar 1:</strong></p>
 <p><img src="../../images/print_composer_scalebar1.png" alt="">
-Propriet&#xE0; barra di scala </p>
-<h3 id="id4">Propriet&#xE0; principali </h3>
+Scale Bar Item properties Tab </p>
+<h3 id="id4">Main properties </h3>
 <p>The <em>Main properties</em> dialog of the scale bar <em>Item Properties</em> tab provides the following functionalities (see <a href="#figure-composer-scalebar-2" class="reference internal">figure_composer_scalebar_2</a>):</p>
 <p><strong>Figure Composer Scalebar 2:</strong></p>
 <p><img src="../../images/print_composer_scalebar2.png" alt="">
-Propriet&#xE0; principali della barra di scala </p>
+Scale Bar Main properties Dialog </p>
 <ul>
-<li><p>Prima di tutto scegli a quale mappa vuoi aggiungere la barra di scala.</p>
-</li>
-<li><p>Poi scegli lo stile della barra di scale. Hai a disposizione sei stili:</p>
-<ul>
-<li><p><strong>Riquadro singolo</strong> e <strong>Riquadro doppio</strong> che contengono una o due linee con colori alternati.</p>
-</li>
-<li><p><strong>Linea con tacche al centro</strong>, <strong>Linea con tacche in basso</strong> o <strong>Linea con tacche in alto</strong>.</p>
-</li>
-<li><p><strong>Numerico</strong> che mostra semplicemente il rapporto di scala (per esempio</p>
-</li>
+<li>First, choose the map the scale bar will be attached to.</li>
+<li>Then, choose the style of the scale bar. Six styles are available:<ul>
+<li><strong>Single box</strong> and <strong>Double box</strong> styles, which contain one or two lines of boxes alternating colors.</li>
+<li><strong>Middle</strong>, <strong>Up</strong> or <strong>Down</strong> line ticks.</li>
+<li><strong>Numeric</strong>, where the scale ratio is printed (i.e., 1:50000).</li>
 </ul>
 </li>
 </ul>
-<h3 id="units-and-segments">Unit&#xE0; e segmenti </h3>
+<h3 id="units-and-segments">Units and Segments </h3>
 <p>The <em>Units</em> and <em>Segments</em> dialogs of the scale bar <em>Item Properties</em> tab provide the following functionalities (see <a href="#figure-composer-scalebar-3" class="reference internal">figure_composer_scalebar_3</a>):</p>
 <p><strong>Figure Composer scalebar 3:</strong></p>
 <p><img src="../../images/print_composer_scalebar3.png" alt="">
-Unit&#xE0; e segmenti della barra di scala </p>
-<p>In queste due sezioni puoi scegliere come deve essere rappresentata la barra di scala.</p>
+Scale Bar Units and Segments Dialogs </p>
+<p>In these two dialogs, you can set how the scale bar will be represented.</p>
 <ul>
 <li>Select the map units used. There are four possible choices: <strong>Map Units</strong> is the automated unit selection; <strong>Meters</strong>, <strong>Feet</strong> or <strong>Nautical Miles</strong> force unit conversions.</li>
-<li><p>Specifica nel campo <em>Etichetta</em> il testo che descriver&#xE0; l&#x2019;unit&#xE0; scelta.</p>
-</li>
-<li><p>Il campo <em>Unit&#xE0; mappa per unit&#xE0; di barra</em> ti permette di fissare il rapporto fra le unit&#xE0; di mappa e la loro rappresentazione nella barra di scala.</p>
-</li>
-<li><p>Puoi scegliere quanti <em>Segmenti</em> devono essere disegnati a sinistra e a destra della barra di scala e quanto ogni segmento deve essere lungo (<em>Dimensione</em>). Puoi anche scegliere l&#x2019;<em>Altezza</em>.</p>
-</li>
+<li>The <em>Label</em> field defines the text used to describe the units of the scale bar.</li>
+<li>The <em>Map units per bar unit</em> allows you to fix the ratio between a map unit and its representation in the scale bar.</li>
+<li>You can define how many <em>Segments</em> will be drawn on the left and on the right side of the scale bar, and how long each segment will be (<em>Size</em> field). <em>Height</em> can also be defined.</li>
 </ul>
 <h3 id="display">Display </h3>
 <p>The <em>Display</em> dialog of the scale bar <em>Item Properties</em> tab provide the following functionalities (see <a href="#figure-composer-scalebar-4" class="reference internal">figure_composer_scalebar_4</a>):</p>
@@ -923,11 +855,11 @@ Scale Bar Fonts and colors Dialogs </p>
 <p>When you also hold down the <code>Shift</code> key while placing the basic shape you can create a perfect square, circle or triangle.</p>
 <p><strong>Figure Composer Basic Shape:</strong></p>
 <p><img src="../../images/print_composer_shape.png" alt="">
-Scheda propriet&#xE0; forma </p>
+Shape Item properties Tab </p>
 <p>The <em>Shape</em> item properties tab allows you to select if you want to draw an ellipse, rectangle or triangle inside the given frame.</p>
 <p>You can set the style of the shape using the advanced symbol style dialog with which you can define its outline and fill color, fill pattern, use markers etcetera.</p>
 <p>For the rectangle shape, you can set the value of the corner radius to round of the corners.</p>
-<p>Nota</p>
+<p>Note</p>
 <p>Unlike other items, you can not style the frame or the background color of the frame.</p>
 <h2 id="the-arrow-item">The Arrow item </h2>
 <p>To add an arrow, click the <a href="../../images/mActionAddArrow.png" class="reference internal"><img src="../../images/mActionAddArrow.png" alt="mActionAddArrow"></a> <sup>Add\ Arrow</sup> icon, place the element holding down the left mouse button and drag a line to draw the arrow on the Print Composer canvas and position and customize the appearance in the scale bar <em>Item Properties</em> tab.</p>
@@ -935,7 +867,7 @@ Scheda propriet&#xE0; forma </p>
 <p>The arrow item can be used to add a line or a simple arrow that can be used, for example, to show the relation between other print composer items. To create a north arrow, the image item should be considered first. KADAS has a set of North arrows in SVG format. Furthermore you can connect an image item with a map so it can rotate automatically with the map (see <a href="#the-image-item" class="reference internal">the_image_item</a>).</p>
 <p><strong>Figure Composer Arrow:</strong></p>
 <p><img src="../../images/print_composer_arrow.png" alt="">
-Scheda propriet&#xE0; freccia </p>
+Arrow Item properties Tab </p>
 <h3 id="item-properties">Item Properties </h3>
 <p>The <em>Arrow</em> item properties tab allows you to configure an arrow item.</p>
 <p>The <strong>[Line style ...]</strong> button can be used to set the line style using the line style symbol editor.</p>
@@ -960,12 +892,12 @@ Scheda propriet&#xE0; freccia </p>
 </ul>
 <p>SVG images are automatically rotated with the line. The color of the SVG image can not be changed.</p>
 <h2 id="the-attribute-table-item">The Attribute Table item </h2>
-<p>Puoi aggiungere parti della tabella degli attributi di un vettore al compositore di stampe: clicca sull&#x2019;icona <a href="../../images/mActionOpenTable.png" class="reference internal"><img src="../../images/mActionOpenTable.png" alt="mActionOpenTable"></a> <sup>Aggiungi\ tabella\ attributi</sup>, scegli dove posizionarla e clicca con il tasto sinistro del mouse. In seguito potrai personalizzarne gli aspetti dalla scheda <em>Propriet&#xE0; oggetto</em>.</p>
+<p>It is possible to add parts of a vector attribute table to the Print Composer canvas: Click the <a href="../../images/mActionOpenTable.png" class="reference internal"><img src="../../images/mActionOpenTable.png" alt="mActionOpenTable"></a> <sup>Add\ attribute\ table</sup> icon, place the element with the left mouse button on the Print Composer canvas, and position and customize the appearance in the <em>Item Properties</em> tab.</p>
 <p>The <em>Item properties</em> of an attribute table item tab provides the following functionalities (see <a href="#figure-composer-table-1" class="reference internal">figure_composer_table_1</a>):</p>
 <p><strong>Figure Composer Attribute Table 1:</strong></p>
 <p><img src="../../images/print_composer_attribute1.png" alt="">
 Attribute table Item properties Tab </p>
-<h3 id="id5">Propriet&#xE0; principali </h3>
+<h3 id="id5">Main properties </h3>
 <p>The <em>Main properties</em> dialogs of the attribute table <em>Item Properties</em> tab provide the following functionalities (see <a href="#figure-composer-table-2" class="reference internal">figure_composer_table_2</a>):</p>
 <p><strong>Figure Composer Attribute Table 2:</strong></p>
 <p><img src="../../images/print_composer_attribute2.png" alt="">
@@ -1004,7 +936,7 @@ Attribute table Main properties for &#x2018;Relation children&#x2019; </p>
 </ul>
 <p><strong>Figure Composer Attribute Table 3:</strong></p>
 <p><img src="../../images/print_composer_attribute3.png" alt="">
-Finestra di dialogo scegli attributo </p>
+Attribute table Select attributes Dialog </p>
 <h3 id="feature-filtering">Feature filtering </h3>
 <p>The <em>Feature filtering</em> dialogs of the attribute table <em>Item Properties</em> tab provide the following functionalities (see <a href="#figure-composer-table-4" class="reference internal">figure_composer_table_4</a>):</p>
 <p><strong>Figure Composer Attribute Table 4:</strong></p>
@@ -1140,27 +1072,27 @@ p {font-family: &quot;Times New Roman&quot;, Times, serif;
 <li><p>Use the <strong>[Update HTML]</strong> button to see the result of the stylesheet settings.</p>
 </li>
 </ul>
-<h4 id="manage-items">Gestisci elementi </h4>
-<h2 id="size-and-position">Dimensione e posizione </h2>
-<p>Puoi spostare/ridimensionare ogni elemento del compositore per creare un layout di stampa perfetto. Per entrambe le operazioni devi prima attivare cliccare sull&#x2019;icona <a href="../../images/mActionSelect.png" class="reference internal"><img src="../../images/mActionSelect.png" alt="mActionSelect"></a> <sup>Scegli/Sposta\ oggetto</sup> e poi cliccare sull&#x2019;oggetto corrispondente; ora puoi muoverlo con il pulsante sinistro del mouse. Se vuoi forzare lo spostamento lungo un asse orizzontale o verticale, tieni premuto il tasto <code>Shift</code>. Se hai bisogno di una maggiore precisione usa le <code>Frecce direzionali</code> della tastiera; se il movimento &#xE8; troppo lento lo puoi velocizzare tenendo premuto il tasto <code>Shift</code>.</p>
+<h4 id="manage-items">Manage items </h4>
+<h2 id="size-and-position">Size and position </h2>
+<p>Each item inside the Composer can be moved/resized to create a perfect layout. For both operations the first step is to activate the <a href="../../images/mActionSelect.png" class="reference internal"><img src="../../images/mActionSelect.png" alt="mActionSelect"></a> <sup>Select/Move\ item</sup> tool and to click on the item; you can then move it using the mouse while holding the left button. If you need to constrain the movements to the horizontal or the vertical axis, just hold the <code>Shift</code> while moving the mouse. If you need a better precision, you can move a selected item using the <code>Arrow keys</code> on the keyboard; if the movement is too slow, you can speed up it by holding <code>Shift</code>.</p>
 <p>A selected item will show squares on its boundaries; moving one of them with the mouse, will resize the item in the corresponding direction. While resizing, holding <code>Shift</code> will maintain the aspect ratio. Holding <code>Alt</code> will resize from the item center.</p>
 <p>The correct position for an item can be obtained using snapping to grid or smart guides. Guides are set by clicking and dragging in the rulers. Guides are moved by clicking in the ruler, level with the guide and dragging to a new place. To delete a guide move it off the canvas. If you need to disable the snap on the fly just hold <code>Ctrl</code> while moving the mouse.</p>
-<p>Puoi usare lo strumento <a href="../../images/mActionSelect.png" class="reference internal"><img src="../../images/mActionSelect.png" alt="mActionSelect"></a> <sup>Sposta/Muovi\ oggetto</sup> su pi&#xF9; oggetti contemporaneamente. Tieni premuto il tasto <code>Shift</code> e clicca su tutti gli oggetti che vuoi selezionare. Ora li puoi spostare o ridimensionare tutti in un colpo solo.</p>
+<p>You can choose multiple items with the <a href="../../images/mActionSelect.png" class="reference internal"><img src="../../images/mActionSelect.png" alt="mActionSelect"></a> <sup>Select/Move\ item</sup> button. Just hold the <code>Shift</code> button and click on all the items you need. You can then resize/move this group just like a single item.</p>
 <p>Once you have found the correct position for an item, you can lock it by using the items on the toolbar or ticking the box next to the item in the <em>Items</em> tab. Locked items are <strong>not</strong> selectable on the canvas.</p>
 <p>Locked items can be unlocked by selecting the item in the <em>Items</em> tab and unchecking the tickbox or you can use the icons on the toolbar.</p>
-<p>Per deselezionare un oggetto, cliccaci sopra tenendo premuto il tasto <code>Shift</code>.</p>
-<p>Nel menu <em>Modifica</em>, puoi trovare diversi strumenti che ti permettono di selezionare tutti gli elementi, di pulire o invertire la selezione attuale.</p>
-<h2 id="alignment">Allineamento </h2>
+<p>To unselect an item, just click on it holding the <code>Shift</code> button.</p>
+<p>Inside the <em>Edit</em> menu, you can find actions to select all the items, to clear all selections or to invert the current selection.</p>
+<h2 id="alignment">Alignment </h2>
 <p>Raising or lowering functionalities for elements are inside the <a href="../../images/mActionRaiseItems.png" class="reference internal"><img src="../../images/mActionRaiseItems.png" alt="mActionRaiseItems"></a> <sup>Raise\ selected\ items</sup> pull-down menu. Choose an element on the Print Composer canvas and select the matching functionality to raise or lower the selected element compared to the other elements (see <a href="#table-composer-1" class="reference internal">table_composer_1</a>). This order is shown in the <em>Items</em> tab. You can also raise or lower objects in the <em>Items</em> tab by clicking and dragging an object&#x2019;s label in this list.</p>
 <p><strong>Figure Composer 28:</strong></p>
 <p><img src="../../images/alignment_lines.png" alt="">
-Linee guida di allineamento del compositore di stampe </p>
-<p>Ci sono diverse funzionalit&#xE0; disponibili nel menu a tendina <a href="../../images/mActionAlignLeft.png" class="reference internal"><img src="../../images/mActionAlignLeft.png" alt="mActionAlignLeft"></a> <sup>Allinea\ gli\ oggetti\ selezionati</sup> (vedi <a href="#table-composer-1" class="reference internal">table_composer_1</a>). Per usare una di queste funzionalit&#xE0;, seleziona prima alcuni oggetti e poi clicca sull&#x2019;icona. In questo modo tutti gli elementi verranno allineati all&#x2019;interno della loro cornice. Quando muovi gli elementi nel compositore, appaiono delle linee ai margini del foglio che ti aiutano ad allineare gli oggetti.</p>
-<h2 id="copy-cut-and-paste-items">Copia/Taglia e Incolla oggetti </h2>
-<p>Il compositore di stampe include tutte le azioni pi&#xF9; comuni di copia/taglia/incolla per gli oggetti del layout. Prima di tutto seleziona l&#x2019;oggetto: nel menu <em>Modifica</em> potrai trovare le azioni che potrai effettuare. Mentre usi l&#x2019;azione incolla, gli oggetti verranno incollati nella posizione attuale del mouse.</p>
-<p>Nota</p>
+Alignment helper lines in the Print Composer </p>
+<p>There are several alignment functionalities available within the <a href="../../images/mActionAlignLeft.png" class="reference internal"><img src="../../images/mActionAlignLeft.png" alt="mActionAlignLeft"></a> <sup>Align\ selected\ items</sup> pull-down menu (see <a href="#table-composer-1" class="reference internal">table_composer_1</a>). To use an alignment functionality, you first select some elements and then click on the matching alignment icon. All selected elements will then be aligned within to their common bounding box. When moving items on the Composer canvas, alignment helper lines appear when borders, centers or corners are aligned.</p>
+<h2 id="copy-cut-and-paste-items">Copy/Cut and Paste items </h2>
+<p>The print composer includes actions to use the common Copy/Cut/Paste functionality for the items in the layout. As usual first you need to select the items using one of the options seen above; at this point the actions can be found in the <em>Edit</em> menu. When using the Paste action, the elements will be pasted according to the current mouse position.</p>
+<p>Note</p>
 <p>HTML items can not be copied in this way. As a workaround, use the <strong>[Add Frame]</strong> button in the <em>Item Properties</em> tab.</p>
-<p>Durante la creazione di un layout di stampa puoi annullare e ripristinare le azioni. Lo puoi fare semplicemente usando lo strumento annulla/ripristina:</p>
+<p>During the layout process, it is possible to revert and restore changes. This can be done with the revert and restore tools:</p>
 <ul>
 <li><a href="../../images/mActionUndo.png" class="reference internal"><img src="../../images/mActionUndo.png" alt="mActionUndo"></a> <sup>Revert\ last\ change</sup></li>
 <li><a href="../../images/mActionRedo.png" class="reference internal"><img src="../../images/mActionRedo.png" alt="mActionRedo"></a> <sup>Restore\ last\ change</sup></li>
@@ -1168,35 +1100,28 @@ Linee guida di allineamento del compositore di stampe </p>
 <p>This can also be done by mouse click within the <em>Command history</em> tab (see <a href="#figure-composer-29" class="reference internal">figure_composer_29</a>).</p>
 <p><strong>Figure Composer 29:</strong></p>
 <p><img src="../../images/command_hist.png" alt="">
-Storico dei comandi del compositore di stampe </p>
-<p>Il compositore di stampe include anche una funzionalit&#xE0; che ti permette di creare automaticamente degli atlanti. Il concetto &#xE8; quello di usare un vettore di copertura che contiene campi e geometrie. Per ogni geometria di questo vettore potrai creare un nuovo output: ogni nuovo output sar&#xE0; centrato sulla geometria corrispondente. Puoi usare i campi delle geometrie come etichette per gli output.</p>
+Command history in the Print Composer </p>
+<p>The Print Composer includes generation functions that allow you to create map books in an automated way. The concept is to use a coverage layer, which contains geometries and fields. For each geometry in the coverage layer, a new output will be generated where the content of some canvas maps will be moved to highlight the current geometry. Fields associated with this geometry can be used within text labels.</p>
 <p>Every page will be generated with each feature. To enable the generation of an atlas and access generation parameters, refer to the Atlas generation tab. This tab contains the following widgets (see <a href="#figure-composer-atlas" class="reference internal">Figure_composer_atlas</a>):</p>
 <p><strong>Figure Composer Atlas:</strong></p>
 <p><img src="../../images/print_composer_atlas.png" alt="">
-Scheda generazione atlante </p>
+Atlas generation tab </p>
 <ul>
-<li><p><a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Genera un atlante</em>, che attiva o disattiva la generazione dell&#x2019;atlante.</p>
-</li>
-<li><p>Un menu a tendina <em>Layer di copertura</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a> che ti permette di scegliere il layer (vettore) contenente le geometrie che verranno iterate.</p>
-</li>
-<li><p>Una casella di controllo opzionale <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Layer copertura nascosto</em> che, se attivata, nasconder&#xE0; solamente il layer di copertura durante la generazione dell&#x2019;atlante.</p>
-</li>
-<li><p>Una casella opzionale <em>Filtra con</em> che ti permette di specificare un&#x2019;espressione per filtrare le geometrie del layer di copertura. Se l&#x2019;espressione non &#xE8; vuota, solamente le geometrie valutate come <code>True</code> verranno selezionate. Premendo il pulsante sulla destra puoi aprire il costruttore di espressioni.</p>
-</li>
-<li><p>Usa la casella di testo <em>Espressione nome file di output</em> per generare un nome per ogni geometria. Si basa su un&#x2019;espressione. Questo campo ha senso solamente per la creazione di file multipli.</p>
-</li>
-<li><p>Una casella di controllo <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Esporta file singolo se possibile</em> che ti permette di forzare la generazione di un singolo file se &#xE8; compatibile con il formato di output scelto (per esempio, PDF). Se spuntata, il valore inserito in <em>Espressione del nome di file in output</em> non ha senso.</p>
-</li>
-<li><p>Una casella di controllo opzionale <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Ordina per</em> che ti permette di ordinare le geometrie del layer di copertura. Il menu a tendina associato ti permette di scegliere quale colonna dovr&#xE0; essere usate per l&#x2019;ordinamento. Puoi impostare l&#x2019;ordine (crescente o decrescente) grazie al pulsante a destra del menu a tendina.</p>
-</li>
+<li><a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Generate an atlas</em>, which enables or disables the atlas generation.</li>
+<li>A <em>Coverage layer</em> <a href="../../images/selectstring.png" class="reference internal"><img src="../../images/selectstring.png" alt="selectstring"></a> combo box that allows you to choose the (vector) layer containing the geometries on which to iterate over.</li>
+<li>An optional <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Hidden coverage layer</em> that, if checked, will hide the coverage layer (but not the other ones) during the generation.</li>
+<li>An optional <em>Filter with</em> text area that allows you to specify an expression for filtering features from the coverage layer. If the expression is not empty, only features that evaluate to <code>True</code> will be selected. The button on the right allows you to display the expression builder.</li>
+<li>An <em>Output filename expression</em> textbox that is used to generate a filename for each geometry if needed. It is based on expressions. This field is meaningful only for rendering to multiple files.</li>
+<li>A <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Single file export when possible</em> that allows you to force the generation of a single file if this is possible with the chosen output format (PDF, for instance). If this field is checked, the value of the <em>Output filename expression</em> field is meaningless.</li>
+<li>An optional <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Sort by</em> that, if checked, allows you to sort features of the coverage layer. The associated combo box allows you to choose which column will be used as the sorting key. Sort order (either ascending or descending) is set by a two-state button that displays an up or a down arrow.</li>
 </ul>
-<p>Puoi usare oggetti multipli con la generazione dell&#x2019;atlante: ogni mappa verr&#xE0; visualizzata secondo le geometrie del layer di copertura. Per impostare la generazione dell&#x2019;atlante per un oggetto specifico, spunta la casella di controllo <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a><em>Controllato dall&#x2019;atlante</em> nella scheda delle propriet&#xE0; dell&#x2019;oggetto. Una volta spuntata potrai impostare:</p>
+<p>You can use multiple map items with the atlas generation; each map will be rendered according to the coverage features. To enable atlas generation for a specific map item, you need to check <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a><em>Controlled by Atlas</em> under the item properties of the map item. Once checked, you can set:</p>
 <ul>
 <li>A radiobutton <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Margin around feature</em> that allows you to select the amount of space added around each geometry within the allocated map. Its value is meaningful only when using the auto-scaling mode.</li>
 <li>A <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Predefined scale</em> (best fit). It will use the best fitting option from the list of predefined scales in your project properties settings (see <em>Project &#x2013;&gt; Project Properties &#x2013;&gt; General &#x2013;&gt; Project Scales</em> to configure these predefined scales).</li>
 <li>A <img src="../../images/radiobuttonoff.png" alt="radiobuttonoff"> <em>Fixed scale</em> that allows you to toggle between auto-scale and fixed-scale mode. In fixed-scale mode, the map will only be translated for each geometry to be centered. In auto-scale mode, the map&#x2019;s extents are computed in such a way that each geometry will appear in its entirety.</li>
 </ul>
-<h2 id="labels">Etichette </h2>
+<h2 id="labels">Labels </h2>
 <p>In order to adapt labels to the feature the atlas plugin iterates over, you can include expressions. For example, for a city layer with fields CITY_NAME and ZIPCODE, you could insert this:</p>
 <pre><code>The area of [% upper(CITY_NAME) || &apos;,&apos; || ZIPCODE || &apos; is &apos; format_number($area/1000000,2) %] km2
 </code></pre><p>The information [% upper(CITY_NAME) || &#x2018;,&#x2019; || ZIPCODE || &#x2018; is &#x2018; format_number($area/1000000,2) %] is an expression used inside the label. That would result in the generated atlas as:</p>
@@ -1214,12 +1139,12 @@ Scheda generazione atlante </p>
 </code></pre><p>When you want to give a title above map in the center of the page, insert a label item above the map. First use the item properties of the label item to set the horizontal alignment to <img src="../../images/radiobuttonon.png" alt="radiobuttonon"> <em>Center</em>. Next activate from <em>Reference point</em> the upper middle checkbox. You can provide following expression for field <em>X</em> :</p>
 <pre><code>(CASE WHEN bounds_width($atlasgeometry) &gt; bounds_height($atlasgeometry) THEN 297 ELSE 210 END) / 2
 </code></pre><p>For all other composer items you can set the position in a similar way so they are correctly positioned when page is automatically rotated in portrait or landscape.</p>
-<p>Information provided is derived from the excellent blog (in english and portugese) on the Data Defined Override options <a href="#id14"><span id="id15" class="problematic">Multiple_format_map_series_using_QGIS_2.6_</span></a> .</p>
+<p>Information provided is derived from the excellent blog (in english and portugese) on the Data Defined Override options <a href="#id8"><span id="id9" class="problematic">Multiple_format_map_series_using_QGIS_2.6_</span></a> .</p>
 <p>This is just one example of how you can use Data Defined Overrides.</p>
-<h2 id="preview">Anteprima </h2>
-<p>Una volta che hai configurato le impostazioni dell&#x2019;atlante e che hai selezionato gli oggetti della mappa, puoi creare un&#x2019;anteprima di tutte le pagine cliccando sul pulsante <em>Atlante &#x2023; Anteprima atlante</em> e usare le frecce dello stesso menu per navigare fra le varie geometrie.</p>
-<h2 id="generation">Generazione </h2>
-<p>Puoi effettuare la generazione dell&#x2019;atlante in modi diversi. Per esempio tramite il menu <em>Atlante &#x2023; Stampa atlante</em>. Puoi anche creare un PDF cliccando su <em>Atlente &#x2023; Esporta atlante come PDF</em>: ti verr&#xE0; chiesto un percorso in cui salvare i PDF (eccetto se hai spuntato la casella di controllo <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Esporta file singolo se possibile</em>). Se devi stampare solamente una pagina dell&#x2019;atlante, fai partire l&#x2019;anteprima, fermati alla pagina che vuoi e clicca su <em>Compositore &#x2023; Stampa</em> (o esporta come PDF).</p>
+<h2 id="preview">Preview </h2>
+<p>Once the atlas settings have been configured and map items selected, you can create a preview of all the pages by clicking on <em>Atlas &#x2023; Preview Atlas</em> and using the arrows, in the same menu, to navigate through all the features.</p>
+<h2 id="generation">Generation </h2>
+<p>The atlas generation can be done in different ways. For example, with <em>Atlas &#x2023; Print Atlas</em>, you can directly print it. You can also create a PDF using <em>Atlas &#x2023; Export Atlas as PDF</em>: The user will be asked for a directory for saving all the generated PDF files (except if the <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Single file export when possible</em> has been selected). If you need to print just a page of the atlas, simply start the preview function, select the page you need and click on <em>Composer &#x2023; Print</em> (or create a PDF).</p>
 <p>To maximise the space available to interact with a composition you can use <em>View &#x2013;&gt;</em> <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Hide panels</em> or press <code>F10</code>.</p>
 <p>:: note:</p>
 <pre><code>It&apos;s also possible to switch to a full screen mode to have more space to interact by pressing
@@ -1227,21 +1152,17 @@ Scheda generazione atlante </p>
 </code></pre><p><a href="#figure-composer-output" class="reference internal">Figure_composer_output</a> shows the Print Composer with an example print layout, including each type of map item described in the sections above.</p>
 <p><strong>Figure Composer Output:</strong></p>
 <p><img src="../../images/print_composer_complete.png" alt="">
-Compositore con mappa, legenda, immagine, barra di scala, coordinate, testo e cornice HTML </p>
+Print Composer with map view, legend, image, scale bar, coordinates, text and HTML frame added </p>
 <p>Before printing a layout you have the possibility to view your composition without bounding boxes. This can be enabled by deactivating <em>View &#x2013;&gt;</em> <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Show bounding boxes</em> or pressing the shortcut <code>Ctrl+Shift+B</code>.</p>
-<p>Il compositore di stampe ti permette di creare diversi formati di output e puoi scegliere la risoluzione (qualit&#xE0; di stampa) e il formato pagina:</p>
+<p>The Print Composer allows you to create several output formats, and it is possible to define the resolution (print quality) and paper size:</p>
 <ul>
-<li><p>L&#x2019;icona <a href="../../images/mActionFilePrint.png" class="reference internal"><img src="../../images/mActionFilePrint.png" alt="mActionFilePrint"></a> <sup>Stampa</sup> ti permette di stampare il layout su una stampante collegata o su un file PDF o Postscript.</p>
-</li>
-<li><p>L&#x2019;icona <a href="../../images/mActionSaveMapAsImage.png" class="reference internal"><img src="../../images/mActionSaveMapAsImage.png" alt="mActionSaveMapAsImage"></a> <sup>Esporta\ come\ immagine</sup> esporta il layout in diversi formati immagine come PNG, BPM, TIF, JPG,...</p>
-</li>
-<li><p>L&#x2019;icona <a href="../../images/mActionSaveAsPDF.png" class="reference internal"><img src="../../images/mActionSaveAsPDF.png" alt="mActionSaveAsPDF"></a> <sup>Esporta\ come\ PDF</sup> esporta il layout in formato PDF.</p>
-</li>
-<li><p>L&#x2019;icona <a href="../../images/mActionSaveAsSVG.png" class="reference internal"><img src="../../images/mActionSaveAsSVG.png" alt="mActionSaveAsSVG"></a> <sup>Esporta\ come\ SVG</sup> salva il layout di stampa in formato SVG (Scalable Vector Graphic).</p>
-</li>
+<li>The <a href="../../images/mActionFilePrint.png" class="reference internal"><img src="../../images/mActionFilePrint.png" alt="mActionFilePrint"></a> <sup>Print</sup> icon allows you to print the layout to a connected printer or a PostScript file, depending on installed printer drivers.</li>
+<li>The <a href="../../images/mActionSaveMapAsImage.png" class="reference internal"><img src="../../images/mActionSaveMapAsImage.png" alt="mActionSaveMapAsImage"></a> <sup>Export\ as\ image</sup> icon exports the Composer canvas in several image formats, such as PNG, BPM, TIF, JPG,...</li>
+<li><a href="../../images/mActionSaveAsPDF.png" class="reference internal"><img src="../../images/mActionSaveAsPDF.png" alt="mActionSaveAsPDF"></a> <sup>Export\ as\ PDF</sup> saves the defined Print Composer canvas directly as a PDF.</li>
+<li>The <a href="../../images/mActionSaveAsSVG.png" class="reference internal"><img src="../../images/mActionSaveAsSVG.png" alt="mActionSaveAsSVG"></a> <sup>Export\ as\ SVG</sup> icon saves the Print Composer canvas as an SVG (Scalable Vector Graphic).</li>
 </ul>
 <p>If you need to export your layout as a <strong>georeferenced image</strong> (i.e., to load back inside KADAS), you need to enable this feature under the Composition tab. Check <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>World file on</em> and choose the map item to use. With this option, the &#x2018;Export as image&#x2019; action will also create a world file.</p>
-<p>Nota</p>
+<p>Note</p>
 <ul>
 <li>Currently, the SVG output is very basic. This is not a KADAS problem, but a problem with the underlying Qt library. This will hopefully be sorted out in future versions.</li>
 <li>Exporting big rasters can sometimes fail, even if there seems to be enough memory. This is also a problem with the underlying Qt management of rasters.</li>
@@ -1289,7 +1210,7 @@ Compositore con mappa, legenda, immagine, barra di scala, coordinate, testo e co
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Compositore di stampe","level":"1.10.2","depth":2,"next":{"title":"Lavorare con layer vettoriali","level":"1.10.3","depth":2,"path":"working_with_vector/supported_data.md","ref":"working_with_vector/supported_data.md","articles":[]},"previous":{"title":"Lavorare con le proiezioni","level":"1.10.1","depth":2,"path":"working_with_projections/working_with_projections.md","ref":"working_with_projections/working_with_projections.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-element","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"offline":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"it","gitbook":"*"},"file":{"path":"print_composer/print_composer.md","mtime":"2017-11-13T12:09:31.178Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-14T18:15:20.331Z"},"basePath":"..","book":{"language":"it"}});
+            gitbook.page.hasChanged({"page":{"title":"Compositore di stampe","level":"1.10.2","depth":2,"next":{"title":"Lavorare con layer vettoriali","level":"1.10.3","depth":2,"path":"working_with_vector/supported_data.md","ref":"working_with_vector/supported_data.md","articles":[]},"previous":{"title":"Lavorare con le proiezioni","level":"1.10.1","depth":2,"path":"working_with_projections/working_with_projections.md","ref":"working_with_projections/working_with_projections.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-element","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"offline":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"it","gitbook":"*"},"file":{"path":"print_composer/print_composer.md","mtime":"2017-11-13T12:09:31.106Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-15T14:01:38.795Z"},"basePath":"..","book":{"language":"it"}});
         });
     </script>
 </div>
