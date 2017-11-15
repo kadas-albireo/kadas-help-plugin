@@ -23,14 +23,10 @@
 from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication, Qt, QUrl
 from PyQt4.QtGui import QAction, QIcon, QDesktopServices
 try:
-  from PyQt4.QtWebKitWidgets import QWebView
+  from PyQt4.QtWebEngineWidgets import QWebEngineView
   HAVE_WEBKIT = True
 except:
-  try:
-    from PyQt4.QtWebKit import QWebView
-    HAVE_WEBKIT = True
-  except:
-    HAVE_WEBKIT = False
+  HAVE_WEBKIT = False
 # Initialize Qt resources from file resources.py
 import resources
 import os.path
@@ -134,9 +130,9 @@ class UserManual:
         else:
           if self.helpWidget is None:
               # Create the widget (after translation) and keep reference
-              self.helpWidget = QWebView()
+              self.helpWidget = QWebEngineView()
               self.helpWidget.setWindowTitle(self.tr('User Manual'))
-              self.helpWidget.resize(500, 600)
+              self.helpWidget.resize(800, 600)
               self.helpWidget.load(url)
 
           self.helpWidget.show()
