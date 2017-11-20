@@ -39,9 +39,8 @@ class AboutDialog(QDialog):
         licenseLabel.setOpenExternalLinks(True)
         licenseLabel.setWordWrap(True)
         l.addWidget(licenseLabel, l.rowCount(), 0, 1, 1)
-        mssLabel = QLabel(self.tr("The MSS/MilX components are property of <a href=\"http://www.gs-soft.com/\">gs-soft AG</a>"))
+        mssLabel = QLabel(self.tr("The MSS/MilX components are property of gs-soft AG"))
         mssLabel.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        mssLabel.setOpenExternalLinks(True)
         mssLabel.setWordWrap(True)
         l.addWidget(mssLabel, l.rowCount(), 0, 1, 1)
 
