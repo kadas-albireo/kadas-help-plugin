@@ -97,6 +97,11 @@ class AboutDialog(QDialog):
         disclaimerLink.setOpenExternalLinks(True)
         l.addWidget(disclaimerLink, l.rowCount(), 0, 1, 1)
 
+        fubLabel = QLabel(self.tr("FUB-Hotline: 058 465 22 22"))
+        fubLabel.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        fubLabel.setWordWrap(True)
+        l.addWidget(fubLabel, l.rowCount(), 0, 1, 1)
+
         addressLabel = QLabel(self.tr("<b>Swiss Armed Forces<br />Mil Geo Info D<br />VZ VBS<br />3003 Bern</b>"))
         addressLabel.setAlignment(Qt.AlignLeft)
         addressLabel.setIndent(38)
