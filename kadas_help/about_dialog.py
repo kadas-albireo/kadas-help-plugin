@@ -98,7 +98,7 @@ class AboutDialog(QDialog):
         disclaimerLink.setOpenExternalLinks(True)
         l.addWidget(disclaimerLink, l.rowCount(), 0, 1, 1)
 
-        addressLabel = QLabel(self.tr("<b>Swiss Army<br />Mil Geo Info D<br />VZ VBS<br />3003 Bern</b>"))
+        addressLabel = QLabel(self.tr("<b>Swiss Armed Forces<br />Mil Geo Info D<br />VZ VBS<br />3003 Bern</b>"))
         addressLabel.setAlignment(Qt.AlignLeft)
         addressLabel.setIndent(38)
         l.addWidget(addressLabel, 6, 1, 4, 1)
