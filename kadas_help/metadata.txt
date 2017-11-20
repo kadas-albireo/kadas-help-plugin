@@ -4,12 +4,15 @@ qgisMinimumVersion=2.0
 qgisMaximumVersion=2.99
 description=KADAS online help
 about=KADAS online help.
-version=0.7.2
+version=0.7.3
 author=Sourcepole
 email=pka@sourcepole.ch
 
 
 changelog=
+ Rev 0.7.3 (20.11.2017)
+  - Re-add some lost changes
+
  Rev 0.7.2 (15.11.2017)
   - Use english documentation for advanced functionality
 
