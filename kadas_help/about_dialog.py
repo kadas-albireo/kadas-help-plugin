@@ -27,7 +27,7 @@ class AboutDialog(QDialog):
         self.setLayout(l)
 
         splashLabel = QLabel()
-        splashLabel.setPixmap(QPixmap(":/plugins/UserManual/splash.png"))
+        splashLabel.setPixmap(QPixmap(":/plugins/UserManual/splash.jpg"))
         l.addWidget(splashLabel, l.rowCount(), 0, 1, 2)
 
         versionLabel = QLabel(self.tr("<b>Version</b>: %s (%s)") % (QGis.QGIS_RELEASE_VERSION, QGis.QGIS_BUILD_DATE))
