@@ -1,4 +1,4 @@
-# Live GPS tracking {#live-gps-tracking}
+# Tracciamento live GPS {#live-gps-tracking}
 
 To activate live GPS tracking in KADAS, you need to select *Settings ‣ Panels* <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox" /></a> *GPS information*. You will get a new docked window on the left side of the canvas.
 
@@ -11,11 +11,11 @@ There are four possible screens in this GPS tracking window:
 
 With a plugged-in GPS receiver (has to be supported by your operating system), a simple click on **\[Connect\]** connects the GPS to KADAS. A second click (now on **\[Disconnect\]**) disconnects the GPS receiver from your computer. For GNU/Linux, gpsd support is integrated to support connection to most GPS receivers. Therefore, you first have to configure gpsd properly to connect KADAS to it.
 
-Warning
+Avvertimento
 
 If you want to record your position to the canvas, you have to create a new vector layer first and switch it to editable status to be able to record your track.
 
-## Position and additional attributes {#position-and-additional-attributes}
+## Posizione e attributi aggiuntivi {#position-and-additional-attributes}
 
 <a href="../../images/mActionToggleEditing.png" class="reference internal"><img src="../../images/mActionToggleEditing.png" alt="mActionToggleEditing" /></a> If the GPS is receiving signals from satellites, you will see your position in latitude, longitude and altitude together with additional attributes.
 
@@ -24,7 +24,7 @@ If you want to record your position to the canvas, you have to create a new vect
 ![](../../images/gpstrack_main.png)
 GPS tracking position and additional attributes 
 
-## GPS signal strength {#gps-signal-strength}
+## Potenza del segnale GPS {#gps-signal-strength}
 
 <a href="../../images/gpstrack_barchart.png" class="reference internal"><img src="../../images/gpstrack_barchart.png" alt="gpstrack_barchart" /></a> Here, you can see the signal strength of the satellites you are receiving signals from.
 
@@ -33,16 +33,16 @@ GPS tracking position and additional attributes
 ![](../../images/gpstrack_stren.png)
 GPS tracking signal strength 
 
-## GPS polar window {#gps-polar-window}
+## Finestra delle coordinate polari del GPS {#gps-polar-window}
 
-<a href="../../images/gpstrack_polarchart.png" class="reference internal"><img src="../../images/gpstrack_polarchart.png" alt="gpstrack_polarchart" /></a> If you want to know where in the sky all the connected satellites are, you have to switch to the polar screen. You can also see the ID numbers of the satellites you are receiving signals from.
+<a href="../../images/gpstrack_polarchart.png" class="reference internal"><img src="../../images/gpstrack_polarchart.png" alt="gpstrack_polarchart" /></a> Se si desidera visualizzare la posizione dei satelliti nel cielo, Ä‚Â¨ necessario passare alla visualizzazione polare. E’ possibile anche vedere il numero identificativo ID dei satelliti dai cui il ricevitore sta ricevendo il segnale.
 
 **Figure GPS polar window:**
 
 ![](../../images/gpstrack_polar.png)
 GPS tracking polar window 
 
-## GPS options {#gps-options}
+## Opzioni GPS {#gps-options}
 
 <a href="../../images/mActionOptions.png" class="reference internal"><img src="../../images/mActionOptions.png" alt="mActionOptions" /></a> In case of connection problems, you can switch between:
 
@@ -51,7 +51,7 @@ GPS tracking polar window
 -   ![radiobuttonoff](../../images/radiobuttonoff.png) *Serial device*
 -   ![radiobuttonoff](../../images/radiobuttonoff.png) *gpsd* (selecting the Host, Port and Device your GPS is connected to)
 
-A click on **\[Connect\]** again initiates the connection to the GPS receiver.
+Cliccare nuovamente **\[Connect\]** per iniziare la connessione al ricevitore GPS.
 
 **Figure GPS Tracking 2:**
 

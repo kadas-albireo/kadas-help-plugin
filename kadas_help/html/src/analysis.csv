@@ -1,0 +1,191 @@
+"Deutsch","Franz","Ital","Engl",,"Bemerkungen"
+"# Analyse
+
+In der Registerkarte **_Analyse_** befinden sich die Werkzeuge zum Messen von Distanzen, Flächen, Kreise und Winkeln sowie verschiedene Geländeanalysefunktionen.
+","# Analyse
+
+L’onglet **_Analyse_** contient les outils de mesures des distances, des surfaces, des circonférences et des angles ainsi que diverses fonctions d’analyse de terrain.","# Analisi
+
+Nella scheda **_Analisi_** sono disponibili gli strumenti per la misura di distanze, aree, cerchi e angoli, nonché diverse funzionalità di analisi dei terreni.","# Analysis
+
+The **_Analysis_** tab contains tools for measuring distances, areas, circles, and angles, as well as various terrain analysis functions.",,
+"## Distanzen, Flächen und Azimut Messen
+
+Es werden vier Messmethoden angeboten:
+
++ Linie (Distanz)
++ Fläche
++ Kreisfläche
++ Azimuth
+
+Sämtliche Messfunktionen arbeiten auf einem WGS84 Ellipsoid.
+
+Nach dem Aktivieren einer Messfunktion kann der Benutzer eine entsprechende Messgeometrie im Kartenfenster zeichnen. Relevante Masse werden direkt neben der Messgeometrie angezeigt.
+
+Für Distanz- und Flächenmessungen können mehrere Geometrien nacheinander gezeichnet werden. Das Messtotal wird im unteren Bereich des Kartenfensters angezeigt, wo auch die Messeinheit geändert werden kann. Ferner kann mittels dem Picker-Button eine existierende Geometrie gemessen werden.
+","## Mesurer des distances, surfaces et azimut
+
+Quatre méthodes de mesure sont proposées :
+
++ Ligne (distance)
++ Surface
++ Surface circulaire
++ Azimut
+
+Toutes les fonctions de mesures se basent sur un éllipsoïde WGS84.
+
+En activant l’une des fonctions de mesures, l’utilisateur peut dessiner la géométrie de mesure correspondante dans la fenêtre de la carte. Les grandeurs pertinentes sont indiquées juste à côté de la géométrie de mesure.
+
+Pour les mesures de géométrie et de distance, il est possible de dessiner plusieurs géométries l’une après l’autre. Le total des mesures s’affiche dans la partie inférieure de la fenêtre de la carte, là où l’unité de mesure peut aussi être modifiée. Plus loin, il est possible de mesurer une géométrie existante en cliquant sur le bouton Picker.
+","## Rilevamento di lunghezza, superfici e azimut
+
+Sono offerti quattro metodi di analisi:
+
++ Linea (distanza)
++ Superficie
++ Circonferenza
++ Azimut
+
+Tutte le funzioni di rilevamento operano su un ellissoide WGS84.
+
+Dopo l’attivazione di una funzione di rilevamento, l’utente può disegnare una figura geometrica di rilevamento corrispondente nella finestra delle mappe. I rilevamenti rilevanti vengono visualizzati direttamente accanto alla figura geometrica corrispondente.
+
+Per il rilevamento di distanza e superficie è possibile disegnare più figure geometriche le une accanto alle altre. Il rilevamento complessivo viene visualizzato nell’area inferiore della finestra delle mappe, dove è possibile modificare anche l’unità di misura. Inoltre, con il pulsante del dispositivo di individuazione è possibile rilevare una figura geometrica esistente.
+","## Measuring lengths, areas and azimuth angles
+
+Four measurement methods are offered: 
+
++ Line (distance)
++ Area
++ Circle area
++ Azimuth angles
+
+All measurement functions work on the WGS84 ellipsoid.
+
+Upon activating a measurement function, the desired measurement geometry can be drawn in the map canvas. Relevant measurements are displayed directly next to the geometry.
+
+Multiple geometries can be drawn for distance and area measurements, in which case the total is displayed in measurement bar in the lower area of the application window. Here the user can also select the measurement unit, and a picker button allows to measure existing geometries.
+",,"Auflistung oder Fett?"
+"## Höhenprofil und Sichtbarkeit
+
+Mit der **_Profil Sicht_** Funktion können sowohl Höhenprofil wie auch Sichtbarkeitsanalysen durchgeführt werden. Um diese Funktion verwenden zu können, muss im Projekt ein Höhenmodell definiert sein. Eine Raster-Ebene kann in dessen Kontextmenü im Karteninhaltsverzeichnis als Höhenmodell ausgewählt werden.
+
+Um ein Höhenprofil zu erstellen, kann der Benutzer auf der Karte eine Liniengeometrie zeichnen, entlang der das Profil gemessen werden soll. Das Resultat wird im separaten Dialogfenster dargestellt. Alternativ kann mittels Picker-Button auch eine entlang einer existierenden Liniengeometrie gemessen werden.
+
+Besteht die Liniengeometrie aus nur einem Segment, kann entlang dieser Linie eine Sichtbarkeitsanalyse durchgeführt werden. Dazu muss im Höhenprofildialog die Sichtbarkeit Checkbox aktiv sein. Sichtbare bzw. unsichtbare Bereiche werden dann entsprechend Grün oder Rot gezeichnet. Fährt man mit der Maus in der Karte entlang der Messlinie, wird die entsprechende Position in der Graphik mit einem blauen Punkt angezeigt. Die Sichtbarkeitsanalyse berücksichtigt die Erdkrümmung. Konfigurationsmöglichkeiten der Sichtbarkeitsanalyse sind die Beobachterhöhe, die Zielhöhe sowie ob diese Höhen relativ zum Terrain oder dem Meeresspiegel interpretiert werden sollen. 
+
+Die Höhenprofilgraphik lässt sich zusätzlich in die Zwischenablage kopieren, oder als Bild in die Karte einbetten.","## Profil d’altitude et visibilité
+
+La fonction **_Profil Mire_** permet d’établir des profils d’altitude et de réaliser des analyses de visibilité. Pour utiliser cette fonction, il faut définir un modèle d’altitude dans le projet. Un niveau de raster peut être sélectionné comme modèle d’altitude dans son menu contextuel dans le répertoire de la carte.
+
+Pour établir un profil d’altitude, l’utilisateur peut dessiner une géométrie linéaire le long de laquelle le profil peut être mesuré. Le résultat s’affiche dans une fenêtre de dialogue séparée. À l’aide du boutton Picker, il est également possible de mesurer le long d’une géométrie linéaire existante.
+
+Si la géométrie linéaire ne comprend qu’un seul segment, il est possible de réaliser une anayse de visibilité le long de cette ligne. Pour cela, la case visibilité doit être cochée dans la fenêtre de dialogue du profil d’altitude. Les zones visibles ou non visibles sont alors indiquées en rouge ou en vert. Si l’on suit la ligne de mesure sur la carte avec la souris, la position correspondante est indiquée dans le graphique par un point bleu. L’analyse de visibilité prend en compte la courbe terrestre. Les possibilités de configuration de l’analyse de visibilité sont la hauteur observateur et la hauteur du signal ; on peut également décider si ces hauteurs doivent être interprétées en fonction du terrain ou du niveau de la mer.
+
+Le graphique de profil d’altitude peut également être copié dans l’archive provisoire ou être inséré dans la carte comme image.","## Profilo altimetrico e visibilità
+
+Con la funzione della **_Profilo vista_** è possibile analizzare il profilo altimetrico e la visibilità. Per poter utilizzare questa funzione, è necessario definire un modello altimetrico nel progetto. Nel menu contestuale di un layer raster nella legenda della mappa, è possibile impostarlo come modello di elevazione.
+
+Per creare un profilo altimetrico, l’utente può disegnare sulla mappa una figura geometrica lineare lungo la quale verrà misurato il profilo. Il risultato viene riportato in una finestra di dialogo a parte. In alternativa, per mezzo del pulsante del dispositivo di individuazione, è possibile effettuare rilevamenti anche lungo una figura geometrica lineare esistente.
+
+Se la figura geometrica lineare è costituita da un solo segmento, lungo questa linea è possibile eseguire un’analisi della visibilità. A tal fine, la casella di controllo Visibilità dev’essere attiva nella schermata del profilo altimetrico. Le aree visibili o invisibili vengono contrassegnate rispettivamente in verde o in rosso. Muovendo il mouse sulla mappa lungo la linea di rilevamento, viene visualizzata la posizione corris­pondente sul grafico con un punto blu. L'analisi della visibilità tiene conto della curvatura terrestre. Le possibilità di configurazione dell’analisi di visibilità sono rappresentate dall’altezza di osservazione, dall’altezza di arrivo e dal fatto che queste altezze debbano essere interpretate relativamente al terreno o al livello del mare.
+
+Il grafico del profilo altimetrico può inoltre essere copiato negli appunti o inserito nella mappa quale immagine.","## Height profile and line of sight
+
+The **_Profile sight_** function allows the user to perform a height profile as well as a line of sight analysis of the terrain. To utilize this function, a heightmap must be defined in the project. A raster layer can be selected as height model in its context menu in the map layer tree.
+
+To create a height profile, the user can draw a line geometry on the map along which the profile should be measured. The result is displayed in a separate dialog. Alternatively, the user can use the picker button to measure along an existing line geometry.
+
+
+If the line geometry consists of one segment only, then a line of sight analysis can be computed along this line by checking the corresponding checkbox in the height profile dialog. Visible or invisible areas are then drawn accordingly green or red. If you move the mouse along the measurement line, the corresponding position in the height profile is displayed with a blue dot. The visibility analysis takes into account the curvature of the earth. Configuration parameters for the analysis include the observer height, the target height as well as if these heights are expressed with respect to the ground or the sea level. 
+
+
+
+From the height profile dialog, the user can also choose to copy the height profile graphic to the clipboard, or to add it to the map as an annotation.",,"INFO
+Text aus Help 1.1 (November) ergänzt mit Text aus Help 1.1 (Januar"
+"## Neigung und Schummerung
+
+Die Funktion **_Neigung_** berechnet ein Neigungsprofil des Geländes als farbkodiertes Raster.
+
+Die Funktion **_Schummerung_** berechnet die Schattierung des Geländes, welches Halbtransparent über die Karte gelegt wird.
+
+Um diese Geländeanalysefunktionen verwenden zu können, muss im Projekt ein Höhenmodell definiert sein.
+
+Beide dieser Analysen werden innerhalb eines rechteckigen Auschnittes der Karte berechnet. Die Schummerung erfordert noch zusätzlich die Eingabe der horizontalen und vertikalen Winkel der Lichtquelle.
+
+Die Ergebnisse der Neigungs- und Schummerungsanalysen werden als Raster-Ebenen der Karte hinzugefügt, und erscheinen dementsprechend im Karteninhaltsverzeichnis. Beim Speichern des Projektes werden diese Datensätze im Ordner _< Projektname > files_ abgelegt.
+","## Pente et estompage
+
+La fonction **_Pente_** permet de représenter le profil de pente du terrain à l’aide d’un schéma à code couleurs.
+
+La fonction **_Estompage_** calcule l’ombrage du terrain, qui est superposé sur la carte en mi-transparence.
+
+Pour utiliser ces fonctions d’analyse du terrain, il faut définir un modèle d’altitude dans le projet.
+
+Ces deux analyses sont effectuées dans une portion rectangulaire de la carte. L’estompage nécessite également de saisir l’angle horizontal et vertical de la source de lumière.
+
+Les résultats des analyses de pente et d’ombrage sont ajoutés à la carte comme niveaux de raster et apparaissent ainsi dans le répertoire de la carte. Lors de l’enregistrement du projet, ces données sont placées dans le dossier _<nom de projet> files_.
+","## Inclinazione e tonalità del rilievo
+
+La funzione **_Pendenza_** calcola il profilo di inclinazione del terreno quale griglia codificata cromaticamente.
+
+La funzione **_Hillshade_** (tonalità del rilievo) calcola l’ombreggiatura del terreno, sovrapposta alla mappa in modo semitrasparente.
+
+Per poter utilizzare queste funzioni di analisi del terreno, deve essere definito un modello altimetrico nel progetto.
+
+Entrambe queste analisi vengono calcolate in un riquadro rettangolare della mappa. La tonalità del rilievo richiede inoltre l’immissione dell’angolo orizzontale e verticale della sorgente luminosa.
+
+I risultati delle analisi di pendenza e rilievo vengono inseriti come layer raster alla mappa e compaiono, di conseguenza, nella legenda. Salvando il progetto, questi layer vengono memorizzati nella cartella _<nome progetto> files_.
+","## Slope and hillshade
+
+The **_Slope_** function computes a slope profile of the terrain as a color coded raster layer.
+
+The **_Hillshade_** function computes the shading of the terrain, which is added as a semi-opaque raster layer to the map.
+
+To utilize these functions, a heightmap must be defined in the project.
+
+In both cases the analysis is performed within a rectangular region of the map as specified by the user. For hillshade, the user is also asked to specify the horizontal and vertical angles of the light source.
+
+The results of the slope and hillshade analyzes are added to the map as raster layers, and appear accordingly in the map layer tree. When saving the project, these datasets are stored in the _<project name> files_ folder.
+",,"INFO
+Text aus Help 1.1 (November) ergänzt mit Text aus Help 1.1 (Januar)"
+"## Einsehbarkeit
+
+Das Werkszeug **_Einsehbarkeit_** berechnet den sichtbaren bzw. unsichtbaren Geländebereich in einem Kreissektor, ausgehend vom Kreismittelpunkt – dem Beobachterstandort. Die Einsehbarkeitsanalyse berücksichtigt die Erdkrümmung.
+
+Um diese Geländeanalysefunktionen verwenden zu können muss im Projekt ein Höhenmodell definiert sein.
+
+Die Einsehbarkeitsanalyse wird innerhalb eines Kreissektors oder einem Vollkreis berechnet. Beim ersten Mausklick auf die Karte wird der Beobachterstandort definiert, der zweite definiert den Radius, und der dritte den Sektoröffungswinkel. Falls die numerische Eingabe aktiv ist, können diese Parameter auch numerisch eingegeben werden. Nach dem erfassen der Analysefläche können die Berechnungsparameter angepasst werden, nämlich die Beobachterhöhe, die Zielhöhe, ob diese Höhen relativ zum Terrain oder dem Meeresspiegel interpretiert werden sollen, und ob der sichtbare oder der unsichtbare Berich angezeigt werden soll.
+
+Das Ergebnis wird als Rasterebene der Karte hinzugefügt. Beim Speichern des Projektes wird diese Ebene in den _< Projektname > files_ Ordner abgelegt.
+","## Visibilité
+
+L’outil **_Visibilité_** calcule les zones de terrain visibles et invisibles dans un secteur circulaire dont le centre est l’emplacement de l’observateur. L’analyse de visibilité prend en compte la courbe terrestre.
+
+Pour utiliser ces fonctions d’analyse du terrain, il faut définir un modèle d’altitude dans le projet.
+
+L’analyse de visibilité est calculée au sein d’une portion de cercle ou d’un cercle complet. Le premier clic sur la carte permet de définir la position de l’observateur, le deuxième clic le rayon et le troisième l’angle d’ouverture du secteur. Si la saisie numérique est activée, ces paramètres peuvent également être saisis numériquement. Une fois que la surface à analyser a été saisie, les paramètres de calcul peuvent être modifiés, autrement dit l’altitude de l’observateur, la hauteur du signal, l’interprétation (ou non) de l’altitude en fonction du terrain ou du niveau de la mer et l’affichage (ou non) des portions de terrain visibles ou invisibles.
+
+Après calcul, le résultat est ajouté à la carte sous forme de couche raster. Si vous sauvegardez le projet, cette couche sera classée dans le dossier _< nom de projet > files_.
+","## Bacino visuale
+
+Lo strumento **_Bacino_** visuale calcola l'area del terreno visibile e invisibile in un settore circolare centrato in un punto di osservazione. L'analisi della visibilità tiene conto della curvatura terrestre.
+
+Per poter utilizzare queste funzioni di analisi del terreno, deve essere definito un modello altimetrico nel progetto.
+
+L’analisi della visibilità viene calcolata all’interno di un settore circolare o di un cerchio completo. Al primo clic del mouse sulla mappa viene definito il luogo d’osservazione; il secondo clic definisce il raggio; il terzo clic definisce l’apertura angolare del settore. Questi parametri possono essere immessi anche numericamente se l’immissione numerica è attiva. Dopo il rilevamento della superficie di analisi, possono essere adeguati i parametri di calcolo – ovvero l’altezza d’osservazione, l’altezza di arrivo, se queste altezze debbano essere interpretate relativamente al terreno o al livello del mare e se debba essere visualizzata l’area visibile o quella non visibile.
+
+Il risultato viene aggiunto quale livello della griglia della mappa. Al salvataggio del progetto, questo livello viene salvato nella cartella _< nome progetto > files_.
+","## Viewshed
+
+The **_Visibility_** tool calculates the visible or invisible terrain area in a circular sector, starting from the center of the circle - the observer's location. The visibility analysis takes into account the curvature of the earth.
+
+To utilize these functions, a heightmap must be defined in the project.
+
+The viewhsed analysis is computed within a circular sector or a full circle as specified by the user. The first click sets the observer position, the second one the radius and the third click the the aperture angle. These parameters can also be entered numerically if numeric input is enabled in the settings tab. After drawing the analysis area geometry, the user is required to specify the computation parameters, which include the observer height, the target height, whether these heights are relative to the ground or the sea level, and whether the visible or invisible area should be shown in the result.
+
+The analysis output is added as a raster layer to the map. When the project is saved, the raster is saved in the _< project name > files_ folder.
+",,"INFO
+Text aus Help 1.1 (November) ergänzt mit Text aus Help 1.1 (Januar)
+
+"

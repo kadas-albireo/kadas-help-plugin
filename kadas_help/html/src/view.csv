@@ -1,0 +1,176 @@
+"Deutsch","Franz","Ital","Engl",,"Bemerkungen"
+"# Ansicht
+","# Vue
+","# Vista
+","# View
+",,"Einführungstext ergänzen"
+"## Vorheriger / Nächster Ausschnitt
+
+Beim Bewegen in der Karte kann über die Funktion **_Vorheriger Ausschnitt_** auf den vorher angezeigten Kartenausschnitt zurückgekehrt werden. Über **_Nächster Ausschnitt_** wird wieder auf den danach gewählten Kartenausschnitt gewechselt.
+","## Extrait précédent/suivant
+
+En se déplaçant dans la carte, on peut retourner à l’extrait de carte affiché auparavant par la fonction **_Extrait précédent_**. On peut ensuite aller sur l’extrait de carte choisi postérieurement par la fonction **_Extrait suivant_**.
+","## Visualizzazione precedente/successiva
+
+Spostandosi sulla mappa con la funzione **_Estensione precedente_** è possibile tornare all’estensione di mappa mostrato in precedenza. Tramite guilabel:**_Estensione successivo_** si passa all’estensione di mappa selezionato successivamente.
+","## Previous/Next extent
+
+After panning or zooming the map, the function **_Previous extent_** allows the user to return to the previously visible map extent. Similarly the function **_Next extent_** allows to move forward in the extent history.
+",,
+"## Neues Kartenfenster
+
+Über die Funktion **_Neues Kartenfenster_** können weitere Kartenfenster geöffnet werden. Diese können durch Ziehen an der Titelleiste beliebig innerhalb des Hauptfenster oder entkoppelt davon angeordnet werden.
+
+In den Unterfensteransichten können unabhängig von der Hauptansicht Ebenen aktiviert und deaktiviert werden. Der Ausschnitt lässt sich unabhängig von der Hauptansicht steuern oder mit dieser koppeln indem das Schloss-Symbol in der Titelleiste des Unterfenster aktiviert wird.
+
+In Kartenunterfenster ist nur das Navigationswerkzeug verfügbar, sämtliche weitere Werkzeuge können nur in der Hauptansicht verwendet werden.
+
+Der Titel der Unterfenster lässt sich bei Bedarf ändern.
+","## Nouvelle fenêtre de carte
+
+D’autres fenêtres de carte peuvent être ouvertes par la fonction **_Nouvelle fenêtre de carte_**. On peut les placer à volonté à l’intérieur de la fenêtre principale en les tirant depuis la barre de titre, ou les découpler.
+
+Dans les vues de sous-fenêtres, on peut activer et désactiver les niveaux indépendamment de la vue principale. On peut gérer l’extrait indépendamment de la vue principale ou l’y coupler en activant l’icône serrure dans la barre de titre de la sous-fenêtre.
+
+Seul l’outil de navigation est disponible dans la sous-fenêtre de carte, tous les autres outils peuvent uniquement être utilisés dans la vue principale.
+
+Le titre de la sous-fenêtre peut être modifié si nécessaire.
+","## Nuova finestra della mappa
+
+La funzione **_Nuova finestra della mappa_** permette di aprire nuove finestre della mappa. Trascinamento della barra del titolo, queste possono essere posizionate a piacimento, all'interno della finestra principale o disassociata da essa.
+
+Nelle sottofinestre è possibile attivare o disattivare i layer indipendentemente dalla vista principale. Il riquadro può essere comandato indipendentemente dalla vista principale oppure può essere automaticamente sincronizzato attivando l'icona del lucchetto sulla barra del titolo della sottofinestra.
+
+Nelle sottofinestre della mappa è disponibile soltanto lo strumento di navigazione, tutti gli altri strumenti possono essere utilizzati unicamente nella vista principale.
+
+In caso di necessità, è possibile modificare il titolo della sottofinestra.
+","## New map window
+
+The **_New map window_** function opens up additional map views. These can be placed anywhere within the main window or decoupled from it by dragging the title bar.
+
+In the subwindow views, you can enable and disable layers independently from the main view. The visible extent can be controlled independently of the main view or synchronized by toggling the lock icon in the title bar of the subwindow.
+
+In map window only the navigation tool is available, all other tools can only be used in the main view.
+
+The title of the subwindow can be changed if necessary.
+",,"INFO
+Text aus Help 1.1 (Januar) ergänzt mit Text aus Help 1.1 (November)"
+"## 3D
+
+Über die Funktion **_3D_** wird ein zusätzliches Fenster mit einer Globus-Ansicht geöffnet. Dieses Fenster wird automatisch angeordnet, kann aber auch mit der Maus an eine andere Stelle innerhalb oder ausserhalb des Programmfensters bewegt werden.
+","## 3D
+
+La fonction **_3D_** ouvre une autre fenêtre avec une vue du globe. Cette fenêtre est disposée automatiquement, mais peut aussi être déplacée à un autre endroit à l’intérieur ou à l’extérieur de la fenêtre de programme au moyen de la souris.","## 3D
+
+Con la funzione **_3D_** è possibile aprire una finestra in cui viene visualizzato il globo terrestre. La finestra viene disposta automaticamente ma può essere spostata con il mouse all’interno o all’esterno della finestra del programma.","## 3D
+
+The **_3D_** function opens an additional child window with a 3D globe view. It can be moved around within or outside the application window by dragging on their title bar.",,
+"### Einstellungen
+
+Die angezeigten Ebenen können unabhängig vom Hauptfenster im Menu **_Fenster_** ausgewählt werden.
+
++ **Ausschnitt synchronisieren**: Über das Symbol **_Ausschnitt synchronisieren_** wird auf dem Globus zum Kartenausschnitt des Hauptfensters navigiert.
++ **Szene neu laden**: Über das Symbol **_Szene neu laden_** wird die Ebenen im Globus neu geladen.
++ **Globus Einstellungen**: Über das Symbol **_Globus Einstellungen_** wird ein Dialog mit weiteren Einstellungsmöglichkeiten aufgerufen. Dort werden unter anderem die Geländemodelle für die 3D Ansicht konfiguriert, und es können ebenfalls Bildebenen hinzugefügt werden. Die darzustellende Ebenen der 2D Ansicht werden im Menu links in der Titelleiste ausgewählt. Im Interesse der Performance werden standardmässig nur lokale Ebenen der 2D Ansicht aktiviert - Hintergrundbildebenen sollten nach Möglichkeit direkt als Bildebenen im Globus Einstellungsdialog hinzugefügt werden.
+
+Ebenen der 2D Ansicht werden standardmässig als Textur über das Gelände des Globus gezeichnet. Vektorebenen (darunter Redlining) können alternativ entweder als extrudierte 2.5D Modelle oder als 3D Modelle gezeichnet werden, wobei der Stil der 2D Ansicht soweit wie möglich in der 3D Ansicht übernommen wird. Für die Darstellung als 3D Modelle müssen die Geometrien der Ebene mit Höheninformationen (Z-Koordinaten) versehen sein, und diese müssen entweder gegenüber dem Gelände oder dem Meeresspiegel ausgedrückt sein. Die Darstellungsoptionen für Vektorebenen kann man in den entsprechenden Layereigenschaften setzten.
+
+> Die Tooltips der Eingabefelder in den Globus-Einstellungen der Ebene beschreiben die verschiedenen Optionen im Detail.
+
+> Die Schattierung von 3D Modelle hängt vom Sonnenstand ab. Der Sonnenstand kann durch eine benutzerdefinierte Zeit/Datumsangabe in den Globus Einstellungen gesteuert werden.
+
+Stecknadeln, Kamerabilder und einpunkt MSS Symbole werden als Billboards angezeigt.
+","### Réglages
+
+Les niveaux affichés peuvent être choisis indépendamment de la fenêtre principale dans le menu **_Fenêtre_**.
+
++ **Synchroniser l’extrait** : Le symbole **_Synchroniser l’extrait_** permet de naviguer sur le globe vers l’extrait de carte de la fenêtre principale.
++ **Recharger la scène** : Le symbole **_Recharger la scène_** recharge le niveau sur le globe.
++ **Réglages du globe** : Le symbole **_Réglages globe_** ouvre un dialogue avec d’autres possibilités de réglages. On y configure entre autres le modèle de terrain pour la vue 3D, et on peut aussi ajouter des niveaux de photos. Les éléments de la vue 2D à représenter peuvent être sélectionnés dans le menu à gauche de la barre de titre. Par souci de performance, seuls les niveaux locaux de la vue 2D sont activés par défaut; en fonction des possibilités, les niveaux de photos de fond doivent être ajoutés directement comme niveaux d’image dans la boîte de dialogue de réglage du globe.
+
+Les couches 2D sont dessinées par défaut en tant que texture sur le globe. Les couches vectorielles (y compris redlining) peuvent également être représentées soit comme modèles extrudés ou 2.5D, soit comme des modèles 3D. Le style de la vue 2D est dans la mesure du possible transféré dans la vue 3D. Les géométries planaires doivent être pourvues d'une information de hauteur (coordonnée Z) pour l'affichage en modèle 3D, et elle doit être exprimée soit par rapport au niveau du sol ou de la mer. Les options d'affichage pour les niveaux vectoriels peuvent être définies dans les propriétés de couche correspondantes.
+
+> Les info-bulles des champs de saisie dans les paramètres de la couche du globe décrivent les différentes options en détail.
+
+> L'ombrage des modèles 3D dépend de la position du soleil. La position du soleil peut être contrôlée par une heure / date définie par l'utilisateur dans les paramètres du globe.
+
+Les punaises, photos et symboles MSS ponctuels sont indiqués comme billboards.
+","### Impostazioni
+
+I livelli visualizzati possono essere scelti dal menu **_Finestra_** indipendentemente dalla finestra principale.
+
++ **Sincronizza gli estratti**: l’icona **_Sincronizza gli estratti_** consente di esplorare il globo attraverso l’estratto di mappa della finestra principale.
++ **Carica scena**: l’icona **_Ricarica scena_** consente di caricare i livelli sulla mappa del globo.
++ **Impostazioni globo**: l’icona **_Impostazioni globo_** richiama una finestra di dialogo in cui sono indicate le altre impostazioni possibili. In esso è possibile configurare i modelli di elevazione e inserire immagini di sfondo. I layer della vista 2D da visualizzare sul globo vengono selezionati dal menu situato a sinistra nella barra del titolo. Per motivi di prestazione, come impostazione standard vengono visualizzati solo i layer locali della vista 2D. Se possibile, i layer delle immagini di sfondo dovrebbero essere inseriti direttamente nel dialogo delle impostazioni del globo.
+
+Per impostazione predefinita, i layer della vista 2D sono disegnati come immagini drappeggiate sul terreno del globo. Layer vettoriali (tra cui redlining) possono alternativamente venir visualizzati come modelli estrusi 2.5D oppure come modelli 3D. Lo stile del layer viene applicato ai modelli nel limite del possibile. Per la rappresentazione come modelli 3D, le geometrie devono contenere informazioni di quota (coordinate Z), e queste devono essere espresse relative al livello del suolo oppure al livello del mare. Le impostazioni di visualizzazione si possono modificare nel dialogo delle proprietà del rispettivo layer.
+
+> I tooltip dei campi delle impostazioni del Globo del layer descrivono le varie impostazioni in dettaglio.
+
+> L'ombreggiatura dei modelli 3D dipende dalla posizione del sole. Questa può venir controllata inserendo la data e ora desiderata nelle impostazioni del globo.
+
+Spilli, immagini e simboli MSS mono-punto vengono visualizzati come billboard.
+","### Settings
+
+The displayed layers can be toggled from the secondary view window title bar.
+
+
++ **Synchronize extent**: The button **_Synchronize extent_** synchronizes the globe viewport with the current extent of the main map view.
++ **Reload scene**: The button **_Reload scene_** triggers a refresh of all layers displayed on the globe.
++ **Globe settings**: The button **_Globe settings_** opens the globe configuration dialog. Among other things, the terrain models for the 3D view are configured there, and imagery layers can also be added. The 2D layers to be displayed are selected in the menu on the left side of the title bar. In the interest of performance, only local layers of the 2D view are activated by default - background image layers should, if possible, be added directly as imagery layers in the globe settings dialog.
+
+2D view planes are drawn by default as a draped textures on the globe. Vector layers (including redlining) can alternatively be drawn either as extruded 2.5D models or as 3D models, with the style of the 2D view adopted as much as possible in the 3D view. For representation as 3D models, the geometries of the layer must be provided with elevation information (Z coordinates), and these must be either expressed with respect to the terrain or the sea level. The display options for vector levels can be set in the corresponding layer properties.
+
+
+> The tooltips of the input fields in the globe settings of the layer describe the various options in detail.
+
+> The shading of 3D models depends on the position of the sun. The position of the sun can be controlled by specifying time and date in the globe settings.
+
+Pins, camera images and one-point MSS symbols are displayed as billboards.
+",,"INFO
+Text aus Help 1.1 (Januar) ergänzt mit Text aus Help 1.1 (November)"
+"### Navigation
+
++ **Navigation Ansichtswinkel**: Im oberen Navigationsrad wird die Kamera über die Links-/Rechts-Pfeile nach links bzw. rechts gedreht. Über die Auf-/Ab-Pfeile wird der vertikale Sichtwinkel der Kamera geändert.
++ **Navigation auf Globus**: Im unteren Navigationsrad wird der Globus über die Pfeiltasten entsprechend nach links, rechts, oben oder unten gedreht.
++ **+**: Die Kamera bewegt sich näher zum Globus, das heisst die Höhe der Kamera wird reduziert.
++ **-**: Die Kamera bewegt sich weiter vom Globus weg, das heisst die Höhe der Kamera wird angehoben.
+","### Navigation
+
++ **Navigation de l’angle de vue** : La molette de navigation supérieure tourne la caméra à gauche ou à droite par les flèches gauche/droite . Les flèches haut/bas changent l’angle de vue vertical de la caméra.
++ **Navigation sur le globe** : La molette de navigation inférieure tourne le globe à gauche, à droite, vers le haut ou vers le bas au moyen des flèches correspondantes.
++ **+** : la caméra se rapproche du globe, c’est-à-dire que l’altitude de la caméra diminue.
++ **-** : La caméra s’éloigne du globe, c’est-à-dire que l’altitude de la caméra augmente.
+","### Navigazione
+
++ **Navigazione angolo di visualizzazione**: nella ruota di navigazione in alto, la telecamera viene fatta ruotare a destra o a sinistra con i rispettivi tasti freccia. I tasti freccia per la navigazione verso l’alto e verso il basso permettono di cambiare l’angolo di visualizzazione della telecamera.
++ **Navigazione del globo terrestre**: nella ruota di navigazione in basso, il globo viene fatto ruotare a destra, a sinistra, verso l’alto e verso il basso con i rispettivi tasti freccia.
++ **+**: la telecamera si avvicina al globo terrestre e si abbassa.
++ **-**: la telecamera si allontana dal globo terrestre e si alza.
+","### Navigation
+
++ **Camera position navigation**: The upper navigation wheel allows the user to modify the horizontal and vertical viewing angles of the camera.
++ **Navigation auf Globus**: The lower navigation wheel allows the user to pan around the globe. The same can be accomplished by pressing the keyboard arrows.
++ **+**: Reduces the camera height from the globe surface.
++ **-**: Increases the camera distance from the globe surface.
+",,
+"## Gitter
+
+In der Registerkarte Ansicht kann das Kartengitter aktiviert werden. Das **_Gitter_** basiert auf dem gewähltem Kartenkoordinatensystem.
+","## Grille
+
+On peut activer la **_grille_** de la carte dans l’onglet Vue. La grille se base sur le système de coordonnées cartographiques choisi.","## Reticolo
+
+Nella scheda Vista, è possibile attivare la **_reticolo_** della mappa. La griglia si basa sul sistema di coordinate della mappa selezionato.
+","## Grid
+
+The map **_grid_** can be activated in the View tab. The grid is based on the chosen map coordinate system.
+",,"Text Dialogfenster ergänzen"
+"### Gittereigenschaften
+
+","### Propriétés de la grille","### Proprietà del reticolo","### Grid properties",,
+"## Guide Grid
+
+
+","##","##","##",,"Neues Kapitel Help 1.2
+- Überschrift gemäss Icon im Programm"

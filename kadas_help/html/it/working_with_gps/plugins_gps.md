@@ -1,134 +1,137 @@
-# GPS Plugin {#gps-plugin}
+# Plugin GPS {#gps-plugin}
 
 
-## What is GPS? {#what-is-gps}
+## Cos’è un GPS? {#what-is-gps}
 
-GPS, the Global Positioning System, is a satellite-based system that allows anyone with a GPS receiver to find their exact position anywhere in the world. GPS is used as an aid in navigation, for example in airplanes, in boats and by hikers. The GPS receiver uses the signals from the satellites to calculate its latitude, longitude and (sometimes) elevation. Most receivers also have the capability to store locations (known as **waypoints**), sequences of locations that make up a planned **route** and a tracklog or **track** of the receiver’s movement over time. Waypoints, routes and tracks are the three basic feature types in GPS data. KADAS displays waypoints in point layers, while routes and tracks are displayed in linestring layers.
+Il GPS, il Sistema di Posizionamento Globale, è un sistema satellitare che permette, a chiunque sia dotato di un ricevitore GPS, di individuare la sua posizione in qualunque parte del mondo. Il GPS è utilizzato come supporto per la navigazione, per esempio sugli aeroplani, sulle barche e anche dagli escursionisti. Il ricevitore GPS usa i segnali inviati dai satelliti per calcolare la propria latitudine, longitudine e (qualche volta) l’altitudine. Molti ricevitori possono memorizzare: la posizione (detta **waypoints**), la sequenza delle posizioni che formano una **route** e il tracciato o **track** dei movimenti che il ricevitore ha compiuto nel tempo. Waypoints, routes e tracks sono i tre principali elementi dei dati GPS. KADAS mostra i waypoints in un vettore puntuale, mentre routes e tracks sono mostrati in un vettore lineare.
 
 
-## Loading GPS data from a file {#loading-gps-data-from-a-file}
+## Caricamento dei dati GPS da file {#loading-gps-data-from-a-file}
 
-There are dozens of different file formats for storing GPS data. The format that KADAS uses is called GPX (GPS eXchange format), which is a standard interchange format that can contain any number of waypoints, routes and tracks in the same file.
+Ci sono una dozzina di formati di file diversi per memorizzare dati GPS. Il formato utilizzato da KADAS è chiamato GPX (GPS eXchange format), il quale è un formato standard di interscambio che può contenere waypoint, route e track nello stesso file.
 
 To load a GPX file, you first need to load the plugin. *Plugins ‣* <a href="../../images/mActionShowPluginManager.png" class="reference internal"><img src="../../images/mActionShowPluginManager.png" alt="mActionShowPluginManager" /></a> *Plugin Manager...* opens the Plugin Manager Dialog. Activate the <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox" /></a> *GPS Tools* checkbox. When this plugin is loaded, a button with a small handheld GPS device will show up in the toolbar and in *Layer ‣ Create Layer ‣* :
 
--   <a href="../../images/import_gpx.png" class="reference internal"><img src="../../images/import_gpx.png" alt="import_gpx" /></a> <sup>GPS\\ Tools</sup>
+-   <a href="../../images/gps_importer.png" class="reference internal"><img src="../../images/gps_importer.png" alt="gps_importer" /></a> <sup>Strumenti\\ GPS</sup>
+
 -   <a href="../../images/create_gpx.png" class="reference internal"><img src="../../images/create_gpx.png" alt="create_gpx" /></a> *Create new GPX Layer*
 
-For working with GPS data, we provide an example GPX file available in the KADAS sample dataset: `qgis_sample_data/gps/national_monuments.gpx`. See section <a href="../introduction/getting_started.html#label-sampledata" class="reference internal"><em>Sample Data</em></a> for more information about the sample data.
+Per lavorare con i dati GPS è formito un file GPX di esempio, il quale è disponibile nell’insieme di dati di KADAS: file:qgis\_sample\_data/gps/national\_monuments.gpx. Vedere la sezione <a href="../introduction/getting_started.html#label-sampledata" class="reference internal"><em>Dati campione</em></a> per maggiori informazioni sull’insieme di dati a disposizione.
 
-1.  Select *Vector ‣ GPS ‣ GPS Tools* or click the <a href="../../images/import_gpx.png" class="reference internal"><img src="../../images/import_gpx.png" alt="import_gpx" /></a> <sup>GPS\\ Tools</sup> icon in the toolbar and open the *Load GPX file* tab (see <a href="#figure-gps-1" class="reference internal">figure_GPS_1</a>).
-2.  Browse to the folder `qgis_sample_data/gps/`, select the GPX file `national_monuments.gpx` and click **\[Open\]**.
+1.  Selezionare *Vettore ‣ GPS ‣ Strumenti GPS* o cliccare sull’icona <a href="../../images/import_gpx.png" class="reference internal"><img src="../../images/import_gpx.png" alt="import_gpx" /></a> <sup>GPS\\ Tools</sup> presente sulla barra degli strumenti e apri la scheda Carica file GPX (vedere <a href="#figure-gps-1" class="reference internal">figure_GPS_1</a>)
+
+2.  Navigare all’interno della cartella `qgis_sample_data/gps/`, selezionare il file GPX `national_monuments.gpx` e cliccare **\[Apri\]**.
 
 **Figure GPS 1:**
 
 ![](../../images/loadgpx.png)
-The *GPS Tools* dialog window 
+Finestra di dialogo degli *Strumenti GPS* 
 
 Use the **\[Browse...\]** button to select the GPX file, then use the checkboxes to select the feature types you want to load from that GPX file. Each feature type will be loaded in a separate layer when you click **\[OK\]**. The file `national_monuments.gpx` only includes waypoints.
 
-Note
+Nota
 
-GPS units allow you to store data in different coordinate systems. When downloading a GPX file (from your GPS unit or a web site) and then loading it in KADAS, be sure that the data stored in the GPX file uses WGS 84 (latitude/longitude). KADAS expects this, and it is the official GPX specification. See <a href="http://www.topografix.com/GPX/1/1/" class="uri" class="reference external">http://www.topografix.com/GPX/1/1/</a>.
+I dispositivi GPS ti consentono di registrare i dati in differenti sistemi di coordinate. Quando scarichi un file GPX (dal dispositivo GPS o da un sito internet) e lo carichi in KADAS, assicurati che i dati presenti nel file GPX siano in WGS 84 (latitudine/longitudine). KADAS si aspetta questo SR, così come indicato dalle specifiche ufficiali dei formato GPX. Vedere <a href="http://www.topografix.com/GPX/1/1/" class="uri" class="reference external">http://www.topografix.com/GPX/1/1/</a>.
 
 ## GPSBabel {#gpsbabel}
 
-Since KADAS uses GPX files, you need a way to convert other GPS file formats to GPX. This can be done for many formats using the free program GPSBabel, which is available at <a href="http://www.gpsbabel.org" class="uri" class="reference external">http://www.gpsbabel.org</a>. This program can also transfer GPS data between your computer and a GPS device. KADAS uses GPSBabel to do these things, so it is recommended that you install it. However, if you just want to load GPS data from GPX files you will not need it. Version 1.2.3 of GPSBabel is known to work with KADAS, but you should be able to use later versions without any problems.
+Dato che KADAS usa i file GPX, ti occorrerà un modo per convertire gli altri formati GPS in GPX. Questa operazione potrà essere compiuta, sulla maggior parte dei formati utilizzati, con il programma gratuito GPSBabel, il quale è disponibile sul sito <a href="http://www.gpsbabel.org" class="uri" class="reference external">http://www.gpsbabel.org</a>. Questo programma può anche trasferire i dati GPS dal tuo computer al dispositivo GPS e viceversa. KADAS usa GPSBabel per effettuare tutte queste operazioni, perciò è consigliato installarlo. Tuttavia, se vuoi soltanto caricare dati GPS contenuti in files GPX, non è necessario avere il programma installato. La versione 1.2.3 di GPSBabel funziona con KADAS, ma potrai utilizzare versioni successive senza problemi.
 
-## Importing GPS data {#importing-gps-data}
+## Importare dati GPS {#importing-gps-data}
 
-To import GPS data from a file that is not a GPX file, you use the tool *Import other file* in the GPS Tools dialog. Here, you select the file that you want to import (and the file type), which feature type you want to import from it, where you want to store the converted GPX file and what the name of the new layer should be. Note that not all GPS data formats will support all three feature types, so for many formats you will only be able to choose between one or two types.
+Per importare dei dati che non sono dei file GPX, utilizza lo strumento *Importa altro file* presente nella finestra di dialogo degli Strumenti GPS. Qui, puoi scegliere il file da importare (e il formato del files), il tipo di dato da estrarre da esso, dove vuoi salvare il file una volta convertito in GPX e il nome che vuoi dare al nuovo vettore. Nota che non tutti i formati di dati GPS supportano tutti e tre i tipi di dato, così per alcuni formati potrai scegliere solo uno e due tipi.
 
-## Downloading GPS data from a device {#downloading-gps-data-from-a-device}
+## Scaricare dati GPS da un dispositivo {#downloading-gps-data-from-a-device}
 
-KADAS can use GPSBabel to download data from a GPS device directly as new vector layers. For this we use the *Download from GPS* tab of the GPS Tools dialog (see <a href="#figure-gps-2" class="reference internal">Figure_GPS_2</a>). Here, we select the type of GPS device, the port that it is connected to (or USB if your GPS supports this), the feature type that you want to download, the GPX file where the data should be stored, and the name of the new layer.
+KADAS utilizza GPSBabel per scaricare dati da un dispositivo GPS, e caricarli direttamente come nuovi vettori. Per fare questo si utilizza la scheda *Scarica dal GPS* presente nella finestra di dialogo degli Strumenti GPS (vedi <a href="#figure-gps-2" class="reference internal">Figure_GPS_2</a>). Qui, è possibile selezionare la periferica GPS, la porta alla quale il dispositivo è connesso (o la porta USB se il GPS supporta questa opzione), il tipo di dato che si desidera scaricare, il file GPX in cui i dati dovranno essere memorizzati, e il nome del nuovo layer.
 
 **Figure GPS 2:**
 
 ![](../../images/download.png)
-The download tool
+Lo strumento di scaricamento
 
-The device type you select in the GPS device menu determines how GPSBabel tries to communicate with your GPS device. If none of the available types work with your GPS device, you can create a new type (see section <a href="#defining-new-device" class="reference internal"><em>Defining new device types</em></a>).
+GPSBabel comunica con il GPS in base al tipo di dispositivo che viene selezionato nel menu. Se nessuna delle opzioni disponibili è compatibile con il proprio dispositivo GPS è possibile creare un nuovo tipo (vedi sezione :ref:[<span id="id2" class="problematic">\`</span>](#id1)defining-new-device).
 
-The port may be a file name or some other name that your operating system uses as a reference to the physical port in your computer that the GPS device is connected to. It may also be simply USB, for USB-enabled GPS units.
+La porta potrebbe essere il nome del file o qualche altro termine che il tuo sistema operativo riconosce come porta fisica alla quale è connesso il dispositivo GPS. Essa potrebbe essere un’uscita USB, nel caso di dispositivi abilitati per l’USB.
 
--    On Linux, this is something like `/dev/ttyS0` or `/dev/ttyS1`.
--   <a href="../../images/win.png" class="reference internal"><img src="../../images/win.png" alt="win" /></a> On Windows, it is `COM1` or `COM2`.
+-    Nei sistemi Linux è qualcosa di simile a `/dev/ttyS0` or `/dev/ttyS1`
 
-When you click **\[OK\]**, the data will be downloaded from the device and appear as a layer in KADAS.
+-   <a href="../../images/win.png" class="reference internal"><img src="../../images/win.png" alt="win" /></a> In Windows è `COM1` or `COM2`.
 
-## Uploading GPS data to a device {#uploading-gps-data-to-a-device}
+Quando si clicca su **\[OK\]** i dati saranno scaricati dal dispositivo e appariranno come nuovi vettori in KADAS.
 
-You can also upload data directly from a vector layer in KADAS to a GPS device using the *Upload to GPS* tab of the GPS Tools dialog. To do this, you simply select the layer that you want to upload (which must be a GPX layer), your GPS device type, and the port (or USB) that it is connected to. Just as with the download tool, you can specify new device types if your device isn’t in the list.
+## Caricare dati GPS sul dispositivo {#uploading-gps-data-to-a-device}
 
-This tool is very useful in combination with the vector-editing capabilities of KADAS. It allows you to load a map, create waypoints and routes, and then upload them and use them on your GPS device.
+Puoi anche caricare direttamente dei dati vettoriali sulla periferica GPS utilizzando la scheda *Carica sul GPS* presente nella finestra di dialogo Strumenti GPS. Per effettuare questa operazione devi semplicemente selezionare il layer che desideri caricare (che deve essere un layer GPX), la periferica GPS utilizzata, e la porta (o l’usb) alla quale la periferica è collegata. Come per lo scaricamento dei dati, anche in questo caso è possibile specificare un nuovo tipo di periferica, nel caso non fosse presente nella lista proposta.
+
+Questo strumento è molto utile in combinazione con le capacità di editing dei dati vettoriali di KADAS. Permette di caricare una mappa, creare dei waypoints e delle routes, e successivamente caricarli nel dispositivo per poi utilizzarli.
 
 
-## Defining new device types {#defining-new-device-types}
+## Definire un nuovo tipo di dispositivo {#defining-new-device-types}
 
-There are lots of different types of GPS devices. The KADAS developers can’t test all of them, so if you have one that does not work with any of the device types listed in the *Download from GPS* and *Upload to GPS* tools, you can define your own device type for it. You do this by using the GPS device editor, which you start by clicking the **\[Edit devices\]** button in the download or the upload tab.
+Ci sono molteplici tipologie di dispositivi GPS. Gli sviluppatori di KADAS non possono configurare tutti i dispositivi, perciò se hai un dispositivo non compatibile con quelli messi a disposizione nelle schede *Scarica dal GPS* e *Carica su GPS*, ti puoi configurare il tuo dispositivo. Per fare questo puoi utilizzare l’editor dei dispositivi GPS, che si avvia cliccando sul bottone **\[Modifica periferiche\]** sia nella scheda di download che in quella di upload dei dati.
 
-To define a new device, you simply click the **\[New device\]** button, enter a name, enter download and upload commands for your device, and click the **\[Update device\]** button. The name will be listed in the device menus in the upload and download windows – it can be any string. The download command is the command that is used to download data from the device to a GPX file. This will probably be a GPSBabel command, but you can use any other command line program that can create a GPX file. KADAS will replace the keywords `%type`, `%in`, and `%out` when it runs the command.
+Per configurare una nuova periferica devi semplicemente cliccare il pulsante **\[Nuovo\]**, inserire il nome del dispositivo, i vari comandi di download e di upload, e cliccare il pulsante **\[Aggiorna\]**. Il nome del dispositivo sarà inserito nella lista delle periferiche GPS presenti nelle schede di download e upload dei dati. Il comando di download è il comando che viene utilizzato per scaricare i dati dal dispositivo come file GPX. Solitamente è un comando di GPSBabel, ma puoi utilizzare qualsiasi altro programma a linea di comando che permette di creare un file GPX. KADAS rimpiazzerà i tasti `%type`, `%in`, e `%out` quando elaborerà il comando.
 
-`%type` will be replaced by `-w` if you are downloading waypoints, `-r` if you are downloading routes and `-t` if you are downloading tracks. These are command-line options that tell GPSBabel which feature type to download.
+`%type` sarà sostituito da `-w` se stai scaricando dei waypoints, `-r` se stai scaricando delle routes e `-t` se stai scaricando dei tracks. Queste sono le opzioni che comunicano a GPSBabel quali elementi scaricare.
 
-`%in` will be replaced by the port name that you choose in the download window and `%out` will be replaced by the name you choose for the GPX file that the downloaded data should be stored in. So, if you create a device type with the download command `gpsbabel %type -i garmin -o gpx %in %out` (this is actually the download command for the predefined device type ‘Garmin serial’) and then use it to download waypoints from port `/dev/ttyS0` to the file `output.gpx`, KADAS will replace the keywords and run the command `gpsbabel -w -i garmin -o gpx /dev/ttyS0 output.gpx`.
+`%in` sarà sostituito dal norme della porta selezionata nella finestra di download, `%out` sarà sostituito dal nome del file GPX nel quale verranno salvati i dati. Quindi se configuri una nuova periferica con il comando `gpsbabel %type -i garmin -o gpx %in %out` (questo è il comando di download per i dispositivi predefiniti ‘Garmin serial’) e lo usi per scaricare dei waypoints tramite una porta `/dev/ttyS0` in un file GPX denominato `output.gpx`, KADAS leggerà la stringa e avvierà il comando `gpsbabel -w -i garmin -o gpx /dev/ttyS0 output.gpx`.
 
-The upload command is the command that is used to upload data to the device. The same keywords are used, but `%in` is now replaced by the name of the GPX file for the layer that is being uploaded, and `%out` is replaced by the port name.
+Il comando di upload è il comando che viene utilizzato per caricare dati sul dispositivo. Vengono utilizzati i stessi tasti, ma `%in` è utilizzato per indicare il nome del file GPX che contiene il layer in caricamento, e `%out` viene sostituito dal nome della porta.
 
-You can learn more about GPSBabel and its available command line options at <a href="http://www.gpsbabel.org" class="uri" class="reference external">http://www.gpsbabel.org</a>.
+Puoi avere maggiori informazioni su GPSBabel e sulle opzioni utilizzabili tramite linea di comando sul sito <a href="http://www.gpsbabel.org" class="uri" class="reference external">http://www.gpsbabel.org</a>.
 
-Once you have created a new device type, it will appear in the device lists for the download and upload tools.
+Una volta che avrai creato una nuova periferica, essa apparirà nella lista dei dispositivi presente sia nella scheda Scarica dal GPS sia nella scheda Carica sul GPS.
 
-## Download of points/tracks from GPS units {#download-of-points-tracks-from-gps-units}
+## Scaricare points/tracks dall’unità GPS {#download-of-points-tracks-from-gps-units}
 
-As described in previous sections QGIS uses GPSBabel to download points/tracks directly in the project. QGIS comes out of the box with a pre-defined profile to download from Garmin devices. Unfortunately there is a <a href="http://hub.qgis.org/issues/6318" class="reference external">bug #6318</a> that does not allow create other profiles, so downloading directly in QGIS using the GPS Tools is at the moment limited to Garmin USB units.
+Come descritto nei paragrafi precedenti QGIS usa GPSBabel per scaricare punti/track direttamente nel progetto. QGIS si configura con impostazioni predefinite per scaricare da dispositivi Garmin. Purtroppo vi è un bug \#6318 &lt;http://hub.qgis.org/issues/6318&gt; che non permette di creare altre impostazioni, così al momento è llimitato solo alle unità USB Garmi scaricare direttamente QGIS utilizzando gli strumenti GPS.
 
 ### Garmin GPSMAP 60cs {#garmin-gpsmap-60cs}
 
 **MS Windows**
 
-Install the Garmin USB drivers ​from <a href="http://www8.garmin.com/support/download_details.jsp?id=591" class="uri" class="reference external">http://www8.garmin.com/support/download_details.jsp?id=591</a>
+Installare i drivers Garmin USB dal sito <a href="http://www8.garmin.com/support/download_details.jsp?id=591" class="uri" class="reference external">http://www8.garmin.com/support/download_details.jsp?id=591</a>
 
 Connect the unit. Open GPS Tools and use `type=garmin serial` and `port=usb:` Fill the fields *Layer name* and *Output file*. Sometimes it seems to have problems saving in a certain folder, using something like `c:\temp` usually works.
 
 **Ubuntu/Mint GNU/Linux**
 
-It is first needed an issue about the permissions of the device, as described at <a href="https://wiki.openstreetmap.org/wiki/USB_Garmin_on_GNU/Linux" class="uri" class="reference external">https://wiki.openstreetmap.org/wiki/USB_Garmin_on_GNU/Linux</a>. You can try to create a file `/etc/udev/rules.d/51-garmin.rules` containing this rule
+Per prima cosa occorre risolvere un problema inerente i permessi di accesso alla periferica, seguendo quanto scritto qui <a href="https://wiki.openstreetmap.org/wiki/USB_Garmin_on_GNU/Linux" class="uri" class="reference external">https://wiki.openstreetmap.org/wiki/USB_Garmin_on_GNU/Linux</a>. Puoi provare a creare un file `/etc/udev/rules.d/51-garmin.rules` contenente il seguente codice:
 
     ATTRS{idVendor}=="091e", ATTRS{idProduct}=="0003", MODE="666"
 
-After that is necessary to be sure that the `garmin_gps` kernel module is not loaded
+Successivamente occorre essere sicuri che il modulo del kernel [<span id="id2" class="problematic">\`\`</span>](#id1)garmin\_gps\` non sia caricato
 
     rmmod garmin_gps
 
-and then you can use the GPS Tools. Unfortunately there seems to be a <a href="http://hub.qgis.org/issues/7182" class="reference external">bug #7182</a> and usually QGIS freezes several times before the operation work fine.
+e quindi puoi utilizzare gli strumenti GPS. Purtroppo sembra che ci sia un bug \# 7182 &lt;http://hub.qgis.org/issues/7182&gt; \_ e di solito QGIS si blocca più volte prima della fine.
 
-### BTGP-38KM datalogger (only Bluetooth) {#btgp-38km-datalogger-only-bluetooth}
+### Data logger BTGP-38KM (solo Bluetooth) {#btgp-38km-datalogger-only-bluetooth}
 
 **MS Windows**
 
-The already referred bug does not allow to download the data from within QGIS, so it is needed to use GPSBabel from the command line or using its interface. The working command is
+Il baco già discusso non consente di scaricare i dati tramite QGIS, per cui è necessario utilizzare GPSBabel dalla riga di comando o tramite la sua interfaccia. Il comando da eseguire è
 
     gpsbabel -t -i skytraq,baud=9600,initbaud=9600 -f COM9 -o gpx -F C:/GPX/aaa.gpx
 
 **Ubuntu/Mint GNU/Linux**
 
-Use same command (or settings if you use GPSBabel GUI) as in Windows. On Linux it maybe somehow common to get a message like
+Utilizzare lo stesso comando (o gli stessi parametri, se usate la GUI di GPSBabel). Su Linux potrebbe capitare di vedere un messaggio tipo
 
     skytraq: Too many read errors on serial port
 
-it is just a matter to turn off and on the datalogger and try again.
+Si tratta solo di spegnere e riaccendere il data logger e ritentare
 
-### BlueMax GPS-4044 datalogger (both BT and USB) {#bluemax-gps-4044-datalogger-both-bt-and-usb}
+### BlueMax GPS-4044 datalogger (sia BT che USB) {#bluemax-gps-4044-datalogger-both-bt-and-usb}
 
 **MS Windows**
 
-Note
+Nota
 
-It needs to install its drivers before using it on Windows 7. See in the manufacturer site for the proper download.
+Ha bisogno di installare i propri driver prima di essere utilizzato su Windows 7. Si veda il sito del costruttore per il file corretto da scaricare.
 
-Downloading with GPSBabel, both with USB and BT returns always an error like
+Scaricando con GSPBabel, sia con USB che BT, si ottiene sempre un errore tipo
 
     gpsbabel -t -i mtk -f COM12 -o gpx -F C:/temp/test.gpx
     mtk_logger: Can't create temporary file data.bin
@@ -136,15 +139,15 @@ Downloading with GPSBabel, both with USB and BT returns always an error like
 
 **Ubuntu/Mint GNU/Linux**
 
-**With USB**
+**con USB**
 
-After having connected the cable use the `dmesg` command to understand what port is being used, for example `/dev/ttyACM3`. Then as usual use GPSBabel from the CLI or GUI
+Dopo aver collecato il cavo, usare il comando `dmesg` per capire quale porta viene utilizzata, ad esempio `/dev/ttyACM3`. Poi, come al solito, utilizzare GPSBabel dalla riga di comando o dalla GUI
 
     gpsbabel -t -i mtk -f /dev/ttyACM3 -o gpx -F /home/user/bluemax.gpx
 
-**With Bluetooth**
+**Con Bluetooth**
 
-Use Blueman Device Manager to pair the device and make it available through a system port, then run GPSBabel
+Utilizzare il Gestore di dispositivi Blueman per accoppiare il dispositivo e renderlo disponibile tramite una porta di sistema, poio eserguire GPSBabel
 
     gpsbabel -t -i mtk -f /dev/rfcomm0 -o gpx -F /home/user/bluemax_bt.gpx
 

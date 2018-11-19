@@ -1,0 +1,283 @@
+"Deutsch","Franz","Ital","Engl",,"Bemerkungen"
+"# Meine Karte
+","# Cartes
+","# Mappe
+","# My maps
+",,"D / F / I / E
+
+Einführungstext ergänzen"
+"## Projekte
+
+Karten können als Projekte geladen und gespeichert werden. Es wird das QGIS Projektformat verwendet, mit Endung _*.qgs_. Projekte werden aus Vorlagen erstellt. Beim Starten der Applikation wird automatisch ein Projekt aus einer Online- oder Offline-Vorlage erstellt, abhängig davon, ob der Rechner am Netz angeschlossen ist.
+","## Projets
+
+Les cartes peuvent être chargées et enregistrées comme projets. On utilise le format de projet QGIS, qui se termine par _*.qgs_. Les projets sont créés comme propositions. Au lancement de l’application, un projet est automatiquement créé comme proposition en ligne ou hors ligne, indépendamment du fait que l’ordinateur soit relié à Internet.
+","## Progetti
+
+Le mappe possono essere caricate e salvate come progetti. Viene utilizzato il formato dei pro­getti QGIS, con estensione _*.qgs_. I progetti vengono creati sulla base di modelli. All'avvio dell'appli­cazione, viene automaticamente creato un progetto sulla base di un modello online od offline, a seconda che il computer sia collegato alla rete o meno.
+","## Projects
+
+Maps can be loaded and saved as projects. The QGIS project format is used, ending with _*.qgs_. Projects are created from templates. When starting the application, a project is automatically created from an online or offline template, depending on whether the computer is connected to the network.
+",,
+"## Datenquellen
+
+Die Hauptdatenquelle ist der **_Geodatenkatalog_**. Beim Programmstart werden nur öffentliche Daten angezeigt. Abhängig vom Benutzer können nach erfolgter Authentifizierung weitere Daten zur Verfügung stehen. Die Authentifizierung erfolgt via Schloss-Symbol in der Geodaten-Toolbar. Nach erfolgreicher Authentifizierung wird der Geodatenkatalog automatisch neu geladen.
+
+Zusätzlich können lokale Vektor- sowie Rasterdaten der Karte hinzugefügt werden, entweder via Symbol in der Geodaten-Toolbar oder per Drag and Drop auf die Karte.
+","## Sources de données
+
+La principale source de données est le **_catalogue de géodonnées_**. Au lancement du programme, seules les données publiques sont affichées. En fonction de l’utilisateur, d’autres données pourront être mises à disposition après authentification. L’authentification s’effectue via l’icône serrure dans la barre d’outils des géodonnées. Une fois l’authentification réussie, le catalogue de géodonnées sera rechargé automatiquement.
+
+On peut également ajouter des vecteurs locaux ainsi que des données de raster de la carte, soit par le biais des icônes dans la barre d’outils des géodonnées, soit en faisant glisser-déplacer sur la carte.
+","## Fonti dei dati
+
+La fonte principale dei dati è il **_catalogo dei geodati_**. All'avvio del programma vengono visualizzati solo i dati pubblici. A seconda dell'utente, dopo aver effettuato correttamente l'autenticazione, posso­no essere disponibili ulteriori dati. L'autenticazione viene eseguita tramite l'icona del lucchetto pre­sente nella barra dei geodati. Una volta effettuata correttamente l'autenticazione, il catalogo dei geodati viene ricaricato automaticamente.
+
+Inoltre, possono essere aggiunti alla mappa geodati vettoriali e raster locali della mappa, tramite l'icona nella della barra dei pulsanti del catalogo oppure tramite drag-and-drop.
+","## Data sources
+
+The main data source is the **_geodata catalog_**. When starting the program, only public data is displayed. Depending on the user, further data may be available after authentication. The authentication takes place via lock icon in the geodata toolbar. After successful authentication, the geodata catalog is automatically reloaded.
+
+In addition, local vector and raster data can be added to the map, either via icon in the geodata toolbar or by dragging and dropping it onto the map.
+",,"D
+
+Manuelle anpassung"
+"## Neue Projekte anlegen und Speichern
+
+Mit den Funktionen **_Neu_**, **_Öffnen_**, **_Speichern_** und **_Speichern als_** können neue Projekte (aus einer Vorlage) erstellt werden, existierende Projekte geöffnet werden und Projekte gespeichert werden.
+
+Gewisse Werkzeuge erzeugen Datensätze, die in Ordner _<projektname> files_ abgelegt werden. Beim austauschen des Projekts sollte dementsprechend dieser Ordner zusammen mit der Projektdatei verteilt werden. Weitere lokale Datensätze die ausgetauscht werden sollten ebenfalls in diesem Verzeichnis abgelegt werden und von dort aus der Karte hinzugefügt werden, ansonsten wird dessen Pfad im Projekt als absoluter Pfad gespeichert, der möglicherweise auf anderen Systemen nicht aufgelöst werden kann.
+","## Créer et sauvegarder des cartes
+
+Les fonctions **_Nouveau_**, **_Ouvrir_**, **_Enregistrer_** et **_Enregistrer sous_** permettent de créer de nouveaux projets (à partir d’une proposition), d’ouvrir des projets existants et d’enregistrer des projets.
+
+Certains outils créent des données qui sont placées dans le dossier _<nom de projet> files_. Lors d’un partage de projet, il faut ainsi distribuer ce dossier avec les données de projet. D’autres données locales qui sont partagées doivent aussi être placées dans cette liste et rajoutées depuis cette liste à la carte, sinon ce chemin sera enregistré dans le projet comme chemin absolu, et ne pourra peut-être pas être effacé sur d’autres systèmes.
+","## Creazione e salvataggio di mappe
+
+Con le funzioni **_Nuovo_**, **_Apri_**, **_Salva_** e **_Salva con nome_**, è possibile creare dei nuovi progetti (sulla base di un modello), aprire progetti esistenti e salvare i progetti.
+
+Certi strumenti creano dei dati che vengono memorizzati nella cartella _<nome progetto> files_. Quando si scambia il progetto con altri utenti, la cartella deve essere allegata insieme al file del progetto. Anche altri geodati locali che si desidera scambiare assieme al progetto devono venir copiati in questa cartella, e aggiunti alla mappa da questo percorso, altrimenti il percorso verrà salvato nel pro­getto come percorso assoluto, che potrebbe non essere valido su altri sistemi.
+","## Creating and saving maps
+
+The functions **_New_**, **_Open_**, **_Save_** and **_Save as_** allow creating new projects (from a template), opening existing projects and saving open projects.
+
+Certain tools generate datasets that are placed in the folder _<project name> files_. When sharing the project, this folder should be distributed together with the project file. Other local datasets that need to be exchanged should also be placed in this directory and added to the map from there, otherwise the path will be stored in the project as an absolute path which may not exist on other systems.
+",,"E
+
+Manuelle anpassung"
+"## Projekte öffnen
+
+Gespeicherte Karten (Projekte) können mit der Funktion **_Öffnen_** geladen werden.
+","## Ouvrir des projets
+
+Les cartes sauvegardées (projets) peuvent être chargées avec la fonction **_Ouvrir_**.
+","## Apri progetti
+
+Le mappe salvate (progetti) possono essere caricate con la funzione **_Apri_**.
+","## Open projects
+
+Saved maps (projects) can be opened with the **_Open_** functionality.
+",,
+"## Drucken
+
+Die aktuelle Karte kann über die Funktion **_Drucken_** auf den Drucker ausgegeben oder in einer Datei gespeichert werden.
+
+Das Drucken basiert auf Vorlagen. Standardmässig werden Vorlagen für A0 bis A6 sowohl Quer- als Hochformat angeboten, sowie eine Custom Vorlage.
+","## Imprimer
+
+La carte actuelle peut être imprimée avec la fonction **_Imprimer_** ou sauvegardée dans un fichier. 
+
+L’impression se base sur des modèles. Par défaut, des modèles sont proposés en format A0-A6, aussi bien en portrait qu’en paysage, ainsi qu’un modèle Custom.
+","## Stampa
+
+La mappa attuale può essere inviata alla stampante tramite la funzione **_Stampa_** o salvata in un file.
+
+La stampa si basa su dei modelli. Come impostazione standard, vengono forniti i modelli A0-A6, in formato sia orizzontale che verticale, e un modello Custom.
+","## Printing
+
+The **_Print_** functionality allows printing the current map or exporting it to a file. 
+
+Printing is based on layouts. By default, layouts for A0 through A6 are available in both landscape and portrait modes, as well as a Custom layout.
+",,"INFO
+Text Help 1.1 (November ergänzt mit Text aus Help 1.1 (Januar)"
+"Bei ausgewählter Vorlage wird im Hauptkartenfenster ein blaues halb-transparentes Rechteck angezeigt, welches dem zu druckenden Ausschnitt entspricht. Bei den Vorlagen mit fixem Papierformat kann dieses Rechteck in der Hauptkarte verschoben werden, um den Druckbereich anzupassen. Die Grösse des Ausschnitts wird vom Papierformat und dem im Druckdialog angegebenen Massstab abgeleitet. Bei der _Custom_ Vorlage wird der Ausschnitt zusammen mit dem Massstab im Druckdialog numerisch definiert, und das resultierende Papierformat wird diesen Angaben entsprechend dynamisch berechnet.
+","Une fois le modèle choisi, un rectangle bleu semi-transparent apparaît dans la fenêtre principale de la carte, qui correspond à l’extrait à imprimer. Pour les modèles avec un format de papier fixe, ce rectangle peut être déplacé sur la carte principale afin d’adapter la zone à imprimer. La taille de l’extrait dépend du format du papier ainsi que des mesures indiquées dans la boîte de dialogue d’impression. Avec le modèle _Custom_, l’extrait est défini numériquement avec l’échelle dans la boîte de dialogue d’impression, et le format de papier en résultant est calculé de manière dynamique selon ces indications.
+","Una volta scelto il modello, nella finestra della mappa principale viene visualizzato un rettangolo blu semitrasparente che corrisponde all'riquadro da stampare. Nel caso di modelli con formato di pagina fisso, il rettangolo presente nella mappa principale può essere spostato per adattare l'area di stampa. La dimensione del riquadro viene calcolato dal formato della pagina e dalla scala scelta nel dialogo di stampa. Nel caso del modello _Custom_, il riquadro viene definito numericamente nel dialogo di stampa, e il formato della pagina risultante in base a queste indicazioni.
+","When the layout is selected, the main map window displays a blue semi-transparent rectangle that corresponds to the section to be printed. For fixed-size layouts, this rectangle can be moved in the main map to adjust the print area. The size of the rectangle is derived from the paper size and the scale specified in the print dialog. In the case of the _Custom_ layout, the section is numerically defined along with the scale in the print dialog, and the resulting paper size is dynamically calculated according to this information.
+",,
+"Beim Drucken können zusätzliche Elemente, Koordinatengitter, Kartenkartusche, Legende, und Massstabbalken je nach Wunsch ein- oder ausgeblendet werden. Die Position dieser Elemente ist in der Vorlage definiert.
+","Lors de l'impression d'éléments supplémentaires, la grille de coordonnées, la cartouche de cartes, la légende et la barre d'échelle peuvent être affichées ou masquées comme vous le souhaitez. La position de ces éléments est définie dans le modèle.
+","Durante la stampa, è possibile inserire o rimuovere secondo preferenza degli elementi aggiuntivi come la griglia delle coordinate, il cartiglio della mappa, legenda e il righello della scala. La posi­zione di questi elementi è definita nel modello.
+","When printing additional elements, coordinate grid, card cartridge, legend, and scale bar can be shown or hidden as desired. The position of these elements is defined in the layout.
+",,
+"### Druckdialog
+
++ **Vorlage**: Auswahl der Druckvorlage. Es wird eine Vorschau der Druckausgabe angezeigt.
++ **Titel**: Titel, der auf der Druckausgabe angezeigt wird.
++ **Massstab**: Druckmassstab
++ **Gitter**: Wird der Abschnitt Gitter aufgeklappt, wird im Ausdruck ein Gitternetz hinterlegt.
+  + **Koordinatensystem**: Wahl des Gitter-Koordinatensystems
+  + **X Intervall**: Abstand der Gitternetzlinien in X-Richtung
+  + **Y Intervall**: Abstand der Gitternetzlinien in Y-Richtung
+  + **Koordinatenbeschriftungen**: Ein-/Ausschalten der Gitternetzbeschriftungen
++ **Kartenkartusche**: Ein-/Ausschalten der Kartusche
++ **Kartenkartusche anpassen**: Konfiguration der Kartusche
++ **Massstabsbalken**: Ein-/Ausschalten der Masstabsanzeige
++ **Legende**: Ein-/Ausschalten der Legende
++ **Dateiformat**: Auswahl des Formats für die Datei-Export Funktion
+","### Boîte de dialogue d’impression
+
++ **Modèle** : Choix du modèle d’impression.Un aperçu de l’impression s’affiche.
++ **Titre** : Titre qui apparaît sur le document imprimé.
++ **Échelle** : échelle d’impression
++ **Grille** : Si la section Grille est ouverte, une grille quadrillée apparaîtra en fond sur le document imprimé.
+  + **System de coordonnées** : choix du système de coordination de la grille
+  + **Intervalle X** : écart des lignes de la grille dans le sens X
+  + **Intervalle Y** : écart des lignes de la grille dans le sens Y
+  + **Afficher les coordonnées** : activation/désactivation des annotations sur la grille quadrillée
++ **Cartouche** : activation/désactivation du cartouche
++ **Éditer cartouche** : configuration du cartouche
++ **Barre d'échelle** : activation/désactivation de l’indication de l’échelle
++ **Légende** : activation/désactivation de la légende
++ **Format de fichier** : choix du format pour la fonction d’exportation du fichier
+","### Finestra di dialogo della stampante
+
++ **Modello**: scelta del modello di stampa. Viene visualizzata un’anteprima dell’output di stampa.
++ **Titolo**: titolo visualizzato sull’output di stampa.
++ **Scala**: scala di stampa
++ **Reticolo**: se la sezione Griglia è aperta, nello stampato viene posizionato un reticolo.
+  + **Sistema di coordinate**: scelta del sistema di coordinate della griglia
+  + **Intervallo X**: distanza delle linee del reticolo in direzione X
+  + **Intervallo Y**: distanza delle linee del reticolo in direzione Y
+  + **Mostra coordinate**: attivazione/disattivazione delle diciture del reticolo
++ **Cartiglio**: attivazione/disattivazione della cartuccia
++ **Modifica Cartiglio**: configurazione della cartuccia
++ **Barra della scala**: attivazione/disattivazione della visualizzazione della scala
++ **Legenda**: attivazione/disattivazione della legenda
++ **Formato**: scelta del formato per la funzione di esportazione del file
+","### Printing dialog
+
++ **Layout**: Choice of the printing template. A print-preview is displayed.
++ **Title**: The title to be displayed.
++ **Scale**: The scale of the printed map
++ **Grid**: If the Grid secion is expanded, a grid is overlayed on the map.
+  + **Coordinate System**: Choice of the coordinate system to use for the grid
+  + **Interval X**: Grid line spacing in X direction
+  + **Interval Y**: Grid line spacing in Y direction
+  + **Coordinate labels**: Toggling of the coordinate labels
++ **Map cartouche**: Toggling of the map cartouche
++ **Edit map cartouche**: Setup of the map cartouche
++ **Scalebar**: Toggling of the scale bar
++ **Legend**: Toggling of the map legend
++ **File format**: Choice of the file format when exporting to a file
+",,"D / F / I 
+- Funktionen Druckdialog angepasst
+
+ALLE
+- Konfiguration Legende ergänzen"
+"### Karten-Kartusche
+
+Im diesem Dialog wird der Inhalt der **_Kartusche_** bestimmt. In den Eingabefeldern ist die Funktion des Textes hinterlegt. Ist die Checkbox **Übung** aktiviert, werden die Angaben zu einer Übung in der Kartusche angezeigt.
+
+Des weiteren kann im Kartuschen-Dialog der Kartuscheninhalt als einzelständige XML Datei importiert und exportiert werden.
+","### Cartouche de la carte
+
+Cette boîte de dialogue montre le contenu de la **_cartouche_**. Dans les champs de saisie, la fonction du texte est enregistrée. Si la case checkbox **Exercise** est cochée, les données de test du cartouche s’affichent.
+
+De plus, le contenu du cartouche peut être importé et exporté en tant que fichier XML distinct dans la boîte de dialogue du cartouche.
+","### Cartuccia mappa
+
+In questa finestra è possibile definire il contenuto della **_cartuccia_**. Nei campi di immissione è depositata la funzione del testo. Se è attivata la casella di controllo checkbox **Esercizio**, vengono visualizzate le indicazioni per l’esercizio nella cartuccia.
+
+Inoltre è possibile esportare e importare il contenuto del cartiglio come file XML a sé stanti dal dialogo di modifica del cartiglio.
+","### Map Cartouche
+
+This dialog allows the user to set up the map **_cartouche_**. The meaning of each field is show as a place-holder text. If the **Exercise** checkbox is active, fields for describing an exercise will be activated.
+
+Furthermore, the map cartouche content can be imported and exported as a separate XML file in the cartouche dialog.
+",,
+"### Druckausgabe
+
++ **Exportieren**: Es wird eine Datei im gewählten Format erstellt.
++ **Drucken**: Über den Druckdialog kann ein eingerichter Drucker ausgewählt und die Ausgabe gestartet werden.
++ **Schliessen**: Der Druckdialog wird geschlossen.
++ **Fortgeschritten**: Aufruf der der erweiterten Layout-Funktionalität 
+","### Document imprimé
+
++ **Exporter** : un fichier est créé au format choisi.
++ **Imprimer** : dans la boîte de dialogue d’impression, on peut sélectionner une imprimante installée et lancer l’impression.
++ **Fermer** : la boîte de dialogue d’impression est fermée.
++ **Avancé** : utilisation des fonctions de layout avancées
+","### Output di stampa
+
++ **Esporta**: viene creato un file nel formato scelto.
++ **Stampa**: tramite la schermata di stampa è possibile scegliere una stampante configurata e avviare l’output.
++ **Chiudi**: la finestra di dialogo di stampa viene chiusa.
++ **Avanzato**: richiamo della funzionalità di layout avanzata
+","### Print output
+
++ **Export**: A file-based export will be performed, using the chosen file format.
++ **Print**: A printer selection dialog will be shown and the printing job will be submitted to the selected printer.
++ **Close**: Will close the printing dialog.
++ **Advanced**: Will open the advanced print layout editor
+",,
+"## Karte Kopieren / Karte Speichern
+
+Diese Funktionen erlauben dem Benutzer, den im Hauptfenster sichtbaren Kartenausschnitt in die **_Zwischenablage_** oder in eine Datei zu speichern. Es wird jeweils immer genau der Inhalt des Kartenfenster gespeichert.
+
+Die Funktion **_Karte speichern_** öffnet eine Dateidialog, wo sie den Namen, Pfad und Bildtyp (PNG, JPG und weitere Formate) auswählen. Eine World-Datei, die die Erweiterung PNGW oder JPGW enthält und im selben Ordner gespeichert wird, georeferenziert das Bild.
+","## Copier carte / Enregistrer carte
+
+Ces fonctions permettent à l’utilisateur d’enregistrer l’extrait de carte visible dans la fenêtre principale dans le **_presse-papier_** ou dans un fichier. C’est toujours le contenu exact de la fenêtre de carte qui est enregistré.
+
+La fonction **_Enregistrer carte_** ouvre une boîte de dialogue fichier où vous sélectionnez le nom, le chemin et le type d’image (PNG, JPG et bien d’autres formats). Un fichier world portant l’extension PNGW ou JPGW sauvegardé dans le même dossier géoréférence l’image.
+","## Copia mappa / Salva mappa
+
+Le funzioni Copia mappa e Salva mappa situate nella scheda Mappa consentono all'utente di salvare il riquadro della mappa visibile della mappa negli **_appunti_** o in un'immagine. Viene sempre salvato il contenuto identico a quanto è mostrato nella finestra della mappa.
+
+La funzione **_Salva mappa_** apre una finestra per i file in cui selezionare nome, percorso e tipo di immagine (PNG, JPG e molti altri formati). Un file world con estensione PNGW o JPGW salvato nella stessa cartella georeferenzia l’immagine.
+","## Copy map / Save map
+
+These functions allow the user to save the map extent visible in the main map frame to the **_clipboard_** or to a file. The contents of the map is saved exactely as it is rendered in the application.
+
+The function **_Save map_** opens a file dialog where you select the name, path and type of image (PNG, JPG and many other formats). A world file with extension PNGW or JPGW saved in the same folder georeferences the image.
+",,"Reihenfolge wiederspricht der Programmoberfläche"
+"## KML / KMZ Export
+
+Der Karteninhalt kann zudem als KML oder KMZ exportiert werden. Bilder sowie MSS-Symbole der Lagedarstellung werden nur im KMZ Format exportiert.
+
+> Es soll beachtet werden, dass KMZ und KML verlustbehaftete Export-Formate sind, und daher nicht geeignet für den Austausch zwischen KADAS Anwender ist. Dazu sollte das native _*.qgs_ Projektformat verwendet werden.
+","## Exportation KML/KMZ
+
+Le contenu de la carte peut aussi être exporté comme KML ou KMZ. Les images que les symboles MSS sont seulement exportés au format KMZ.
+
+> Il faut savoir que KMZ et KML sont des formats d’exportation qui génèrent souvent des pertes de données et qui ne conviennent donc pas pour les échanges entre utilisateurs de KADAS. Pour de tels échanges, il faut utiliser le format de projet natif _*.qgs_.
+","## Esportazione in KML/KMZ
+
+Il contenuto della mappa può inoltre essere esportato come KML o KMZ. Immagini, grafiche SVG e simboli MSS possono solamente venir esportato nel formato KMZ.
+
+> È opportuno notare che KMZ e KML sono formati di esportazione che possono comportare delle per­dite e, pertanto, non sono adatti allo scambio tra utenti di KADAS. A questo scopo è necessario utiliz­zare il formato nativo _*.qgs_.
+","## KML / KMZ export
+
+The map content can also be exported as KML or KMZ. Images as well as MSS symbols are only exported in KMZ format.
+
+> It should be noted that KMZ and KML are lossy export formats and therefore not suitable for exchange between KADAS users. The native _*.qgs_ project format should be used for this.
+",,
+"## GPKG Export / Import
+
+
+","##","##","##",,"Neues Kapitel Help 1.2"
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+"Help Version 1.1 (November 2017)",,,,,
+"Help Version 1.1 (Januar 2018)",,,,,
+"Text aus der anderen Version ergänzt",,,,,

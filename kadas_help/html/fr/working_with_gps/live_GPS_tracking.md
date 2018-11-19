@@ -1,140 +1,146 @@
-# Live GPS tracking {#live-gps-tracking}
+# Suivi GPS en direct {#live-gps-tracking}
 
-To activate live GPS tracking in KADAS, you need to select *Settings ‣ Panels* <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox" /></a> *GPS information*. You will get a new docked window on the left side of the canvas.
+Pour activer le suivi GPS en direct dans KADAS, sélectionnez le menu *Vue ‣Panneaux* <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox" /></a> *Information GPS*. Une nouvelle fenêtre sera ancrée à gauche de la carte.
 
-There are four possible screens in this GPS tracking window:
+Cette fenêtre propose quatre écrans différents :
 
--   <a href="../../images/mActionToggleEditing.png" class="reference internal"><img src="../../images/mActionToggleEditing.png" alt="mActionToggleEditing" /></a> GPS position coordinates and an interface for manually entering vertices and features
--   <a href="../../images/gpstrack_barchart.png" class="reference internal"><img src="../../images/gpstrack_barchart.png" alt="gpstrack_barchart" /></a> GPS signal strength of satellite connections
--   <a href="../../images/gpstrack_polarchart.png" class="reference internal"><img src="../../images/gpstrack_polarchart.png" alt="gpstrack_polarchart" /></a> GPS polar screen showing number and polar position of satellites
--   <a href="../../images/mActionOptions.png" class="reference internal"><img src="../../images/mActionOptions.png" alt="mActionOptions" /></a> GPS options screen (see <a href="#figure-gps-options" class="reference internal">figure_gps_options</a>)
+-   <a href="../../images/mActionToggleEditing.png" class="reference internal"><img src="../../images/mActionToggleEditing.png" alt="mActionToggleEditing" /></a> Coordonnées de la position GPS et saisie manuelle de sommets et d’entités
 
-With a plugged-in GPS receiver (has to be supported by your operating system), a simple click on **\[Connect\]** connects the GPS to KADAS. A second click (now on **\[Disconnect\]**) disconnects the GPS receiver from your computer. For GNU/Linux, gpsd support is integrated to support connection to most GPS receivers. Therefore, you first have to configure gpsd properly to connect KADAS to it.
+-   <a href="../../images/gpstrack_barchart.png" class="reference internal"><img src="../../images/gpstrack_barchart.png" alt="gpstrack_barchart" /></a> Force des signaux GPS des satellites connectés
+
+-   <a href="../../images/gpstrack_polarchart.png" class="reference internal"><img src="../../images/gpstrack_polarchart.png" alt="gpstrack_polarchart" /></a> Graphe polaire montrant le numéro et la position des satellites
+
+-   <a href="../../images/mActionOptions.png" class="reference internal"><img src="../../images/mActionOptions.png" alt="mActionOptions" /></a> Écran des options GPS (voir <a href="#figure-gps-options" class="reference internal">figure_gps_options</a>)
+
+Avec un récepteur GPS connecté (il doit être compatible avec votre système d’exploitation), un simple clic sur **\[Connexion\]** connecte le GPS à KADAS. Un second clic (maintenant sur **\[Déconnexion\]**), déconnecte le récepteur de l’ordinateur. Sous GNU/Linux, le support gpsd est intégré afin de gérer la connexion de la majorité des récepteurs GPS. De ce fait, vous devez préalablement configurer gpsd pour se connecter correctement à KADAS.
 
 Warning
 
-If you want to record your position to the canvas, you have to create a new vector layer first and switch it to editable status to be able to record your track.
+Si vous désirez enregistrer votre position sur la carte, vous devez au préalable, créer une nouvelle couche et la passer en mode édition.
 
-## Position and additional attributes {#position-and-additional-attributes}
+## Coordonnées de la position {#position-and-additional-attributes}
 
-<a href="../../images/mActionToggleEditing.png" class="reference internal"><img src="../../images/mActionToggleEditing.png" alt="mActionToggleEditing" /></a> If the GPS is receiving signals from satellites, you will see your position in latitude, longitude and altitude together with additional attributes.
+<a href="../../images/mActionToggleEditing.png" class="reference internal"><img src="../../images/mActionToggleEditing.png" alt="mActionToggleEditing" /></a> Si le GPS reçoit les signaux d’un nombre suffisant de satellites, vous verrez votre position exprimée en latitude, longitude et élévation ainsi que d’autres attributs.
 
 **Figure GPS Position:**
 
 ![](../../images/gpstrack_main.png)
-GPS tracking position and additional attributes 
+Coordonnées de la position GPS et autres attributs 
 
-## GPS signal strength {#gps-signal-strength}
+## Force du signal GPS {#gps-signal-strength}
 
-<a href="../../images/gpstrack_barchart.png" class="reference internal"><img src="../../images/gpstrack_barchart.png" alt="gpstrack_barchart" /></a> Here, you can see the signal strength of the satellites you are receiving signals from.
+<a href="../../images/gpstrack_barchart.png" class="reference internal"><img src="../../images/gpstrack_barchart.png" alt="gpstrack_barchart" /></a> Cet écran affiche la force des signaux GPS des satellites connectés sous forme de barres.
 
 **Figure GPS Strength:**
 
 ![](../../images/gpstrack_stren.png)
-GPS tracking signal strength 
+Force du signal GPS 
 
-## GPS polar window {#gps-polar-window}
+## Graphe polaire {#gps-polar-window}
 
-<a href="../../images/gpstrack_polarchart.png" class="reference internal"><img src="../../images/gpstrack_polarchart.png" alt="gpstrack_polarchart" /></a> If you want to know where in the sky all the connected satellites are, you have to switch to the polar screen. You can also see the ID numbers of the satellites you are receiving signals from.
+<a href="../../images/gpstrack_polarchart.png" class="reference internal"><img src="../../images/gpstrack_polarchart.png" alt="gpstrack_polarchart" /></a> Si vous voulez connaître la position des satellites connectés, vous devez passer à l’écran du graphe polaire. Vous y voyez également les identifiants ID des satellites dont vous recevez un signal.
 
 **Figure GPS polar window:**
 
 ![](../../images/gpstrack_polar.png)
-GPS tracking polar window 
+Graphe polaire GPS 
 
-## GPS options {#gps-options}
+## Configuration GPS {#gps-options}
 
-<a href="../../images/mActionOptions.png" class="reference internal"><img src="../../images/mActionOptions.png" alt="mActionOptions" /></a> In case of connection problems, you can switch between:
+<a href="../../images/mActionOptions.png" class="reference internal"><img src="../../images/mActionOptions.png" alt="mActionOptions" /></a> Si vous avez des problèmes de connexion, vous pouvez tester :
 
--   ![radiobuttonon](../../images/radiobuttonon.png) *Autodetect*
--   ![radiobuttonoff](../../images/radiobuttonoff.png) *Internal*
--   ![radiobuttonoff](../../images/radiobuttonoff.png) *Serial device*
--   ![radiobuttonoff](../../images/radiobuttonoff.png) *gpsd* (selecting the Host, Port and Device your GPS is connected to)
+-   ![radiobuttonon](../../images/radiobuttonon.png) *Autodétecter*
 
-A click on **\[Connect\]** again initiates the connection to the GPS receiver.
+-   ![radiobuttonoff](../../images/radiobuttonoff.png) *Interne*
+
+-   ![radiobuttonoff](../../images/radiobuttonoff.png) *Port Série*
+
+-   ![radiobuttonoff](../../images/radiobuttonoff.png) *gpsd* (en indiquant l’Hôte, le Port et le Périphérique auquel le GPS est connecté)
+
+Cliquez à nouveau sur **\[Connecter\]** pour réinitialiser la connexion avec le récepteur GPS.
 
 **Figure GPS Tracking 2:**
 
 ![](../../images/gpstrack_options.png)
-GPS tracking options window 
+Configuration du suivi GPS
 
-You can activate <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox" /></a> *Automatically save added features* when you are in editing mode. Or you can activate <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox" /></a> *Automatically add points* to the map canvas with a certain width and color.
+Vous pouvez activer <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox" /></a> *Enregistrer automatiquement chaque entité ajoutée* lorsque vous êtes en mode édition. Ou vous pouvez activer <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox" /></a> *Ajouter automatiquement des points* en choisissant la largeur et la couleur.
 
-Activating <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox" /></a> *Cursor*, you can use a slider ![slider](../../images/slider.png) to shrink and grow the position cursor on the canvas.
+En activant <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox" /></a> *Curseur*, utilisez le curseur ![slider](../../images/slider.png) pour augmenter ou diminuer la taille du curseur marquant la position du GPS sur la carte.
 
-Activating ![radiobuttonon](../../images/radiobuttonon.png) *Map centering* allows you to decide in which way the canvas will be updated. This includes ‘always’, ‘when leaving’, if your recorded coordinates start to move out of the canvas, or ‘never’, to keep map extent.
+![radiobuttonon](../../images/radiobuttonon.png) *Centrer la carte* vous permet de choisir comment mettre à jour l’emprise de la carte. Par exemple ‘toujours’ ou ‘lorsque l’on sort’, si les coordonnées enregistrées commencent à sortir de la carte, ou encore ‘jamais’.
 
-Finally, you can activate <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox" /></a> *Log file* and define a path and a file where log messages about the GPS tracking are logged.
+Enfin, vous pouvez activer le <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox" /></a> *Fichier journal* et définir un fichier pour enregistrer les messages du suivi GPS.
 
-If you want to set a feature manually, you have to go back to <a href="../../images/mActionToggleEditing.png" class="reference internal"><img src="../../images/mActionToggleEditing.png" alt="mActionToggleEditing" /></a> <sup>Position</sup> and click on **\[Add Point\]** or **\[Add track point\]**.
+Si vous voulez enregistrer une entité manuellement, vous devez retourner à l’écran <a href="../../images/mActionToggleEditing.png" class="reference internal"><img src="../../images/mActionToggleEditing.png" alt="mActionToggleEditing" /></a> <sup>Coordonnées\\ de\\ la\\ position</sup> et cliquer sur **\[Ajouter des entités\]** ou **\[Ajouter un point de tracé\]**.
 
-## Connect to a Bluetooth GPS for live tracking {#connect-to-a-bluetooth-gps-for-live-tracking}
+## Connexion à un GPS Bluetooth pour le suivi en direct {#connect-to-a-bluetooth-gps-for-live-tracking}
 
-With QGIS you can connect a Bluetooth GPS for field data collection. To perform this task you need a GPS Bluetooth device and a Bluetooth receiver on your computer.
+Avec QGIS, vous pouvez vous connecter à une GPS Bluetooth pour la récupération de données terrain. Pour réaliser cette tâhce, voux aurez besoin d’un GPS Bluetooth et d’un récepteur Bluetooth sur votre ordinateur.
 
-At first you must let your GPS device be recognized and paired to the computer. Turn on the GPS, go to the Bluetooth icon on your notification area and search for a New Device.
+Au démarrage, vous devez faire en sorte que votre GPS soit reconnue et appairé avec votre ordinateur. Allumez le GPS, allez dans l’icône Bluetooth de votre barre de notification et rechercher un Nouveau Périphérique.
 
-On the right side of the Device selection mask make sure that all devices are selected so your GPS unit will probably appear among those available. In the next step a serial connection service should be available, select it and click on **\[Configure\]** button.
+Sur le côté droit du masque de sélection des périphériques, assurez-vous que tous les périphériques sont sélectionnés pour garantir que votre unité GPS apparaissent dans cette sélection. Dans la prochaine étape, un service de connexion série devrait être disponible. Sélectionnez-le et cliquez sur le bouton **\[Configurer\]**.
 
-Remember the number of the COM port assigned to the GPS connection as resulting by the Bluetooth properties.
+Retenez le numéro du port COM affecté à la connexion GPS dans les propriétés Bluetooth.
 
-After the GPS has been recognized, make the pairing for the connection. Usually the autorization code is `0000`.
+Une fois que le GPS a été reconnu, faîtes l’appariement avec la connexion. Généralement, le code d’autorisation est `0000`.
 
-Now open *GPS information* panel and switch to <a href="../../images/mActionOptions.png" class="reference internal"><img src="../../images/mActionOptions.png" alt="mActionOptions" /></a> GPS options screen. Select the COM port assigned to the GPS connection and click the **\[Connect\]**. After a while a cursor indicating your position should appear.
+Maintenant, ouvrez le panneau *Information GPS* et basculez <a href="../../images/mActionOptions.png" class="reference internal"><img src="../../images/mActionOptions.png" alt="mActionOptions" /></a> dans l’écran des options GPS. Sélectionnez le port COM de la connexion GPS et cliquez sur le bouton **\[Connect\]**. Après un moment, un curseur indiquant votre position doit apparaître.
 
-If QGIS can’t receive GPS data, then you should restart your GPS device, wait 5-10 seconds then try to connect again. Usually this solution work. If you receive again a connection error make sure you don’t have another Bluetooth receiver near you, paired with the same GPS unit.
+Si QGIS ne peut recevoir de données GPS, vous devriez alors redémarrer votre GPS, attendre 5-10 secondes et réessayer de le connecter. Généralement, celle solution fonctionne. Si vous avez de nouveau une erreur de connexion, assurez-vous que vous n’avez pas un autre capteur Bluetooth à proximité, apparairé avec le GPS.
 
-## Using GPSMAP 60cs {#using-gpsmap-60cs}
+## Utiliser un Garmin GPSMAP 60cs {#using-gpsmap-60cs}
 
 ### MS Windows {#ms-windows}
 
-Easiest way to make it work is to use a middleware (freeware, not open) called <a href="http://update.gpsgate.com/install/GpsGateClient.exe" class="reference external">GPSGate</a>.
+Le moyen le plus facile pour le faire fonctionner est d’utiliser un logiciel intermédiaire (en freeware mais pas libre) appelé <a href="http://update.gpsgate.com/install/GpsGateClient.exe" class="reference external">GPSGate</a>.
 
-Launch the program, make it scan for GPS devices (works for both USB and BT ones) and then in QGIS just click **\[Connect\]** in the Live tracking panel using the ![radiobuttonon](../../images/radiobuttonon.png) *Autodetect* mode.
+Lancez le programme, faîtes-le rechercher les périphériques GPS (fonctionne pour les GPS USB et Bluetooth) et sous QGIS, cliquez sur **\[Connecter\]** dans le panneau de suivi en direct en utilisant le mode ![radiobuttonon](../../images/radiobuttonon.png) *Auto-détection*.
 
 ### Ubuntu/Mint GNU/Linux {#ubuntu-mint-gnu-linux}
 
-As for Windows the easiest way is to use a server in the middle, in this case GPSD, so
+Comme pour Windows le plus simple est d’utiliser un serveur intermédiaire, dans ce cas GPSD, donc
 
     sudo apt-get install gpsd
 
-Then load the `garmin_gps` kernel module
+Vous pouvez alors charger le module du noyau `garmin_gps`
 
     sudo modprobe garmin_gps
 
-And then connect the unit. Then check with `dmesg` the actual device being used bu the unit, for example `/dev/ttyUSB0`. Now you can launch gpsd
+Connectez ensuite l’unité. Vérifiez avec `dmesg` que le périphérique utilisé par l’unité, par exemple `/dev/ttyUSB0`. Maintenant, vous pouvez lancer qpsd.
 
     gpsd /dev/ttyUSB0
 
-And finally connect with the QGIS live tracking tool.
+Connectez enfin avec l’outil de suivi en direct de QGIS.
 
-## Using BTGP-38KM datalogger (only Bluetooth) {#using-btgp-38km-datalogger-only-bluetooth}
+## Utiliser BTGP-38KM datalogger (seulement Bluetooth) {#using-btgp-38km-datalogger-only-bluetooth}
 
-Using GPSD (under Linux) or GPSGate (under Windows) is effortless.
+Utiliser GPSD (sous GNU/Linux) ou GPSGate (sous Windows) est très facile.
 
-## Using BlueMax GPS-4044 datalogger (both BT and USB) {#using-bluemax-gps-4044-datalogger-both-bt-and-usb}
+## Utiliser BlueMax GPS-4044 datalogger (BT et USB) {#using-bluemax-gps-4044-datalogger-both-bt-and-usb}
 
 ### MS Windows {#id1}
 
-The live tracking works for both USB and BT modes, by using GPSGate or even without it, just use the ![radiobuttonon](../../images/radiobuttonon.png) *Autodetect* mode, or point the tool the right port.
+Le suivi en direct fonctionne pour les modes USB et BT en utilisant GPSGate ou même sans lui. Utilisez le mode ![radiobuttonon](../../images/radiobuttonon.png) *Auto-détection* ou pointez l’outil dans le bon port.
 
 ### Ubuntu/Mint GNU/Linux {#id2}
 
-**For USB**
+**Via USB**
 
-The live tracking works both with GPSD
+Le suivi en direct fonctionne avec les deux sous GPSD.
 
     gpsd /dev/ttyACM3
 
-or without it, by connecting the QGIS live tracking tool directly to the device (for example `/dev/ttyACM3`).
+ou sans lui en connectant l’outil de suivi en direct de QGIS directement au périphérique (par exemple `/dev/ttyACM3`).
 
-**For Bluetooth**
+**Via Bluetooth**
 
-The live tracking works both with GPSD
+Le suivi en direct fonctionne avec les deux sous GPSD.
 
     gpsd /dev/rfcomm0
 
-or without it, by connecting the QGIS live tracking tool directly to the device (for example `/dev/rfcomm0`).
+ou sans lui en connectant l’outil de suivi en direct de QGIS directement au périphérique (par exemple `/dev/rfcomm0`).
 
 
 
