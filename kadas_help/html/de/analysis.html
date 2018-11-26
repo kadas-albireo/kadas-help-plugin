@@ -167,7 +167,7 @@
                 <a href="kadas_gui.html#sec0">
             
                     
-                    Funktionsmenu
+                    Funktionsmenü
             
                 </a>
             
@@ -1083,17 +1083,20 @@
 <p>S&#xE4;mtliche Messfunktionen arbeiten auf einem WGS84 Ellipsoid.</p>
 <p>Nach dem Aktivieren einer Messfunktion kann der Benutzer eine entsprechende Messgeometrie im Kartenfenster zeichnen. Relevante Masse werden direkt neben der Messgeometrie angezeigt.</p>
 <p>F&#xFC;r Distanz- und Fl&#xE4;chenmessungen k&#xF6;nnen mehrere Geometrien nacheinander gezeichnet werden. Das Messtotal wird im unteren Bereich des Kartenfensters angezeigt, wo auch die Messeinheit ge&#xE4;ndert werden kann. Ferner kann mittels dem Picker-Button eine existierende Geometrie gemessen werden.</p>
+<p><img src="../media/image3.png"></p>
 <h2 id="h&#xF6;henprofil-und-sichtbarkeit"><a name="sec1"></a>H&#xF6;henprofil und Sichtbarkeit</h2>
 <p>Mit der <strong><em>Profil Sicht</em></strong> Funktion k&#xF6;nnen sowohl H&#xF6;henprofil wie auch Sichtbarkeitsanalysen durchgef&#xFC;hrt werden. Um diese Funktion verwenden zu k&#xF6;nnen, muss im Projekt ein H&#xF6;henmodell definiert sein. Eine Raster-Ebene kann in dessen Kontextmen&#xFC; im Karteninhaltsverzeichnis als H&#xF6;henmodell ausgew&#xE4;hlt werden.</p>
 <p>Um ein H&#xF6;henprofil zu erstellen, kann der Benutzer auf der Karte eine Liniengeometrie zeichnen, entlang der das Profil gemessen werden soll. Das Resultat wird im separaten Dialogfenster dargestellt. Alternativ kann mittels Picker-Button auch eine entlang einer existierenden Liniengeometrie gemessen werden.</p>
 <p>Besteht die Liniengeometrie aus nur einem Segment, kann entlang dieser Linie eine Sichtbarkeitsanalyse durchgef&#xFC;hrt werden. Dazu muss im H&#xF6;henprofildialog die Sichtbarkeit Checkbox aktiv sein. Sichtbare bzw. unsichtbare Bereiche werden dann entsprechend Gr&#xFC;n oder Rot gezeichnet. F&#xE4;hrt man mit der Maus in der Karte entlang der Messlinie, wird die entsprechende Position in der Graphik mit einem blauen Punkt angezeigt. Die Sichtbarkeitsanalyse ber&#xFC;cksichtigt die Erdkr&#xFC;mmung. Konfigurationsm&#xF6;glichkeiten der Sichtbarkeitsanalyse sind die Beobachterh&#xF6;he, die Zielh&#xF6;he sowie ob diese H&#xF6;hen relativ zum Terrain oder dem Meeresspiegel interpretiert werden sollen. </p>
 <p>Die H&#xF6;henprofilgraphik l&#xE4;sst sich zus&#xE4;tzlich in die Zwischenablage kopieren, oder als Bild in die Karte einbetten.</p>
+<p><img src="../media/image4.png"></p>
 <h2 id="neigung-und-schummerung"><a name="sec2"></a>Neigung und Schummerung</h2>
 <p>Die Funktion <strong><em>Neigung</em></strong> berechnet ein Neigungsprofil des Gel&#xE4;ndes als farbkodiertes Raster.</p>
 <p>Die Funktion <strong><em>Schummerung</em></strong> berechnet die Schattierung des Gel&#xE4;ndes, welches Halbtransparent &#xFC;ber die Karte gelegt wird.</p>
 <p>Um diese Gel&#xE4;ndeanalysefunktionen verwenden zu k&#xF6;nnen, muss im Projekt ein H&#xF6;henmodell definiert sein.</p>
 <p>Beide dieser Analysen werden innerhalb eines rechteckigen Auschnittes der Karte berechnet. Die Schummerung erfordert noch zus&#xE4;tzlich die Eingabe der horizontalen und vertikalen Winkel der Lichtquelle.</p>
 <p>Die Ergebnisse der Neigungs- und Schummerungsanalysen werden als Raster-Ebenen der Karte hinzugef&#xFC;gt, und erscheinen dementsprechend im Karteninhaltsverzeichnis. Beim Speichern des Projektes werden diese Datens&#xE4;tze im Ordner <em>&lt; Projektname &gt; files</em> abgelegt.</p>
+<p><img src="../media/image5.png"></p>
 <h2 id="einsehbarkeit"><a name="sec3"></a>Einsehbarkeit</h2>
 <p>Das Werkszeug <strong><em>Einsehbarkeit</em></strong> berechnet den sichtbaren bzw. unsichtbaren Gel&#xE4;ndebereich in einem Kreissektor, ausgehend vom Kreismittelpunkt &#x2013; dem Beobachterstandort. Die Einsehbarkeitsanalyse ber&#xFC;cksichtigt die Erdkr&#xFC;mmung.</p>
 <p>Um diese Gel&#xE4;ndeanalysefunktionen verwenden zu k&#xF6;nnen muss im Projekt ein H&#xF6;henmodell definiert sein.</p>
@@ -1126,7 +1129,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Analyse","level":"1.5","depth":1,"next":{"title":"Distanzen, Flächen und Azimut Messen","level":"1.5.1","depth":2,"anchor":"#sec0","path":"analysis.md","ref":"analysis.md#sec0","articles":[]},"previous":{"title":"Guide Grid","level":"1.4.5","depth":2,"anchor":"#sec4","path":"view.md","ref":"view.md#sec4","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"de","gitbook":"*"},"file":{"path":"analysis.md","mtime":"2018-11-19T10:45:01.701Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-19T10:45:04.979Z"},"basePath":".","book":{"language":"de"}});
+            gitbook.page.hasChanged({"page":{"title":"Analyse","level":"1.5","depth":1,"next":{"title":"Distanzen, Flächen und Azimut Messen","level":"1.5.1","depth":2,"anchor":"#sec0","path":"analysis.md","ref":"analysis.md#sec0","articles":[]},"previous":{"title":"Guide Grid","level":"1.4.5","depth":2,"anchor":"#sec4","path":"view.md","ref":"view.md#sec4","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"de","gitbook":"*"},"file":{"path":"analysis.md","mtime":"2018-11-26T17:46:33.026Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-26T17:46:36.792Z"},"basePath":".","book":{"language":"de"}});
         });
     </script>
 </div>

@@ -337,19 +337,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="my_maps.html">
-            
-                <a href="my_maps.html#sec7">
-            
-                    
-                    Importation / Exportation GPKG
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -1057,17 +1044,20 @@
 <p>Toutes les fonctions de mesures se basent sur un &#xE9;llipso&#xEF;de WGS84.</p>
 <p>En activant l&#x2019;une des fonctions de mesures, l&#x2019;utilisateur peut dessiner la g&#xE9;om&#xE9;trie de mesure correspondante dans la fen&#xEA;tre de la carte. Les grandeurs pertinentes sont indiqu&#xE9;es juste &#xE0; c&#xF4;t&#xE9; de la g&#xE9;om&#xE9;trie de mesure.</p>
 <p>Pour les mesures de g&#xE9;om&#xE9;trie et de distance, il est possible de dessiner plusieurs g&#xE9;om&#xE9;tries l&#x2019;une apr&#xE8;s l&#x2019;autre. Le total des mesures s&#x2019;affiche dans la partie inf&#xE9;rieure de la fen&#xEA;tre de la carte, l&#xE0; o&#xF9; l&#x2019;unit&#xE9; de mesure peut aussi &#xEA;tre modifi&#xE9;e. Plus loin, il est possible de mesurer une g&#xE9;om&#xE9;trie existante en cliquant sur le bouton Picker.</p>
+<p><img src="../media/image3.png"></p>
 <h2 id="profil-daltitude-et-visibilit&#xE9;"><a name="sec1"></a>Profil d&#x2019;altitude et visibilit&#xE9;</h2>
 <p>La fonction <strong><em>Profil Mire</em></strong> permet d&#x2019;&#xE9;tablir des profils d&#x2019;altitude et de r&#xE9;aliser des analyses de visibilit&#xE9;. Pour utiliser cette fonction, il faut d&#xE9;finir un mod&#xE8;le d&#x2019;altitude dans le projet. Un niveau de raster peut &#xEA;tre s&#xE9;lectionn&#xE9; comme mod&#xE8;le d&#x2019;altitude dans son menu contextuel dans le r&#xE9;pertoire de la carte.</p>
 <p>Pour &#xE9;tablir un profil d&#x2019;altitude, l&#x2019;utilisateur peut dessiner une g&#xE9;om&#xE9;trie lin&#xE9;aire le long de laquelle le profil peut &#xEA;tre mesur&#xE9;. Le r&#xE9;sultat s&#x2019;affiche dans une fen&#xEA;tre de dialogue s&#xE9;par&#xE9;e. &#xC0; l&#x2019;aide du boutton Picker, il est &#xE9;galement possible de mesurer le long d&#x2019;une g&#xE9;om&#xE9;trie lin&#xE9;aire existante.</p>
 <p>Si la g&#xE9;om&#xE9;trie lin&#xE9;aire ne comprend qu&#x2019;un seul segment, il est possible de r&#xE9;aliser une anayse de visibilit&#xE9; le long de cette ligne. Pour cela, la case visibilit&#xE9; doit &#xEA;tre coch&#xE9;e dans la fen&#xEA;tre de dialogue du profil d&#x2019;altitude. Les zones visibles ou non visibles sont alors indiqu&#xE9;es en rouge ou en vert. Si l&#x2019;on suit la ligne de mesure sur la carte avec la souris, la position correspondante est indiqu&#xE9;e dans le graphique par un point bleu. L&#x2019;analyse de visibilit&#xE9; prend en compte la courbe terrestre. Les possibilit&#xE9;s de configuration de l&#x2019;analyse de visibilit&#xE9; sont la hauteur observateur et la hauteur du signal ; on peut &#xE9;galement d&#xE9;cider si ces hauteurs doivent &#xEA;tre interpr&#xE9;t&#xE9;es en fonction du terrain ou du niveau de la mer.</p>
 <p>Le graphique de profil d&#x2019;altitude peut &#xE9;galement &#xEA;tre copi&#xE9; dans l&#x2019;archive provisoire ou &#xEA;tre ins&#xE9;r&#xE9; dans la carte comme image.</p>
+<p><img src="../media/image4.png"></p>
 <h2 id="pente-et-estompage"><a name="sec2"></a>Pente et estompage</h2>
 <p>La fonction <strong><em>Pente</em></strong> permet de repr&#xE9;senter le profil de pente du terrain &#xE0; l&#x2019;aide d&#x2019;un sch&#xE9;ma &#xE0; code couleurs.</p>
 <p>La fonction <strong><em>Estompage</em></strong> calcule l&#x2019;ombrage du terrain, qui est superpos&#xE9; sur la carte en mi-transparence.</p>
 <p>Pour utiliser ces fonctions d&#x2019;analyse du terrain, il faut d&#xE9;finir un mod&#xE8;le d&#x2019;altitude dans le projet.</p>
 <p>Ces deux analyses sont effectu&#xE9;es dans une portion rectangulaire de la carte. L&#x2019;estompage n&#xE9;cessite &#xE9;galement de saisir l&#x2019;angle horizontal et vertical de la source de lumi&#xE8;re.</p>
 <p>Les r&#xE9;sultats des analyses de pente et d&#x2019;ombrage sont ajout&#xE9;s &#xE0; la carte comme niveaux de raster et apparaissent ainsi dans le r&#xE9;pertoire de la carte. Lors de l&#x2019;enregistrement du projet, ces donn&#xE9;es sont plac&#xE9;es dans le dossier <em><nom de="" projet=""> files</nom></em>.</p>
+<p><img src="../media/image5.png"></p>
 <h2 id="visibilit&#xE9;"><a name="sec3"></a>Visibilit&#xE9;</h2>
 <p>L&#x2019;outil <strong><em>Visibilit&#xE9;</em></strong> calcule les zones de terrain visibles et invisibles dans un secteur circulaire dont le centre est l&#x2019;emplacement de l&#x2019;observateur. L&#x2019;analyse de visibilit&#xE9; prend en compte la courbe terrestre.</p>
 <p>Pour utiliser ces fonctions d&#x2019;analyse du terrain, il faut d&#xE9;finir un mod&#xE8;le d&#x2019;altitude dans le projet.</p>
@@ -1100,7 +1090,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Analyse","level":"1.5","depth":1,"next":{"title":"Mesurer des distances, surfaces et azimut","level":"1.5.1","depth":2,"anchor":"#sec0","path":"analysis.md","ref":"analysis.md#sec0","articles":[]},"previous":{"title":"Grille","level":"1.4.4","depth":2,"anchor":"#sec3","path":"view.md","ref":"view.md#sec3","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"analysis.md","mtime":"2018-11-19T10:45:01.699Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-19T10:45:04.979Z"},"basePath":".","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Analyse","level":"1.5","depth":1,"next":{"title":"Mesurer des distances, surfaces et azimut","level":"1.5.1","depth":2,"anchor":"#sec0","path":"analysis.md","ref":"analysis.md#sec0","articles":[]},"previous":{"title":"Grille","level":"1.4.4","depth":2,"anchor":"#sec3","path":"view.md","ref":"view.md#sec3","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"analysis.md","mtime":"2018-11-26T17:46:33.024Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-26T17:46:36.792Z"},"basePath":".","book":{"language":"fr"}});
         });
     </script>
 </div>

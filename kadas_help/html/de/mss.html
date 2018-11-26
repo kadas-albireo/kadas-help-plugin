@@ -167,7 +167,7 @@
                 <a href="kadas_gui.html#sec0">
             
                     
-                    Funktionsmenu
+                    Funktionsmenü
             
                 </a>
             
@@ -1075,14 +1075,16 @@
 <h2 id="mss-symbole-zeichnen"><a name="sec0"></a>MSS Symbole zeichnen</h2>
 <p>Die <strong><em>Symbol Hinzuf&#xFC;gen</em></strong> Schaltfl&#xE4;che &#xF6;ffnet eine durchsuchbare Galerie von MSS Symbole. Nachdem ein Symbol in der Galerie ausgew&#xE4;hlt wurde, kann es auf der Karte platziert werden.</p>
 <p>Symbole werden in MilX Ebenen abgelegt. Diese sind im Karteninhaltsverzeichnis sichtbar. In der Symbolgalerie k&#xF6;nnen neue MilX Ebenen erstellt werden sowie ausgew&#xE4;hlt werden, welcher Ebene neu gezeichnete Symbole hinzugef&#xFC;gt werden.</p>
+<p><img src="../media/image10.png"></p>
 <h2 id="mss-symbole-editieren"><a name="sec1"></a>MSS Symbole editieren</h2>
 <p>Bereits gezeichnete Symbole k&#xF6;nnen nachtr&#xE4;glich editiert werden, indem sie auf der Karte selektiert werden. <strong><em>Selektierte Objekte</em></strong> lassen sich verschieben, und, abh&#xE4;ngig vom Symboltyp, k&#xF6;nnen Knotenpunkte individuell verschoben werden sowie per Kontextmen&#xFC; erstellt oder entfernt werden. Per Doppelklick oder Kontextmen&#xFC; editieren kann der MilX Symboleditor ge&#xF6;ffnet werden.</p>
 <p>Eine weitere Editierm&#xF6;glichkeit f&#xFC;r <strong><em>Einpunktsymbole</em></strong> ist, ein Offset zwischen Symbolanchorpunkt und Symbolgraphik zu definieren. Der Ankerpunkt ist im Editiermodus als roter Punkt, standardm&#xE4;ssig in der Mitte des Symbols, gezeichnet. Wir das Symbol am Ankerpunkt verschoben, so wir der Punkt zusammen mit der Graphik zugleich verschoben. Wird das Symbol an der Graphik, so wird nur die Graphik verschoben, und es erscheint eine schwarze Linie zwischen Ankerpunkt und Graphikmittelpunkt. Ein Offset l&#xE4;sst sich via Rechtsclick auf das Symbol wieder aufheben.</p>
 <p>Bei <strong><em>Mehrpunktsymbole</em></strong> k&#xF6;nnen, soweit es die Symbolspezifikation erlaubt, Knotenpunkte und allf&#xE4;llige Kontrollpunkte editiert werden. Knotenpunkte werden im Editiermodus als gelbe Punkte gezeichnet, Kontrollpunkte hingegen als rote Punkte. Letztere k&#xF6;nnen z.B. Pfeilbreiten oder Gewichtungsparameter von Bezier Kurven steuern. Neben dem Verschieben der Punkte k&#xF6;nnen per Rechtsclick neue Knotenpunkte hinzugef&#xFC;gt werden oder existierende gel&#xF6;scht werden.</p>
 <p>Analog zu Redlining-Objekte lassen sich MSS Symbole individuell oder als Gruppe verschieben, kopieren, ausschneiden und einf&#xFC;gen. Neben den Eintr&#xE4;gen im Kontextmen&#xFC; und den &#xFC;blichen Tastaturk&#xFC;rzel gibt es daf&#xFC;r noch die <strong><em>Kopieren nach...</em></strong> und <strong><em>Verschieben nach...</em></strong> Schaltfl&#xE4;chen am unteren Kartenrand. Letztere erlauben explizit eine Zielebene anzugeben, ansonsten wird die aktuell selektierte MilX Ebene als Zielebene genommen. Falls keine MilX Ebene selektiert ist, wird nach der Zielebene gefragt.</p>
+<p><img src="../media/image11.png"></p>
 <h2 id="ebenenverwaltung"><a name="sec2"></a>Ebenenverwaltung</h2>
 <p>MSS Symbole werden in einer dedizierten <strong><em>MilX Ebene</em></strong> im Layerbaum abgelegt. Es k&#xF6;nnen mehrere unabh&#xE4;ngige MilX Ebenen erstellt werden. In der MSS Symbolgalerie wird ausgew&#xE4;hlt, zu welcher Ebene ein Symbol hinzugef&#xFC;gt werden soll. Im Layerbaum k&#xF6;nnen die individuellen Ebenen wie gewohnt ein oder ausgeschalten werden.</p>
-<p>Eine spezielle Eigenschaft von MilX Ebenen ist die M&#xF6;glichkeit, sie als <strong><em>Genehmigt</em></strong> zu markieren. Genehmigte Ebenen k&#xF6;nnen nicht editiert werden, und taktische Symbole werden schwarz gezeichnet. Ob eine Ebene genehmigt ist l&#xE4;sst sich im Context-Menu der entsprechenden MilX Ebene im Layerbaum einstellen.</p>
+<p>Eine spezielle Eigenschaft von MilX Ebenen ist die M&#xF6;glichkeit, sie als <strong><em>Genehmigt</em></strong> zu markieren. Genehmigte Ebenen k&#xF6;nnen nicht editiert werden, und taktische Symbole werden schwarz gezeichnet. Ob eine Ebene genehmigt ist l&#xE4;sst sich im Context-Men&#xFC; der entsprechenden MilX Ebene im Layerbaum einstellen.</p>
 <h2 id="milx-import-und-export"><a name="sec3"></a>MilX Import und Export</h2>
 <p>MilX Ebenen k&#xF6;nnen in eine MILXLY oder MILXLYZ Datei exportiert werden, und existierende MILXLY oder MILXLYZ Dateiein k&#xF6;nnen als MilX Ebenen importiert werden. </p>
 <blockquote>
@@ -1096,9 +1098,6 @@
 <p>Der OVL Importer konvertiert darin enthaltene taktische Graphiken zu entsprechende MSS Symbole, w&#xE4;hrend Geometrien und Beschriftungen in Redlining Objekte transformiert werden. Falls Konversionsfehler auftreten, werden diese dem Benutzer mitgeteilt. Auch bei erfolgreich konvertierten Objekte kann deren Darstellung gegen&#xFC;ber der PCMAP Swissline Software abweichen, somit ist es empfehlenswert, die importierten Daten zu &#xFC;berpr&#xFC;fen.</p>
 </blockquote>
 <h2 id="symbolgr&#xF6;sse-liniendicke-und-arbeitsmodus"><a name="sec5"></a>Symbolgr&#xF6;sse, Liniendicke und Arbeitsmodus</h2>
-<p>Help Version 1.1 (November 2017)</p>
-<p>Help Version 1.1 (Januar 2018)</p>
-<p>Text aus der anderen Version erg&#xE4;nzt</p>
 
                                 
                                 </section>
@@ -1126,7 +1125,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MSS","level":"1.8","depth":1,"next":{"title":"MSS Symbole zeichnen","level":"1.8.1","depth":2,"anchor":"#sec0","path":"mss.md","ref":"mss.md#sec0","articles":[]},"previous":{"title":"GPX Export und Import","level":"1.7.4","depth":2,"anchor":"#sec3","path":"gps.md","ref":"gps.md#sec3","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"de","gitbook":"*"},"file":{"path":"mss.md","mtime":"2018-11-19T10:45:01.701Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-19T10:45:04.979Z"},"basePath":".","book":{"language":"de"}});
+            gitbook.page.hasChanged({"page":{"title":"MSS","level":"1.8","depth":1,"next":{"title":"MSS Symbole zeichnen","level":"1.8.1","depth":2,"anchor":"#sec0","path":"mss.md","ref":"mss.md#sec0","articles":[]},"previous":{"title":"GPX Export und Import","level":"1.7.4","depth":2,"anchor":"#sec3","path":"gps.md","ref":"gps.md#sec3","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"de","gitbook":"*"},"file":{"path":"mss.md","mtime":"2018-11-26T17:46:33.026Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-26T17:46:36.792Z"},"basePath":".","book":{"language":"de"}});
         });
     </script>
 </div>

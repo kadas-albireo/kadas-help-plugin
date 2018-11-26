@@ -337,19 +337,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="my_maps.html">
-            
-                <a href="my_maps.html#sec7">
-            
-                    
-                    Importation / Exportation GPKG
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -1052,7 +1039,7 @@
 <p>On peut &#xE9;galement ajouter des vecteurs locaux ainsi que des donn&#xE9;es de raster de la carte, soit par le biais des ic&#xF4;nes dans la barre d&#x2019;outils des g&#xE9;odonn&#xE9;es, soit en faisant glisser-d&#xE9;placer sur la carte.</p>
 <h2 id="cr&#xE9;er-et-sauvegarder-des-cartes"><a name="sec2"></a>Cr&#xE9;er et sauvegarder des cartes</h2>
 <p>Les fonctions <strong><em>Nouveau</em></strong>, <strong><em>Ouvrir</em></strong>, <strong><em>Enregistrer</em></strong> et <strong><em>Enregistrer sous</em></strong> permettent de cr&#xE9;er de nouveaux projets (&#xE0; partir d&#x2019;une proposition), d&#x2019;ouvrir des projets existants et d&#x2019;enregistrer des projets.</p>
-<p>Certains outils cr&#xE9;ent des donn&#xE9;es qui sont plac&#xE9;es dans le dossier <em><nom de="" projet=""> files</nom></em>. Lors d&#x2019;un partage de projet, il faut ainsi distribuer ce dossier avec les donn&#xE9;es de projet. D&#x2019;autres donn&#xE9;es locales qui sont partag&#xE9;es doivent aussi &#xEA;tre plac&#xE9;es dans cette liste et rajout&#xE9;es depuis cette liste &#xE0; la carte, sinon ce chemin sera enregistr&#xE9; dans le projet comme chemin absolu, et ne pourra peut-&#xEA;tre pas &#xEA;tre effac&#xE9; sur d&#x2019;autres syst&#xE8;mes.</p>
+<p>Certains outils cr&#xE9;ent des donn&#xE9;es qui sont plac&#xE9;es dans le dossier <em>&lt; nom de projet &gt; files</em>. Lors d&#x2019;un partage de projet, il faut ainsi distribuer ce dossier avec les donn&#xE9;es de projet. D&#x2019;autres donn&#xE9;es locales qui sont partag&#xE9;es doivent aussi &#xEA;tre plac&#xE9;es dans cette liste et rajout&#xE9;es depuis cette liste &#xE0; la carte, sinon ce chemin sera enregistr&#xE9; dans le projet comme chemin absolu, et ne pourra peut-&#xEA;tre pas &#xEA;tre effac&#xE9; sur d&#x2019;autres syst&#xE8;mes.</p>
 <h2 id="ouvrir-des-projets"><a name="sec3"></a>Ouvrir des projets</h2>
 <p>Les cartes sauvegard&#xE9;es (projets) peuvent &#xEA;tre charg&#xE9;es avec la fonction <strong><em>Ouvrir</em></strong>.</p>
 <h2 id="imprimer"><a name="sec4"></a>Imprimer</h2>
@@ -1060,6 +1047,7 @@
 <p>L&#x2019;impression se base sur des mod&#xE8;les. Par d&#xE9;faut, des mod&#xE8;les sont propos&#xE9;s en format A0-A6, aussi bien en portrait qu&#x2019;en paysage, ainsi qu&#x2019;un mod&#xE8;le Custom.</p>
 <p>Une fois le mod&#xE8;le choisi, un rectangle bleu semi-transparent appara&#xEE;t dans la fen&#xEA;tre principale de la carte, qui correspond &#xE0; l&#x2019;extrait &#xE0; imprimer. Pour les mod&#xE8;les avec un format de papier fixe, ce rectangle peut &#xEA;tre d&#xE9;plac&#xE9; sur la carte principale afin d&#x2019;adapter la zone &#xE0; imprimer. La taille de l&#x2019;extrait d&#xE9;pend du format du papier ainsi que des mesures indiqu&#xE9;es dans la bo&#xEE;te de dialogue d&#x2019;impression. Avec le mod&#xE8;le <em>Custom</em>, l&#x2019;extrait est d&#xE9;fini num&#xE9;riquement avec l&#x2019;&#xE9;chelle dans la bo&#xEE;te de dialogue d&#x2019;impression, et le format de papier en r&#xE9;sultant est calcul&#xE9; de mani&#xE8;re dynamique selon ces indications.</p>
 <p>Lors de l&apos;impression d&apos;&#xE9;l&#xE9;ments suppl&#xE9;mentaires, la grille de coordonn&#xE9;es, la cartouche de cartes, la l&#xE9;gende et la barre d&apos;&#xE9;chelle peuvent &#xEA;tre affich&#xE9;es ou masqu&#xE9;es comme vous le souhaitez. La position de ces &#xE9;l&#xE9;ments est d&#xE9;finie dans le mod&#xE8;le.</p>
+<p><img src="../media/image12.png"></p>
 <h3 id="bo&#xEE;te-de-dialogue-dimpression">Bo&#xEE;te de dialogue d&#x2019;impression</h3>
 <ul>
 <li><strong>Mod&#xE8;le</strong> : Choix du mod&#xE8;le d&#x2019;impression.Un aper&#xE7;u de l&#x2019;impression s&#x2019;affiche.</li>
@@ -1088,6 +1076,9 @@
 <li><strong>Fermer</strong> : la bo&#xEE;te de dialogue d&#x2019;impression est ferm&#xE9;e.</li>
 <li><strong>Avanc&#xE9;</strong> : utilisation des fonctions de layout avanc&#xE9;es</li>
 </ul>
+<h3 id="mod&#xE8;les-dimpression">Mod&#xE8;les d&apos;impression</h3>
+<p>Les mod&#xE8;les d&apos;impression contenus dans le projet peuvent &#xEA;tre g&#xE9;r&#xE9;s dans la bo&#xEE;te de dialogue Imprimer composition, qui peut &#xEA;tre ouverte &#xE0; l&apos;aide du bouton situ&#xE9; &#xE0; droite de la s&#xE9;lection du mod&#xE8;le d&apos;impression. L&#xE0;, des mod&#xE8;les individuels peuvent &#xEA;tre import&#xE9;s, export&#xE9;s et supprim&#xE9;s du projet.</p>
+<p><img src="../media/image12.1.png"></p>
 <h2 id="copier-carte--enregistrer-carte"><a name="sec5"></a>Copier carte / Enregistrer carte</h2>
 <p>Ces fonctions permettent &#xE0; l&#x2019;utilisateur d&#x2019;enregistrer l&#x2019;extrait de carte visible dans la fen&#xEA;tre principale dans le <strong><em>presse-papier</em></strong> ou dans un fichier. C&#x2019;est toujours le contenu exact de la fen&#xEA;tre de carte qui est enregistr&#xE9;.</p>
 <p>La fonction <strong><em>Enregistrer carte</em></strong> ouvre une bo&#xEE;te de dialogue fichier o&#xF9; vous s&#xE9;lectionnez le nom, le chemin et le type d&#x2019;image (PNG, JPG et bien d&#x2019;autres formats). Un fichier world portant l&#x2019;extension PNGW ou JPGW sauvegard&#xE9; dans le m&#xEA;me dossier g&#xE9;or&#xE9;f&#xE9;rence l&#x2019;image.</p>
@@ -1096,7 +1087,7 @@
 <blockquote>
 <p>Il faut savoir que KMZ et KML sont des formats d&#x2019;exportation qui g&#xE9;n&#xE8;rent souvent des pertes de donn&#xE9;es et qui ne conviennent donc pas pour les &#xE9;changes entre utilisateurs de KADAS. Pour de tels &#xE9;changes, il faut utiliser le format de projet natif <em>*.qgs</em>.</p>
 </blockquote>
-<h2 id="importation--exportation-gpkg"><a name="sec7"></a>Importation / Exportation GPKG</h2>
+<h1 id="">#</h1>
 
                                 
                                 </section>
@@ -1124,7 +1115,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Cartes","level":"1.3","depth":1,"next":{"title":"Projets","level":"1.3.1","depth":2,"anchor":"#sec0","path":"my_maps.md","ref":"my_maps.md#sec0","articles":[]},"previous":{"title":"Barre d’état","level":"1.2.5","depth":2,"anchor":"#sec4","path":"kadas_gui.md","ref":"kadas_gui.md#sec4","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"my_maps.md","mtime":"2018-11-19T10:45:01.699Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-19T10:45:04.979Z"},"basePath":".","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Cartes","level":"1.3","depth":1,"next":{"title":"Projets","level":"1.3.1","depth":2,"anchor":"#sec0","path":"my_maps.md","ref":"my_maps.md#sec0","articles":[]},"previous":{"title":"Barre d’état","level":"1.2.5","depth":2,"anchor":"#sec4","path":"kadas_gui.md","ref":"kadas_gui.md#sec4","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"my_maps.md","mtime":"2018-11-26T17:46:33.024Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-26T17:46:36.792Z"},"basePath":".","book":{"language":"fr"}});
         });
     </script>
 </div>
