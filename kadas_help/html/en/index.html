@@ -230,12 +230,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="my_maps.html">
+        <li class="chapter " data-level="1.3" data-path="map.html">
             
-                <a href="my_maps.html">
+                <a href="map.html">
             
                     
-                    My maps
+                    Map
             
                 </a>
             
@@ -244,9 +244,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="my_maps.html">
+        <li class="chapter " data-level="1.3.1" data-path="map.html">
             
-                <a href="my_maps.html#sec0">
+                <a href="map.html#sec0">
             
                     
                     Projects
@@ -257,22 +257,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="my_maps.html">
+        <li class="chapter " data-level="1.3.2" data-path="map.html">
             
-                <a href="my_maps.html#sec1">
-            
-                    
-                    Data sources
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="my_maps.html">
-            
-                <a href="my_maps.html#sec2">
+                <a href="map.html#sec1">
             
                     
                     Creating and saving maps
@@ -283,9 +270,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="my_maps.html">
+        <li class="chapter " data-level="1.3.3" data-path="map.html">
             
-                <a href="my_maps.html#sec3">
+                <a href="map.html#sec2">
             
                     
                     Open projects
@@ -296,9 +283,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="my_maps.html">
+        <li class="chapter " data-level="1.3.4" data-path="map.html">
             
-                <a href="my_maps.html#sec4">
+                <a href="map.html#sec3">
             
                     
                     Printing
@@ -309,9 +296,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="my_maps.html">
+        <li class="chapter " data-level="1.3.5" data-path="map.html">
             
-                <a href="my_maps.html#sec5">
+                <a href="map.html#sec4">
             
                     
                     Copy map / Save map
@@ -322,12 +309,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.7" data-path="my_maps.html">
+        <li class="chapter " data-level="1.3.6" data-path="map.html">
             
-                <a href="my_maps.html#sec6">
+                <a href="map.html#sec5">
             
                     
-                    KML / KMZ export
+                    KML / KMZ export and import
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="map.html">
+            
+                <a href="map.html#sec6">
+            
+                    
+                    GPKG Export and Import
             
                 </a>
             
@@ -487,7 +487,7 @@
                 <a href="draw.html">
             
                     
-                    Drawing
+                    Draw
             
                 </a>
             
@@ -501,7 +501,7 @@
                 <a href="draw.html#sec0">
             
                     
-                    Geometries and texts
+                    Geometries and labels (Redlining)
             
                 </a>
             
@@ -540,7 +540,7 @@
                 <a href="draw.html#sec3">
             
                     
-                    SymTaZ symbols
+                    Paste
             
                 </a>
             
@@ -553,7 +553,46 @@
                 <a href="draw.html#sec4">
             
                     
-                    Delete objects
+                    SymTaZ symbols
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="draw.html">
+            
+                <a href="draw.html#sec5">
+            
+                    
+                    Guide grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="draw.html">
+            
+                <a href="draw.html#sec6">
+            
+                    
+                    Bullseye
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="draw.html">
+            
+                <a href="draw.html#sec7">
+            
+                    
+                    Delete items
             
                 </a>
             
@@ -1059,6 +1098,41 @@
 </li>
 </ul>
 <h2 id="changelog"><a name="sec3"></a>Changelog</h2>
+<h3 id="version-12-december-2018">Version 1.2 (December 2018)</h3>
+<ul>
+<li><em>General</em>:<ul>
+<li>Improved KML/KMZ export functionality</li>
+<li>New KML/KMZ import functionality</li>
+<li>New GeoPackage export and import functionality</li>
+<li>Allow adding CSV/WMS/WFS/WCS layers from ribbon GUI</li>
+<li>Allow adding actions to ribbon GUI via Python API</li>
+<li>Add keyboard shortcuts for many actions in ribbon GUI</li>
+<li>Improved fuzzy matching when searching coordinates</li>
+</ul>
+</li>
+<li><em>Analysis</em>:<ul>
+<li>Show node markers in height profile</li>
+</ul>
+</li>
+<li><em>Draw</em>:<ul>
+<li>Support numeric input when drawing redlining objects</li>
+<li>Allow setting scaling factor for annotation layers</li>
+<li>Allow toggling frames of image annotations</li>
+<li>Allow manipulating groups of annotation items</li>
+<li>New Guide Grid functionality</li>
+<li>New Bullseye functionality</li>
+</ul>
+</li>
+<li><em>GPS</em>:<ul>
+<li>Allow conversion between waypoints and pins</li>
+<li>Allow changing color of waypoints and routes</li>
+</ul>
+</li>
+<li><em>MSS</em>:<ul>
+<li>Update to MSS-2019</li>
+</ul>
+</li>
+</ul>
 <h3 id="version-11-november-2017">Version 1.1 (November 2017)</h3>
 <ul>
 <li><em>General</em>:<ul>
@@ -1126,7 +1200,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"General","level":"1.1","depth":1,"next":{"title":"Overview","level":"1.1.1","depth":2,"anchor":"#sec0","path":"README.md","ref":"README.md#sec0","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"README.md","mtime":"2018-11-26T17:46:33.026Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-26T17:46:36.792Z"},"basePath":".","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"General","level":"1.1","depth":1,"next":{"title":"Overview","level":"1.1.1","depth":2,"anchor":"#sec0","path":"README.md","ref":"README.md#sec0","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"README.md","mtime":"2018-12-02T01:29:08.691Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T01:29:25.282Z"},"basePath":".","book":{"language":"en"}});
         });
     </script>
 </div>

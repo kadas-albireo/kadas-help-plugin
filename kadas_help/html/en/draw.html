@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Drawing · GitBook</title>
+        <title>Draw · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -232,12 +232,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="my_maps.html">
+        <li class="chapter " data-level="1.3" data-path="map.html">
             
-                <a href="my_maps.html">
+                <a href="map.html">
             
                     
-                    My maps
+                    Map
             
                 </a>
             
@@ -246,9 +246,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="my_maps.html">
+        <li class="chapter " data-level="1.3.1" data-path="map.html">
             
-                <a href="my_maps.html#sec0">
+                <a href="map.html#sec0">
             
                     
                     Projects
@@ -259,22 +259,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="my_maps.html">
+        <li class="chapter " data-level="1.3.2" data-path="map.html">
             
-                <a href="my_maps.html#sec1">
-            
-                    
-                    Data sources
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="my_maps.html">
-            
-                <a href="my_maps.html#sec2">
+                <a href="map.html#sec1">
             
                     
                     Creating and saving maps
@@ -285,9 +272,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="my_maps.html">
+        <li class="chapter " data-level="1.3.3" data-path="map.html">
             
-                <a href="my_maps.html#sec3">
+                <a href="map.html#sec2">
             
                     
                     Open projects
@@ -298,9 +285,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="my_maps.html">
+        <li class="chapter " data-level="1.3.4" data-path="map.html">
             
-                <a href="my_maps.html#sec4">
+                <a href="map.html#sec3">
             
                     
                     Printing
@@ -311,9 +298,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="my_maps.html">
+        <li class="chapter " data-level="1.3.5" data-path="map.html">
             
-                <a href="my_maps.html#sec5">
+                <a href="map.html#sec4">
             
                     
                     Copy map / Save map
@@ -324,12 +311,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.7" data-path="my_maps.html">
+        <li class="chapter " data-level="1.3.6" data-path="map.html">
             
-                <a href="my_maps.html#sec6">
+                <a href="map.html#sec5">
             
                     
-                    KML / KMZ export
+                    KML / KMZ export and import
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="map.html">
+            
+                <a href="map.html#sec6">
+            
+                    
+                    GPKG Export and Import
             
                 </a>
             
@@ -489,7 +489,7 @@
                 <a href="draw.html">
             
                     
-                    Drawing
+                    Draw
             
                 </a>
             
@@ -503,7 +503,7 @@
                 <a href="draw.html#sec0">
             
                     
-                    Geometries and texts
+                    Geometries and labels (Redlining)
             
                 </a>
             
@@ -542,7 +542,7 @@
                 <a href="draw.html#sec3">
             
                     
-                    SymTaZ symbols
+                    Paste
             
                 </a>
             
@@ -555,7 +555,46 @@
                 <a href="draw.html#sec4">
             
                     
-                    Delete objects
+                    SymTaZ symbols
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="draw.html">
+            
+                <a href="draw.html#sec5">
+            
+                    
+                    Guide grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="draw.html">
+            
+                <a href="draw.html#sec6">
+            
+                    
+                    Bullseye
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="draw.html">
+            
+                <a href="draw.html#sec7">
+            
+                    
+                    Delete items
             
                 </a>
             
@@ -1031,7 +1070,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Drawing</a>
+        <a href="." >Draw</a>
     </h1>
 </div>
 
@@ -1044,20 +1083,19 @@
                                 <section class="normal markdown-section">
                                 
                                 <!-- WARNING: This file is autogenerated by csv2md.py -->
-<h1 id="drawing">Drawing</h1>
-<p>The drawing tools are located in the <strong><em>Drawing</em></strong> tab. Different geometries, texts, pins and pictures of the map can be added.</p>
-<h2 id="geometries-and-texts"><a name="sec0"></a>Geometries and texts</h2>
-<p><strong><em>Drawable geometries</em></strong> include:</p>
+<h1 id="draw">Draw</h1>
+<h2 id="geometries-and-labels-redlining"><a name="sec0"></a>Geometries and labels (Redlining)</h2>
+<p>Geometries of the following types can be drawn:</p>
 <ul>
-<li>points, </li>
-<li>lines, </li>
-<li>polygons, </li>
-<li>rectangles, </li>
-<li>circles. </li>
+<li>Points</li>
+<li>Lines</li>
+<li>Polygons</li>
+<li>Rectangles</li>
+<li>Circles. </li>
 </ul>
-<p>Depending on the geometry type, the color and the pattern can be adjusted for the border and fill, as well as the line width and the size of points.</p>
-<p>For <strong><em>texts</em></strong>, the font and size as well as filling color can be adjusted.</p>
-<p>Drawn geometries and texts are stored in the <strong><em>Redlining</em></strong> layer in the map table of contents.</p>
+<p>Depending on the geometry type, the border and fill color and patterns can be adjusted, as well as the line width and the points size.</p>
+<p>For labels, the font and size as well as fill color can be adjusted.</p>
+<p>Drawn geometries and texts are stored in the <strong><em>Redlining</em></strong> layer in the map legend.</p>
 <p>Already drawn geometries or texts can be subsequently edited by selecting them on the map. Selected objects can be moved and, depending on the geometry type, nodes can be moved individually or created or removed via the context menu.</p>
 <p>Existing line and polygon geometries can be continued via context menu on the node.</p>
 <p><img src="../media/image6.png"></p>
@@ -1076,10 +1114,21 @@
 <p>The <strong><em>Add Image</em></strong> function can also be used to add SVG graphics to the map. These can be scaled and rotated with the mouse by dragging at the corresponding control points.</p>
 <p>Vector graphics are stored in the <strong><em>SVG graphics</em></strong> layer.</p>
 <p><img src="../media/image7.png"></p>
-<h2 id="symtaz-symbols"><a name="sec3"></a>SymTaZ symbols</h2>
+<h2 id="paste"><a name="sec3"></a>Paste</h2>
+<p>The <strong><em>Paste</em></strong> function allows to add various types of object to the map from the clipboard:</p>
+<ul>
+<li>Geometries: Are added as redlining objects</li>
+<li>MSS symbols: Are added to the selected MilX layer</li>
+<li>SVG graphics: Are added to the <strong><em>SVG graphics</em></strong> layer</li>
+</ul>
+<h2 id="symtaz-symbols"><a name="sec4"></a>SymTaZ symbols</h2>
 <p>SymTaZ is an external program that can be used to create symbols, tactical signs and civilian signatures in accordance with the Swiss Army&apos;s regulation 52.002.03. These symbols can be imported into KADAS, either via <strong><em>Copy to Clipboard (Text Form)</em></strong> in SymTaZ followed by <strong><em>Paste</em></strong> in KADAS, or by saving as SVG in SymTaZ and then opening via <strong><em>Add Image</em></strong> in KADAS.</p>
-<h2 id="delete-objects"><a name="sec4"></a>Delete objects</h2>
-<p>Individual objects can be deleted via context menu or DEL key. The <strong><em>Delete Objects</em></strong> tool allows you to delete several objects at once from a selected rectangular region. This function can also be called invoken via CTRL + dragging a rectangle in pan mode.</p>
+<h2 id="guide-grid"><a name="sec5"></a>Guide grid</h2>
+<p>The guide grid is a grid in which the rows and columns are labeled with numbers or letters. The guide grid is stored in its own layer and appears in the map legend. All grid properties as well as the caption display can be personalized. By default, the grid is created according to the current map extent. An arbitrary number of guide grid layers can be created.</p>
+<h2 id="bullseye"><a name="sec6"></a>Bullseye</h2>
+<p>A bullseye is drawn as a number of concentric circles around a selected point and matching axes, separated at regular intervals. Analogously to the guide grid, it is stored in its own layer, and various properties can be freely configured.</p>
+<h2 id="delete-items"><a name="sec7"></a>Delete items</h2>
+<p>Individual objects can be deleted via context menu or DEL key. The <strong><em>Delete Items</em></strong> tool allows you to delete several objects at once from a selected rectangular region. This function can also be called invoken via CTRL + dragging a rectangle in navigation mode.</p>
 <p><img src="../media/image8.png"></p>
 
                                 
@@ -1097,7 +1146,7 @@
                 </a>
                 
                 
-                <a href="draw.html#sec0" class="navigation navigation-next " aria-label="Next page: Geometries and texts">
+                <a href="draw.html#sec0" class="navigation navigation-next " aria-label="Next page: Geometries and labels (Redlining)">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1108,7 +1157,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Drawing","level":"1.6","depth":1,"next":{"title":"Geometries and texts","level":"1.6.1","depth":2,"anchor":"#sec0","path":"draw.md","ref":"draw.md#sec0","articles":[]},"previous":{"title":"Viewshed","level":"1.5.4","depth":2,"anchor":"#sec3","path":"analysis.md","ref":"analysis.md#sec3","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"draw.md","mtime":"2018-11-26T17:46:33.027Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-26T17:46:36.792Z"},"basePath":".","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Draw","level":"1.6","depth":1,"next":{"title":"Geometries and labels (Redlining)","level":"1.6.1","depth":2,"anchor":"#sec0","path":"draw.md","ref":"draw.md#sec0","articles":[]},"previous":{"title":"Viewshed","level":"1.5.4","depth":2,"anchor":"#sec3","path":"analysis.md","ref":"analysis.md#sec3","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"draw.md","mtime":"2018-12-02T01:29:08.692Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T01:29:25.282Z"},"basePath":".","book":{"language":"en"}});
         });
     </script>
 </div>
