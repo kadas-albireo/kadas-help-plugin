@@ -97,7 +97,7 @@ class AboutDialog(QDialog):
         disclaimerLink.setOpenExternalLinks(True)
         l.addWidget(disclaimerLink, l.rowCount(), 0, 1, 1)
 
-        fubLabel = QLabel(self.tr("FUB-Hotline: 058 465 22 22"))
+        fubLabel = QLabel(self.tr("BAC-Hotline: 058 465 22 22"))
         fubLabel.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         fubLabel.setWordWrap(True)
         l.addWidget(fubLabel, l.rowCount(), 0, 1, 1)

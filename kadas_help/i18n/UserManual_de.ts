@@ -71,12 +71,17 @@
     <message>
         <location filename="../about_dialog.py" line="100"/>
         <source>FUB-Hotline: 058 465 22 22</source>
-        <translation>FUB-Hotline: 058 465 22 22</translation>
+        <translation type="obsolete">FUB-Hotline: 058 465 22 22</translation>
     </message>
     <message>
         <location filename="../about_dialog.py" line="105"/>
         <source>&lt;b&gt;Swiss Armed Forces&lt;br /&gt;Mil Geo Info D&lt;br /&gt;VZ VBS&lt;br /&gt;3003 Bern&lt;/b&gt;</source>
         <translation>&lt;b&gt;Swiss Armed Forces&lt;br /&gt;Mil Geo Info D&lt;br /&gt;VZ VBS&lt;br /&gt;3003 Bern&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../about_dialog.py" line="100"/>
+        <source>BAC-Hotline: 058 465 22 22</source>
+        <translation>BAC-Hotline: 058 465 22 22</translation>
     </message>
 </context>
 <context>
