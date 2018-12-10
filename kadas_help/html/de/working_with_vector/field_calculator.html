@@ -990,6 +990,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.10.9" data-path="../gpsgate/gpsgate.html">
+            
+                <a href="../gpsgate/gpsgate.html">
+            
+                    
+                    GPSGate Konfiguration
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1082,9 +1095,8 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="field-calculator">Feldrechner </h1>
-<p>Mit <a href="../../images/mActionCalculateField.png" class="reference internal"><img src="../../images/mActionCalculateField.png" alt="mActionCalculateField"></a> <sup>Feldrechner</sup> Knopf in der Attributtabelle k&#xF6;nnen Sie Berechnungen auf Basis von bestehenden Attributwerten oder definierten Funktionen durchf&#xFC;hren, z.B. um die L&#xE4;nge oder die Fl&#xE4;che von Geometrieobjekten zu berechnen. Die Ergebnisse k&#xF6;nnen in eine neue Attributspalte geschrieben werden, in ein virtuelles Feld oder Sie k&#xF6;nnen verwendet werden um Werte in einer vorhandenen Spalte zu updaten.</p>
-<p>Tipp</p>
+                                <h1 id="feldrechner-">Feldrechner <a name="#field-calculator"></a></h1>
+<p>Mit <img src="../../images/mActionCalculateField.png"> <em>Feldrechner</em> Knopf in der Attributtabelle k&#xF6;nnen Sie Berechnungen auf Basis von bestehenden Attributwerten oder definierten Funktionen durchf&#xFC;hren, z.B. um die L&#xE4;nge oder die Fl&#xE4;che von Geometrieobjekten zu berechnen. Die Ergebnisse k&#xF6;nnen in eine neue Attributspalte geschrieben werden, in ein virtuelles Feld oder Sie k&#xF6;nnen verwendet werden um Werte in einer vorhandenen Spalte zu updaten.</p>
 <p><strong>Virtuelle Felder</strong></p>
 <ul>
 <li><p>Virtuelle Felder sind nicht dauerhaft vorhanden und werden nicht gespeichert.</p>
@@ -1092,22 +1104,20 @@
 <li><p>Ein Feld kann nur beim Erstellen virtuell gemacht werden.</p>
 </li>
 </ul>
-<p>Der Feldrechner ist jetzt &#xFC;ber jeden Layer der Bearbeitung unterst&#xFC;tzt erreichbar. Wenn Sie auf das Feldrechner Icon klicken &#xF6;ffnet sich ein Dialog (siehe <a href="#figure-attributes-3" class="reference internal">figure_attributes_3</a>). Wenn der Layer nicht im Bearbeitungsmodus ist wird eine Warnung gezeigt und das Verwenden des Feldrechners bewirkt, dass der Layer in den Bearbeitungsmodus gesetzt wird bevor die Berechnung gemacht wird.</p>
+<p>Der Feldrechner ist jetzt &#xFC;ber jeden Layer der Bearbeitung unterst&#xFC;tzt erreichbar. Wenn Sie auf das Feldrechner Icon klicken &#xF6;ffnet sich ein Dialog (siehe <a href="#figure-attributes-3">figure_attributes_3</a>). Wenn der Layer nicht im Bearbeitungsmodus ist wird eine Warnung gezeigt und das Verwenden des Feldrechners bewirkt, dass der Layer in den Bearbeitungsmodus gesetzt wird bevor die Berechnung gemacht wird.</p>
 <p>The quick field calculation bar on top of the attribute table is only visible if the layer is editable.</p>
 <p>In der schnellen Feldberechnungsleiste w&#xE4;hlen Sie erst einen bestehenden Feldnamen aus, &#xF6;ffnen dann den Ausdrucksdialog um Ihren Ausdruck zu erstellen oder schreiben ihn direkt in das Feld und klicken dann den <strong>Alle aktualisieren</strong> Knopf.</p>
-<h2 id="expression-tab">Expression tab </h2>
+<h2 id="ausdr&#xFC;cke-">Ausdr&#xFC;cke <a name="#expression-tab"></a></h2>
 <p>Im Feldberechnungsdialog m&#xFC;ssen Sie erst ausw&#xE4;hlen ob sie nur ausgew&#xE4;hlte Objekte updaten wollen, eine neues Feld anlegen, in das die Ergebnisse der Berechnung eingef&#xFC;gt werden oder ob Sie ein vorhandenes Feld erneuern wollen.</p>
-<p><strong>Figure Attributes 3:</strong></p>
-<p><img src="../../images/fieldcalculator.png" alt="">
-Feldrechner </p>
-<p>Wenn Sie sich entschlie&#xDF;en ein neues Feld hinzuzuf&#xFC;gen, m&#xFC;ssen Sie einen Feldnamen, einen Feldtyp (Ganzzahl, Dezimalzahl, Text oder Datum), die Ausgabefeldbreite und die Genauigkeit eingeben (siehe <a href="#figure-attributes-3" class="reference internal">figure_attributes_3</a>). Zum Beispiel wenn Sie ein Ausgabefeldbreite von 10 und eine Genauigkeit von 3 w&#xE4;hlen, hei&#xDF;t das, dass 6 Eintr&#xE4;ge vor dem Komma stehen, dann das Komma und dann weitere 3 Eintr&#xE4;ge f&#xFC;r die Genauigkeit.</p>
+<p><img src="../../images/fieldcalculator.png" alt=""></p>
+<p>Wenn Sie sich entschlie&#xDF;en ein neues Feld hinzuzuf&#xFC;gen, m&#xFC;ssen Sie einen Feldnamen, einen Feldtyp (Ganzzahl, Dezimalzahl, Text oder Datum), die Ausgabefeldbreite und die Genauigkeit eingeben (siehe <a href="#figure-attributes-3">figure_attributes_3</a>). Zum Beispiel wenn Sie ein Ausgabefeldbreite von 10 und eine Genauigkeit von 3 w&#xE4;hlen, hei&#xDF;t das, dass 6 Eintr&#xE4;ge vor dem Komma stehen, dann das Komma und dann weitere 3 Eintr&#xE4;ge f&#xFC;r die Genauigkeit.</p>
 <p>A short example illustrates how field calculator works when using the <em>Expression</em> tab. We want to calculate the length in km of the <code>railroads</code> layer from the KADAS sample dataset:</p>
 <ol>
-<li><p>Laden Sie das Shape <code>railroads.shp</code> in KADAS und &#xF6;ffnen Sie die den Dialog <a href="../../images/mActionOpenTable.png" class="reference internal"><img src="../../images/mActionOpenTable.png" alt="mActionOpenTable"></a> <sup>Attributtabelle\ &#xF6;ffnen</sup>.</p>
+<li><p>Laden Sie das Shape <code>railroads.shp</code> in KADAS und &#xF6;ffnen Sie die den Dialog <img src="../../images/mActionOpenTable.png"> <em>Attributtabelle &#xF6;ffnen</em>.</p>
 </li>
-<li><p>Klicken Sie auf <a href="../../images/mActionToggleEditing.png" class="reference internal"><img src="../../images/mActionToggleEditing.png" alt="mActionToggleEditing"></a> <sup>Bearbeitungsmodus\ umschalten</sup> und &#xF6;ffnen Sie den <a href="../../images/mActionCalculateField.png" class="reference internal"><img src="../../images/mActionCalculateField.png" alt="mActionCalculateField"></a> <sup>Feldrechner</sup> Dialog.</p>
+<li><p>Klicken Sie auf <img src="../../images/mActionToggleEditing.png"> <em>Bearbeitungsmodus umschalten</em> und &#xF6;ffnen Sie den <img src="../../images/mActionCalculateField.png"> <em>Feldrechner</em> Dialog.</p>
 </li>
-<li><p>W&#xE4;hlen Sie das <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Neues Feld anlegen</em> Kontrollk&#xE4;stchen um die Berechnungen in ein neues Feld zu speichern.</p>
+<li><p>W&#xE4;hlen Sie das <img src="../../images/checkbox.png"> <em>Neues Feld anlegen</em> Kontrollk&#xE4;stchen um die Berechnungen in ein neues Feld zu speichern.</p>
 </li>
 <li><p>Setzen Sie <code>laenge</code> als Ausgabefeldname, <code>real</code> als Ausgabefeldtyp und definieren Sie die Ausgabefeldbreite mit 10 und die Ausgabefeldgenauigkeit mit 3.</p>
 </li>
@@ -1118,19 +1128,19 @@ Feldrechner </p>
 <li><p>Sie k&#xF6;nnen jetzt eine neue Spalte <code>laenge</code> in der Attributtabelle finden.</p>
 </li>
 </ol>
-<p>Die erh&#xE4;ltlichen Funktionen sind im Kapitel <a href="expression.html#vector-expressions" class="reference internal"><em>Ausdr&#xFC;cke</em></a> aufgef&#xFC;hrt.</p>
-<h2 id="function-editor-tab">Function Editor tab </h2>
-<p>With the Function Editor you are able to define your own Python custom functions in a comfortable way. The function editor will create new Python files in <code>qgis2pythonexpressions</code> and will auto load all functions defined when starting QGIS. Be aware that new functions are only saved in the <code>expressions</code> folder and not in the project file. If you have a project that uses one of your custom functions you will need to also share the .py file in the expressions folder.</p>
-<p>Here&#x2019;s a short example on how to create your own functions:</p>
+<p>Die erh&#xE4;ltlichen Funktionen sind im Kapitel <a href="expression.html">Ausdr&#xFC;cke</a> aufgef&#xFC;hrt.</p>
+<h2 id="funktionseditor-">Funktionseditor <a name="#function-editor-tab"></a></h2>
+<p>Mit dem Funktionseditor k&#xF6;nnen Sie auf komfortable Weise Ihre eigenen Python-Funktionen definieren. Der Funktionseditor erstellt neue Python-Dateien in <code>qgis2pythonexpressions</code> und l&#xE4;dt automatisch alle beim Start von QGIS definierten Funktionen. Beachten Sie, dass neue Funktionen nur im Ordner <code>expressions</code> und nicht in der Projektdatei gespeichert werden. Wenn Sie ein Projekt haben, das eine Ihrer benutzerdefinierten Funktionen verwendet, m&#xFC;ssen Sie die.py-Datei auch im Ordner expressions freigeben.</p>
+<p>Hier ist ein kurzes Beispiel, wie Sie Ihre eigenen Funktionen erstellen k&#xF6;nnen:</p>
 <pre><code>@qgsfunction(args=&quot;auto&quot;, group=&apos;Custom&apos;)
 def myfunc(value1, value2 feature, parent):
     pass
-</code></pre><p>The short example creates a function &#x2018;myfunc&#x2019; that will give you a function with two values. When using the args=&#x2019;auto&#x2019; function argument the number of function arguments required will be calculated by the number of arguments the function has been defined with in Python (minus 2 - feature, and parent).</p>
-<p>This function then can be used with the following expression:</p>
-<pre><code>myfunc(&apos;test1&apos;, &apos;test2&apos;)
-</code></pre><p>Your function will be implemented in the &#x2018;Custom&#x2019; <em>Functions</em> of the <em>Expression</em> tab after using the <em>Run Script</em> button.</p>
-<p>Further information about creating Python code can be found on <a href="http://www.qgis.org/html/en/docs/pyqgis_developer_cookbook/index.html" class="uri" target="_blank">http://www.qgis.org/html/en/docs/pyqgis_developer_cookbook/index.html</a>.</p>
-<p>The function editor is not only limited to working with the field calculator, it can be found whenever you work with expressions. See also <a href="expression.html#vector-expressions" class="reference internal"><em>Ausdr&#xFC;cke</em></a>.</p>
+</code></pre><p>Das kurze Beispiel erstellt eine Funktion <code>myfunc</code>, die Ihnen eine Funktion mit zwei Werten bietet. Bei Verwendung des Funktionsarguments args=&apos;auto&apos; wird die Anzahl der ben&#xF6;tigten Funktionsargumente aus der Anzahl der Argumente berechnet, mit denen die Funktion in Python definiert wurde (minus 2 - Merkmal und &#xFC;bergeordnet).</p>
+<p>Diese Funktion kann dann mit dem folgenden Ausdruck verwendet werden:</p>
+<pre><code>myfunc(&apos;test1&apos;,&apos;test2&apos;)
+</code></pre><p>Ihre Funktion wird in den benutzerdefinierten <em>Funktionen</em> der Registerkarte <em>Ausdruck</em> nach Verwendung der Schaltfl&#xE4;che <em>Skript ausf&#xFC;hren</em> implementiert.</p>
+<p>Weitere Informationen zur Erstellung von Python-Code finden Sie unter <a href="http://www.qgis.org/html/en/docs/pyqgis_developer_cookbook/index.html" target="_blank">http://www.qgis.org/html/en/docs/pyqgis_developer_cookbook/index.html</a>.</p>
+<p>Der Funktionseditor beschr&#xE4;nkt sich nicht nur auf die Arbeit mit dem Feldrechner, er ist auch immer dann zu finden, wenn Sie mit Ausdr&#xFC;cken arbeiten.</p>
 
                                 
                                 </section>
@@ -1158,7 +1168,7 @@ def myfunc(value1, value2 feature, parent):
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Feldrechner","level":"1.10.6","depth":2,"next":{"title":"Arbeiten mit Rasterdaten","level":"1.10.7","depth":2,"path":"working_with_raster/supported_data.md","ref":"working_with_raster/supported_data.md","articles":[]},"previous":{"title":"Ausdrücke","level":"1.10.5","depth":2,"path":"working_with_vector/expression.md","ref":"working_with_vector/expression.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"de","gitbook":"*"},"file":{"path":"working_with_vector/field_calculator.md","mtime":"2018-07-16T14:45:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-05T20:54:10.004Z"},"basePath":"..","book":{"language":"de"}});
+            gitbook.page.hasChanged({"page":{"title":"Feldrechner","level":"1.10.6","depth":2,"next":{"title":"Arbeiten mit Rasterdaten","level":"1.10.7","depth":2,"path":"working_with_raster/supported_data.md","ref":"working_with_raster/supported_data.md","articles":[]},"previous":{"title":"Ausdrücke","level":"1.10.5","depth":2,"path":"working_with_vector/expression.md","ref":"working_with_vector/expression.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"de","gitbook":"*"},"file":{"path":"working_with_vector/field_calculator.md","mtime":"2018-12-10T11:05:03.716Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-10T13:11:30.657Z"},"basePath":"..","book":{"language":"de"}});
         });
     </script>
 </div>

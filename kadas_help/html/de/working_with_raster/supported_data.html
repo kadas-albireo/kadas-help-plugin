@@ -990,6 +990,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.10.9" data-path="../gpsgate/gpsgate.html">
+            
+                <a href="../gpsgate/gpsgate.html">
+            
+                    
+                    GPSGate Konfiguration
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1082,12 +1095,11 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="working-with-raster-data">Arbeiten mit Rasterdaten </h1>
-<p>Dieser Abschnitt beschreibt wie man Rasterlayereigenschaften visualisiert und einstellt. KADAS verwendet die <span id="index-6" class="target"></span>GDAL Bibliothek um Rasterdatenformate zu lesen und zu schreiben. Dies umfasst Arc/Info Binary Grid, Arc/Info ASCII Grid, GeoTIFF, Erdas Imagine und viele weitere Formate. GRASS Rastersupport wird durch einen eigenen QGIS Datenprovider bereitgestellt. Die Rasterdaten k&#xF6;nnen auch im Lesemodus aus zip und gzip Archiven in KADAS geladen werden.</p>
-<p>Zum Zeitpunkt der Erstellung diese Dokumentes werden mehr als 100 Rasterdatenformate von der GDAL-Bibliothek unterst&#xFC;tzt (siehe GDAL-SOFTWARE-SUITE <em>literature_and_web</em>). Eine vollst&#xE4;ndige Liste ist unter <a href="http://www.gdal.org/formats_list.html" class="uri" target="_blank">http://www.gdal.org/formats_list.html</a>. erh&#xE4;ltlich.</p>
-<p>Bemerkung</p>
+                                <h1 id="arbeiten-mit-rasterdaten-">Arbeiten mit Rasterdaten <a name="#working-with-raster-data"></a></h1>
+<p>Dieser Abschnitt beschreibt wie man Rasterlayereigenschaften visualisiert und einstellt. KADAS verwendet die GDAL Bibliothek um Rasterdatenformate zu lesen und zu schreiben. Dies umfasst Arc/Info Binary Grid, Arc/Info ASCII Grid, GeoTIFF, Erdas Imagine und viele weitere Formate. GRASS Rastersupport wird durch einen eigenen QGIS Datenprovider bereitgestellt. Die Rasterdaten k&#xF6;nnen auch im Lesemodus aus zip und gzip Archiven in KADAS geladen werden.</p>
+<p>Zum Zeitpunkt der Erstellung diese Dokumentes werden mehr als 100 Rasterdatenformate von der GDAL-Bibliothek unterst&#xFC;tzt (siehe GDAL-SOFTWARE-SUITE <em>literature_and_web</em>). Eine vollst&#xE4;ndige Liste ist unter <a href="http://www.gdal.org/formats_list.html" target="_blank">http://www.gdal.org/formats_list.html</a>. erh&#xE4;ltlich.</p>
 <p>Einige der aufgelisteten Formate k&#xF6;nnen auf ihrem Rechner aus unterschiedlichen Gr&#xFC;nden nicht unterst&#xFC;tzt werden. Einige brauchen z.B. kommerzielle Bibliotheken oder die GDAL Installation auf Ihrem Rechner, wurde ohne die Unterst&#xFC;tzung f&#xFC;r das entsprechende Format erstellt. Nur Formate, die getestet wurden, k&#xF6;nnen ausgew&#xE4;hlt werden, wenn Sie eine Rasterdatei in QGIS laden. Andere nicht getestete Formate k&#xF6;nnen anhand des <code>[GDAL] Alle Dateien (*)</code> Filter geladen werden.</p>
-<h2 id="what-is-raster-data">Was ist ein Rasterlayer? </h2>
+<h2 id="was-ist-ein-rasterlayer-">Was ist ein Rasterlayer? <a name="#what-is-raster-data"></a></h2>
 <p>Rasterlayer in QGIS sind Gitter aus diskreten Zellen oder Pixeln, die Objekte &#xFC;ber, auf oder unter der Erdoberfl&#xE4;che beschreiben. Jede Zelle eines Rasters hat die gleiche Gr&#xF6;&#xDF;e und ist meistens rechteckig (in QGIS ist dies immer so). Typische Rasterlayer sind Fernerkungsdaten wie Luft- oder Satellitenbilddaten oder modellierte Daten wie H&#xF6;henmodelle.</p>
 <p>Im Gegensatz zu Vektorlayern haben Rasterlayer keine Verkn&#xFC;pfung zu einer Attributtabelle mit Werten f&#xFC;r jede Zelle. Sie sind anhand der Pixelaufl&#xF6;sung und der x/y Koordinate eines Eckpixels des Rasterlayers geocodiert. Dies erm&#xF6;glicht es KADAS die Daten korrekt im Kartenfenster zu positionieren.</p>
 <p>QGIS liest die Projektionsinformationen innerhalb des Rasterlayers (e.g. GeoTiff) oder aus einem passenden Worldfile um die Daten richtig darzustellen.</p>
@@ -1118,7 +1130,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Arbeiten mit Rasterdaten","level":"1.10.7","depth":2,"next":{"title":"Dialogfenster Rasterlayereigenschaften","level":"1.10.8","depth":2,"path":"working_with_raster/raster_properties.md","ref":"working_with_raster/raster_properties.md","articles":[]},"previous":{"title":"Feldrechner","level":"1.10.6","depth":2,"path":"working_with_vector/field_calculator.md","ref":"working_with_vector/field_calculator.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"de","gitbook":"*"},"file":{"path":"working_with_raster/supported_data.md","mtime":"2018-07-16T14:45:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-05T20:54:10.004Z"},"basePath":"..","book":{"language":"de"}});
+            gitbook.page.hasChanged({"page":{"title":"Arbeiten mit Rasterdaten","level":"1.10.7","depth":2,"next":{"title":"Dialogfenster Rasterlayereigenschaften","level":"1.10.8","depth":2,"path":"working_with_raster/raster_properties.md","ref":"working_with_raster/raster_properties.md","articles":[]},"previous":{"title":"Feldrechner","level":"1.10.6","depth":2,"path":"working_with_vector/field_calculator.md","ref":"working_with_vector/field_calculator.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"de","gitbook":"*"},"file":{"path":"working_with_raster/supported_data.md","mtime":"2018-12-10T10:16:19.870Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-10T13:11:30.657Z"},"basePath":"..","book":{"language":"de"}});
         });
     </script>
 </div>

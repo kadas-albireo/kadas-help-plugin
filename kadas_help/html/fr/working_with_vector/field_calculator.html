@@ -977,6 +977,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.10.9" data-path="../gpsgate/gpsgate.html">
+            
+                <a href="../gpsgate/gpsgate.html">
+            
+                    
+                    Configuration de GPSGate
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1069,8 +1082,8 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="field-calculator">Calculatrice de champ </h1>
-<p>Le bouton <a href="../../images/mActionCalculateField.png" class="reference internal"><img src="../../images/mActionCalculateField.png" alt="mActionCalculateField"></a> <sup>Ouvrir\ la\ calculatrice\ de\ champs</sup> de la table d&#x2019;attributs permet d&#x2019;op&#xE9;rer des calculs sur la base des valeurs attributaires ou d&#x2019;utiliser des fonctions, par exemple pour calculer la longueur ou la surface des entit&#xE9;s. Les r&#xE9;sultats peuvent &#xEA;tre &#xE9;crits dans une nouvelle colonne attributaire, un champ virtuel ou mettre &#xE0; jour une colonne existante.</p>
+                                <h1 id="calculatrice-de-champ-">Calculatrice de champ <a name="#field-calculator"></a></h1>
+<p>Le bouton <img src="../../images/mActionCalculateField.png"> <em>Ouvrir la calculatrice de champs</em> de la table d&#x2019;attributs permet d&#x2019;op&#xE9;rer des calculs sur la base des valeurs attributaires ou d&#x2019;utiliser des fonctions, par exemple pour calculer la longueur ou la surface des entit&#xE9;s. Les r&#xE9;sultats peuvent &#xEA;tre &#xE9;crits dans une nouvelle colonne attributaire, un champ virtuel ou mettre &#xE0; jour une colonne existante.</p>
 <p>Astuce</p>
 <p><strong>Champ Virtuels</strong></p>
 <ul>
@@ -1079,22 +1092,22 @@
 <li><p>Pour qu&#x2019;un champ soit virtuel, il faut le sp&#xE9;cifier &#xE0; sa cr&#xE9;ation.</p>
 </li>
 </ul>
-<p>La calculatrice de champ fonctionne avec toutes les couches qui g&#xE8;rent le mode &#xE9;dition. Lorsque vous cliquez sur le bouton de la calculatrice de champ, la fen&#xEA;tre s&#x2019;ouvre (voir <a href="#figure-attributes-3" class="reference internal">figure_attributes_3</a>). Si la couche n&#x2019;est pas en mode &#xE9;dition, un avertissement s&#x2019;affiche et l&#x2019;utilisation de la calculatrice de champ basculera automatiquement la couche en &#xE9;dition avant d&#x2019;effectuer le calcul.</p>
+<p>La calculatrice de champ fonctionne avec toutes les couches qui g&#xE8;rent le mode &#xE9;dition. Lorsque vous cliquez sur le bouton de la calculatrice de champ, la fen&#xEA;tre s&#x2019;ouvre (voir <a href="#figure-attributes-3">figure_attributes_3</a>). Si la couche n&#x2019;est pas en mode &#xE9;dition, un avertissement s&#x2019;affiche et l&#x2019;utilisation de la calculatrice de champ basculera automatiquement la couche en &#xE9;dition avant d&#x2019;effectuer le calcul.</p>
 <p>La barre de calcul de champ n&#x2019;est visible que si la couche est en mode &#xE9;dition.</p>
 <p>Dans la barre de calcul de champ, vous s&#xE9;lectionnez d&#x2019;abord le champ &#xE0; &#xE9;diter puis ouvrez le calculateur d&#x2019;expressions pour saisir l&#x2019;expression ou &#xE9;crivez directement dans le champ de saisie et enfin cliquez sur le bouton <strong>Tout mettre &#xE0; jour</strong>.</p>
-<h2 id="expression-tab">Onglet Expression </h2>
+<h2 id="onglet-expression-">Onglet Expression <a name="#expression-tab"></a></h2>
 <p>Dans la Calculatrice de champ, vous devez d&#x2019;abord sp&#xE9;cifier si vous souhaitez mettre &#xE0; jour uniquement les entit&#xE9;s s&#xE9;lectionn&#xE9;es, cr&#xE9;er un nouveau champ o&#xF9; les r&#xE9;sultats du calcul seront stock&#xE9;s ou mettre &#xE0; jour un champ existant.</p>
 <p><strong>Figure Attributes 3:</strong></p>
 <p><img src="../../images/fieldcalculator.png" alt="">
 Calculatrice de champ </p>
-<p>Si vous choisissez d&#x2019;ajouter un nouveau champ, vous devez lui donner un nom, un type (nombre entier, nombre d&#xE9;cimal ou cha&#xEE;ne de caract&#xE8;re), une longueur et sa pr&#xE9;cision (voir <a href="#figure-attributes-3" class="reference internal">figure_attributes_3</a>). Par exemple, si vous cr&#xE9;ez un champ d&#x2019;une longueur de 10 et dot&#xE9; d&#x2019;une pr&#xE9;cision de 3, vous aurez 6 chiffres avant la virgule, la virgule et 3 chiffres apr&#xE8;s.</p>
+<p>Si vous choisissez d&#x2019;ajouter un nouveau champ, vous devez lui donner un nom, un type (nombre entier, nombre d&#xE9;cimal ou cha&#xEE;ne de caract&#xE8;re), une longueur et sa pr&#xE9;cision (voir <a href="#figure-attributes-3">figure_attributes_3</a>). Par exemple, si vous cr&#xE9;ez un champ d&#x2019;une longueur de 10 et dot&#xE9; d&#x2019;une pr&#xE9;cision de 3, vous aurez 6 chiffres avant la virgule, la virgule et 3 chiffres apr&#xE8;s.</p>
 <p>L&#x2019;exemple suivant montre comment la calculatrice de champs fonctionne. Il s&#x2019;agit de calculer la longueur en km de la couche <code>railroads</code> issue de l&#x2019;&#xE9;chantillon de donn&#xE9;es KADAS.</p>
 <ol>
-<li><p>Chargez le fichier shapefile <code>railroads.shp</code> dans QGIS et ouvrez sa <a href="../../images/mActionOpenTable.png" class="reference internal"><img src="../../images/mActionOpenTable.png" alt="mActionOpenTable"></a> <sup>Table\ d&#x2019;Attributs</sup>.</p>
+<li><p>Chargez le fichier shapefile <code>railroads.shp</code> dans QGIS et ouvrez sa <img src="../../images/mActionOpenTable.png"> <em>Table d&#x2019;Attributs</em>.</p>
 </li>
-<li><p>Cliquez sur <a href="../../images/mActionToggleEditing.png" class="reference internal"><img src="../../images/mActionToggleEditing.png" alt="mActionToggleEditing"></a> <sup>Basculer\ en\ mode\ &#xE9;dition</sup> et ouvrez la <a href="../../images/mActionCalculateField.png" class="reference internal"><img src="../../images/mActionCalculateField.png" alt="mActionCalculateField"></a> <sup>Calculatrice\ de\ champs</sup>.</p>
+<li><p>Cliquez sur <img src="../../images/mActionToggleEditing.png"> <em>Basculer en mode &#xE9;dition</em> et ouvrez la <img src="../../images/mActionCalculateField.png"> <em>Calculatrice de champs</em>.</p>
 </li>
-<li><p>Cochez la case <a href="../../images/checkbox.png" class="reference internal"><img src="../../images/checkbox.png" alt="checkbox"></a> <em>Cr&#xE9;er un nouveau champ</em> pour enregistrer le r&#xE9;sultat des calculs dans un nouveau champ.</p>
+<li><p>Cochez la case <img src="../../images/checkbox.png"> <em>Cr&#xE9;er un nouveau champ</em> pour enregistrer le r&#xE9;sultat des calculs dans un nouveau champ.</p>
 </li>
 <li><p>Ajoutez <code>longueur</code> dans le nom de ce champ, <code>r&#xE9;el</code> en tant que type et d&#xE9;finissez une longueur de 10 et une pr&#xE9;cision de 3.</p>
 </li>
@@ -1105,8 +1118,8 @@ Calculatrice de champ </p>
 <li><p>Vous pouvez maintenant voir la nouvelle colonne <code>longueur</code> dans la table d&#x2019;attributs.</p>
 </li>
 </ol>
-<p>Les fonctions disponibles sont list&#xE9;es dans <a href="expression.html#vector-expressions" class="reference internal"><em>Expressions</em></a>.</p>
-<h2 id="function-editor-tab">Onglet Editeur de fonction </h2>
+<p>Les fonctions disponibles sont list&#xE9;es dans <a href="expression.html">Expressions</a>.</p>
+<h2 id="onglet-editeur-de-fonction-">Onglet Editeur de fonction <a name="#function-editor-tab"></a></h2>
 <p>With the Function Editor you are able to define your own Python custom functions in a comfortable way. The function editor will create new Python files in <code>qgis2pythonexpressions</code> and will auto load all functions defined when starting QGIS. Be aware that new functions are only saved in the <code>expressions</code> folder and not in the project file. If you have a project that uses one of your custom functions you will need to also share the .py file in the expressions folder.</p>
 <p>Here&#x2019;s a short example on how to create your own functions:</p>
 <pre><code>@qgsfunction(args=&quot;auto&quot;, group=&apos;Custom&apos;)
@@ -1116,8 +1129,8 @@ def myfunc(value1, value2 feature, parent):
 <p>This function then can be used with the following expression:</p>
 <pre><code>myfunc(&apos;test1&apos;, &apos;test2&apos;)
 </code></pre><p>Votre fonction sera impl&#xE9;ment&#xE9;e dans &#x2018;Custom&#x2019; <em>Fonctions</em> de l&#x2019;onglet <em>Expression</em> apr&#xE8;s l&#x2019;utilisation du bouton <em>Lancer le script</em>.</p>
-<p>Plus d&#x2019;informations sur la cr&#xE9;ation de code Python peuvent &#xEA;tre trouv&#xE9;es sur <a href="http://www.qgis.org/html/en/docs/pyqgis_developer_cookbook/index.html" class="uri" target="_blank">http://www.qgis.org/html/en/docs/pyqgis_developer_cookbook/index.html</a>.</p>
-<p>L&#x2019;&#xE9;diteur de fonction ne se limite pas &#xE0; la calculatrice de champ, il est disponible &#xE0; chaque fois que vous travaillez avec des expressions. Voir aussi <a href="expression.html#vector-expressions" class="reference internal"><em>Expressions</em></a>.</p>
+<p>Plus d&#x2019;informations sur la cr&#xE9;ation de code Python peuvent &#xEA;tre trouv&#xE9;es sur <a href="http://www.qgis.org/html/en/docs/pyqgis_developer_cookbook/index.html" target="_blank">http://www.qgis.org/html/en/docs/pyqgis_developer_cookbook/index.html</a>.</p>
+<p>L&#x2019;&#xE9;diteur de fonction ne se limite pas &#xE0; la calculatrice de champ, il est disponible &#xE0; chaque fois que vous travaillez avec des expressions.</p>
 
                                 
                                 </section>
@@ -1145,7 +1158,7 @@ def myfunc(value1, value2 feature, parent):
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Calculatrice de champ","level":"1.10.6","depth":2,"next":{"title":"Les données raster","level":"1.10.7","depth":2,"path":"working_with_raster/supported_data.md","ref":"working_with_raster/supported_data.md","articles":[]},"previous":{"title":"Expressions","level":"1.10.5","depth":2,"path":"working_with_vector/expression.md","ref":"working_with_vector/expression.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"working_with_vector/field_calculator.md","mtime":"2018-07-16T14:45:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-05T20:54:10.004Z"},"basePath":"..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Calculatrice de champ","level":"1.10.6","depth":2,"next":{"title":"Les données raster","level":"1.10.7","depth":2,"path":"working_with_raster/supported_data.md","ref":"working_with_raster/supported_data.md","articles":[]},"previous":{"title":"Expressions","level":"1.10.5","depth":2,"path":"working_with_vector/expression.md","ref":"working_with_vector/expression.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"working_with_vector/field_calculator.md","mtime":"2018-12-10T11:06:04.140Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-10T13:11:30.657Z"},"basePath":"..","book":{"language":"fr"}});
         });
     </script>
 </div>

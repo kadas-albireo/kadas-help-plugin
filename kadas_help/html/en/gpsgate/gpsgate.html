@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Working with Raster Data · GitBook</title>
+        <title>Configuring GPSGate · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -49,10 +49,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="raster_properties.html" />
     
-    
-    <link rel="prev" href="../working_with_vector/field_calculator.html" />
+    <link rel="prev" href="../working_with_raster/raster_properties.html" />
     
 
     </head>
@@ -964,9 +962,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.10.7" data-path="supported_data.html">
+        <li class="chapter " data-level="1.10.7" data-path="../working_with_raster/supported_data.html">
             
-                <a href="supported_data.html">
+                <a href="../working_with_raster/supported_data.html">
             
                     
                     Working with Raster Data
@@ -977,9 +975,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.8" data-path="raster_properties.html">
+        <li class="chapter " data-level="1.10.8" data-path="../working_with_raster/raster_properties.html">
             
-                <a href="raster_properties.html">
+                <a href="../working_with_raster/raster_properties.html">
             
                     
                     Raster Properties Dialog
@@ -990,9 +988,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.9" data-path="../gpsgate/gpsgate.html">
+        <li class="chapter active" data-level="1.10.9" data-path="gpsgate.html">
             
-                <a href="../gpsgate/gpsgate.html">
+                <a href="gpsgate.html">
             
                     
                     Configuring GPSGate
@@ -1083,7 +1081,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Working with Raster Data</a>
+        <a href=".." >Configuring GPSGate</a>
     </h1>
 </div>
 
@@ -1095,15 +1093,36 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="working-with-raster-data-">Working with Raster Data <a name="#working-with-raster-data"></a></h1>
-<p>This section describes how to visualize and set raster layer properties. KADAS uses the <span id="index-3"></span>GDAL library to read and write raster data formats, including ArcInfo Binary Grid, ArcInfo ASCII Grid, GeoTIFF, ERDAS IMAGINE, and many more. GRASS raster support is supplied by a native KADAS data provider plugin. The raster data can also be loaded in read mode from zip and gzip archives into KADAS.</p>
-<p>As of the date of this document, more than 100 raster formats are supported by the GDAL library. A complete list is available at <a href="http://www.gdal.org/formats_list.html" target="_blank">http://www.gdal.org/formats_list.html</a>.</p>
-<p>Note</p>
-<p>Not all of the listed formats may work in KADAS for various reasons. For example, some require external commercial libraries, or the GDAL installation of your OS may not have been built to support the format you want to use. Only those formats that have been well tested will appear in the list of file types when loading a raster into KADAS. Other untested formats can be loaded by selecting the <code>[GDAL] All files (*)</code> filter.</p>
-<h2 id="what-is-raster-data-">What is raster data? <a name="#what-is-raster-data"></a></h2>
-<p>Raster data in GIS are matrices of discrete cells that represent features on, above or below the earth&#x2019;s surface. Each cell in the raster grid is the same size, and cells are usually rectangular (in KADAS they will always be rectangular). Typical raster datasets include remote sensing data, such as aerial photography, or satellite imagery and modelled data, such as an elevation matrix.</p>
-<p>Unlike vector data, raster data typically do not have an associated database record for each cell. They are geocoded by pixel resolution and the x/y coordinate of a corner pixel of the raster layer. This allows KADAS to position the data correctly in the map canvas.</p>
-<p>KADAS makes use of georeference information inside the raster layer (e.g., GeoTiff) or in an appropriate world file to properly display the data.</p>
+                                <h1 id="gpsgate-">GpsGate <a name="#gpsgate"></a></h1>
+<h2 id="run-gpsgate-">Run GpsGate <a name="#run-gpsgate"></a></h2>
+<p>You can launch GpsGate under <em>Start&#x2192;Programs&#x2192;KADAS&#x2192;GpsGate</em>.</p>
+<p>The first time GpsGate is run a setup Wizard will start. The Wizard will help you to find your GPS and tell you how to connect your GPS applications to GpsGate.</p>
+<h2 id="running-the-setup-wizard-">Running the setup Wizard <a name="#running-the-setup-wizard"></a></h2>
+<p>Make sure you turn your GPS on, and connect it to your computer, if it is a wireless Bluetooth GPS simply turn it on. To speed up the search you can uncheck the types of GPS receivers you do not want to search for. If you are unsure, keep all options checked. After this is done, click &#x201C;Next&#x201D; and the Wizard will scan your computer for a connected GPS.</p>
+<p>If you are an advanced user, click &#x201C;Advanced setup&#x2026;&#x201D; for a setup process where you have complete control. You can always run the Wizard again from the Settings Dialog.</p>
+<p><img src="../../images/wizard_select_search_200.gif" alt=""></p>
+<p>Click Next. The Wizard will now start searching for a GPS. This can take some time.</p>
+<p><img src="../../images/wizard_search_200.gif" alt=""></p>
+<p>When the Wizard finds a GPS, a message dialog is displayed. Click &#x201C;Yes&#x201D; to accept the found GPS as input. If you have several GPS receivers connected, click &#x201C;No&#x201D; until GpsGate finds the receiver you want to use.</p>
+<p><img src="../../images/wizard_device_found_200.gif" alt=""></p>
+<p>If GpsGate won&#x2019;t find your GPS, you need to use &#x201C;Advanced Setup&#x2026;&#x201D;</p>
+<p>Select Output and click &#x201C;Next&#x201D;. If you are unsure, simply click &#x201C;Next&#x201D;.</p>
+<p><img src="../../images/wizard_select_output_200.gif" alt=""></p>
+<p>The next screen displays a summary. It is importaint to save this summary. You can save it to a file and print it. You can also find the this information later in the Settings dialog (from the Tray menu).</p>
+<p>You connect Garmin applications like nRoute to the first port in the list, and other NMEA applications to the remaining ports. You can only connect one application to one port at a time. If you need to create more ports you can do that from the Settings Dialog at any time.</p>
+<p><img src="../../images/wizard_summary_200.gif" alt=""></p>
+<p>Now you can start your GPS applications and connect them to the ports created by GpsGate in the last step above. You can run all the GPS applications at the same time!</p>
+<p>When GpsGate is running it is displayed as a Tray Icon. By clicking on this icon you can access its functions.</p>
+<p><img src="../../images/tray_icon_win.gif" alt=""></p>
+<p>You can re-run the Wizard at any time by selecting clicking &#x201C;Setup Wizard..&#x201D; in the Settings dialog. Tray icon colors and shapes</p>
+<p>The tray icon always indicates the status of GpsGate. Here is a list of the possible displayed tray icons:</p>
+<p><img src="../../images/red32.gif" alt="">
+No GPS or NMEA data is detected by GpsGate.</p>
+<p><img src="../../images/yellow32.gif" alt="">
+Valid GPS data has been detected at the selected input, but the GPS data has no fix, that is it cannot determine its position (yet).</p>
+<p><img src="../../images/green32.gif" alt="">
+A valid GPS position (fix) has been detected at the selected input.</p>
+<p>If the tray icon is not green your GPS application will not display/use a correct position.</p>
 
                                 
                                 </section>
@@ -1115,14 +1134,10 @@
 
             
                 
-                <a href="../working_with_vector/field_calculator.html" class="navigation navigation-prev " aria-label="Previous page: Field Calculator">
+                <a href="../working_with_raster/raster_properties.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Raster Properties Dialog">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="raster_properties.html" class="navigation navigation-next " aria-label="Next page: Raster Properties Dialog">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -1131,7 +1146,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Working with Raster Data","level":"1.10.7","depth":2,"next":{"title":"Raster Properties Dialog","level":"1.10.8","depth":2,"path":"working_with_raster/raster_properties.md","ref":"working_with_raster/raster_properties.md","articles":[]},"previous":{"title":"Field Calculator","level":"1.10.6","depth":2,"path":"working_with_vector/field_calculator.md","ref":"working_with_vector/field_calculator.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"working_with_raster/supported_data.md","mtime":"2018-12-06T18:26:24.153Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-10T13:11:30.657Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Configuring GPSGate","level":"1.10.9","depth":2,"next":{"title":"Appendix","level":"1.11","depth":1,"ref":"","articles":[{"title":"Keyboard shortcuts","level":"1.11.1","depth":2,"path":"appendices/shortcuts.md","ref":"appendices/shortcuts.md","articles":[]},{"title":"License","level":"1.11.2","depth":2,"path":"appendices/license.md","ref":"appendices/license.md","articles":[]}]},"previous":{"title":"Raster Properties Dialog","level":"1.10.8","depth":2,"path":"working_with_raster/raster_properties.md","ref":"working_with_raster/raster_properties.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"gpsgate/gpsgate.md","mtime":"2018-12-06T18:26:24.157Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-10T13:11:30.657Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

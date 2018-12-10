@@ -1003,6 +1003,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.10.9" data-path="../gpsgate/gpsgate.html">
+            
+                <a href="../gpsgate/gpsgate.html">
+            
+                    
+                    Configurazione di GPSGate
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1095,15 +1108,14 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="working-with-raster-data">Lavorare con i dati raster </h1>
-<p>Questa sezione descrive come visualizzare ed impostare le propriet&#xE0; dei dati raster. KADAS usa la libreria <span id="index-7" class="target"></span>GDAL per l&#x2019;accesso alla lettura/scrittura a formati raster, tipo ArcInfo Binary Grid, ArcInfo ASCII Grid, GeoTIFF, ERDAS IMAGINE e molti altri. Il supporto ai raster GRASS &#xE8; garantito da un plugin nativo di KADAS. Puoi caricare i dati raster in KADAS anche in sola lettura da archivi zip e gzip.</p>
-<p>Attualmente, la libreria GDAL supporta pi&#xF9; di 100 formati raster (vedi GDAL-SOFTWARE-SUITE <em>literature_and_web</em>). La lista completa &#xE8; disponibile alla pagina web <a href="http://www.gdal.org/formats_list.html" class="uri" target="_blank">http://www.gdal.org/formats_list.html</a>.</p>
-<p>Nota</p>
+                                <h1 id="lavorare-con-i-dati-raster-">Lavorare con i dati raster <a name="#working-with-raster-data"></a></h1>
+<p>Questa sezione descrive come visualizzare ed impostare le propriet&#xE0; dei dati raster. KADAS usa la libreria GDAL per l&#x2019;accesso alla lettura/scrittura a formati raster, tipo ArcInfo Binary Grid, ArcInfo ASCII Grid, GeoTIFF, ERDAS IMAGINE e molti altri. Il supporto ai raster GRASS &#xE8; garantito da un plugin nativo di KADAS. Puoi caricare i dati raster in KADAS anche in sola lettura da archivi zip e gzip.</p>
+<p>Attualmente, la libreria GDAL supporta pi&#xF9; di 100 formati raster (vedi GDAL-SOFTWARE-SUITE <em>literature_and_web</em>). La lista completa &#xE8; disponibile alla pagina web <a href="http://www.gdal.org/formats_list.html" target="_blank">http://www.gdal.org/formats_list.html</a>.</p>
 <p>Per diverse ragioni, non tutti i formati elencati potrebbero funzionare in KADAS. Per esempio, alcuni formati richiedono la presenza di librerie commerciali di terze parti oppure l&#x2019;installazione di GDAL potrebbe essere avvenuta senza il supporto al formato che intendi usare. Quando carichi un raster in KADAS, solo i formati ben testati appariranno nell&#x2019;elenco dei tipi di file; altri formati non testati possono essere caricati selezionando l&#x2019;opzione <code>[GDAL] Tutti i file (*)</code>.</p>
-<h2 id="what-is-raster-data">Cosa sono i dati raster? </h2>
+<h2 id="cosa-sono-i-dati-raster-">Cosa sono i dati raster? <a name="#what-is-raster-data"></a></h2>
 <p>I dati raster sono matrici di celle discrete che rappresentano elementi della superficie terrestre o dell&#x2019;ambiente al di sopra o al di sotto di essa. Ogni cella nella matrice ha la stessa dimensione e le celle sono solitamente rettangolari (in KADAS sono sempre rettangolari). Esempi tipici di dati raster sono quelli provenienti dal telerilevamento come le fotografie aeree, le immagini da satellite e dati modellati come le matrici dell&#x2019;elevazione.</p>
 <p>Diversamente dai vettori, i dati raster di solito non hanno associato un database contenente i dati descrittivi di ogni cella e sono geocodificati in base alla risoluzione del pixel e alle coordinate x/y di un angolo del raster. Questo permette a KADAS di posizionare correttamente il dato sulla mappa.</p>
-<p>Per posizionare e visualizzare correttamente un raster, KADAS legge le informazioni di georeferenziazione incorporate direttamente nel file raster (ad es. <span id="index-8" class="target"></span>GeoTiff) o gestite da un apposito file (world file).</p>
+<p>Per posizionare e visualizzare correttamente un raster, KADAS legge le informazioni di georeferenziazione incorporate direttamente nel file raster (ad es. GeoTiff) o gestite da un apposito file (world file).</p>
 
                                 
                                 </section>
@@ -1131,7 +1143,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lavorare con i dati raster","level":"1.10.7","depth":2,"next":{"title":"Proprietà raster","level":"1.10.8","depth":2,"path":"working_with_raster/raster_properties.md","ref":"working_with_raster/raster_properties.md","articles":[]},"previous":{"title":"Calcolatore dei campi","level":"1.10.6","depth":2,"path":"working_with_vector/field_calculator.md","ref":"working_with_vector/field_calculator.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"it","gitbook":"*"},"file":{"path":"working_with_raster/supported_data.md","mtime":"2018-07-16T14:45:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-05T20:54:10.004Z"},"basePath":"..","book":{"language":"it"}});
+            gitbook.page.hasChanged({"page":{"title":"Lavorare con i dati raster","level":"1.10.7","depth":2,"next":{"title":"Proprietà raster","level":"1.10.8","depth":2,"path":"working_with_raster/raster_properties.md","ref":"working_with_raster/raster_properties.md","articles":[]},"previous":{"title":"Calcolatore dei campi","level":"1.10.6","depth":2,"path":"working_with_vector/field_calculator.md","ref":"working_with_vector/field_calculator.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-buttons","-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"it","gitbook":"*"},"file":{"path":"working_with_raster/supported_data.md","mtime":"2018-12-09T21:31:34.746Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-10T13:11:30.657Z"},"basePath":"..","book":{"language":"it"}});
         });
     </script>
 </div>
