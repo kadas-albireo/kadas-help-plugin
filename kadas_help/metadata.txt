@@ -1,15 +1,18 @@
 [general]
 name=KADAS Help
-qgisMinimumVersion=2.0
-qgisMaximumVersion=2.99
-description=KADAS online help
+qgisMinimumVersion=3.0
+qgisMaximumVersion=3.99
+description=KADAS help plugin
 about=KADAS online help.
-version=0.7.5
+version=1.90
 author=Sourcepole
 email=pka@sourcepole.ch
 
 
 changelog=
+ Rev 1.90 (31.10.2019)
+  - Initial port to Kadas 2
+
  Rev 0.7.5 (26.11.2018)
   - Update help
 
