@@ -4,12 +4,15 @@ qgisMinimumVersion=3.0
 qgisMaximumVersion=3.99
 description=KADAS help plugin
 about=KADAS online help.
-version=1.90
+version=1.91
 author=Sourcepole
 email=pka@sourcepole.ch
 
 
 changelog=
+ Rev 1.91 (28.11.2019)
+  - Split off about dialog
+
  Rev 1.90 (31.10.2019)
   - Initial port to Kadas 2
 
@@ -48,9 +51,9 @@ changelog=
 # Tags are comma separated with spaces allowed
 tags=help,about
 
-homepage=https://gitlab.sourcepole.ch/sourcepole/kadas-help-plugin
-tracker=https://gitlab.sourcepole.ch/sourcepole/kadas-help-plugin
-repository=https://gitlab.sourcepole.ch/sourcepole/kadas-help-plugin
+homepage=https://github.com/kadas-albireo/kadas-help-plugin
+tracker=https://github.com/kadas-albireo/kadas-help-plugin
+repository=https://github.com/kadas-albireo/kadas-help-plugin
 icon=icon.png
 experimental=False
 deprecated=False

@@ -21,8 +21,6 @@ except Exception as e:
     QMessageBox.information(None, "Debug", str(e))
     HAVE_WEBKIT = False
 from kadas.kadasgui import *
-from . import resources
-from .about_dialog import AboutDialog
 
 
 class HelpPlugin:
@@ -46,9 +44,7 @@ class HelpPlugin:
                 QCoreApplication.installTranslator(self.translator)
 
         self.helpWidget = None
-        self.aboutWidget = None
         self.helpAction = None
-        self.aboutAction = None
 
     def tr(self, message):
         return QCoreApplication.translate('UserManual', message)
@@ -57,13 +53,9 @@ class HelpPlugin:
         self.helpAction = self.iface.findAction("mActionHelp")
         self.helpAction.triggered.connect(self.showHelp)
 
-        self.aboutAction = self.iface.findAction("mActionAbout")
-        self.aboutAction.triggered.connect(self.showAbout)
-
     def unload(self):
         self.helpWidget = None
         self.helpAction = None
-        self.aboutAction = None
 
     def showHelp(self):
         docdir = os.path.join(self.plugin_dir, "html")
@@ -86,12 +78,3 @@ class HelpPlugin:
 
             self.helpWidget.show()
             self.helpWidget.raise_()
-
-    def showAbout(self):
-        locale = self.locale
-        if not locale in ['en', 'de', 'it', 'fr']:
-            locale = 'en'
-        if self.aboutWidget is None:
-            self.aboutWidget = AboutDialog(locale, self.iface.mainWindow())
-        self.aboutWidget.show()
-        self.aboutWidget.raise_()

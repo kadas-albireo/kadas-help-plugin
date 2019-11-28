@@ -1,5 +1,4 @@
-SOURCES += help_plugin.py \
-           about_dialog.py
+SOURCES += help_plugin.py
 
 
 
