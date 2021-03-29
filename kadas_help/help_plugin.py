@@ -11,6 +11,8 @@
 """
 
 import os
+
+
 from qgis.PyQt.QtCore import *
 from qgis.PyQt.QtGui import *
 from qgis.PyQt.QtWidgets import *
@@ -21,6 +23,8 @@ except Exception as e:
     QMessageBox.information(None, "Debug", str(e))
     HAVE_WEBKIT = False
 from kadas.kadasgui import *
+
+from .http_server import HttpServer
 
 
 class HelpPlugin:
@@ -50,21 +54,26 @@ class HelpPlugin:
         return QCoreApplication.translate('UserManual', message)
 
     def initGui(self):
-        self.helpAction = self.iface.findAction("mActionHelp")
-        self.helpAction.triggered.connect(self.showHelp)
-
-    def unload(self):
-        self.helpWidget = None
-        self.helpAction = None
-
-    def showHelp(self):
         docdir = os.path.join(self.plugin_dir, "html")
         if os.path.isdir(os.path.join(docdir, self.locale)):
             lang = self.locale
         else:
             lang = 'en'
-        url = QUrl("file:///{dir}/{lang}/index.html".format(
-                  dir=docdir, lang=lang))
+        docdir = os.path.join(docdir, lang)
+
+        self.server = HttpServer(docdir, "127.0.0.1")
+        self.helpAction = self.iface.findAction("mActionHelp")
+        self.helpAction.triggered.connect(self.showHelp)
+        self.server.start()
+
+    def unload(self):
+        self.server.shutdown()
+        self.helpWidget = None
+        self.helpAction = None
+
+    def showHelp(self):
+        url = QUrl("http:///{host}:{port}/".format(
+            host=self.server.host, port=self.server.port))
 
         if not HAVE_WEBKIT:
             QDesktopServices.openUrl(url)
@@ -73,7 +82,7 @@ class HelpPlugin:
                 # Create the widget (after translation) and keep reference
                 self.helpWidget = QWebView()
                 self.helpWidget.setWindowTitle(self.tr('KADAS User Manual'))
-                self.helpWidget.resize(800, 600)
+                self.helpWidget.resize(1024, 768)
                 self.helpWidget.load(url)
 
             self.helpWidget.show()
