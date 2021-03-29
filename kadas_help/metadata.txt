@@ -4,12 +4,16 @@ qgisMinimumVersion=3.0
 qgisMaximumVersion=3.99
 description=KADAS help plugin
 about=KADAS online help.
-version=1.92
+version=2.0
 author=Sourcepole
 email=pka@sourcepole.ch
 
 
 changelog=
+ Rev 2.0 (29.03.2021)
+  - Update manual
+  - Add small webserver to serve documentation
+
  Rev 1.92 (11.02.2020)
   - Update manual
 
