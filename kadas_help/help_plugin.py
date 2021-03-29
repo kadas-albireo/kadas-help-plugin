@@ -55,11 +55,6 @@ class HelpPlugin:
 
     def initGui(self):
         docdir = os.path.join(self.plugin_dir, "html")
-        if os.path.isdir(os.path.join(docdir, self.locale)):
-            lang = self.locale
-        else:
-            lang = 'en'
-        docdir = os.path.join(docdir, lang)
 
         self.server = HttpServer(docdir, "127.0.0.1")
         self.helpAction = self.iface.findAction("mActionHelp")
@@ -72,8 +67,14 @@ class HelpPlugin:
         self.helpAction = None
 
     def showHelp(self):
-        url = QUrl("http:///{host}:{port}/".format(
-            host=self.server.host, port=self.server.port))
+        docdir = os.path.join(self.plugin_dir, "html")
+        if os.path.isdir(os.path.join(docdir, self.locale)):
+            lang = self.locale
+        else:
+            lang = 'en'
+
+        url = QUrl("http:///{host}:{port}/{lang}/".format(
+            host=self.server.host, port=self.server.port, lang=lang))
 
         if not HAVE_WEBKIT:
             QDesktopServices.openUrl(url)
