@@ -68,7 +68,7 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../gps/">GPS</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../gps/">Navigation</a>
                     </li>
                 </ul>
                 <ul class="current">
@@ -81,8 +81,6 @@
     <li class="toctree-l2"><a class="reference internal" href="#ebenenverwaltung">Ebenenverwaltung</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#milx-import-und-export">MilX Import und Export</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ovl-import">OVL Import</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#symbolgrosse-liniendicke-und-arbeitsmodus">Symbolgrösse, Liniendicke und Arbeitsmodus</a>
     </li>
@@ -181,10 +179,6 @@
 MILXLY (und die komprimierten Variante MILXLYZ) ist ein Format für den Austausch von Lagedarstellungen. Es enthält ausschliesslich MSS Symbole der Lagedarstellung, und keine weitere Objekte wie Redlining, Stecknadeln oder Bilder.</p>
 <p>Beim <strong><em>Export</em></strong> nach MILXLY(Z) kann ausgewählt werden, welche MilX Ebenen zu exportieren sind, und in welcher Version die Datei erstellt werden soll. Zudem kann gewählt werden, ob die im Druckdialog definierte Kartenkartusche exportiert werden soll.</p>
 <p>Beim <strong><em>Import</em></strong> einer MILXLY(Z) Datei werden sämtliche darin enthaltenen Ebenen importiert. Falls die Datei MSS Symboldefinitionen gemäss eines älteren Standards enthält, werden diese automatisch konvertiert. Mögliche Konversionsverluste oder Fehler werden dem Benutzer mitgeteilt. Falls eine der importierten Ebenen eine Kartusche enthält, wird dem Benutzer gefragt, in ob diese in KADAS übernommen werden soll.</p>
-<h2 id="ovl-import"><a name="sec4"></a>OVL Import</h2>
-<p>OVL ist das Projektformat der Software PCMAP Swissline. Es wird nur die OVL Version 5.0 unterstützt. Ältere Dateien sollten mit der PCMAP Swissline Software aktualisiert werden, bevor sie in KADAS importiert werden.</p>
-<p>Der OVL Importer ist ein Plugin, welches vom Plugin-Manager im Settings-Tab aktiviert werden muss.</p>
-<p>Der OVL Importer konvertiert darin enthaltene taktische Graphiken zu entsprechende MSS Symbole, während Geometrien und Beschriftungen in Redlining Objekte transformiert werden. Falls Konversionsfehler auftreten, werden diese dem Benutzer mitgeteilt. Auch bei erfolgreich konvertierten Objekte kann deren Darstellung gegenüber der PCMAP Swissline Software abweichen, somit ist es empfehlenswert, die importierten Daten zu überprüfen.</p>
 <h2 id="symbolgrosse-liniendicke-und-arbeitsmodus"><a name="sec5"></a>Symbolgrösse, Liniendicke und Arbeitsmodus</h2>
 <p>Diese Einstellungen beeinflussen die Darstellung aller MSS Symbole in der Karte.</p>
               
@@ -197,7 +191,7 @@ MILXLY (und die komprimierten Variante MILXLYZ) ist ein Format für den Austausc
         <a href="../settings/" class="btn btn-neutral float-right" title="Einstellungen">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../gps/" class="btn btn-neutral" title="GPS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../gps/" class="btn btn-neutral" title="Navigation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
