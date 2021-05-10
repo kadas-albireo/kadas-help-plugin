@@ -55,6 +55,7 @@ class HelpPlugin:
 
     def initGui(self):
         docdir = os.path.join(self.plugin_dir, "html")
+        self.iface.mainWindowClosed.connect(self.closeHelpWindow)
 
         self.server = HttpServer(docdir, "127.0.0.1")
         self.helpAction = self.iface.findAction("mActionHelp")
@@ -88,3 +89,7 @@ class HelpPlugin:
 
             self.helpWidget.show()
             self.helpWidget.raise_()
+
+    def closeHelpWindow(self):
+        if self.helpWidget:
+            self.helpWidget.close()
