@@ -1,51 +1,25 @@
 #!/usr/bin/python3
 
 import os
-import socket
 import signal
 import sys
 import time
-from threading import Thread
+from qgis.PyQt.QtCore import *
+from qgis.PyQt.QtGui import *
+from qgis.PyQt.QtWidgets import *
+from qgis.PyQt.QtNetwork import *
 
-class HttpServer:
+
+class HttpServer(QTcpServer):
     def __init__(self, www_dir, host = "", port = 0):
+        QTcpServer.__init__(self)
         self.host = host
         self.port = port
         self.www_dir = www_dir
-        self.thread = None
-        self.quitting = False
-
-    def start(self, thread=True):
-        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        try:
-            self.socket.bind((self.host, self.port))
-            self.host, self.port = self.socket.getsockname()
-            print("Running on http://%s:%d" % (self.host, self.port))
-
-        except Exception as e:
-            print("Error: failed to start server on %s:%d" % (self.host, self.port))
-            self.shutdown()
-            return False
-
-        if thread:
-            self.thread = Thread(target=self._wait_for_connections)
-            self.thread.setDaemon(True)
-            self.thread.start()
-        else:
-            self._wait_for_connections()
-
-    def shutdown(self):
-        self.quitting = True
-        try:
-            self.socket.shutdown(socket.SHUT_RDWR)
-        except Exception as e:
-            pass
-
-        if self.thread:
-            self.thread.join()
-
-        self.socket.close()
+        self.listen(QHostAddress(host), port)
+        self.host = self.serverAddress().toString()
+        self.port = self.serverPort()
+        self.newConnection.connect(self.handleConnection)
 
     def _gen_headers(self,  code):
         h = ''
@@ -56,22 +30,19 @@ class HttpServer:
 
         current_date = time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime())
         h += 'Date: ' + current_date +'\n'
-        h += 'Server: Simple-Python-HTTP-Server\n'
         h += 'Connection: close\n\n'  # signal that the conection wil be closed after complting the request
-
         return h
 
-    def _wait_for_connections(self):
-        while True:
-            self.socket.listen()
-            try:
-                conn, addr = self.socket.accept()
-            except:
-                if self.quitting:
-                    break
+    def handleConnection(self):
+        while self.hasPendingConnections():
+            socket = self.nextPendingConnection()
+            # socket.waitForReadyRead()
+            loop = QEventLoop()
+            socket.readyRead.connect(loop.quit)
+            loop.exec_()
+            data = socket.readAll()
 
-            data = conn.recv(1024)
-            string = bytes.decode(data)
+            string = bytes(data).decode()
             parts = string.split(' ')
 
             if len(parts) >= 2 and ((parts[0] == 'GET') or (parts[0] == 'HEAD')):
@@ -106,12 +77,14 @@ class HttpServer:
                 if (request_method == 'GET'):
                     server_response +=  response_content
 
-                conn.send(server_response)
-            conn.close()
+                socket.write(server_response)
+                socket.flush()
+                socket.close()
 
 if __name__ == "__main__":
-    lang="en"
-    www_dir = os.path.join(os.path.dirname(__file__), "html", lang)
-    s = HttpServer(www_dir, "127.0.0.1")
-    s.start(False)
-    signal.signal(signal.SIGINT, s.shutdown)
+    signal.signal(signal.SIGINT, signal.SIG_DFL)
+    app = QApplication(sys.argv)
+    www_dir = os.path.join(os.path.dirname(__file__), "html")
+    s = HttpServer(www_dir, "127.0.0.1", 42159)
+    print("Running on http://%s:%d" % (s.host, s.port))
+    app.exec_()

@@ -60,33 +60,43 @@ class HelpPlugin:
         self.server = HttpServer(docdir, "127.0.0.1")
         self.helpAction = self.iface.findAction("mActionHelp")
         self.helpAction.triggered.connect(self.showHelp)
-        self.server.start()
+
+        if os.path.isdir(os.path.join(docdir, self.locale)):
+            self.lang = self.locale
+        else:
+            self.lang = 'en'
+
+        if HAVE_WEBKIT:
+            # Create the widget (after translation) and keep reference
+            self.helpWidget = QWebView()
+            self.helpWidget.setWindowTitle(self.tr('KADAS User Manual'))
+            self.helpWidget.resize(1024, 768)
+            url = QUrl("http:///{host}:{port}/{lang}/".format(
+                host=self.server.host, port=self.server.port, lang=self.lang))
+            self.helpWidget.load(url)
+            self.timer = QTimer()
+            self.timer.setInterval(500)
+            self.timer.setSingleShot(True)
+            self.timer.timeout.connect(self.raiseHelpWindow)
 
     def unload(self):
-        self.server.shutdown()
         self.helpWidget = None
         self.helpAction = None
 
     def showHelp(self):
         docdir = os.path.join(self.plugin_dir, "html")
-        if os.path.isdir(os.path.join(docdir, self.locale)):
-            lang = self.locale
-        else:
-            lang = 'en'
+
 
         url = QUrl("http:///{host}:{port}/{lang}/".format(
-            host=self.server.host, port=self.server.port, lang=lang))
+            host=self.server.host, port=self.server.port, lang=self.lang))
 
         if not HAVE_WEBKIT:
             QDesktopServices.openUrl(url)
         else:
-            if self.helpWidget is None:
-                # Create the widget (after translation) and keep reference
-                self.helpWidget = QWebView()
-                self.helpWidget.setWindowTitle(self.tr('KADAS User Manual'))
-                self.helpWidget.resize(1024, 768)
-                self.helpWidget.load(url)
+            self.helpWidget.load(url)
+            self.timer.start()
 
+    def raiseHelpWindow(self):
             self.helpWidget.show()
             self.helpWidget.raise_()
 
