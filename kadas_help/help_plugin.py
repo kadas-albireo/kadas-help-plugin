@@ -12,7 +12,7 @@
 
 import os
 
-
+from qgis.core import *
 from qgis.PyQt.QtCore import *
 from qgis.PyQt.QtGui import *
 from qgis.PyQt.QtWidgets import *
@@ -78,6 +78,7 @@ class HelpPlugin:
             self.timer.setInterval(500)
             self.timer.setSingleShot(True)
             self.timer.timeout.connect(self.raiseHelpWindow)
+            QgsLogger.debug("Help server running on {host}:{port}".format(host=self.server.host, port=self.server.port))
 
     def unload(self):
         self.helpWidget = None
