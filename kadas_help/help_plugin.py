@@ -22,9 +22,8 @@ try:
 except Exception as e:
     QMessageBox.information(None, "Debug", str(e))
     HAVE_WEBKIT = False
+from kadas.kadascore import *
 from kadas.kadasgui import *
-
-from .http_server import HttpServer
 
 
 class HelpPlugin:
@@ -57,7 +56,8 @@ class HelpPlugin:
         docdir = os.path.join(self.plugin_dir, "html")
         self.iface.mainWindowClosed.connect(self.closeHelpWindow)
 
-        self.server = HttpServer(docdir, "127.0.0.1")
+        self.server = KadasFileServer(docdir, "127.0.0.1")
+        QgsLogger.debug("Help server running on {host}:{port}".format(host=self.server.getHost(), port=self.server.getPort()))
         self.helpAction = self.iface.findAction("mActionHelp")
         self.helpAction.triggered.connect(self.showHelp)
 
@@ -65,20 +65,6 @@ class HelpPlugin:
             self.lang = self.locale
         else:
             self.lang = 'en'
-
-        if HAVE_WEBKIT:
-            # Create the widget (after translation) and keep reference
-            self.helpWidget = QWebView()
-            self.helpWidget.setWindowTitle(self.tr('KADAS User Manual'))
-            self.helpWidget.resize(1024, 768)
-            url = QUrl("http:///{host}:{port}/{lang}/".format(
-                host=self.server.host, port=self.server.port, lang=self.lang))
-            self.helpWidget.load(url)
-            self.timer = QTimer()
-            self.timer.setInterval(500)
-            self.timer.setSingleShot(True)
-            self.timer.timeout.connect(self.raiseHelpWindow)
-            QgsLogger.debug("Help server running on {host}:{port}".format(host=self.server.host, port=self.server.port))
 
     def unload(self):
         self.helpWidget = None
@@ -89,11 +75,19 @@ class HelpPlugin:
 
 
         url = QUrl("http:///{host}:{port}/{lang}/".format(
-            host=self.server.host, port=self.server.port, lang=self.lang))
+            host=self.server.getHost(), port=self.server.getPort(), lang=self.lang))
 
         if not HAVE_WEBKIT:
             QDesktopServices.openUrl(url)
         else:
+            if not self.helpWidget:
+                self.helpWidget = QWebView()
+                self.helpWidget.setWindowTitle(self.tr('KADAS User Manual'))
+                self.helpWidget.resize(1024, 768)
+                self.timer = QTimer()
+                self.timer.setInterval(250)
+                self.timer.setSingleShot(True)
+                self.timer.timeout.connect(self.raiseHelpWindow)
             self.helpWidget.load(url)
             self.timer.start()
 
