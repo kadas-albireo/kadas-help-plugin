@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -25,9 +25,8 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -53,6 +52,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#protocole-de-version">Protocole de version</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#version-210-decembre-2021">Version 2.1.0 (décembre 2021)</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#version-200-juliet-2020">Version 2.0.0 (juliet 2020)</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#version-12-decembre-2018">Version 1.2 (décembre 2018)</a>
@@ -153,6 +154,7 @@
   
   <hr/>
 </div>
+
           <div role="main">
             <div class="section">
               
@@ -165,6 +167,40 @@ KADAS Albireo est une application d'affichage des cartes basée sur le logiciel 
 <p>La composante MSS/MilX est la propriété de l’entreprise gs-soft AG.</p>
 <p>Les conditions d’utilisation des données sont énumérées dans l’application sous Aide → À propos.</p>
 <h2 id="protocole-de-version"><a name="sec3"></a>Protocole de version</h2>
+<h3 id="version-210-decembre-2021">Version 2.1.0 (décembre 2021)</h3>
+<ul>
+<li><em>Général</em>:<ul>
+<li>Imprimer: Mise à l'échelle correcte des symboles (MSS, épingles, images, ...) en fonction du DPI d'impression.</li>
+<li>GPKG: Permet l'importation de couches de projet</li>
+<li>Arbre des couches: Possibilité de zoomer et de supprimer toutes les couches sélectionnées</li>
+<li>Visibilité basée sur l'échelle également pour les couches redlining/MSS</li>
+<li>Table d'attributs: divers nouveaux outils de sélection et de zoom pour les tables d'attributs</li>
+</ul>
+</li>
+<li><em>Vue</em>:<ul>
+<li>Nouvelle fonction de signets</li>
+</ul>
+</li>
+<li><em>Analyse</em>:<ul>
+<li>Bassin visuel: Possibilité de limiter la plage d'angle vertical de l'observateur</li>
+<li>Profil d’altitude et visibilité: affichage du marqueur dans le graphe lors du survol de la ligne sur la carte</li>
+<li>Nouvel outil éphéméride</li>
+</ul>
+</li>
+<li><em>Dessin</em>:<ul>
+<li>Épingles: Ajout d'un éditeur de texte riche</li>
+<li>Epingles: Permettre d'interagir avec le contenu de l'infobulle avec la souris</li>
+<li>Grille de guidage: Permettre l'étiquetage d'un seul quadrant</li>
+<li>Bullseye: Étiquetage des quadrants</li>
+<li>Nouvel élément de dessin en croix de coordonnées</li>
+</ul>
+</li>
+<li><em>MSS</em>:<ul>
+<li>Paramètres des symboles par couche</li>
+<li>Mise à jour de MSS-2022</li>
+</ul>
+</li>
+</ul>
 <h3 id="version-200-juliet-2020">Version 2.0.0 (juliet 2020)</h3>
 <ul>
 <li>Nouvelle architecture d'application: KADAS est maintenant une application distincte, construite sur les bibliothèques QGIS 3.x</li>
@@ -305,17 +341,18 @@ KADAS Albireo est une application d'affichage des cartes basée sur le logiciel 
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="kadas_gui/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="kadas_gui/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
     <script defer>
         window.onload = function () {

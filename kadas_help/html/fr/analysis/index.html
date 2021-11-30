@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="../../css/theme.css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -25,9 +25,8 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -62,6 +61,8 @@
     <li class="toctree-l2"><a class="reference internal" href="#pente-et-ombrage">Pente et ombrage</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#bassin-visuel">Bassin visuel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ephemerides">Ephémérides</a>
     </li>
     </ul>
                     </li>
@@ -145,6 +146,7 @@
   
   <hr/>
 </div>
+
           <div role="main">
             <div class="section">
               
@@ -181,6 +183,8 @@
 <p>Pour utiliser ces fonctions d’analyse du terrain, il faut définir un modèle d’altitude dans le projet.</p>
 <p>L’analyse de visibilité est calculée au sein d’une portion de cercle ou d’un cercle complet. Le premier clic sur la carte permet de définir la position de l’observateur, le deuxième clic le rayon et le troisième l’angle d’ouverture du secteur. Si la saisie numérique est activée, ces paramètres peuvent également être saisis numériquement. Une fois que la surface à analyser a été saisie, les paramètres de calcul peuvent être modifiés, autrement dit l’altitude de l’observateur, la hauteur du signal, l’interprétation (ou non) de l’altitude en fonction du terrain ou du niveau de la mer et l’affichage (ou non) des portions de terrain visibles ou invisibles.</p>
 <p>Après calcul, le résultat est ajouté à la carte sous forme de couche raster. Si vous sauvegardez le projet, cette couche sera attachée au projet dans le fichier <em><nom du projet>.qgz</em>.</p>
+<h2 id="ephemerides"><a name="sec4"></a>Ephémérides</h2>
+<p>L'outil <strong><em>Ephémérides</em></strong> calcule les éphémérides du soleil et de la lune (position, heures de lever et de coucher, phase de la lune) à une position du terrain et à un moment donné dans le temps sélectionnés.</p>
               
             </div>
           </div>
@@ -214,17 +218,18 @@
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../view/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../draw/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../view/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../draw/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
     <script src="../../js/theme.js" defer></script>
     <script defer>
         window.onload = function () {
