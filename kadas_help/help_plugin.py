@@ -20,7 +20,6 @@ try:
     from PyQt5.QtWebKitWidgets import QWebView
     HAVE_WEBKIT = True
 except Exception as e:
-    QMessageBox.information(None, "Debug", str(e))
     HAVE_WEBKIT = False
 from kadas.kadascore import *
 from kadas.kadasgui import *
