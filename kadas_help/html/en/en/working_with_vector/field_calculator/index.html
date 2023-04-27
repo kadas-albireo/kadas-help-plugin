@@ -132,7 +132,7 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="field-calculator">Field Calculator <a name="#field-calculator"></a></h1>
-<p>The <img src="../../../images/mActionCalculateField.png" /> <em>Field Calculator</em> button in the attribute table allows you to perform calculations on the basis of existing attribute values or defined functions, for instance, to calculate length or area of geometry features. The results can be written to a new attribute field, a virtual field, or they can be used to update values in an existing field.</p>
+<p>The <img src="../../../../images/mActionCalculateField.png" /> <em>Field Calculator</em> button in the attribute table allows you to perform calculations on the basis of existing attribute values or defined functions, for instance, to calculate length or area of geometry features. The results can be written to a new attribute field, a virtual field, or they can be used to update values in an existing field.</p>
 <p><strong>Virtual Fields</strong></p>
 <ul>
 <li>Virtual fields are not permanent and are not saved.</li>
@@ -143,13 +143,13 @@
 <p>In quick field calculation bar, you first select the existing field name then open the expression dialog to create your expression or write it directly in the field then click on <strong>Update All</strong> button.</p>
 <h2 id="expression-tab">Expression tab <a name="#expression-tab"></a></h2>
 <p>In the field calculator dialog, you first must select whether you want to only update selected features, create a new attribute field where the results of the calculation will be added or update an existing field.</p>
-<p><img alt="" src="../../../images/fieldcalculator.png" /></p>
+<p><img alt="" src="../../../../images/fieldcalculator.png" /></p>
 <p>If you choose to add a new field, you need to enter a field name, a field type (integer, real or string), the total field width, and the field precision. For example, if you choose a field width of 10 and a field precision of 3, it means you have 6 digits before the dot, then the dot and another 3 digits for the precision.</p>
 <p>A short example illustrates how field calculator works when using the <em>Expression</em> tab. We want to calculate the length in km of the <code>railroads</code> layer from the KADAS sample dataset:</p>
 <ol>
-<li>Load the shapefile <code>railroads.shp</code> in KADAS and press <img src="../../../images/mActionOpenTable.png" /> <em>Open Attribute Table</em>.</li>
-<li>Click on <img src="../../../images/mActionToggleEditing.png" /> <em>Toggle editing mode</em> and open the <img src="../../../images/mActionCalculateField.png" /> <em>Field Calculator</em> dialog.</li>
-<li>Select the <img src="../../../images/checkbox.png" /> <em>Create a new field</em> checkbox to save the calculations into a new field.</li>
+<li>Load the shapefile <code>railroads.shp</code> in KADAS and press <img src="../../../../images/mActionOpenTable.png" /> <em>Open Attribute Table</em>.</li>
+<li>Click on <img src="../../../../images/mActionToggleEditing.png" /> <em>Toggle editing mode</em> and open the <img src="../../../../images/mActionCalculateField.png" /> <em>Field Calculator</em> dialog.</li>
+<li>Select the <img src="../../../../images/checkbox.png" /> <em>Create a new field</em> checkbox to save the calculations into a new field.</li>
 <li>Add <code>length</code> as Output field name and <code>real</code> as Output field type, and define Output field width to be 10 and Precision, 3.</li>
 <li>Now double click on function <code>$length</code> in the <em>Geometry</em> group to add it into the Field calculator expression box.</li>
 <li>Complete the expression by typing ‘’/ 1000’’ in the Field calculator expression box and click <strong>[Ok]</strong>.</li>
