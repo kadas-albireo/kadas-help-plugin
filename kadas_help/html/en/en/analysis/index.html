@@ -60,6 +60,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#viewshed">Viewshed</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#minmax">Min/Max</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#ephemeris">Ephemeris</a>
     </li>
     </ul>
@@ -168,6 +170,8 @@
 <p>To utilize these functions, a heightmap must be defined in the project.</p>
 <p>The viewhsed analysis is computed within a circular sector or a full circle as specified by the user. The first click sets the observer position, the second one the radius and the third click the the aperture angle. These parameters can also be entered numerically if numeric input is enabled in the settings tab. After drawing the analysis area geometry, the user is required to specify the computation parameters, which include the observer height, the target height, whether these heights are relative to the ground or the sea level, and whether the visible or invisible area should be shown in the result.</p>
 <p>The analysis output is added as a raster layer to the map. When the project is saved, the raster is saved as a project attachment in the <em><project name>.qgz</em> project file.</p>
+<h2 id="minmax"><a name="sec4"></a>Min/Max</h2>
+<p>The <strong><em>Min/Max</em></strong> tool allows computing the lowest and highest terrain point within a selected area (rectangle/polygon/circle). The respective points will be marked with up- and down-facing triangle icons on the map. Clicking on the triangle icons allows copying the coordinates, adding a pin and initiating a further analysis function (i.e. viewshed) from that point.</p>
 <h2 id="ephemeris"><a name="sec4"></a>Ephemeris</h2>
 <p>The <strong><em>Ephemeris</em></strong> tool calculates sun and moon ephemeris (position, rise and set times, moon phase) at a selected terrain position and moment in time. The checkbox allows configuring whether the relief is considered for the computation.</p>
               

@@ -60,6 +60,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#bassin-visuel">Bassin visuel</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#minmax">Min/Max</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#ephemerides">Ephémérides</a>
     </li>
     </ul>
@@ -168,6 +170,8 @@
 <p>Pour utiliser ces fonctions d’analyse du terrain, il faut définir un modèle d’altitude dans le projet.</p>
 <p>L’analyse de visibilité est calculée au sein d’une portion de cercle ou d’un cercle complet. Le premier clic sur la carte permet de définir la position de l’observateur, le deuxième clic le rayon et le troisième l’angle d’ouverture du secteur. Si la saisie numérique est activée, ces paramètres peuvent également être saisis numériquement. Une fois que la surface à analyser a été saisie, les paramètres de calcul peuvent être modifiés, autrement dit l’altitude de l’observateur, la hauteur du signal, l’interprétation (ou non) de l’altitude en fonction du terrain ou du niveau de la mer et l’affichage (ou non) des portions de terrain visibles ou invisibles.</p>
 <p>Après calcul, le résultat est ajouté à la carte sous forme de couche raster. Si vous sauvegardez le projet, cette couche sera attachée au projet dans le fichier <em><nom du projet>.qgz</em>.</p>
+<h2 id="minmax"><a name="sec4"></a>Min/Max</h2>
+<p>L'outil <strong><em>Min/Max</em></strong> permet de calculer le point le plus bas et le point le plus haut du terrain dans une zone sélectionnée (rectangle/polygone/cercle). Les points respectifs seront marqués sur la carte par des icônes triangulaires orientées vers le haut et vers le bas. En cliquant sur les icônes triangulaires, il est possible de copier les coordonnées, d'ajouter une épingle et de lancer une autre fonction d'analyse (par example bassin visuel) à partir de ce point.</p>
 <h2 id="ephemerides"><a name="sec4"></a>Ephémérides</h2>
 <p>L'outil <strong><em>Ephémérides</em></strong> calcule les éphémérides du soleil et de la lune (position, heures de lever et de coucher, phase de la lune) à une position du terrain et à un moment donné dans le temps sélectionnés. La case à cocher permet de configurer si le relief est pris en compte pour le calcul.</p>
               
